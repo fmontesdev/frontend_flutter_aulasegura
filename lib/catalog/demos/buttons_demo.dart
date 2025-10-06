@@ -1,0 +1,137 @@
+import 'package:flutter/material.dart';
+import 'package:frontend_flutter_aulasegura/catalog/widgets/showcase_scaffold.dart';
+import 'package:frontend_flutter_aulasegura/core/widgets/app_button.dart';
+
+class ButtonsDemo extends StatelessWidget {
+  const ButtonsDemo({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ShowcaseScaffold(
+      title: 'Botones',
+      body: Builder(
+        builder: (innerCtx) {
+          final theme = Theme.of(innerCtx).textTheme;
+          return ListView(
+            padding: const EdgeInsets.all(16),
+            children: [
+
+              /// Primary Buttons
+              Text(
+                'AppButton – Primary',
+                style: theme.titleSmall,
+              ),
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  Expanded(
+                    child: AppButton(
+                      label: 'Pequeño',
+                      onPressed: () {},
+                      size: AppButtonSize.sm,
+                      variant: AppButtonVariant.primary,
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: AppButton(
+                      label: 'Mediano',
+                      onPressed: () {},
+                      size: AppButtonSize.md,
+                      variant: AppButtonVariant.primary,
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: AppButton(
+                      label: 'Grande',
+                      onPressed: () {},
+                      size: AppButtonSize.lg,
+                      variant: AppButtonVariant.primary,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+
+              /// Secondary Buttons
+              Text(
+                'AppButton – Secondary',
+                style: theme.titleSmall,
+              ),
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  Expanded(
+                    child: AppButton(
+                      label: 'Pequeño',
+                      onPressed: () {},
+                      size: AppButtonSize.sm,
+                      variant: AppButtonVariant.secondary,
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: AppButton(
+                      label: 'Mediano',
+                      onPressed: () {},
+                      size: AppButtonSize.md,
+                      variant: AppButtonVariant.secondary,
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: AppButton(
+                      label: 'Grande',
+                      onPressed: () {},
+                      size: AppButtonSize.lg,
+                      variant: AppButtonVariant.secondary,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+
+              /// Danger Buttons
+              Text(
+                'AppButton – Danger',
+                style: theme.titleSmall,
+              ),
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  Expanded(
+                    child: AppButton(
+                      label: 'Pequeño',
+                      onPressed: () {},
+                      size: AppButtonSize.sm,
+                      variant: AppButtonVariant.danger,
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: AppButton(
+                      label: 'Mediano',
+                      onPressed: () {},
+                      size: AppButtonSize.md,
+                      variant: AppButtonVariant.danger,
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: AppButton(
+                      label: 'Grande',
+                      onPressed: () {},
+                      size: AppButtonSize.lg,
+                      variant: AppButtonVariant.danger,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+}

@@ -4,18 +4,38 @@ import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 class ShowcaseScaffold extends StatefulWidget {
   final String title;
   final Widget body;
-  const ShowcaseScaffold({super.key, required this.title, required this.body});
+  final bool modoOscuro;
+  final ValueChanged<bool> onCambioModoOscuro;
+
+  const ShowcaseScaffold({
+    super.key,
+    required this.title,
+    required this.body,
+    required this.modoOscuro,
+    required this.onCambioModoOscuro,
+  });
 
   @override
   State<ShowcaseScaffold> createState() => _ShowcaseScaffoldState();
 }
 
 class _ShowcaseScaffoldState extends State<ShowcaseScaffold> {
-  bool dark = false;
+  late bool _modoOscuroLocal;
+
+  @override
+  void initState() {
+    super.initState();
+    _modoOscuroLocal = widget.modoOscuro;
+  }
+
+  Future<void> _alternarModoOscuro(bool valor) async {
+    setState(() => _modoOscuroLocal = valor);
+    widget.onCambioModoOscuro(valor);
+  }
 
   @override
   Widget build(BuildContext context) {
-    final theme = dark ? AppTheme.dark : AppTheme.light;
+    final theme = _modoOscuroLocal ? AppTheme.dark : AppTheme.light;
 
     return Theme(
       data: theme,
@@ -25,9 +45,9 @@ class _ShowcaseScaffoldState extends State<ShowcaseScaffold> {
           centerTitle: false,
           actions: [
             IconButton(
-              tooltip: dark ? 'Tema claro' : 'Tema oscuro',
-              icon: Icon(dark ? Icons.dark_mode : Icons.light_mode),
-              onPressed: () => setState(() => dark = !dark),
+              tooltip: _modoOscuroLocal ? 'Tema claro' : 'Tema oscuro',
+              icon: Icon(_modoOscuroLocal ? Icons.dark_mode : Icons.light_mode),
+              onPressed: () => _alternarModoOscuro(!_modoOscuroLocal),
             ),
           ],
         ),

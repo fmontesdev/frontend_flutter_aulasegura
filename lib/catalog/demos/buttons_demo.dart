@@ -3,12 +3,21 @@ import 'package:frontend_flutter_aulasegura/catalog/widgets/showcase_scaffold.da
 import 'package:frontend_flutter_aulasegura/core/widgets/app_button.dart';
 
 class ButtonsDemo extends StatelessWidget {
-  const ButtonsDemo({super.key});
+  final bool modoOscuro;
+  final ValueChanged<bool> onCambioModoOscuro;
+
+  const ButtonsDemo({
+    super.key,
+    required this.modoOscuro,
+    required this.onCambioModoOscuro,
+  });
 
   @override
   Widget build(BuildContext context) {
     return ShowcaseScaffold(
       title: 'Botones',
+      modoOscuro: modoOscuro,
+      onCambioModoOscuro: onCambioModoOscuro,
       body: Builder(
         builder: (innerCtx) {
           final theme = Theme.of(innerCtx).textTheme;

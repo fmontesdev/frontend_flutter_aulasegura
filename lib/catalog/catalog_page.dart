@@ -54,9 +54,12 @@ class CatalogPage extends StatelessWidget {
             subtitle: const Text('Variantes, estados y tamaños'),
             trailing: const Icon(Icons.chevron_right),
             onTap: () {
-              Navigator.of(
-                context,
-              ).push(MaterialPageRoute(builder: (_) => const ButtonsDemo()));
+              Navigator.of(context,).push(
+                MaterialPageRoute(
+                  builder: (_) => ButtonsDemo(
+                    modoOscuro: modoOscuro,
+                    onCambioModoOscuro: onCambioModoOscuro,
+                  )));
             },
           ),
         ],

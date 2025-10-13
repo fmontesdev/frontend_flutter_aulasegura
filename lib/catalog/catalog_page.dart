@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_flutter_aulasegura/catalog/demos/buttons_demo.dart';
+import 'package:frontend_flutter_aulasegura/catalog/demos/textfields_demo.dart';
+import 'package:frontend_flutter_aulasegura/catalog/demos/links_demo.dart';
 import 'package:frontend_flutter_aulasegura/catalog/preferences/preferences_page.dart';
 
 class CatalogPage extends StatelessWidget {
@@ -57,6 +59,19 @@ class CatalogPage extends StatelessWidget {
               Navigator.of(context,).push(
                 MaterialPageRoute(
                   builder: (_) => ButtonsDemo(
+                    modoOscuro: modoOscuro,
+                    onCambioModoOscuro: onCambioModoOscuro,
+                  )));
+            },
+          ),
+          ListTile(
+            title: const Text('Inputs de Texto'),
+            subtitle: const Text('Variantes y validaciones'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () {
+              Navigator.of(context,).push(
+                MaterialPageRoute(
+                  builder: (_) => TextFieldsDemo(
                     modoOscuro: modoOscuro,
                     onCambioModoOscuro: onCambioModoOscuro,
                   )));

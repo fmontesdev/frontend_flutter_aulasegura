@@ -114,7 +114,7 @@ class _PreferencesPageState extends State<PreferencesPage> {
             ),
             const Divider(),
 
-            /// Swithc para Notificaciones del móvil
+            /// Switch para Notificaciones del móvil
             SwitchListTile(
               title: const Text('Notificaciones'),
               subtitle: const Text('Activar/desactivar notificaciones del dispositivo'),

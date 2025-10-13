@@ -24,7 +24,7 @@
 ---
 - `lib/features/example/presentation/` → capa de Presentación. Contiene páginas, widgets y controladores.
     - `lib/features/example/presentation/pages/` → contiene Páginas.
-    - `lib/features/example/presentation/widgets/` → contiene Widgets.
+    - `lib/features/example/presentation/widgets/` → contiene Widgets utilizados solo en el módulo funcional.
     - `lib/features/example/presentation/providers/` → contiene Controladores.
 ---
 `lib/catalog/` → contiene Catálogo de componentes reutilizables de toda la aplicación.

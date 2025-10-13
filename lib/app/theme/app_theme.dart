@@ -123,6 +123,47 @@ class AppTheme {
     );
   }
 
+  // ================== switch ==================
+
+  static SwitchThemeData _switchTheme(ColorScheme scheme) {
+    return SwitchThemeData(
+      // Color del "thumb" (círculo)
+      thumbColor: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.disabled)) {
+          return scheme.onSurface.withValues(alpha: 0.38);
+        }
+        return states.contains(WidgetState.selected)
+            ? scheme.onPrimary // thumb cuando está ON
+            : scheme.onSurfaceVariant; // thumb cuando está OFF
+      }),
+      // Color de la "track" (pista)
+      trackColor: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.disabled)) {
+          return scheme.onSurface.withValues(alpha: 0.12);
+        }
+        return states.contains(WidgetState.selected)
+            ? scheme.secondary // track ON
+            : scheme.onPrimaryContainer;  // track OFF
+      }),
+      // Contorno de la pista (opcional; útil en OFF)
+      trackOutlineColor: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.disabled)) {
+          return scheme.onSurface.withValues(alpha: 0.12);
+        }
+        return states.contains(WidgetState.selected)
+            ? scheme.secondary
+            : scheme.secondary;
+      }),
+      // Efectos de interacción
+      overlayColor: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.pressed)) return scheme.primary.withValues(alpha: 0.15);
+        if (states.contains(WidgetState.hovered)) return scheme.primary.withValues(alpha: 0.1);
+        if (states.contains(WidgetState.focused)) return scheme.primary.withValues(alpha: 0.15);
+        return null;
+      }),
+    );
+  }
+
   /// ================== Temas ==================
 
   static ThemeData light = ThemeData(
@@ -133,6 +174,7 @@ class AppTheme {
     elevatedButtonTheme: _elevatedButtonTheme(_lightScheme),
     iconButtonTheme: _iconButtonTheme(_lightScheme),
     appBarTheme: _appBarTheme(_textTheme, _lightScheme),
+    switchTheme: _switchTheme(_lightScheme),
   );
 
   static ThemeData dark = ThemeData(
@@ -143,6 +185,7 @@ class AppTheme {
     elevatedButtonTheme: _elevatedButtonTheme(_darkScheme),
     iconButtonTheme: _iconButtonTheme(_darkScheme),
     appBarTheme: _appBarTheme(_textTheme, _darkScheme),
+    switchTheme: _switchTheme(_darkScheme),
   );
 }
 

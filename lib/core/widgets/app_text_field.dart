@@ -143,19 +143,19 @@ class AppTextField extends StatelessWidget {
     switch (v) {
       case AppTextFieldVariant.email:
         return _TFColors(
-          fill: dim(scheme.surface),
-          borderEnabled: dim(scheme.outline),
+          fill: dim(scheme.tertiary),
+          borderEnabled: dim(scheme.onTertiary),
           borderFocused: dim(scheme.primary),
-          icon: dim(scheme.secondary),
-          label: dim(scheme.onSurfaceVariant),
+          icon: dim(scheme.onTertiary),
+          label: dim(scheme.primary),
         );
       case AppTextFieldVariant.password:
         return _TFColors(
-          fill: dim(scheme.surface),
-          borderEnabled: dim(scheme.outline),
-          borderFocused: dim(scheme.secondary),
-          icon: dim(scheme.secondary),
-          label: dim(scheme.onSurfaceVariant),
+          fill: dim(scheme.tertiary),
+          borderEnabled: dim(scheme.onTertiary),
+          borderFocused: dim(scheme.primary),
+          icon: dim(scheme.onTertiary),
+          label: dim(scheme.primary),
         );
       case AppTextFieldVariant.number:
         return _TFColors(
@@ -168,10 +168,10 @@ class AppTextField extends StatelessWidget {
       case AppTextFieldVariant.multiline:
         return _TFColors(
           fill: dim(scheme.surface),
-          borderEnabled: dim(scheme.outline),
+          borderEnabled: dim(scheme.secondary),
           borderFocused: dim(scheme.primaryContainer),
           icon: dim(scheme.onSurfaceVariant),
-          label: dim(scheme.onSurfaceVariant),
+          label: dim(scheme.primary),
         );
       case AppTextFieldVariant.text:
       default:
@@ -216,7 +216,10 @@ class AppTextField extends StatelessWidget {
         labelText: label,
         hintText: hintText,
         errorText: errorText,
-        labelStyle: TextStyle(color: tone.label),
+        labelStyle: (const TextStyle()).copyWith(
+          fontWeight: FontWeight.w500,
+          color: tone.label,
+        ),
         prefixIcon: leadingIcon != null ? Icon(leadingIcon, color: tone.icon) : null,
         suffixIcon: showToggle
             ? IconButton(
@@ -237,7 +240,7 @@ class AppTextField extends StatelessWidget {
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: const BorderRadius.all(Radius.circular(25)),
-          borderSide: BorderSide(color: scheme.error, width: 1),
+          borderSide: BorderSide(color: scheme.error, width: 1.2),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: const BorderRadius.all(Radius.circular(25)),

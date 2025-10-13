@@ -77,6 +77,19 @@ class CatalogPage extends StatelessWidget {
                   )));
             },
           ),
+          ListTile(
+            title: const Text('Links'),
+            subtitle: const Text('Enlaces de acción secundarios'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () {
+              Navigator.of(context,).push(
+                MaterialPageRoute(
+                  builder: (_) => LinksDemo(
+                    modoOscuro: modoOscuro,
+                    onCambioModoOscuro: onCambioModoOscuro,
+                  )));
+            },
+          ),
         ],
       ),
     );

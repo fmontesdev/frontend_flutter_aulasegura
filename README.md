@@ -14,7 +14,7 @@
 `lib/features/` → contiene los Módulos/Funcionalidades de toda la aplicación.
 - `lib/features/example/data/` → capa de Datos. Contiene fuentes de datos, modelos y implementaciones de repositorios.
     -  `lib/features/example/data/datasources/` → contiene Fuentes de Datos.
-    - `lib/features/example/data/models/` → contiene Modelos.
+    - `lib/features/example/data/models/` → contiene Modelos y DTOs.
     - `lib/features/example/data/repositories/` → contiene Implementaciones de Repositorios.
 ---
 - `lib/features/example/domain/` → capa de Dominio. Contiene entidades, abstracciones de repositorios y casos de uso.

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_flutter_aulasegura/catalog/demos/buttons_demo.dart';
-import 'package:frontend_flutter_aulasegura/catalog/demos/textfields_demo.dart';
+import 'package:frontend_flutter_aulasegura/catalog/demos/textFormFields_demo.dart';
 import 'package:frontend_flutter_aulasegura/catalog/demos/links_demo.dart';
 import 'package:frontend_flutter_aulasegura/catalog/preferences/preferences_page.dart';
 

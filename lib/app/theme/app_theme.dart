@@ -5,6 +5,8 @@ class AppTheme {
   // ================== Tipografías ==================
 
   static final TextTheme _textTheme = const TextTheme(
+    displayLarge: TextStyle(fontSize: 54, fontWeight: FontWeight.w700),
+    
     headlineLarge: TextStyle(fontSize: 28, fontWeight: FontWeight.w700),
     headlineMedium: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
 

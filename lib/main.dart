@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 import 'package:frontend_flutter_aulasegura/catalog/catalog_page.dart';
+import 'package:frontend_flutter_aulasegura/features/auth/presentation/pages/login_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 const kClaveModoOscuro = 'modoOscuro';
@@ -80,21 +81,40 @@ class _EstadoAplicacion extends State<Aplicacion> {
     setState(() => _notificaciones = valor);
   }
 
+  // @override
+  // Widget build(BuildContext context) {
+  //   return MaterialApp(
+  //     title: 'Catálogo de Componentes',
+  //     debugShowCheckedModeBanner: false,
+  //     theme: AppTheme.light,
+  //     darkTheme: AppTheme.dark,
+  //     themeMode: _modoOscuro ? ThemeMode.dark : ThemeMode.light,
+  //     home: CatalogPage(
+  //       modoOscuro: _modoOscuro,
+  //       idioma: _idioma,
+  //       notificaciones: _notificaciones, 
+  //       onCambioModoOscuro: _actualizarModoOscuro,
+  //       onCambioIdioma: _actualizarIdioma,
+  //       onCambioNotificaciones: _actualizarNotifs,
+  //     ),
+  //   );
+  // }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Catálogo de Componentes',
+      title: 'AulaSegura',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
       themeMode: _modoOscuro ? ThemeMode.dark : ThemeMode.light,
-      home: CatalogPage(
-        modoOscuro: _modoOscuro,
-        idioma: _idioma,
-        notificaciones: _notificaciones, 
-        onCambioModoOscuro: _actualizarModoOscuro,
-        onCambioIdioma: _actualizarIdioma,
-        onCambioNotificaciones: _actualizarNotifs,
+      home: LoginPage(
+        // modoOscuro: _modoOscuro,
+        // idioma: _idioma,
+        // notificaciones: _notificaciones, 
+        // onCambioModoOscuro: _actualizarModoOscuro,
+        // onCambioIdioma: _actualizarIdioma,
+        // onCambioNotificaciones: _actualizarNotifs,
       ),
     );
   }

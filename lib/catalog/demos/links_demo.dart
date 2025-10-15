@@ -27,7 +27,7 @@ class LinksDemo extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          Text('Enlaces centrados pequeños', style: t.titleSmall),
+          Text('Enlace centrado pequeño', style: t.titleSmall),
           const SizedBox(height: 8),
           AppLink(
             text: '¿Has olvidado tu contraseña?',
@@ -35,10 +35,13 @@ class LinksDemo extends StatelessWidget {
             size: AppLinkSize.sm,
             align: AppLinkAlign.center,
             color: Theme.of(context).colorScheme.tertiary,
+            hoverColor: Theme.of(context).colorScheme.secondary,
+            // hoverUnderlineColor: Theme.of(context).colorScheme.secondary,
+            // hoverUnderlineThickness: 1.0,
           ),
-          const SizedBox(height: 18),
+          const SizedBox(height: 22),
 
-          Text('Enlaces a la izquierda medianos', style: t.titleSmall),
+          Text('Enlace a la izquierda mediano', style: t.titleSmall),
           const SizedBox(height: 8),
           AppLink(
             text: '¿Has olvidado tu contraseña?',
@@ -46,10 +49,13 @@ class LinksDemo extends StatelessWidget {
             size: AppLinkSize.md,
             align: AppLinkAlign.start,
             color: Theme.of(context).colorScheme.secondary,
+            hoverColor: Theme.of(context).colorScheme.secondary,
+            // hoverUnderlineColor: Theme.of(context).colorScheme.secondary,
+            // hoverUnderlineThickness: 1.0,
           ),
-          const SizedBox(height: 18),
+          const SizedBox(height: 22),
 
-          Text('Enlaces a la derecha grande', style: t.titleSmall),
+          Text('Enlace a la derecha grande', style: t.titleSmall),
           const SizedBox(height: 8),
           AppLink(
             text: '¿Has olvidado tu contraseña?',
@@ -57,6 +63,9 @@ class LinksDemo extends StatelessWidget {
             size: AppLinkSize.lg,
             align: AppLinkAlign.end,
             color: Theme.of(context).colorScheme.primary,
+            hoverColor: Theme.of(context).colorScheme.secondary,
+            // hoverUnderlineColor: Theme.of(context).colorScheme.secondary,
+            // hoverUnderlineThickness: 1.0,
           ),
         ],
       ),

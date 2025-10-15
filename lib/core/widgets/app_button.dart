@@ -9,7 +9,7 @@ class AppButton extends StatelessWidget {
   final AppButtonVariant variant;
   final AppButtonSize size;
 
-  /// Overrides opcionales por si queremos forzar colores puntuales
+  // Overrides opcionales por si queremos forzar colores puntuales
   final Color? backgroundColorOverride;
   final Color? foregroundColorOverride;
 
@@ -38,18 +38,16 @@ class AppButton extends StatelessWidget {
     // Padding y texto por tamaño
     final (padding, textStyle) = switch (size) {
       AppButtonSize.sm => (
-          const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-          (theme.textTheme.labelLarge ?? const TextStyle(fontSize: 14))
-              .copyWith(fontSize: 13)
+          const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+          theme.textTheme.labelLarge?.copyWith(fontSize: 12, fontWeight: FontWeight.w600)
         ),
       AppButtonSize.md => (
-          const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-          theme.textTheme.labelLarge ?? const TextStyle(fontSize: 14, fontWeight: FontWeight.w600)
+          const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+          theme.textTheme.labelLarge?.copyWith(fontSize: 14, fontWeight: FontWeight.w600)
         ),
       AppButtonSize.lg => (
-          const EdgeInsets.symmetric(horizontal: 28, vertical: 16),
-          (theme.textTheme.labelLarge ?? const TextStyle(fontSize: 14))
-              .copyWith(fontSize: 16, fontWeight: FontWeight.w600)
+          const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          theme.textTheme.labelLarge?.copyWith(fontSize: 18, fontWeight: FontWeight.w600)
         ),
     };
 

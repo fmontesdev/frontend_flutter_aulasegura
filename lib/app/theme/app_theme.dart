@@ -15,9 +15,9 @@ class AppTheme {
     titleMedium: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
     titleSmall: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
 
-    bodyLarge: TextStyle(fontSize: 16, height: 1.4),
-    bodyMedium: TextStyle(fontSize: 14, height: 1.4),
-    bodySmall: TextStyle(fontSize: 12, height: 1.4),
+    bodyLarge: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, height: 1.4),
+    bodyMedium: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, height: 1.4),
+    bodySmall: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, height: 1.4),
 
     labelLarge: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
     labelSmall: TextStyle(fontSize: 11, letterSpacing: 0.2),
@@ -241,4 +241,12 @@ extension AppColorScheme on ColorScheme {
   Color get onWarning => brightness == Brightness.dark
       ? appPaletteDark.onWarning
       : appPaletteLight.onWarning;
+
+  Color get darkGrey => brightness == Brightness.dark
+    ? appPaletteDark.darkGrey
+    : appPaletteLight.darkGrey;
+  
+  Color get grey => brightness == Brightness.dark
+    ? appPaletteDark.grey
+    : appPaletteLight.grey;
 }

@@ -81,42 +81,42 @@ class _EstadoAplicacion extends State<Aplicacion> {
     setState(() => _notificaciones = valor);
   }
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return MaterialApp(
-  //     title: 'Catálogo de Componentes',
-  //     debugShowCheckedModeBanner: false,
-  //     theme: AppTheme.light,
-  //     darkTheme: AppTheme.dark,
-  //     themeMode: _modoOscuro ? ThemeMode.dark : ThemeMode.light,
-  //     home: CatalogPage(
-  //       modoOscuro: _modoOscuro,
-  //       idioma: _idioma,
-  //       notificaciones: _notificaciones, 
-  //       onCambioModoOscuro: _actualizarModoOscuro,
-  //       onCambioIdioma: _actualizarIdioma,
-  //       onCambioNotificaciones: _actualizarNotifs,
-  //     ),
-  //   );
-  // }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'AulaSegura',
+      title: 'Catálogo de Componentes',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
       themeMode: _modoOscuro ? ThemeMode.dark : ThemeMode.light,
-      home: LoginPage(
-        // modoOscuro: _modoOscuro,
-        // idioma: _idioma,
-        // notificaciones: _notificaciones, 
-        // onCambioModoOscuro: _actualizarModoOscuro,
-        // onCambioIdioma: _actualizarIdioma,
-        // onCambioNotificaciones: _actualizarNotifs,
+      home: CatalogPage(
+        modoOscuro: _modoOscuro,
+        idioma: _idioma,
+        notificaciones: _notificaciones, 
+        onCambioModoOscuro: _actualizarModoOscuro,
+        onCambioIdioma: _actualizarIdioma,
+        onCambioNotificaciones: _actualizarNotifs,
       ),
     );
   }
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   return MaterialApp(
+  //     title: 'AulaSegura',
+  //     debugShowCheckedModeBanner: false,
+  //     theme: AppTheme.light,
+  //     darkTheme: AppTheme.dark,
+  //     themeMode: _modoOscuro ? ThemeMode.dark : ThemeMode.light,
+  //     home: LoginPage(
+  //       // modoOscuro: _modoOscuro,
+  //       // idioma: _idioma,
+  //       // notificaciones: _notificaciones, 
+  //       // onCambioModoOscuro: _actualizarModoOscuro,
+  //       // onCambioIdioma: _actualizarIdioma,
+  //       // onCambioNotificaciones: _actualizarNotifs,
+  //     ),
+  //   );
+  // }
 }
 

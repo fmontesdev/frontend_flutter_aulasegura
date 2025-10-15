@@ -3,6 +3,7 @@ import 'package:frontend_flutter_aulasegura/catalog/demos/buttons_demo.dart';
 import 'package:frontend_flutter_aulasegura/catalog/demos/textFormFields_demo.dart';
 import 'package:frontend_flutter_aulasegura/catalog/demos/links_demo.dart';
 import 'package:frontend_flutter_aulasegura/catalog/demos/scaffold_demo.dart';
+import 'package:frontend_flutter_aulasegura/catalog/demos/cards_demo.dart';
 import 'package:frontend_flutter_aulasegura/catalog/preferences/preferences_page.dart';
 
 class CatalogPage extends StatelessWidget {
@@ -99,6 +100,19 @@ class CatalogPage extends StatelessWidget {
               Navigator.of(context,).push(
                 MaterialPageRoute(
                   builder: (_) => ScaffoldDemo(
+                    modoOscuro: modoOscuro,
+                    onCambioModoOscuro: onCambioModoOscuro,
+                  )));
+            },
+          ),
+          ListTile(
+            title: const Text('Cards'),
+            subtitle: const Text('Diferentes tarjetas con contenido'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () {
+              Navigator.of(context,).push(
+                MaterialPageRoute(
+                  builder: (_) => CardsDemo(
                     modoOscuro: modoOscuro,
                     onCambioModoOscuro: onCambioModoOscuro,
                   )));

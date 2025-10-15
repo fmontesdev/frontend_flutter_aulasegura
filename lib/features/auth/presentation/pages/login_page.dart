@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_text_form_field.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_link.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_button.dart';
+import 'package:frontend_flutter_aulasegura/features/home/presentation/pages/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -59,8 +60,14 @@ class _LoginPageState extends State<LoginPage> {
       return;
     }
     /// Lógica real de login
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Login enviado')),
+    // ScaffoldMessenger.of(context).showSnackBar(
+    //   const SnackBar(content: Text('Login enviado')),
+    // );
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => HomePage(),
+      ),
     );
   }
 

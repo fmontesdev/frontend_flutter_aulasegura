@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
 enum AppButtonVariant { primary, secondary, danger }
-enum AppButtonSize { sm, md, lg }
+enum AppButtonSize { sm, md, lg, xl }
 
 class AppButton extends StatelessWidget {
-  final String label;
-  final VoidCallback? onPressed;
   final AppButtonVariant variant;
   final AppButtonSize size;
+  final String? label;
+  final IconData? icon;
+  final VoidCallback onPressed;
+  final bool isCircular;
 
   // Overrides opcionales por si queremos forzar colores puntuales
   final Color? backgroundColorOverride;
@@ -15,12 +17,14 @@ class AppButton extends StatelessWidget {
 
   const AppButton({
     super.key,
-    required this.label,
-    required this.onPressed,
     this.variant = AppButtonVariant.primary,
     this.size = AppButtonSize.md,
+    this.label,
+    this.icon,
+    required this.onPressed,
     this.backgroundColorOverride,
     this.foregroundColorOverride,
+    this.isCircular = false,
   });
 
   @override
@@ -45,14 +49,23 @@ class AppButton extends StatelessWidget {
           const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           theme.textTheme.labelLarge?.copyWith(fontSize: 14, fontWeight: FontWeight.w600)
         ),
-      AppButtonSize.lg => (
-          const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-          theme.textTheme.labelLarge?.copyWith(fontSize: 18, fontWeight: FontWeight.w600)
+        AppButtonSize.lg => (
+            const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            theme.textTheme.labelLarge?.copyWith(fontSize: 18, fontWeight: FontWeight.w600)
+          ),
+      AppButtonSize.xl => (
+          const EdgeInsets.symmetric(horizontal: 26, vertical: 31),
+          theme.textTheme.labelLarge?.copyWith(fontSize: 22, fontWeight: FontWeight.w600)
         ),
     };
 
     final resolvedBg = backgroundColorOverride ?? bg;
     final resolvedFg = foregroundColorOverride ?? fg;
+
+    // Define el botón redondo
+    final shape = isCircular
+        ? const CircleBorder()
+        : const StadiumBorder();
 
     return ElevatedButton(
       style: theme.elevatedButtonTheme.style?.copyWith(
@@ -60,9 +73,12 @@ class AppButton extends StatelessWidget {
         foregroundColor: WidgetStatePropertyAll(resolvedFg),
         padding: WidgetStatePropertyAll(padding),
         textStyle: WidgetStatePropertyAll(textStyle),
+        shape: WidgetStatePropertyAll(shape),
       ),
       onPressed: onPressed,
-      child: Text(label),
+      child: label != null && icon == null
+          ? Text(label!)
+          : Icon(icon, size: 105)
     );
   }
 }

@@ -30,7 +30,7 @@ class ButtonsDemo extends StatelessWidget {
                 'AppButton – Primary',
                 style: theme.titleSmall,
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 4),
               Row(
                 children: [
                   Expanded(
@@ -68,7 +68,7 @@ class ButtonsDemo extends StatelessWidget {
                 'AppButton – Secondary',
                 style: theme.titleSmall,
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 4),
               Row(
                 children: [
                   Expanded(
@@ -106,7 +106,7 @@ class ButtonsDemo extends StatelessWidget {
                 'AppButton – Danger',
                 style: theme.titleSmall,
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 4),
               Row(
                 children: [
                   Expanded(
@@ -133,6 +133,37 @@ class ButtonsDemo extends StatelessWidget {
                       onPressed: () {},
                       size: AppButtonSize.lg,
                       variant: AppButtonVariant.danger,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+
+              /// Primary Buttons
+              Text(
+                'AppButton – Home Page',
+                style: theme.titleSmall,
+              ),
+              const SizedBox(height: 13),
+              Row(
+                children: [
+                  Expanded(
+                    child: AppButton(
+                      icon: Icons.nfc_rounded,
+                      onPressed: () {},
+                      size: AppButtonSize.xl,
+                      variant: AppButtonVariant.secondary,
+                      isCircular: true,
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: AppButton(
+                      icon: Icons.qr_code,
+                      onPressed: () {},
+                      size: AppButtonSize.xl,
+                      variant: AppButtonVariant.secondary,
+                      isCircular: true,
                     ),
                   ),
                 ],

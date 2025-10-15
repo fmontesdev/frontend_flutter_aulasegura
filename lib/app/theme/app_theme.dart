@@ -9,6 +9,7 @@ class AppTheme {
     
     headlineLarge: TextStyle(fontSize: 28, fontWeight: FontWeight.w700),
     headlineMedium: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+    headlineSmall: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
 
     titleLarge: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
     titleMedium: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
@@ -52,7 +53,7 @@ class AppTheme {
     onError: appPaletteDark.onError,
   );
 
-  // ================== elevatedButton ==================
+  // ================== ElevatedButton ==================
 
   static ElevatedButtonThemeData _elevatedButtonTheme(ColorScheme scheme) {
     return ElevatedButtonThemeData(
@@ -86,7 +87,7 @@ class AppTheme {
     );
   }
 
-  // ================== iconButton ==================
+  // ================== IconButton ==================
 
   static IconButtonThemeData _iconButtonTheme(ColorScheme scheme) {
     return IconButtonThemeData(
@@ -110,7 +111,7 @@ class AppTheme {
     );
   }
 
-  // ================== appBar ==================
+  // ================== AppBar ==================
 
   static AppBarTheme _appBarTheme(TextTheme textTheme, ColorScheme scheme) {
     return AppBarTheme(
@@ -125,7 +126,7 @@ class AppTheme {
     );
   }
 
-  // ================== switch ==================
+  // ================== Switch ==================
 
   static SwitchThemeData _switchTheme(ColorScheme scheme) {
     return SwitchThemeData(
@@ -166,6 +167,34 @@ class AppTheme {
     );
   }
 
+  // ================== NavigationBar ==================
+
+  static NavigationBarThemeData _navBarTheme(ColorScheme scheme) {
+    return NavigationBarThemeData(
+      height: 56,
+      backgroundColor: scheme.surface,
+      elevation: 5, // Sombra superior vía elevación
+      shadowColor: scheme.primary, // Color de la sombra
+      // surfaceTintColor: scheme.surfaceTint, // Controla el tinte de superficie
+      indicatorColor: scheme.secondary.withValues(alpha: 0.12), // Indicador seleccionado
+      indicatorShape: const StadiumBorder(), // Indicador con bordes redondeados
+      labelTextStyle: WidgetStateProperty.resolveWith((states) {
+        final isSelected = states.contains(WidgetState.selected);
+        return TextStyle(
+          fontWeight: FontWeight.w600,
+          color: isSelected ? scheme.primary : scheme.onSurfaceVariant,
+        );
+      }),
+      iconTheme: WidgetStateProperty.resolveWith((states) {
+        final isSelected = states.contains(WidgetState.selected);
+        return IconThemeData(
+          color: isSelected ? scheme.primary : scheme.primary.withValues(alpha: 0.75),
+          size: 30,
+        );
+      }),
+    );
+  }
+
   /// ================== Temas ==================
 
   static ThemeData light = ThemeData(
@@ -177,6 +206,7 @@ class AppTheme {
     iconButtonTheme: _iconButtonTheme(_lightScheme),
     appBarTheme: _appBarTheme(_textTheme, _lightScheme),
     switchTheme: _switchTheme(_lightScheme),
+    navigationBarTheme: _navBarTheme(_lightScheme),
   );
 
   static ThemeData dark = ThemeData(
@@ -188,6 +218,7 @@ class AppTheme {
     iconButtonTheme: _iconButtonTheme(_darkScheme),
     appBarTheme: _appBarTheme(_textTheme, _darkScheme),
     switchTheme: _switchTheme(_darkScheme),
+    navigationBarTheme: _navBarTheme(_darkScheme), 
   );
 }
 

@@ -4,6 +4,7 @@ import 'package:frontend_flutter_aulasegura/catalog/demos/textFormFields_demo.da
 import 'package:frontend_flutter_aulasegura/catalog/demos/links_demo.dart';
 import 'package:frontend_flutter_aulasegura/catalog/demos/scaffold_demo.dart';
 import 'package:frontend_flutter_aulasegura/catalog/demos/cards_demo.dart';
+import 'package:frontend_flutter_aulasegura/catalog/demos/filters_demo.dart';
 import 'package:frontend_flutter_aulasegura/catalog/preferences/preferences_page.dart';
 
 class CatalogPage extends StatelessWidget {
@@ -113,6 +114,19 @@ class CatalogPage extends StatelessWidget {
               Navigator.of(context,).push(
                 MaterialPageRoute(
                   builder: (_) => CardsDemo(
+                    modoOscuro: modoOscuro,
+                    onCambioModoOscuro: onCambioModoOscuro,
+                  )));
+            },
+          ),
+          ListTile(
+            title: const Text('Filtros'),
+            subtitle: const Text('Diferentes tipos de filtros'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () {
+              Navigator.of(context,).push(
+                MaterialPageRoute(
+                  builder: (_) => FiltersDemo(
                     modoOscuro: modoOscuro,
                     onCambioModoOscuro: onCambioModoOscuro,
                   )));

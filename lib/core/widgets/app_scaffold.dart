@@ -1,15 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_bottom_nav.dart';
+import 'package:frontend_flutter_aulasegura/catalog/demos/preferences_demo.dart';
 
 class AppScaffold extends StatefulWidget {
   final Widget body;
   final List<Widget>? pages;
+  final bool modoOscuro;
+  final String idioma;
+  final bool notificaciones;
+  final ValueChanged<bool> onCambioModoOscuro;
+  final ValueChanged<String> onCambioIdioma;
+  final ValueChanged<bool> onCambioNotificaciones;
 
   const AppScaffold({
     super.key,
     required this.body,
     this.pages,
+    required this.modoOscuro,
+    required this.idioma,
+    required this.notificaciones,
+    required this.onCambioModoOscuro,
+    required this.onCambioIdioma,
+    required this.onCambioNotificaciones,
   });
 
   @override
@@ -80,7 +93,7 @@ class _AppScaffoldState extends State<AppScaffold> {
                             radius: 16,
                             backgroundColor: scheme.primary,
                             // backgroundImage: NetworkImage(...), // si tienes foto
-                            child: const Icon(Icons.account_circle, size: 30),
+                            child: Icon(Icons.account_circle, size: 30, color: scheme.onPrimary),
                           ),
                         ),
                         onPressed: () {
@@ -89,6 +102,18 @@ class _AppScaffoldState extends State<AppScaffold> {
                             _isOverlayPage = true;
                           });
                           /* Ir a perfil */
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => PreferencesDemo(
+                                modoOscuro: widget.modoOscuro,
+                                idioma: widget.idioma,
+                                notificaciones: widget.notificaciones,
+                                onCambioIdioma: widget.onCambioIdioma,
+                                onCambioModoOscuro: widget.onCambioModoOscuro,
+                                onCambioNotificaciones: widget.onCambioNotificaciones,
+                              ),
+                            ),
+                          );
                         },
                         tooltip: 'Perfil',
                       ),

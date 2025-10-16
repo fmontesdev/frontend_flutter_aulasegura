@@ -109,12 +109,12 @@ class _EstadoAplicacion extends State<Aplicacion> {
   //     darkTheme: AppTheme.dark,
   //     themeMode: _modoOscuro ? ThemeMode.dark : ThemeMode.light,
   //     home: LoginPage(
-  //       // modoOscuro: _modoOscuro,
-  //       // idioma: _idioma,
-  //       // notificaciones: _notificaciones, 
-  //       // onCambioModoOscuro: _actualizarModoOscuro,
-  //       // onCambioIdioma: _actualizarIdioma,
-  //       // onCambioNotificaciones: _actualizarNotifs,
+  //       modoOscuro: _modoOscuro,
+  //       idioma: _idioma,
+  //       notificaciones: _notificaciones, 
+  //       onCambioModoOscuro: _actualizarModoOscuro,
+  //       onCambioIdioma: _actualizarIdioma,
+  //       onCambioNotificaciones: _actualizarNotifs,
   //     ),
   //   );
   // }

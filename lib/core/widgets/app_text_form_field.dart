@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 
 enum AppTextFieldVariant { email, password, text, number, multiline }
 
@@ -22,6 +23,7 @@ class AppTextFormField extends StatelessWidget {
   final Color? labelColor;          // color del label “quieto”
   final Color? floatingLabelColor;  // color del label flotante
   final Color? textColor;           // color del texto que escribe el usuario
+  final Color? hintColor;           // color del hint (placeholder)
 
   final bool? isObscured;
   final VoidCallback? onToggleObscure;
@@ -43,6 +45,7 @@ class AppTextFormField extends StatelessWidget {
     this.labelColor,
     this.floatingLabelColor,
     this.textColor,
+    this.hintColor,
     this.isObscured,
     this.onToggleObscure,
   });
@@ -103,7 +106,7 @@ class AppTextFormField extends StatelessWidget {
 
   // ---------- Colores por variante ----------
 
-  ({Color fill, Color borderEnabled, Color borderFocused, Color icon, Color label, Color? floatingLabel, Color? text})
+  ({Color fill, Color borderEnabled, Color borderFocused, Color icon, Color label, Color? floatingLabel, Color? text, Color? hint})
   _colorsForVariant(ColorScheme scheme, AppTextFieldVariant? v) {
     switch (v) {
       case AppTextFieldVariant.email:
@@ -111,11 +114,12 @@ class AppTextFormField extends StatelessWidget {
         return (
           fill: scheme.tertiary,
           borderEnabled: scheme.tertiary,
-          borderFocused: scheme.onTertiary,
-          icon: scheme.onTertiary,
+          borderFocused: scheme.highlight,
+          icon: scheme.onPrimary,
           label: scheme.primary,
-          floatingLabel: scheme.onPrimary,
-          text: null
+          floatingLabel: scheme.highlight,
+          text: scheme.onTertiary,
+          hint: scheme.darkGrey,
         );
       case AppTextFieldVariant.number:
       case AppTextFieldVariant.multiline:
@@ -124,11 +128,12 @@ class AppTextFormField extends StatelessWidget {
         return (
           fill: scheme.surface,
           borderEnabled: scheme.secondary,
-          borderFocused: scheme.primaryContainer,
-          icon: scheme.onSurfaceVariant,
+          borderFocused: scheme.highlight,
+          icon: scheme.primary,
           label: scheme.secondary,
           floatingLabel: null,
-          text: null
+          text: null,
+          hint: scheme.darkGrey,
         );
     }
   }
@@ -185,6 +190,9 @@ class AppTextFormField extends StatelessWidget {
           decoration: InputDecoration(
             labelText: label ?? tokens.label,
             hintText: hintText ?? tokens.hintText,
+            hintStyle: TextStyle(
+              color: hintColor ?? tone.hint,
+            ),
             errorText: state.errorText,
             filled: true,
             fillColor: tone.fill,
@@ -196,6 +204,7 @@ class AppTextFormField extends StatelessWidget {
                 fontWeight: FontWeight.w500,
                 color: floatingColor
               ),
+            hoverColor: scheme.highlight.withValues(alpha: 0.025),
             prefixIcon: (leadingIcon ?? tokens.icon) != null
               ? Icon(leadingIcon ?? tokens.icon, color: tone.icon)
               : null,

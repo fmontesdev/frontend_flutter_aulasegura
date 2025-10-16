@@ -63,6 +63,8 @@ class AppTheme {
           EdgeInsets.symmetric(horizontal: 24, vertical: 12),
         ),
         elevation: const WidgetStatePropertyAll(2),
+        shadowColor: WidgetStatePropertyAll(scheme.onPrimaryContainer.withValues(alpha: 0.25)),
+        surfaceTintColor: const WidgetStatePropertyAll(Colors.transparent),
         shape: const WidgetStatePropertyAll(StadiumBorder()),
         backgroundColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.disabled)) {
@@ -137,7 +139,7 @@ class AppTheme {
         }
         return states.contains(WidgetState.selected)
             ? scheme.onPrimary // thumb cuando está ON
-            : scheme.onSurfaceVariant; // thumb cuando está OFF
+            : scheme.onPrimary; // thumb cuando está OFF
       }),
       // Color de la "track" (pista)
       trackColor: WidgetStateProperty.resolveWith((states) {
@@ -146,7 +148,7 @@ class AppTheme {
         }
         return states.contains(WidgetState.selected)
             ? scheme.secondary // track ON
-            : scheme.onPrimaryContainer;  // track OFF
+            : scheme.tertiary; // track OFF
       }),
       // Contorno de la pista (opcional; útil en OFF)
       trackOutlineColor: WidgetStateProperty.resolveWith((states) {
@@ -154,8 +156,8 @@ class AppTheme {
           return scheme.onSurface.withValues(alpha: 0.12);
         }
         return states.contains(WidgetState.selected)
-            ? scheme.secondary
-            : scheme.secondary;
+            ? scheme.secondary // contorno ON
+            : scheme.quatertiary; // contorno OFF
       }),
       // Efectos de interacción
       overlayColor: WidgetStateProperty.resolveWith((states) {
@@ -249,4 +251,12 @@ extension AppColorScheme on ColorScheme {
   Color get grey => brightness == Brightness.dark
     ? appPaletteDark.grey
     : appPaletteLight.grey;
+
+  Color get highlight => brightness == Brightness.dark
+    ? appPaletteDark.highlight
+    : appPaletteLight.highlight;
+
+  Color get quatertiary => brightness == Brightness.dark
+    ? appPaletteDark.quatertiary
+    : appPaletteLight.quatertiary;
 }

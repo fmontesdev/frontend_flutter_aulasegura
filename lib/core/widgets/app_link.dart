@@ -142,7 +142,7 @@ class _AppLinkState extends State<AppLink> {
           mouseCursor: widget.enabled ? SystemMouseCursors.click : SystemMouseCursors.basic,
           overlayColor: WidgetStateProperty.resolveWith((states) { // Overlay de Material
             if (states.contains(WidgetState.pressed)) return textColor.withValues(alpha: 0.20);
-            if (states.contains(WidgetState.hovered)) return textColor.withValues(alpha: 0.10);
+            if (states.contains(WidgetState.hovered)) return textColor.withValues(alpha: 0.15);
             if (states.contains(WidgetState.focused)) return textColor.withValues(alpha: 0.15);
             return Colors.transparent;
           }),

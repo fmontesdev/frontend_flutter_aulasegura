@@ -75,9 +75,11 @@ class _TextFieldsDemoState extends State<TextFieldsDemo> {
   @override
   Widget build(BuildContext context) {
     final t = Theme.of(context).textTheme;
+    final scheme = Theme.of(context).colorScheme;
 
     return ShowcaseScaffold(
       title: 'Inputs de Texto',
+      backgroundColor: scheme.primaryContainer,
       modoOscuro: widget.modoOscuro,
       onCambioModoOscuro: widget.onCambioModoOscuro,
       body: Form( // Gestión de validación y estado de los campos (TextFormField)
@@ -86,16 +88,16 @@ class _TextFieldsDemoState extends State<TextFieldsDemo> {
           padding: const EdgeInsets.all(16),
           children: [
             Text('Email', style: t.titleSmall),
-            const SizedBox(height: 8),
+            const SizedBox(height: 12),
             AppTextFormField(
               variant: AppTextFieldVariant.email,
               controller: _emailCtrl,
               validator: _validateEmail,
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 24),
 
             Text('Contraseña (toggle mostrar/ocultar)', style: t.titleSmall),
-            const SizedBox(height: 8),
+            const SizedBox(height: 12),
             AppTextFormField(
               variant: AppTextFieldVariant.password,
               controller: _passCtrl,
@@ -103,22 +105,22 @@ class _TextFieldsDemoState extends State<TextFieldsDemo> {
               onToggleObscure: _toggleObscure,
               validator: _validatePassword,
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 24),
 
             Text('Multilínea', style: t.titleSmall),
-            const SizedBox(height: 8),
+            const SizedBox(height: 12),
             AppTextFormField(
               variant: AppTextFieldVariant.multiline,
               controller: _descCtrl,
               validator: _validateDescription,
             ),
-            const SizedBox(height: 32),
+            const SizedBox(height: 34),
 
             AppButton(
               label: 'Validar inputs',
               onPressed: _submit,
               size: AppButtonSize.lg,
-              variant: AppButtonVariant.primary,
+              variant: AppButtonVariant.secondary,
             ),
           ],
         ),

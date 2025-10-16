@@ -19,34 +19,22 @@ class LinksDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = Theme.of(context).textTheme;
+    final scheme = Theme.of(context).colorScheme;
 
     return ShowcaseScaffold(
       title: 'Links',
+      backgroundColor: scheme.primaryContainer,
       modoOscuro: modoOscuro,
       onCambioModoOscuro: onCambioModoOscuro,
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          Text('Enlace centrado pequeño', style: t.titleSmall),
+          Text('Enlace a la izquierda pequeño', style: t.titleSmall),
           const SizedBox(height: 8),
           AppLink(
             text: '¿Has olvidado tu contraseña?',
             onTap: () => _showSnack(context, 'Recuperar contraseña'),
             size: AppLinkSize.sm,
-            align: AppLinkAlign.center,
-            color: Theme.of(context).colorScheme.tertiary,
-            hoverColor: Theme.of(context).colorScheme.secondary,
-            // hoverUnderlineColor: Theme.of(context).colorScheme.secondary,
-            // hoverUnderlineThickness: 1.0,
-          ),
-          const SizedBox(height: 22),
-
-          Text('Enlace a la izquierda mediano', style: t.titleSmall),
-          const SizedBox(height: 8),
-          AppLink(
-            text: '¿Has olvidado tu contraseña?',
-            onTap: () => _showSnack(context, 'Recuperar contraseña'),
-            size: AppLinkSize.md,
             align: AppLinkAlign.start,
             color: Theme.of(context).colorScheme.secondary,
             hoverColor: Theme.of(context).colorScheme.secondary,
@@ -55,18 +43,33 @@ class LinksDemo extends StatelessWidget {
           ),
           const SizedBox(height: 22),
 
+          Text('Enlace centrado mediano', style: t.titleSmall),
+          const SizedBox(height: 12),
+          AppLink(
+            text: '¿Has olvidado tu contraseña?',
+            onTap: () => _showSnack(context, 'Recuperar contraseña'),
+            size: AppLinkSize.md,
+            align: AppLinkAlign.center,
+            color: Theme.of(context).colorScheme.secondary,
+            hoverColor: Theme.of(context).colorScheme.secondary,
+            // hoverUnderlineColor: Theme.of(context).colorScheme.secondary,
+            // hoverUnderlineThickness: 1.0,
+          ),
+          const SizedBox(height: 24),
+
           Text('Enlace a la derecha grande', style: t.titleSmall),
-          const SizedBox(height: 8),
+          const SizedBox(height: 12),
           AppLink(
             text: '¿Has olvidado tu contraseña?',
             onTap: () => _showSnack(context, 'Recuperar contraseña'),
             size: AppLinkSize.lg,
             align: AppLinkAlign.end,
-            color: Theme.of(context).colorScheme.primary,
+            color: Theme.of(context).colorScheme.secondary,
             hoverColor: Theme.of(context).colorScheme.secondary,
             // hoverUnderlineColor: Theme.of(context).colorScheme.secondary,
             // hoverUnderlineThickness: 1.0,
           ),
+          const SizedBox(height: 24),
         ],
       ),
     );

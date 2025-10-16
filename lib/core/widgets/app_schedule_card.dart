@@ -23,9 +23,9 @@ class AppScheduleCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(0),
       child: Material(
-        color: scheme.surface,
+        color: scheme.onSecondary,
         elevation: 2,
-        shadowColor: Colors.black.withValues(alpha: 0.4),
+        shadowColor: scheme.onPrimaryContainer.withValues(alpha: 0.3),
         borderRadius: BorderRadius.circular(50),
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),

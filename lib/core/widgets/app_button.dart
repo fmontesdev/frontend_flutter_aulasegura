@@ -35,7 +35,7 @@ class AppButton extends StatelessWidget {
     // Colores derivados del ColorScheme
     final (bg, fg) = switch (variant) {
       AppButtonVariant.primary => (scheme.primary, scheme.onPrimary),
-      AppButtonVariant.secondary => (scheme.secondary, scheme.onSecondary),
+      AppButtonVariant.secondary => (scheme.secondary, scheme.onPrimary),
       AppButtonVariant.danger => (scheme.error, scheme.onError),
     };
 

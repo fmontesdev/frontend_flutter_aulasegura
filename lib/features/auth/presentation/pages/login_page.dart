@@ -5,7 +5,22 @@ import 'package:frontend_flutter_aulasegura/core/widgets/app_button.dart';
 import 'package:frontend_flutter_aulasegura/features/home/presentation/pages/home_page.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  final bool modoOscuro;
+  final String idioma;
+  final bool notificaciones;
+  final ValueChanged<bool> onCambioModoOscuro;
+  final ValueChanged<String> onCambioIdioma;
+  final ValueChanged<bool> onCambioNotificaciones;
+
+  const LoginPage({
+    super.key,
+    required this.modoOscuro,
+    required this.idioma,
+    required this.notificaciones,
+    required this.onCambioModoOscuro,
+    required this.onCambioIdioma,
+    required this.onCambioNotificaciones,
+  });
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -63,10 +78,16 @@ class _LoginPageState extends State<LoginPage> {
     // ScaffoldMessenger.of(context).showSnackBar(
     //   const SnackBar(content: Text('Login enviado')),
     // );
-    Navigator.pushReplacement(
-      context,
+    Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => HomePage(),
+        builder: (_) => HomePage(
+          modoOscuro: widget.modoOscuro,
+          idioma: widget.idioma,
+          notificaciones: widget.notificaciones,
+          onCambioIdioma: widget.onCambioIdioma,
+          onCambioModoOscuro: widget.onCambioModoOscuro,
+          onCambioNotificaciones: widget.onCambioNotificaciones,
+        ),
       ),
     );
   }

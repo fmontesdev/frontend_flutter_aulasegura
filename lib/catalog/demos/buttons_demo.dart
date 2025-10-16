@@ -14,8 +14,11 @@ class ButtonsDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+
     return ShowcaseScaffold(
       title: 'Botones',
+      backgroundColor: scheme.primaryContainer,
       modoOscuro: modoOscuro,
       onCambioModoOscuro: onCambioModoOscuro,
       body: Builder(
@@ -27,7 +30,7 @@ class ButtonsDemo extends StatelessWidget {
 
               /// Primary Buttons
               Text(
-                'AppButton – Primary',
+                'Botón primario',
                 style: theme.titleSmall,
               ),
               const SizedBox(height: 4),
@@ -65,7 +68,7 @@ class ButtonsDemo extends StatelessWidget {
 
               /// Secondary Buttons
               Text(
-                'AppButton – Secondary',
+                'Botón secundario',
                 style: theme.titleSmall,
               ),
               const SizedBox(height: 4),
@@ -103,7 +106,7 @@ class ButtonsDemo extends StatelessWidget {
 
               /// Danger Buttons
               Text(
-                'AppButton – Danger',
+                'Botón peligro',
                 style: theme.titleSmall,
               ),
               const SizedBox(height: 4),
@@ -141,7 +144,7 @@ class ButtonsDemo extends StatelessWidget {
 
               /// Primary Buttons
               Text(
-                'AppButton – Home Page',
+                'Botones de la página de inicio',
                 style: theme.titleSmall,
               ),
               const SizedBox(height: 13),
@@ -168,6 +171,7 @@ class ButtonsDemo extends StatelessWidget {
                   ),
                 ],
               ),
+              const SizedBox(height: 24),
             ],
           );
         },

@@ -30,6 +30,15 @@ class _ShowcaseScaffoldState extends State<ShowcaseScaffold> {
     _modoOscuroLocal = widget.modoOscuro;
   }
 
+  // Sincroniza el estado local si cambia la prop externa
+  @override
+  void didUpdateWidget(covariant ShowcaseScaffold oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.modoOscuro != widget.modoOscuro) {
+      setState(() => _modoOscuroLocal = widget.modoOscuro);
+    }
+  }
+
   Future<void> _alternarModoOscuro(bool valor) async {
     setState(() => _modoOscuroLocal = valor);
     widget.onCambioModoOscuro(valor);

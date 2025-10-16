@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class PreferencesPage extends StatefulWidget {
+class PreferencesDemo extends StatefulWidget {
   final bool modoOscuro;
   final String idioma;
   final bool notificaciones;
@@ -8,7 +8,7 @@ class PreferencesPage extends StatefulWidget {
   final ValueChanged<String> onCambioIdioma;
   final ValueChanged<bool> onCambioNotificaciones;
 
-  const PreferencesPage({
+  const PreferencesDemo({
     super.key,
     required this.modoOscuro,
     required this.idioma,
@@ -19,10 +19,10 @@ class PreferencesPage extends StatefulWidget {
   });
 
     @override
-  State<PreferencesPage> createState() => _PreferencesPageState();
+  State<PreferencesDemo> createState() => _PreferencesDemoState();
 }
 
-class _PreferencesPageState extends State<PreferencesPage> {
+class _PreferencesDemoState extends State<PreferencesDemo> {
   late bool _modoOscuroLocal;
   late String _idiomaLocal;
   late bool _notificacionesLocal;

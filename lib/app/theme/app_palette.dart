@@ -20,6 +20,8 @@ class AppPalette {
   final Color onError;
   final Color darkGrey;
   final Color grey;
+  final Color highlight;
+  final Color quatertiary;
 
   const AppPalette({
     required this.primary,
@@ -41,6 +43,8 @@ class AppPalette {
     required this.onError,
     required this.darkGrey,
     required this.grey,
+    required this.highlight,
+    required this.quatertiary,
   });
 }
 
@@ -53,7 +57,7 @@ const appPaletteLight = AppPalette(
   tertiary: Color(0xFFBCD5F3),
   onTertiary: Colors.black,
   primaryContainer: Color(0xFFF0F8FF),
-  onPrimaryContainer: Colors.white,
+  onPrimaryContainer: Colors.black,
   // surface: Color(0xFFF2F2F2),
   // onSurface: Colors.black,
   outline: Color(0xFFA7F3D0),
@@ -65,6 +69,8 @@ const appPaletteLight = AppPalette(
   onError: Colors.white,
   darkGrey: Color(0xFF535353),
   grey: Color(0xFFA2A2A2),
+  highlight: Color(0xFF1F3A5F),
+  quatertiary: Color(0xFFB9D2ED),
 );
 
 /// Paleta para tema oscuro (ajusta los contrastes)
@@ -72,7 +78,7 @@ const appPaletteDark = AppPalette(
   primary: Color(0xFF1F3A5F),
   onPrimary: Colors.white,
   secondary: Color(0xFF3D78B8),
-  onSecondary: Colors.white,
+  onSecondary: Color(0xFF262626),
   tertiary: Color(0xFFBCD5F3),
   onTertiary: Colors.black,
   primaryContainer: Color(0xFF171717),
@@ -88,6 +94,8 @@ const appPaletteDark = AppPalette(
   onError: Colors.white,
   darkGrey: Color(0xFF535353),
   grey: Color(0xFFA2A2A2),
+  highlight: Colors.white,
+  quatertiary: Color(0xFFB9D2ED),
 );
 
 /// Devuelve la paleta adecuada según el brillo del tema activo.

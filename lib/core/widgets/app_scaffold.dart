@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_bottom_nav.dart';
 import 'package:frontend_flutter_aulasegura/catalog/demos/preferences_demo.dart';
 
 class AppScaffold extends StatefulWidget {
-  final Widget body;
   final List<Widget>? pages;
+  final StatefulNavigationShell navigationShell;
   final bool modoOscuro;
   final String idioma;
   final bool notificaciones;
@@ -15,8 +16,8 @@ class AppScaffold extends StatefulWidget {
 
   const AppScaffold({
     super.key,
-    required this.body,
     this.pages,
+    required this.navigationShell,
     required this.modoOscuro,
     required this.idioma,
     required this.notificaciones,
@@ -125,8 +126,11 @@ class _AppScaffoldState extends State<AppScaffold> {
           ),
         ),
       ),
-      body: SafeArea(child: widget.body),
+      body: SafeArea(
+        child: widget.navigationShell,
+      ),
       bottomNavigationBar: AppBottomNav(
+        navigationShell: widget.navigationShell,
         isOverlayPage: _isOverlayPage,
         onChanged: (p) => setState(() {
           _isOverlayPage = false;

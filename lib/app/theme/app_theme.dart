@@ -21,6 +21,7 @@ class AppTheme {
 
     labelLarge: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
     labelSmall: TextStyle(fontSize: 11, letterSpacing: 0.2),
+    
   );
 
   // ================== ColorSchemes ==================
@@ -259,4 +260,8 @@ extension AppColorScheme on ColorScheme {
   Color get quatertiary => brightness == Brightness.dark
     ? appPaletteDark.quatertiary
     : appPaletteLight.quatertiary;
+
+  Color get titles => brightness == Brightness.dark
+    ? appPaletteDark.titles
+    : appPaletteLight.titles;
 }

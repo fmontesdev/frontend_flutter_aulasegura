@@ -1,26 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_text_form_field.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_link.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_button.dart';
-import 'package:frontend_flutter_aulasegura/features/home/presentation/pages/home_page.dart';
 
 class LoginPage extends StatefulWidget {
-  final bool modoOscuro;
-  final String idioma;
-  final bool notificaciones;
-  final ValueChanged<bool> onCambioModoOscuro;
-  final ValueChanged<String> onCambioIdioma;
-  final ValueChanged<bool> onCambioNotificaciones;
-
-  const LoginPage({
-    super.key,
-    required this.modoOscuro,
-    required this.idioma,
-    required this.notificaciones,
-    required this.onCambioModoOscuro,
-    required this.onCambioIdioma,
-    required this.onCambioNotificaciones,
-  });
+  const LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -67,29 +52,19 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _submit() {
-    final ok = _formKey.currentState?.validate() ?? false;
-    if (!ok) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Revisa los campos')),
-      );
-      return;
-    }
+    // final ok = _formKey.currentState?.validate() ?? false;
+    // if (!ok) {
+    //   ScaffoldMessenger.of(context).showSnackBar(
+    //     const SnackBar(content: Text('Revisa los campos')),
+    //   );
+    //   return;
+    // }
+
     /// Lógica real de login
     // ScaffoldMessenger.of(context).showSnackBar(
     //   const SnackBar(content: Text('Login enviado')),
     // );
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (_) => HomePage(
-          modoOscuro: widget.modoOscuro,
-          idioma: widget.idioma,
-          notificaciones: widget.notificaciones,
-          onCambioIdioma: widget.onCambioIdioma,
-          onCambioModoOscuro: widget.onCambioModoOscuro,
-          onCambioNotificaciones: widget.onCambioNotificaciones,
-        ),
-      ),
-    );
+    GoRouter.of(context).go('/home');
   }
 
   @override

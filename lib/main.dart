@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
-import 'package:frontend_flutter_aulasegura/catalog/catalog_page.dart';
-import 'package:frontend_flutter_aulasegura/features/auth/presentation/pages/login_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:frontend_flutter_aulasegura/app/router.dart';
 
 const kClaveModoOscuro = 'modoOscuro';
 const kClaveIdioma = 'idioma';
@@ -83,40 +82,23 @@ class _EstadoAplicacion extends State<Aplicacion> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Catálogo de Componentes',
+    final appRouter = AppRouter(
+      modoOscuro: _modoOscuro,
+      idioma: _idioma,
+      notificaciones: _notificaciones,
+      onCambioModoOscuro: _actualizarModoOscuro,
+      onCambioIdioma: _actualizarIdioma,
+      onCambioNotificaciones: _actualizarNotifs,
+    );
+
+    return MaterialApp.router(
+      title: 'AulaSegura',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
       themeMode: _modoOscuro ? ThemeMode.dark : ThemeMode.light,
-      home: CatalogPage(
-        modoOscuro: _modoOscuro,
-        idioma: _idioma,
-        notificaciones: _notificaciones, 
-        onCambioModoOscuro: _actualizarModoOscuro,
-        onCambioIdioma: _actualizarIdioma,
-        onCambioNotificaciones: _actualizarNotifs,
-      ),
+      routerConfig: appRouter.router,
     );
   }
-
-  // @override
-  // Widget build(BuildContext context) {
-  //   return MaterialApp(
-  //     title: 'AulaSegura',
-  //     debugShowCheckedModeBanner: false,
-  //     theme: AppTheme.light,
-  //     darkTheme: AppTheme.dark,
-  //     themeMode: _modoOscuro ? ThemeMode.dark : ThemeMode.light,
-  //     home: LoginPage(
-  //       modoOscuro: _modoOscuro,
-  //       idioma: _idioma,
-  //       notificaciones: _notificaciones, 
-  //       onCambioModoOscuro: _actualizarModoOscuro,
-  //       onCambioIdioma: _actualizarIdioma,
-  //       onCambioNotificaciones: _actualizarNotifs,
-  //     ),
-  //   );
-  // }
 }
 

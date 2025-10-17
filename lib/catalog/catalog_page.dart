@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:frontend_flutter_aulasegura/catalog/widgets/showcase_scaffold.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 import 'package:frontend_flutter_aulasegura/catalog/demos/buttons_demo.dart';
@@ -15,6 +16,7 @@ class CatalogPage extends StatelessWidget {
   final ValueChanged<bool> onCambioModoOscuro;
   final ValueChanged<String> onCambioIdioma;
   final ValueChanged<bool> onCambioNotificaciones;
+  final StatefulNavigationShell navigationShell;
 
   const CatalogPage({
     super.key,
@@ -24,6 +26,7 @@ class CatalogPage extends StatelessWidget {
     required this.onCambioModoOscuro,
     required this.onCambioIdioma,
     required this.onCambioNotificaciones,
+    required this.navigationShell,
   });
 
   @override
@@ -119,6 +122,7 @@ class CatalogPage extends StatelessWidget {
                         onCambioIdioma: onCambioIdioma,
                         onCambioModoOscuro: onCambioModoOscuro,
                         onCambioNotificaciones: onCambioNotificaciones,
+                        navigationShell: navigationShell,
                       )));
                 },
               ),

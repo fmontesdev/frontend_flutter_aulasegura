@@ -22,6 +22,7 @@ class AppPalette {
   final Color grey;
   final Color highlight;
   final Color quatertiary;
+  final Color titles;
 
   const AppPalette({
     required this.primary,
@@ -45,6 +46,7 @@ class AppPalette {
     required this.grey,
     required this.highlight,
     required this.quatertiary,
+    required this.titles,
   });
 }
 
@@ -71,6 +73,7 @@ const appPaletteLight = AppPalette(
   grey: Color(0xFFA2A2A2),
   highlight: Color(0xFF1F3A5F),
   quatertiary: Color(0xFFB9D2ED),
+  titles: Color.fromARGB(255, 169, 201, 239),
 );
 
 /// Paleta para tema oscuro (ajusta los contrastes)
@@ -96,6 +99,7 @@ const appPaletteDark = AppPalette(
   grey: Color(0xFFA2A2A2),
   highlight: Colors.white,
   quatertiary: Color(0xFFB9D2ED),
+  titles: Color(0xFF535353),
 );
 
 /// Devuelve la paleta adecuada según el brillo del tema activo.

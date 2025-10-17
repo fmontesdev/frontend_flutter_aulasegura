@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AppBottomNav extends StatefulWidget {
+  final StatefulNavigationShell navigationShell;
   final bool isOverlayPage;
   final ValueChanged<String>? onChanged;
   
   const AppBottomNav({
     super.key,
+    required this.navigationShell,
     this.isOverlayPage = false,
     this.onChanged
   });
@@ -20,13 +23,14 @@ class _AppBottomNavState extends State<AppBottomNav> {
   @override
   void initState() {
     super.initState();
-    _currentIndex = 0;
+    _currentIndex = widget.navigationShell.currentIndex;
   }
 
-  void _onTap(int i) {
-    if (_currentIndex == i) return;
-    setState(() => _currentIndex = i);
-    widget.onChanged?.call(['Inicio', 'Mapa', 'Reservas', 'Horarios'][i]);
+  void _onTap(int index) {
+    if (_currentIndex == index) return;
+    setState(() => _currentIndex = index);
+    widget.onChanged?.call(['Inicio', 'Mapa', 'Reservas', 'Horarios'][index]);
+    widget.navigationShell.goBranch(index);
   }
   
   @override

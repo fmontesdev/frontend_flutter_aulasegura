@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_text_form_field.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_link.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_button.dart';
+import 'package:frontend_flutter_aulasegura/features/auth/presentation/providers/auth_providers.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  ConsumerState<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends ConsumerState<LoginPage> {
   final _formKey = GlobalKey<FormState>(); // Para gestionar el estado del formulario
   final _emailCtrl = TextEditingController(); // Controlador para el campo email
   final _passCtrl  = TextEditingController(); // Controlador para el campo password
@@ -51,20 +53,25 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  void _submit() {
-    // final ok = _formKey.currentState?.validate() ?? false;
-    // if (!ok) {
-    //   ScaffoldMessenger.of(context).showSnackBar(
-    //     const SnackBar(content: Text('Revisa los campos')),
-    //   );
-    //   return;
-    // }
+  Future<void> _submit() async {
+    final ok = _formKey.currentState?.validate() ?? false;
+    if (!ok) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Revisa los campos')),
+      );
+      return;
+    }
 
-    /// Lógica real de login
-    // ScaffoldMessenger.of(context).showSnackBar(
-    //   const SnackBar(content: Text('Login enviado')),
-    // );
-    GoRouter.of(context).go('/home');
+    try {
+      await ref.read(authProvider.notifier).signIn(_emailCtrl.text, _passCtrl.text);
+      if (!mounted) return;
+      GoRouter.of(context).go('/home');
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('No se pudo iniciar sesión: $e')),
+      );
+    }
   }
 
   @override

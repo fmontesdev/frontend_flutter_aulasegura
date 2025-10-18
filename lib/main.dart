@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:frontend_flutter_aulasegura/app/router.dart';
@@ -18,20 +19,20 @@ Future<void> main() async {
   final notifsGuardadas = preferencias.getBool(kClaveNotificaciones) ?? true;
 
   runApp(
-    Aplicacion(
+    ProviderScope(child: MyApp(
       modoOscuroInicial: modoOscuroGuardado,
       idiomaInicial: idiomaGuardado,
       notificacionesInicial: notifsGuardadas,
-    ),
+    )),
   );
 }
 
-class Aplicacion extends StatefulWidget {
+class MyApp extends StatefulWidget {
   final bool modoOscuroInicial;
   final String idiomaInicial;
   final bool notificacionesInicial;
 
-  const Aplicacion({
+  const MyApp({
     super.key,
     required this.modoOscuroInicial,
     required this.idiomaInicial,
@@ -39,10 +40,10 @@ class Aplicacion extends StatefulWidget {
   });
 
   @override
-  State<Aplicacion> createState() => _EstadoAplicacion();
+  State<MyApp> createState() => _EstadoAplicacion();
 }
 
-class _EstadoAplicacion extends State<Aplicacion> {
+class _EstadoAplicacion extends State<MyApp> {
   late bool _modoOscuro;
   late String _idioma;
   late bool _notificaciones;

@@ -46,6 +46,7 @@ class _EstadoAplicacion extends State<Aplicacion> {
   late bool _modoOscuro;
   late String _idioma;
   late bool _notificaciones;
+  late final AppRouter appRouter; 
 
   bool get modoOscuro => _modoOscuro;
   String get idioma => _idioma;
@@ -57,6 +58,16 @@ class _EstadoAplicacion extends State<Aplicacion> {
     _modoOscuro = widget.modoOscuroInicial;
     _idioma = widget.idiomaInicial;
     _notificaciones = widget.notificacionesInicial;
+
+    // Inicializamos el router pasando getters y callbacks
+    appRouter = AppRouter(
+      getModoOscuro: () => _modoOscuro,
+      getIdioma: () => _idioma,
+      getNotificaciones: () => _notificaciones,
+      onCambioModoOscuro: _actualizarModoOscuro,
+      onCambioIdioma: _actualizarIdioma,
+      onCambioNotificaciones: _actualizarNotifs,
+    );
   }
 
   Future<void> _actualizarModoOscuro(bool valor) async {
@@ -82,15 +93,6 @@ class _EstadoAplicacion extends State<Aplicacion> {
 
   @override
   Widget build(BuildContext context) {
-    final appRouter = AppRouter(
-      modoOscuro: _modoOscuro,
-      idioma: _idioma,
-      notificaciones: _notificaciones,
-      onCambioModoOscuro: _actualizarModoOscuro,
-      onCambioIdioma: _actualizarIdioma,
-      onCambioNotificaciones: _actualizarNotifs,
-    );
-
     return MaterialApp.router(
       title: 'AulaSegura',
       debugShowCheckedModeBanner: false,

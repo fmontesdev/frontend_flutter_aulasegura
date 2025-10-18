@@ -14,10 +14,13 @@ final _shellNavigatorMapKey = GlobalKey<NavigatorState>(debugLabel: 'mapNav'); /
 final _shellNavigatorResKey = GlobalKey<NavigatorState>(debugLabel: 'reservationNav'); // Clave para la rama "reservations"
 final _shellNavigatorScheduleKey = GlobalKey<NavigatorState>(debugLabel: 'scheduleNav'); // Clave para la rama "schedule"
 
+typedef BoolGetter = bool Function();
+typedef StringGetter = String Function();
+
 class AppRouter {
-  final bool modoOscuro;
-  final String idioma;
-  final bool notificaciones;
+  final BoolGetter getModoOscuro;
+  final StringGetter getIdioma;
+  final BoolGetter getNotificaciones;
   final ValueChanged<bool> onCambioModoOscuro;
   final ValueChanged<String> onCambioIdioma;
   final ValueChanged<bool> onCambioNotificaciones;
@@ -26,9 +29,9 @@ class AppRouter {
 
   // 🔹 Constructor clásico al uso
   AppRouter({
-    required this.modoOscuro,
-    required this.idioma,
-    required this.notificaciones,
+    required this.getModoOscuro,
+    required this.getIdioma,
+    required this.getNotificaciones,
     required this.onCambioModoOscuro,
     required this.onCambioIdioma,
     required this.onCambioNotificaciones,
@@ -49,9 +52,9 @@ class AppRouter {
         builder: (context, state, navigationShell) {
           return AppScaffold(
             navigationShell: navigationShell,
-            modoOscuro: modoOscuro,
-            idioma: idioma,
-            notificaciones: notificaciones,
+            modoOscuro: getModoOscuro(),
+            idioma: getIdioma(),
+            notificaciones: getNotificaciones(),
             onCambioIdioma: onCambioIdioma,
             onCambioModoOscuro: onCambioModoOscuro,
             onCambioNotificaciones: onCambioNotificaciones,

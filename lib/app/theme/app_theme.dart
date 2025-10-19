@@ -175,6 +175,7 @@ class AppTheme {
   static NavigationBarThemeData _navBarTheme(ColorScheme scheme) {
     return NavigationBarThemeData(
       height: 56,
+      labelBehavior: NavigationDestinationLabelBehavior.alwaysHide, // Muestra solo iconos
       backgroundColor: scheme.surface,
       elevation: 5, // Sombra superior vía elevación
       shadowColor: scheme.primary, // Color de la sombra
@@ -252,6 +253,10 @@ extension AppColorScheme on ColorScheme {
   Color get grey => brightness == Brightness.dark
     ? appPaletteDark.grey
     : appPaletteLight.grey;
+
+  Color get lightGrey => brightness == Brightness.dark
+    ? appPaletteDark.lightGrey
+    : appPaletteLight.lightGrey;
 
   Color get highlight => brightness == Brightness.dark
     ? appPaletteDark.highlight

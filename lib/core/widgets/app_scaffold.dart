@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_bottom_nav.dart';
 import 'package:frontend_flutter_aulasegura/catalog/demos/preferences_demo.dart';
 
@@ -68,25 +67,6 @@ class _AppScaffoldState extends State<AppScaffold> {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      IconButton( // Notificaciones con badge
-                        icon: Transform.translate(
-                          offset: const Offset(0, -3),
-                          child: Badge(
-                            backgroundColor: scheme.warning, // color del badge
-                            // textColor: scheme.onTertiary,     // Color del texto del badge
-                            label: const Text('2'), // o el contador real
-                            child: Icon(Icons.notifications_none, size: 30, color: scheme.onPrimary),
-                          ),
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            _page = 'Notificaciones';
-                            _isOverlayPage = true;
-                          });
-                          /* Ir a notificaciones */
-                        },
-                        tooltip: 'Notificaciones',
-                      ),
                       IconButton( // Perfil
                         icon: Transform.translate(
                           offset: const Offset(0, -3),

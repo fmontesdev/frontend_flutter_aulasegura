@@ -6,6 +6,7 @@ import 'package:frontend_flutter_aulasegura/features/home/presentation/pages/hom
 import 'package:frontend_flutter_aulasegura/features/map/presentation/pages/map_page.dart';
 import 'package:frontend_flutter_aulasegura/features/reservations/presentation/pages/reservations_page.dart';
 import 'package:frontend_flutter_aulasegura/features/schedules/presentation/pages/schedules_page.dart';
+import 'package:frontend_flutter_aulasegura/features/notifications/presentation/pages/notifications_page.dart';
 
 // GlobalKeys para estados de navegación
 final _rootNavigatorKey = GlobalKey<NavigatorState>(); // Clave global del router
@@ -13,6 +14,7 @@ final _shellNavigatorHomeKey = GlobalKey<NavigatorState>(debugLabel: 'homeNav');
 final _shellNavigatorMapKey = GlobalKey<NavigatorState>(debugLabel: 'mapNav'); // Clave para la rama "map"
 final _shellNavigatorResKey = GlobalKey<NavigatorState>(debugLabel: 'reservationNav'); // Clave para la rama "reservations"
 final _shellNavigatorScheduleKey = GlobalKey<NavigatorState>(debugLabel: 'scheduleNav'); // Clave para la rama "schedule"
+final _shellNavigatorNotiKey = GlobalKey<NavigatorState>(debugLabel: 'notificationNav'); // Clave para la rama "notification"
 
 typedef BoolGetter = bool Function();
 typedef StringGetter = String Function();
@@ -98,6 +100,16 @@ class AppRouter {
                 name: 'schedules',
                 path: '/schedules',
                 builder: (context, state) => const SchedulesPage(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            navigatorKey: _shellNavigatorNotiKey,
+            routes: [
+              GoRoute(
+                name: 'notifications',
+                path: '/notifications',
+                builder: (context, state) => const NotificationsPage(),
               ),
             ],
           ),

@@ -1,0 +1,33 @@
+import 'package:frontend_flutter_aulasegura/features/notifications/domain/entities/notification.dart';
+
+class NotificationModel extends Notification {
+  const NotificationModel({
+    required super.id,
+    required super.type,
+    required super.title,
+    required super.body,
+    required super.createdAt,
+    required super.isActive,
+    required super.userId,
+  });
+
+  factory NotificationModel.fromJson(Map<String, dynamic> json) => NotificationModel(
+    id: json['notification_id'] as int,
+    type: json['type'] as String,
+    title: json['title'] as String,
+    body: json['body'] as String,
+    createdAt: DateTime.parse(json['created_at'] as String),
+    isActive: json['is_active'] as bool,
+    userId: json['user_id'] as String,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'notification_id': id,
+    'type': type,
+    'title': title,
+    'body': body,
+    'created_at': createdAt.toIso8601String(),
+    'is_active': isActive,
+    'user_id': userId,
+  };
+}

@@ -55,11 +55,12 @@ class _CardsDemoState extends State<CardsDemo> {
 
           Text('Card de notificación', style: text.titleSmall),
           const SizedBox(height: 12),
-          const AppNotificationCard(
-            icon: Icons.error_outline,
+          AppNotificationCard(
+            type: 'alert',
             title: 'Aviso general',
-            date: '30/10/2025 10:00',
             body: 'El centro permanecerá cerrado el próximo lunes por festividad local.',
+            date: DateTime.parse('2025-10-11T09:00:00Z'),
+            isRead: false,
           ),
           const SizedBox(height: 24),
         ],

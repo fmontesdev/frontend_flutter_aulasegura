@@ -6,7 +6,7 @@ class Notification extends Equatable {
   final String title;
   final String body;
   final DateTime createdAt;
-  final bool isActive;
+  final bool isRead;
   final String userId;
 
   const Notification({
@@ -15,7 +15,7 @@ class Notification extends Equatable {
     required this.title,
     required this.body,
     required this.createdAt,
-    required this.isActive,
+    required this.isRead,
     required this.userId,
   });
 
@@ -25,7 +25,7 @@ class Notification extends Equatable {
     String? title,
     String? body,
     DateTime? createdAt,
-    bool? isActive,
+    bool? isRead,
     String? userId,
   }) => Notification(
     id: id ?? this.id,
@@ -33,10 +33,10 @@ class Notification extends Equatable {
     title: title ?? this.title,
     body: body ?? this.body,
     createdAt: createdAt ?? this.createdAt,
-    isActive: isActive ?? this.isActive,
+    isRead: isRead ?? this.isRead,
     userId: userId ?? this.userId,
   );
 
   @override
-  List<Object?> get props => [id, type, title, body, createdAt, isActive, userId];
+  List<Object?> get props => [id, type, title, body, createdAt, isRead, userId];
 }

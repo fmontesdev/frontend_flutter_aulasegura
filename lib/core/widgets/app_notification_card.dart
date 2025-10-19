@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
+import 'package:frontend_flutter_aulasegura/core/utils/date_formatter.dart';
 
 class AppNotificationCard extends StatelessWidget {
-  final String? type;
-  final IconData icon;
+  final String type;
   final String title;
-  final String date;
   final String body;
+  final DateTime date;
+  final bool isRead;
 
   const AppNotificationCard({
     super.key,
-    this.type,
-    required this.icon,
+    required this.type,
     required this.title,
-    required this.date,
     required this.body,
+    required this.date,
+    required this.isRead,
   });
 
   @override
@@ -22,10 +23,36 @@ class AppNotificationCard extends StatelessWidget {
     final theme  = Theme.of(context);
     final scheme = theme.colorScheme;
 
+    // Colores según estado de lectura
+    final backgroundColor = isRead
+        ? scheme.surface // color atenuado
+        : scheme.onSecondary; // color normal
+
+    final titleColor = isRead
+        ? scheme.grey.withValues(alpha: 0.7)
+        : scheme.secondary;
+
+    final dateColor = isRead
+        ? scheme.lightGrey.withValues(alpha: 0.7)
+        : scheme.grey;
+
+    final bodyColor = isRead
+        ? scheme.grey.withValues(alpha: 0.6)
+        : scheme.onSurface;
+
+    final iconColor = switch (type) {
+      'access' => title.contains('aprobado')
+          ? (isRead ? scheme.grey.withValues(alpha: 0.7) : scheme.success)
+          : (isRead ? scheme.grey.withValues(alpha: 0.7) : scheme.warning),
+      'warning' => isRead ? scheme.grey.withValues(alpha: 0.7) : scheme.error,
+      'alert' => isRead ? scheme.grey.withValues(alpha: 0.7) : scheme.darkGrey,
+      _ => isRead ? scheme.grey.withValues(alpha: 0.7) : scheme.darkGrey,
+    };
+
     return Padding(
       padding: const EdgeInsets.all(0),
       child: Material(
-        color: scheme.onSecondary,
+        color: backgroundColor,
         elevation: 2,
         shadowColor: scheme.onPrimaryContainer.withValues(alpha: 0.3),
         borderRadius: BorderRadius.circular(50),
@@ -40,7 +67,18 @@ class AppNotificationCard extends StatelessWidget {
               // Icono de notificación
               Container(
                 alignment: Alignment.center,
-                child: Icon(icon, color: scheme.darkGrey, size: 30),
+                child: Icon(
+                  switch (type) {
+                    'access' => title.contains('aprobado')
+                        ? Icons.lock_open
+                        : Icons.lock_outline,
+                    'warning' => Icons.warning_amber,
+                    'alert' => Icons.error_outline,
+                    _ => Icons.error_outline,
+                  },
+                  color: iconColor,
+                  size: 30,
+                ),
               ),
               const SizedBox(width: 9),
 
@@ -57,7 +95,7 @@ class AppNotificationCard extends StatelessWidget {
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: theme.textTheme.titleMedium?.copyWith(
-                              color: scheme.secondary,
+                              color: titleColor,
                               fontSize: 17,
                               height: 1.2,
                             ),
@@ -66,11 +104,11 @@ class AppNotificationCard extends StatelessWidget {
                         const SizedBox(height: 2),
                         // Fecha
                         Text(
-                          date,
+                          dateTimeFormatter(date),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: theme.textTheme.bodyMedium?.copyWith(
-                            color: scheme.grey,
+                            color: dateColor,
                             height: 1.2,
                           ),
                         ),
@@ -81,7 +119,7 @@ class AppNotificationCard extends StatelessWidget {
                     Text(
                       body,
                       style: theme.textTheme.bodyMedium?.copyWith(
-                        // color: scheme.darkGrey,
+                        color: bodyColor,
                         height: 1.2,
                       ),
                     ),
@@ -95,4 +133,3 @@ class AppNotificationCard extends StatelessWidget {
     );
   }
 }
-

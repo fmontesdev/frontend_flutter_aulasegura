@@ -10,3 +10,13 @@ String dateFormatter(DateTime date) {
 
   return formattedDate;
 }
+
+String dateTimeFormatter(DateTime date) {
+  // Inicializar los datos de localización
+  initializeDateFormatting('es_ES', null);
+
+  final formatter = DateFormat('dd/MM/yy hh:mm', 'es_ES');
+  final formattedDate = formatter.format(date);
+
+  return formattedDate;
+}

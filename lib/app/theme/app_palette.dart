@@ -20,6 +20,7 @@ class AppPalette {
   final Color onError;
   final Color darkGrey;
   final Color grey;
+  final Color lightGrey;
   final Color highlight;
   final Color quatertiary;
   final Color titles;
@@ -44,6 +45,7 @@ class AppPalette {
     required this.onError,
     required this.darkGrey,
     required this.grey,
+    required this.lightGrey,
     required this.highlight,
     required this.quatertiary,
     required this.titles,
@@ -71,6 +73,7 @@ const appPaletteLight = AppPalette(
   onError: Colors.white,
   darkGrey: Color(0xFF535353),
   grey: Color(0xFFA2A2A2),
+  lightGrey: Color.fromARGB(255, 199, 199, 199),
   highlight: Color(0xFF1F3A5F),
   quatertiary: Color(0xFFB9D2ED),
   titles: Color.fromARGB(255, 169, 201, 239),
@@ -97,6 +100,7 @@ const appPaletteDark = AppPalette(
   onError: Colors.white,
   darkGrey: Color(0xFF535353),
   grey: Color(0xFFA2A2A2),
+  lightGrey: Color.fromARGB(255, 199, 199, 199),
   highlight: Colors.white,
   quatertiary: Color(0xFFB9D2ED),
   titles: Color(0xFF535353),

@@ -20,10 +20,8 @@ class AppList<T> extends StatelessWidget {
       itemCount: items.length,
       itemBuilder: (context, index) {
         final item = items[index];
-        final isLast = index == items.length - 1;
-
         return Padding(
-          padding: EdgeInsets.only(bottom: isLast ? 0 : 13),
+          padding: const EdgeInsets.only(bottom: 13),
           child: itemBuilder(item),
         );
       },

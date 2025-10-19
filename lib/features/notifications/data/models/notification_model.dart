@@ -7,7 +7,7 @@ class NotificationModel extends Notification {
     required super.title,
     required super.body,
     required super.createdAt,
-    required super.isActive,
+    required super.isRead,
     required super.userId,
   });
 
@@ -17,7 +17,7 @@ class NotificationModel extends Notification {
     title: json['title'] as String,
     body: json['body'] as String,
     createdAt: DateTime.parse(json['created_at'] as String),
-    isActive: json['is_active'] as bool,
+    isRead: json['is_read'] as bool,
     userId: json['user_id'] as String,
   );
 
@@ -27,7 +27,7 @@ class NotificationModel extends Notification {
     'title': title,
     'body': body,
     'created_at': createdAt.toIso8601String(),
-    'is_active': isActive,
+    'is_read': isRead,
     'user_id': userId,
   };
 }

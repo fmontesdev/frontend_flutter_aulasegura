@@ -8,27 +8,28 @@ import 'package:frontend_flutter_aulasegura/fake_data/event_schedules_list.dart'
 
 import 'package:frontend_flutter_aulasegura/features/auth/presentation/providers/auth_providers.dart';
 
-// DataSource con seed (fake_data)
+/// DataSource con seed (fake_data)
 final eventScheduleLocalDSProvider = Provider<EventScheduleLocalDataSource>((ref) {
   return EventScheduleLocalDataSource(seed: seed_data.eventSchedules);
 });
 
-// Repositorio
+/// Repositorio
 final eventScheduleRepositoryProvider = Provider<EventScheduleRepository>((ref) {
   final ds = ref.watch(eventScheduleLocalDSProvider);
   return EventScheduleRepositoryImpl(localDataSource: ds);
 });
 
-// Casos de uso
+/// Casos de uso
 final eventScheduleUseCasesProvider = Provider<EventScheduleUseCases>((ref) {
   final repo = ref.watch(eventScheduleRepositoryProvider);
   return EventScheduleUseCases(repo);
 });
 
-// Notifier para manejar el estado de autenticación
+/// Notifier para manejar el estado de las reservas
 class EventScheduleNotifier extends AsyncNotifier<List<EventSchedule>> {
   late final EventScheduleUseCases eventScheduleUseCases;
 
+  /// Inicializa el Notifier
   @override
   Future<List<EventSchedule>> build() async {
     eventScheduleUseCases = ref.watch(eventScheduleUseCasesProvider);
@@ -40,6 +41,22 @@ class EventScheduleNotifier extends AsyncNotifier<List<EventSchedule>> {
     }
     // Carga inicial de reservas del usuario autenticado
     return eventScheduleUseCases.getEventSchedulesByUserId(user.id);
+  }
+
+  /// Elimina una reserva por su ID
+  Future<void> deleteById(int id) async {
+    final prev = state;
+    state = state.whenData((list) {
+      final updatedList = list.where((r) => r.id != id).toList();
+      list.removeWhere((r) => r.id == id); // Elimina el registro de la lista original
+      return updatedList;
+    });
+
+    try {
+      await eventScheduleUseCases.deleteEventScheduleById(id);
+    } catch (_) {
+      state = prev; // rollback si fallara
+    }
   }
 }
 

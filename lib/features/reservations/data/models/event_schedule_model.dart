@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_if_null_operators
+
 import 'package:frontend_flutter_aulasegura/features/reservations/domain/entities/event_schedule.dart';
 import 'package:frontend_flutter_aulasegura/features/schedules/data/models/room_model.dart';
 import 'package:frontend_flutter_aulasegura/features/schedules/domain/entities/room.dart';

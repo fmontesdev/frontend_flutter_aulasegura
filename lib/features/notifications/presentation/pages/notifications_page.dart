@@ -78,13 +78,9 @@ class _NotificationsPageState extends ConsumerState<NotificationsPage> {
                   final options = <String>[];
                   final predicates = <bool Function(dynamic)>[];
 
-                  if (pendingCount > 0 && pendingCount <= 3) {
-                    options.add('Pendientes');
-                    predicates.add((n) => !n.isRead);
-                  }
-                  if (pendingCount > 3 && pendingCount <= 5) {
-                    options.add('Pend.');
-                    predicates.add((n) => !n.isRead);
+                  if (pendingCount > 0) {
+                      options.add('Pend.');
+                      predicates.add((n) => !n.isRead);
                   }
                   if (accessCount > 0) {
                     options.add('Accesos');
@@ -108,9 +104,10 @@ class _NotificationsPageState extends ConsumerState<NotificationsPage> {
                       ? _selectedIndex
                       : options.length - 1;
 
-                  // Lista filtrada con el predicado actual
+                  // Lista filtrada con el predicado actual ordenada por fecha descendente
                   final predicate = predicates[safeSelected];
-                  final filtered = notifications.where(predicate).toList();
+                  final filtered = notifications.where(predicate).toList()
+                    ..sort((a, b) => b.createdAt.compareTo(a.createdAt));
 
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,

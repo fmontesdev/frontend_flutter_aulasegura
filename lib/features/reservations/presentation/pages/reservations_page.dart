@@ -23,31 +23,30 @@ class _ReservationsPageState extends ConsumerState<ReservationsPage> {
   }
 
   void _handleDelete(BuildContext context, int id, ColorScheme scheme) {
-    // // Marca la notificación como leída
-    // _notifier.markAsRead(id);
+    // Elimina la reserva
+    _notifier.deleteById(id);
 
-    // // Muestra SnackBar con opción de deshacer
-    // final messenger = ScaffoldMessenger.of(context);
-    // messenger.removeCurrentSnackBar();
-    // messenger.showSnackBar(
-    //   SnackBar(
-    //     content: const Padding(
-    //       padding: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-    //       child: Text('Notificación marcada como leída'),
-    //     ),
-    //     backgroundColor: scheme.primary,
-    //     behavior: SnackBarBehavior.floating,
-    //     duration: const Duration(seconds: 3),
-    //     shape: RoundedRectangleBorder(
-    //       borderRadius: BorderRadius.circular(50),
-    //     ),
-    //     margin: const EdgeInsets.all(16),
-    //     action: SnackBarAction(
-    //       label: 'Deshacer',
-    //       onPressed: () => _notifier.markAsUnread(id),
-    //     ),
-    //   ),
-    // );
+    // Muestra SnackBar con mensaje de confirmación
+    final messenger = ScaffoldMessenger.of(context);
+    messenger.removeCurrentSnackBar();
+    messenger.showSnackBar(
+      SnackBar(
+        content: const Padding(
+          padding: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+          child: Text(
+            'Reserva eliminada',
+            textAlign: TextAlign.center,
+          ),
+        ),
+        backgroundColor: scheme.primary,
+        behavior: SnackBarBehavior.floating,
+        duration: const Duration(seconds: 3),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
+        ),
+        margin: const EdgeInsets.all(16),
+      ),
+    );
   }
 
   @override
@@ -99,7 +98,7 @@ class _ReservationsPageState extends ConsumerState<ReservationsPage> {
                       : options.length - 1;
 
                   // Lista filtrada con el predicado actual ordenada por fecha ascendente
-                  final predicate = predicates[safeSelected];
+                  final predicate = predicates.isNotEmpty ? predicates[safeSelected] : (_) => false;
                   final filtered = reservations.where(predicate).toList()
                     ..sort((a, b) => DateTime.parse(a.endAt).compareTo(DateTime.parse(b.endAt)));
 

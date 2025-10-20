@@ -11,6 +11,25 @@ class NotificationModel extends Notification {
     required super.userId,
   });
 
+  @override
+  NotificationModel copyWith({
+    int? id,
+    String? type,
+    String? title,
+    String? body,
+    DateTime? createdAt,
+    bool? isRead,
+    String? userId,
+  }) => NotificationModel(
+    id: id ?? this.id,
+    type: type ?? this.type,
+    title: title ?? this.title,
+    body: body ?? this.body,
+    createdAt: createdAt ?? this.createdAt,
+    isRead: isRead ?? this.isRead,
+    userId: userId ?? this.userId,
+  );
+
   factory NotificationModel.fromJson(Map<String, dynamic> json) => NotificationModel(
     id: json['notification_id'] as int,
     type: json['type'] as String,

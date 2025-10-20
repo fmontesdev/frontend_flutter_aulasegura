@@ -11,4 +11,13 @@ class NotificationRepositoryImpl implements NotificationRepository {
     final notificationsModel = await localDataSource.fetchByUserId(userId);
     return notificationsModel;
   }
+
+  @override
+  Future<void> markAsRead(int id) => localDataSource.markAsRead(id);
+
+  @override
+  Future<void> markAsUnread(int id) => localDataSource.markAsUnread(id);
+
+  @override
+  Future<void> markAllAsRead(String userId) => localDataSource.markAllAsRead(userId);
 }

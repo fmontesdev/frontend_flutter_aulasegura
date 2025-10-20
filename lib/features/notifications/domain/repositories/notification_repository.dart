@@ -2,4 +2,7 @@ import 'package:frontend_flutter_aulasegura/features/notifications/domain/entiti
 
 abstract class NotificationRepository {
   Future<List<Notification>> getNotificationsByUserId(String userId);
+  Future<void> markAsRead(int id);
+  Future<void> markAsUnread(int id);
+  Future<void> markAllAsRead(String userId);
 }

@@ -31,6 +31,7 @@ class AppFilterSelector extends StatelessWidget {
                   child: InkWell(
                     borderRadius: BorderRadius.circular(25),
                     onTap: () => onChanged(i),
+                    highlightColor: scheme.secondary.withValues(alpha: 0.15),
                     child: AnimatedContainer(
                       duration: const Duration(milliseconds: 160),
                       height: height,

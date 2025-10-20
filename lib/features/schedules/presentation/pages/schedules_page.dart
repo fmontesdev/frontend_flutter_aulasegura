@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:frontend_flutter_aulasegura/features/home/presentation/providers/weekly_schedule_providers.dart';
+import 'package:frontend_flutter_aulasegura/features/schedules/presentation/providers/weekly_schedule_providers.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_filter_selector.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_list.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_schedule_card.dart';
@@ -13,7 +13,7 @@ class SchedulesPage extends ConsumerStatefulWidget {
 }
 
 class _SchedulesPageState extends ConsumerState<SchedulesPage> {
-  int _selectedTypeIndex = 0;
+  // int _selectedTypeIndex = 0;
   int _selectedDayIndex = 0;
 
   @override
@@ -29,14 +29,6 @@ class _SchedulesPageState extends ConsumerState<SchedulesPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // Filtro de tipo de horario
-            AppFilterSelector(
-              options: const ['Horario semanal', 'Reservas de aulas'],
-              selectedIndex: _selectedTypeIndex,
-              onChanged: (i) => setState(() => _selectedTypeIndex = i),
-            ),
-            const SizedBox(height: 10),
-
             // Filtro de día de la semana
             AppFilterSelector(
               options: const ['Lunes', 'Martes', 'Miérc.', 'Jueves', 'Viernes'],

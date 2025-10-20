@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 import 'package:go_router/go_router.dart';
+import 'package:frontend_flutter_aulasegura/features/reservations/presentation/providers/event_schedule_providers.dart';
 import 'package:frontend_flutter_aulasegura/features/notifications/presentation/providers/notification_providers.dart';
 
 class AppBottomNav extends ConsumerStatefulWidget {
@@ -34,11 +35,25 @@ class _AppBottomNavState extends ConsumerState<AppBottomNav> {
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
 
+    // Obtiene el número de notificaciones no leídas
     final notificationsAsync = ref.watch(notificationProvider);
     final unreadCount = notificationsAsync.maybeWhen(
       data: (notifications) => notifications.where((n) => !n.isRead).length,
       orElse: () => 0,
     );
+
+    // Obtiene el número de reservas activas aprobadas
+    final reservationsAsync = ref.watch(eventScheduleProvider);
+    final countReservations = reservationsAsync.maybeWhen(
+      data: (reservations) => reservations
+        .where((r) => r.status == 'approved' && DateTime.parse(r.endAt).isAfter(DateTime.now()))
+        .length,
+      orElse: () => 0,
+    );
+
+    final backgroundColor = scheme.warning;
+    final badgeTextNotis = unreadCount > 9 ? '9+' : unreadCount.toString();
+    final badgeTextRes = countReservations > 9 ? '9+' : countReservations.toString();
 
     final destinations = [
       const NavigationDestination(
@@ -53,11 +68,17 @@ class _AppBottomNavState extends ConsumerState<AppBottomNav> {
       ),
       NavigationDestination(
         icon: Badge(
-          backgroundColor: scheme.warning,
-          label: const Text('1'),
+          backgroundColor: backgroundColor,
+          isLabelVisible: countReservations > 0,
+          label: Text(badgeTextRes),
           child: const Icon(Icons.add_circle_outline_outlined),
         ),
-        selectedIcon: const Icon(Icons.add_circle),
+        selectedIcon: Badge(
+          backgroundColor: backgroundColor,
+          isLabelVisible: countReservations > 0,
+          label: Text(badgeTextRes),
+          child: const Icon(Icons.add_circle),
+        ),
         label: 'Reservas'
       ),
       const NavigationDestination(
@@ -67,14 +88,17 @@ class _AppBottomNavState extends ConsumerState<AppBottomNav> {
       ),
       NavigationDestination(
         icon: Badge(
-          backgroundColor: scheme.warning,
+          backgroundColor: backgroundColor,
           isLabelVisible: unreadCount > 0,
-          label: Text(
-            unreadCount > 9 ? '9+' : unreadCount.toString(),
-          ),
+          label: Text(badgeTextNotis),
           child: const Icon(Icons.notifications_none),
         ),
-        selectedIcon: const Icon(Icons.notifications_none),
+        selectedIcon: Badge(
+          backgroundColor: backgroundColor,
+          isLabelVisible: unreadCount > 0,
+          label: Text(badgeTextNotis),
+          child: const Icon(Icons.notifications),
+        ),
         label: 'Notificaciones'
       ),
     ];

@@ -20,3 +20,13 @@ String dateTimeFormatter(DateTime date) {
 
   return formattedDate;
 }
+
+String timeReservation(DateTime startAt, DateTime endAt) {
+  // Inicializar los datos de localización
+  initializeDateFormatting('es_ES', null);
+
+  final formatter = DateFormat('hh:mm', 'es_ES');
+  final formattedTime = '${formatter.format(startAt)} - ${formatter.format(endAt)}';
+
+  return formattedTime;
+}

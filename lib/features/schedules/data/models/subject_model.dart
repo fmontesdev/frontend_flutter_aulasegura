@@ -1,4 +1,4 @@
-import 'package:frontend_flutter_aulasegura/features/home/domain/entities/subject.dart';
+import 'package:frontend_flutter_aulasegura/features/schedules/domain/entities/subject.dart';
 
 class SubjectModel extends Subject {
   const SubjectModel({

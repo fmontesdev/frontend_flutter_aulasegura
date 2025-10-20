@@ -1,4 +1,4 @@
-import 'package:frontend_flutter_aulasegura/features/home/domain/entities/course.dart';
+import 'package:frontend_flutter_aulasegura/features/schedules/domain/entities/course.dart';
 
 class CourseModel extends Course {
   const CourseModel({

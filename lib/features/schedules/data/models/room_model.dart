@@ -1,5 +1,5 @@
-import 'package:frontend_flutter_aulasegura/features/home/domain/entities/room.dart';
-import 'package:frontend_flutter_aulasegura/features/home/data/models/course_model.dart';
+import 'package:frontend_flutter_aulasegura/features/schedules/domain/entities/room.dart';
+import 'package:frontend_flutter_aulasegura/features/schedules/data/models/course_model.dart';
 
 class RoomModel extends Room {
   const RoomModel({

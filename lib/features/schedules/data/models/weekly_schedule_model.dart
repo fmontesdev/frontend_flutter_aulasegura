@@ -1,6 +1,6 @@
-import 'package:frontend_flutter_aulasegura/features/home/domain/entities/weekly_schedule.dart';
-import 'package:frontend_flutter_aulasegura/features/home/data/models/room_model.dart';
-import 'package:frontend_flutter_aulasegura/features/home/data/models/subject_model.dart';
+import 'package:frontend_flutter_aulasegura/features/schedules/domain/entities/weekly_schedule.dart';
+import 'package:frontend_flutter_aulasegura/features/schedules/data/models/room_model.dart';
+import 'package:frontend_flutter_aulasegura/features/schedules/data/models/subject_model.dart';
 
 
 class WeeklyScheduleModel extends WeeklySchedule {

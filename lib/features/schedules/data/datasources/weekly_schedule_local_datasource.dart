@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_final_fields
 
-import 'package:frontend_flutter_aulasegura/features/home/data/models/weekly_schedule_model.dart';
+import 'package:frontend_flutter_aulasegura/features/schedules/data/models/weekly_schedule_model.dart';
 
 class WeeklyScheduleLocalDataSource {
   List<WeeklyScheduleModel> _weeklyScheduleList = [];

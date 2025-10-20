@@ -1,9 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:frontend_flutter_aulasegura/features/home/data/datasources/weekly_schedule_local_datasource.dart';
-import 'package:frontend_flutter_aulasegura/features/home/data/repositories/weekly_schedule_repository_impl.dart';
-import 'package:frontend_flutter_aulasegura/features/home/domain/repositories/weekly_schedule_repository.dart';
-import 'package:frontend_flutter_aulasegura/features/home/domain/usecases/weekly_schedule_usecases.dart';
-import 'package:frontend_flutter_aulasegura/features/home/domain/entities/weekly_schedule.dart';
+import 'package:frontend_flutter_aulasegura/features/schedules/data/datasources/weekly_schedule_local_datasource.dart';
+import 'package:frontend_flutter_aulasegura/features/schedules/data/repositories/weekly_schedule_repository_impl.dart';
+import 'package:frontend_flutter_aulasegura/features/schedules/domain/repositories/weekly_schedule_repository.dart';
+import 'package:frontend_flutter_aulasegura/features/schedules/domain/usecases/weekly_schedule_usecases.dart';
+import 'package:frontend_flutter_aulasegura/features/schedules/domain/entities/weekly_schedule.dart';
 import 'package:frontend_flutter_aulasegura/fake_data/weekly_schedules_list.dart' as seed_data;
 
 import 'package:frontend_flutter_aulasegura/features/auth/presentation/providers/auth_providers.dart';

@@ -20,76 +20,67 @@ class AppWelcomeCard extends StatelessWidget {
     final theme  = Theme.of(context);
     final scheme = theme.colorScheme;
 
-    return Padding(
-      padding: const EdgeInsets.all(0),
-      child: Material(
-        color: scheme.onSecondary,
-        elevation: 2,
-        shadowColor: scheme.onPrimaryContainer.withValues(alpha: 0.3),
+    return Material(
+      color: scheme.onSecondary,
+      elevation: 1.5,
+      shadowColor: scheme.onPrimaryContainer.withValues(alpha: 0.4),
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(50),
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-          ),
-          child: Row(
-            children: [
-              // Avatar circular
-              ClipOval(
-                child: Image.asset(
-                  avatar,
-                  width: 90,
-                  height: 90,
-                  fit: BoxFit.cover,
-                  semanticLabel: 'Avatar Clara',
-                ),
-              ),
-              const SizedBox(width: 16),
-
-              // Texto (fecha, nombre, rol)
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // Fecha
-                    Text(
-                      date,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: theme.textTheme.bodyLarge?.copyWith(
-                        color: scheme.grey,
-                        height: 1.3,
-                      ),
-                    ),
-                    const SizedBox(height: 2),
-                    // Hola, Nombre
-                    Text(
-                      'Hola, $name!',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: theme.textTheme.headlineLarge?.copyWith(
-                        color: scheme.secondary,
-                        height: 1.1,
-                      ),
-                    ),
-                    const SizedBox(height: 2),
-                    // Rol
-                    Text(
-                      role,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: theme.textTheme.bodyMedium?.copyWith(
-                        color: scheme.darkGrey,
-                        height: 1.2,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+        side: BorderSide(
+          color: scheme.grey.withValues(alpha: 0.2),
+          width: 0.6,
         ),
+      ),
+      child: Row(
+        children: [
+          // Avatar circular
+          ClipOval(
+            child: Image.asset(
+              avatar,
+              width: 90,
+              height: 90,
+              fit: BoxFit.cover,
+              semanticLabel: 'Avatar Clara',
+            ),
+          ),
+          const SizedBox(width: 16),
+
+          // Texto (fecha, nombre, rol)
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Fecha
+                Text(
+                  date,
+                  overflow: TextOverflow.ellipsis,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: scheme.grey,
+                    fontSize: 15,
+                  ),
+                ),
+                const SizedBox(height: 1),
+                // Hola Nombre!
+                Text(
+                  'Hola $name!',
+                  overflow: TextOverflow.ellipsis,
+                  style: theme.textTheme.headlineMedium?.copyWith(
+                    color: scheme.secondary,
+                  ),
+                ),
+                const SizedBox(height: 1),
+                // Rol
+                Text(
+                  role,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: scheme.darkGrey,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
 }
-

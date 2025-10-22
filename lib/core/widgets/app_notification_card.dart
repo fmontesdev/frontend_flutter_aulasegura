@@ -28,6 +28,8 @@ class AppNotificationCard extends ConsumerStatefulWidget {
 }
 
 class _AppNotificationCardState extends ConsumerState<AppNotificationCard> {
+  bool _isHover = false; // Estado de hover para cambiar el borde
+
   @override
   Widget build(BuildContext context) {
     final theme  = Theme.of(context);
@@ -59,117 +61,134 @@ class _AppNotificationCardState extends ConsumerState<AppNotificationCard> {
       _ => widget.isRead ? scheme.grey.withValues(alpha: 0.7) : scheme.darkGrey,
     };
 
-    return Material(
-      color: Colors.transparent, // El color lo pinta el child (ColoredBox) para poder cambiar por isRead
-      elevation: 2,
-      shadowColor: scheme.onPrimaryContainer.withValues(alpha: 0.3),
-      borderRadius: BorderRadius.circular(50),
-      clipBehavior: Clip.antiAlias, // Para que el Dismissible no sobresalga
+    // Altura y Colores de sombreado (tenue / hover)
+    final Color baseShadow = scheme.onPrimaryContainer.withValues(alpha: 0.4);
+    final Color hoverShadow = scheme.onPrimaryContainer.withValues(alpha: 0.6);
+    final shadowColor = _isHover ? hoverShadow : baseShadow;
 
-      // Swipe para marcar como leída (con Deshacer)
-      child: Dismissible(
-        key: ValueKey('notif-${widget.id}'), // Clave única para cada notificación
-        direction: widget.isRead ? DismissDirection.none : DismissDirection.endToStart, // Dirección swipe solo si no está leída
-        // No usamos start-to-end
-        background: const SizedBox(),
-        // Fondo del swipe end-to-start
-        secondaryBackground: Container(
-          alignment: Alignment.centerRight,
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          color: scheme.success.withValues(alpha: 0.75),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Text(
-                'Marcar como leída',
-                style: TextStyle(
-                  color: scheme.onSecondary,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const SizedBox(width: 8),
-              Icon(Icons.check, color: scheme.onSecondary),
-            ],
+    final double baseElevation = 1.5;
+    final double hoverElevation = 3.5;
+    final elevation = _isHover ? hoverElevation : baseElevation;
+
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHover = true),
+      onExit:  (_) => setState(() => _isHover = false),
+      cursor: widget.isRead ? SystemMouseCursors.basic : SystemMouseCursors.click,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 150), // Para animar suavemente el cambio del sombreado
+        curve: Curves.easeInOut,
+        child: Material(
+          color: Colors.transparent, // El color lo pinta el child (ColoredBox) para poder cambiar por isRead
+          elevation: elevation,
+          shadowColor: shadowColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(40),
+            side: BorderSide(
+              color: scheme.grey.withValues(alpha: 0.2),
+              width: 0.6,
+            ),
           ),
-        ),
-        confirmDismiss: (_) async {
-          widget.onMarkRead(); // Llama al callback externo
-          return true; // Confirma el dismiss
-        },
+          clipBehavior: Clip.antiAlias, // Para que el Dismissible no sobresalga
 
-        // Contenido de la tarjeta
-        child: MouseRegion(
-          cursor: widget.isRead ? SystemMouseCursors.basic : SystemMouseCursors.click,
-          child: ColoredBox(
-            color: backgroundColor,
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(9, 12, 20, 12),
+          // Swipe para marcar como leída (con Deshacer)
+          child: Dismissible(
+            key: ValueKey('notif-${widget.id}'), // Clave única para cada notificación
+            direction: widget.isRead ? DismissDirection.none : DismissDirection.endToStart, // Dirección swipe solo si no está leída
+            // No usamos start-to-end
+            background: const SizedBox(),
+            // Fondo del swipe end-to-start
+            secondaryBackground: Container(
+              alignment: Alignment.centerRight,
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              color: scheme.success.withValues(alpha: 0.75),
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  // Icono de notificación
-                  Container(
-                    alignment: Alignment.center,
-                    child: Icon(
-                    switch (widget.type) {
-                      'access' => widget.title.contains('aprobado')
-                          ? Icons.lock_open
-                          : Icons.lock_outline,
-                      'warning' => Icons.warning_amber,
-                      'alert' => Icons.error_outline,
-                      _ => Icons.error_outline,
-                    },
-                    color: iconColor,
-                    size: 30,
+                  Text(
+                    'Marcar como leída',
+                    style: TextStyle(
+                      color: scheme.onSecondary,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
-                  const SizedBox(width: 9),
+                  const SizedBox(width: 8),
+                  Icon(Icons.check, color: scheme.onSecondary),
+                ],
+              ),
+            ),
+            confirmDismiss: (_) async {
+              widget.onMarkRead(); // Llama al callback externo
+              return true; // Confirma el dismiss
+            },
 
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Expanded(
-                              // Título
-                              child: Text(
-                                widget.title,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: theme.textTheme.titleMedium?.copyWith(
-                                  color: titleColor,
-                                  fontSize: 17,
-                                  height: 1.2,
+            // Contenido de la tarjeta
+            child: ColoredBox(
+              color: backgroundColor,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(11, 12, 22, 12),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    // Icono de notificación
+                    Container(
+                      alignment: Alignment.center,
+                      child: Icon(
+                      switch (widget.type) {
+                        'access' => widget.title.contains('aprobado')
+                            ? Icons.lock_open
+                            : Icons.lock_outline,
+                        'warning' => Icons.warning_amber,
+                        'alert' => Icons.error_outline,
+                        _ => Icons.error_outline,
+                      },
+                      color: iconColor,
+                      size: 30,
+                      ),
+                    ),
+                    const SizedBox(width: 9),
+
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Expanded(
+                                // Título
+                                child: Text(
+                                  widget.title,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: theme.textTheme.titleMedium?.copyWith(
+                                    color: titleColor,
+                                    fontSize: 17,
+                                  ),
                                 ),
                               ),
-                            ),
-                            const SizedBox(height: 2),
-                            // Fecha
-                            Text(
-                              dateTimeFormatter(widget.date),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: theme.textTheme.bodyMedium?.copyWith(
-                                color: dateColor,
-                                height: 1.2,
+                              const SizedBox(height: 2),
+                              // Fecha
+                              Text(
+                                dateTimeFormatter(widget.date),
+                                overflow: TextOverflow.ellipsis,
+                                style: theme.textTheme.bodyMedium?.copyWith(
+                                  color: dateColor,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 6),
-                        // Cuerpo
-                        Text(
-                          widget.body,
-                          style: theme.textTheme.bodyMedium?.copyWith(
-                            color: bodyColor,
-                            height: 1.2,
+                            ],
                           ),
-                        ),
-                      ],
+                          const SizedBox(height: 2),
+                          // Cuerpo
+                          Text(
+                            widget.body,
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              color: bodyColor,
+                              height: 1.3,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

@@ -33,12 +33,23 @@ class AppReservationCard extends ConsumerStatefulWidget {
 }
 
 class _AppReservationCardState extends ConsumerState<AppReservationCard> {
+  bool _isHover = false; // Estado de hover para cambiar el borde
+
   @override
   Widget build(BuildContext context) {
     final theme  = Theme.of(context);
     final scheme = theme.colorScheme;
     late final IconData icon;
     late final Color iconColor;
+
+    // Altura y Colores de sombreado (tenue / hover)
+    final Color baseShadow = scheme.onPrimaryContainer.withValues(alpha: 0.4);
+    final Color hoverShadow = scheme.onPrimaryContainer.withValues(alpha: 0.6);
+    final shadowColor = _isHover ? hoverShadow : baseShadow;
+
+    final double baseElevation = 1.5;
+    final double hoverElevation = 3.5;
+    final elevation = _isHover ? hoverElevation : baseElevation;
 
     switch (widget.status) {
       case 'pending':
@@ -57,144 +68,145 @@ class _AppReservationCardState extends ConsumerState<AppReservationCard> {
         icon = Icons.help;
         iconColor = scheme.darkGrey;
     }
-
-    return Material(
-      color: Colors.transparent, // El color lo pinta el child (ColoredBox) para poder cambiar por isRead
-      elevation: 2,
-      shadowColor: scheme.onPrimaryContainer.withValues(alpha: 0.3),
-      borderRadius: BorderRadius.circular(50),
-      clipBehavior: Clip.antiAlias, // Para que el Dismissible no sobresalga
-
-      // Swipe para marcar como leída (con Deshacer)
-      child: Dismissible(
-        key: ValueKey('res-${widget.id}'), // Clave única para cada reserva
-        direction: DismissDirection.endToStart, // Dirección del swipe
-        // No usamos start-to-end
-        background: const SizedBox(),
-        // Fondo del swipe end-to-start
-        secondaryBackground: Container(
-          alignment: Alignment.centerRight,
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          color: scheme.error.withValues(alpha: 0.75),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Text(
-                'Eliminar',
-                style: TextStyle(
-                  color: scheme.onSecondary,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const SizedBox(width: 8),
-              Icon(Icons.delete, color: scheme.onSecondary),
-            ],
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHover = true),
+      onExit:  (_) => setState(() => _isHover = false),
+      cursor: SystemMouseCursors.click,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 150), // Para animar suavemente el cambio del sombreado
+        curve: Curves.easeInOut,
+        child: Material(
+          color: Colors.transparent, // El color lo pinta el child (ColoredBox) para poder cambiar por isRead
+          elevation: elevation,
+          shadowColor: shadowColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(40),
+            side: BorderSide(
+              color: scheme.grey.withValues(alpha: 0.2),
+              width: 0.6,
+            ),
           ),
-        ),
-        confirmDismiss: (_) async {
-          widget.onDelete(); // Llama al callback externo
-          return true; // Confirma el dismiss
-        },
+          clipBehavior: Clip.antiAlias, // Para que el Dismissible no sobresalga
 
-        // Contenido de la tarjeta
-        child: MouseRegion(
-          cursor: SystemMouseCursors.click,
-          child: ColoredBox(
-            color: scheme.onSecondary,
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(9, 12, 20, 12),
+          // Swipe para marcar como leída (con Deshacer)
+          child: Dismissible(
+            key: ValueKey('res-${widget.id}'), // Clave única para cada reserva
+            direction: DismissDirection.endToStart, // Dirección del swipe
+            // No usamos start-to-end
+            background: const SizedBox(),
+            // Fondo del swipe end-to-start
+            secondaryBackground: Container(
+              alignment: Alignment.centerRight,
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              color: scheme.error.withValues(alpha: 0.75),
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  // Icono de estado de la reserva
-                  Container(
-                  alignment: Alignment.centerLeft, // Alineación a la izquierda
-                  child: Icon(icon, color: iconColor, size: 30),
+                  Text(
+                    'Eliminar',
+                    style: TextStyle(
+                      color: scheme.onSecondary,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                  const SizedBox(width: 9),
-
-                  Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start, // Alineación a la izquierda
-                    children: [
-                      Row(
-                        children: [
-                          // Fecha de reserva
-                          const SizedBox(width: 2),
-                          Icon(Icons.calendar_month, color: scheme.grey, size: 17),
-                          const SizedBox(width: 6),
-                          Text(
-                            dateFormatter(DateTime.parse(widget.startAt)),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: theme.textTheme.titleSmall?.copyWith(
-                              color: scheme.grey,
-                              // fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                              height: 1.2,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 6),
-
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            // Aula
-                            child: Row(
-                              children: [
-                              Icon(Icons.school, color: scheme.secondary, size: 19),
-                              const SizedBox(width: 6),
-                              Text(
-                                widget.room.name,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: theme.textTheme.titleMedium?.copyWith(
-                                  color: scheme.secondary,
-                                  fontSize: 17,
-                                  height: 1.2,
-                                ),
-                              ),
-                              ],
-                            ),
-                          ),
-                          // const SizedBox(width: 6),
-
-                          Row(
-                            children: [
-                              // Horas de reserva
-                              Icon(Icons.access_time_filled, color: scheme.secondary, size: 17),
-                              const SizedBox(width: 5),
-                              Text(
-                                timeReservation(DateTime.parse(widget.startAt), DateTime.parse(widget.endAt)),
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: theme.textTheme.titleMedium?.copyWith(
-                                  color: scheme.secondary,
-                                  fontSize: 17,
-                                  height: 1.2,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ]
-                      ),
-                      const SizedBox(height: 8),
-
-                      // Descripción
-                      Text(
-                        widget.reason,
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          color: scheme.darkGrey,
-                          height: 1.2,
-                        ),
-                      ),
-                    ],
-                  ),
-                  ),
+                  const SizedBox(width: 8),
+                  Icon(Icons.delete, color: scheme.onSecondary),
                 ],
+              ),
+            ),
+            confirmDismiss: (_) async {
+              widget.onDelete(); // Llama al callback externo
+              return true; // Confirma el dismiss
+            },
+
+            // Contenido de la tarjeta
+            child: ColoredBox(
+              color: scheme.onSecondary,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(11, 12, 13, 12),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    // Icono de estado de la reserva
+                    Container(
+                    alignment: Alignment.centerLeft, // Alineación a la izquierda
+                    child: Icon(icon, color: iconColor, size: 30),
+                    ),
+                    const SizedBox(width: 8),
+
+                    Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start, // Alineación a la izquierda
+                      children: [
+                        Row(
+                          children: [
+                            // Fecha de reserva
+                            const SizedBox(width: 2),
+                            Icon(Icons.calendar_today_outlined, color: scheme.darkGrey, size: 17),
+                            const SizedBox(width: 6),
+                            Text(
+                              dateFormatter(DateTime.parse(widget.startAt)),
+                              overflow: TextOverflow.ellipsis,
+                              style: theme.textTheme.bodyMedium?.copyWith(
+                                color: scheme.darkGrey,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 4),
+
+                        Row(
+                          children: [
+                            // Aula
+                            Icon(Icons.location_on_outlined, color: scheme.secondary, size: 19),
+                            const SizedBox(width: 3),
+                            Text(
+                              widget.room.name,
+                              overflow: TextOverflow.ellipsis,
+                              style: theme.textTheme.titleMedium?.copyWith(
+                                color: scheme.secondary,
+                                fontSize: 17,
+                              ),
+                            ),
+                            const SizedBox(width: 14),
+
+                            // Horas de reserva
+                            Icon(Icons.access_time, color: scheme.secondary, size: 19),
+                            const SizedBox(width: 6),
+                            Text(
+                              timeReservation(DateTime.parse(widget.startAt), DateTime.parse(widget.endAt)),
+                              overflow: TextOverflow.ellipsis,
+                              style: theme.textTheme.titleMedium?.copyWith(
+                                color: scheme.secondary,
+                                fontSize: 17,
+                              ),
+                            ),
+                          ]
+                        ),
+                        const SizedBox(height: 4),
+
+                        Row(
+                          children: [
+                          // Descripción
+                            const SizedBox(width: 2),
+                            Expanded(
+                              child: Text(
+                                widget.reason,
+                                style: theme.textTheme.bodyMedium?.copyWith(
+                                  color: scheme.onSurface,
+                                  height: 1.3,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

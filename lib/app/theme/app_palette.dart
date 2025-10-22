@@ -60,7 +60,7 @@ const appPaletteLight = AppPalette(
   onSecondary: Colors.white,
   tertiary: Color(0xFFBCD5F3),
   onTertiary: Colors.black,
-  primaryContainer: Color(0xFFF0F8FF),
+  primaryContainer: Color(0xFFF3F7FB),
   onPrimaryContainer: Colors.black,
   // surface: Color(0xFFF2F2F2),
   // onSurface: Colors.black,
@@ -73,10 +73,10 @@ const appPaletteLight = AppPalette(
   onError: Colors.white,
   darkGrey: Color(0xFF535353),
   grey: Color(0xFFA2A2A2),
-  lightGrey: Color.fromARGB(255, 199, 199, 199),
+  lightGrey: Color(0xFFC7C7C7),
   highlight: Color(0xFF1F3A5F),
   quatertiary: Color(0xFFB9D2ED),
-  titles: Color.fromARGB(255, 169, 201, 239),
+  titles: Color(0xFFA9C9EF),
 );
 
 /// Paleta para tema oscuro (ajusta los contrastes)
@@ -100,7 +100,7 @@ const appPaletteDark = AppPalette(
   onError: Colors.white,
   darkGrey: Color(0xFF535353),
   grey: Color(0xFFA2A2A2),
-  lightGrey: Color.fromARGB(255, 199, 199, 199),
+  lightGrey: Color(0xFFC7C7C7),
   highlight: Colors.white,
   quatertiary: Color(0xFFB9D2ED),
   titles: Color(0xFF535353),

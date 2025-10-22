@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 
-class AppScheduleCard extends StatelessWidget {
+class AppScheduleCard extends StatefulWidget {
   final String classroom;
   final String group;
   final String timeRange;
@@ -16,88 +16,125 @@ class AppScheduleCard extends StatelessWidget {
   });
 
   @override
+  State<AppScheduleCard> createState() => _AppScheduleCardState();
+}
+
+class _AppScheduleCardState extends State<AppScheduleCard> {
+  bool _isHover = false; // Estado de hover para cambiar el borde
+
+  @override
   Widget build(BuildContext context) {
     final theme  = Theme.of(context);
     final scheme = theme.colorScheme;
 
-    return Padding(
-      padding: const EdgeInsets.all(0),
-      child: Material(
-        color: scheme.onSecondary,
-        elevation: 2,
-        shadowColor: scheme.onPrimaryContainer.withValues(alpha: 0.3),
-        borderRadius: BorderRadius.circular(50),
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-          ),
-          child: Row(
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                  // Aula
-                  Text(
-                    classroom,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      color: scheme.secondary,
-                      // fontSize: 17,
-                      height: 1.3,
-                    ),
-                  ),
-                    const SizedBox(height: 2),
-                    // Grupo
-                    Text(
-                      group,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: theme.textTheme.bodyMedium?.copyWith(
-                        color: scheme.darkGrey,
-                        height: 1.2,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+    // Altura y Colores de sombreado (tenue / hover)
+    final Color baseShadow = scheme.onPrimaryContainer.withValues(alpha: 0.4);
+    final Color hoverShadow = scheme.onPrimaryContainer.withValues(alpha: 0.6);
+    final shadowColor = _isHover ? hoverShadow : baseShadow;
 
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    // Horario
-                    Text(
-                      timeRange,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: theme.textTheme.titleMedium?.copyWith(
-                        color: scheme.secondary,
-                        fontSize: 17,
-                        height: 1.3,
+    final double baseElevation = 1.5;
+    final double hoverElevation = 3.5;
+    final elevation = _isHover ? hoverElevation : baseElevation;
+
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHover = true),
+      onExit:  (_) => setState(() => _isHover = false),
+      // cursor: SystemMouseCursors.click,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 150), // Para animar suavemente el cambio del sombreado
+        curve: Curves.easeInOut,
+        child: Material(
+          color: scheme.onSecondary,
+          elevation: elevation,
+          shadowColor: shadowColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(40),
+            side: BorderSide(
+              color: scheme.grey.withValues(alpha: 0.2),
+              width: 0.6,
+            ),
+          ),
+          child: Container(
+            padding: const EdgeInsets.fromLTRB(20, 11, 20, 12),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Aula
+                      Row(
+                        children: [
+                          Icon(Icons.location_on_outlined, color: scheme.secondary, size: 19),
+                          const SizedBox(width: 3),
+                          Text(
+                            widget.classroom,
+                            overflow: TextOverflow.ellipsis,
+                            style: theme.textTheme.titleMedium?.copyWith(
+                              color: scheme.secondary,
+                              fontSize: 17.3,
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                    const SizedBox(height: 2),
-                    // Materia
-                    Text(
-                      subject,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: theme.textTheme.bodyMedium?.copyWith(
-                        color: scheme.darkGrey,
-                        height: 1.2,
+                      const SizedBox(height: 5),
+
+                      // Grupo
+                      Row(
+                        children: [
+                          Icon(Icons.school_outlined, color: scheme.darkGrey, size: 19),
+                          const SizedBox(width: 6),
+                          Text(
+                            widget.group,
+                            overflow: TextOverflow.ellipsis,
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              color: scheme.darkGrey,
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
+
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      // Horario
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Icon(Icons.access_time, color: scheme.secondary, size: 19),
+                          const SizedBox(width: 6),
+                          Text(
+                            widget.timeRange,
+                            overflow: TextOverflow.ellipsis,
+                            style: theme.textTheme.titleMedium?.copyWith(
+                              color: scheme.secondary,
+                              fontSize: 17.3,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 5),
+
+                      // Materia
+                      Text(
+                        widget.subject,
+                        overflow: TextOverflow.ellipsis,
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: scheme.darkGrey,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 }
-

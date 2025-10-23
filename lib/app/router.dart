@@ -5,8 +5,10 @@ import 'package:frontend_flutter_aulasegura/core/widgets/app_scaffold.dart';
 import 'package:frontend_flutter_aulasegura/features/home/presentation/pages/home_page.dart';
 import 'package:frontend_flutter_aulasegura/features/map/presentation/pages/map_page.dart';
 import 'package:frontend_flutter_aulasegura/features/reservations/presentation/pages/reservations_page.dart';
+import 'package:frontend_flutter_aulasegura/features/reservations/presentation/pages/create_reservation_page.dart';
 import 'package:frontend_flutter_aulasegura/features/schedules/presentation/pages/schedules_page.dart';
 import 'package:frontend_flutter_aulasegura/features/notifications/presentation/pages/notifications_page.dart';
+import 'package:frontend_flutter_aulasegura/core/utils/slide_from_right_page.dart';
 
 // GlobalKeys para estados de navegación
 final _rootNavigatorKey = GlobalKey<NavigatorState>(); // Clave global del router
@@ -116,6 +118,15 @@ class AppRouter {
         ],
       ),
 
+        // Ruta fullscreen fuera del ShellRoute
+        GoRoute(
+          name: 'reservation_create',
+          path: '/reservations/create',
+          parentNavigatorKey: _rootNavigatorKey, // Usamos el root navigator
+          // builder: (_, _) => const CreateReservationPage(),
+          pageBuilder: (context, state) => slideFromRightPage(const CreateReservationPage(), state),
+        ),
+
         /// Ejemplo con params
         // GoRoute(
         //   path: '/fruits/:id',
@@ -145,4 +156,3 @@ class AppRouter {
     );
   }
 }
-

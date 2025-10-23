@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:frontend_flutter_aulasegura/features/reservations/presentation/providers/event_schedule_providers.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_filter_selector.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_list.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_reservation_card.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_fab.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_fab_hide_on_scroll.dart';
+import 'package:frontend_flutter_aulasegura/features/reservations/presentation/pages/create_reservation_page.dart';
 
 class ReservationsPage extends ConsumerStatefulWidget {
   const ReservationsPage({super.key});
@@ -148,9 +150,9 @@ class _ReservationsPageState extends ConsumerState<ReservationsPage> {
           size: AppFabSize.md,
           icon: Icons.add,
           heroTag: 'reservations-fab',
-          tooltip: 'Añadir reserva',
+          tooltip: 'Solicitar reserva',
           onPressed: () {
-            // acción al pulsar el FAB
+            context.push('/reservations/create');
           },
         ),
       ),

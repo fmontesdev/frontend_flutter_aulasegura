@@ -40,3 +40,4 @@
 [Equatable 2.0.7](https://pub.dev/packages/equatable) → comparación de objetos por valor (útil en estados).  
 [Intl 0.20.2](https://pub.dev/packages/intl) → internacionalización y formatos (fechas, números, traducciones).  
 [Flutter Lints 6.0.0](https://pub.dev/packages/flutter_lints) → reglas de estilo y buenas prácticas.  
+[Table Calendar 3.2.0](https://pub.dev/packages/table_calendar) → widget de calendario personalizable.  

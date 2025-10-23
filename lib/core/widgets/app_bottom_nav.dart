@@ -71,13 +71,13 @@ class _AppBottomNavState extends ConsumerState<AppBottomNav> {
           backgroundColor: backgroundColor,
           isLabelVisible: countReservations > 0,
           label: Text(badgeTextRes),
-          child: const Icon(Icons.add_circle_outline_outlined),
+          child: const Icon(Icons.edit_calendar_outlined),
         ),
         selectedIcon: Badge(
           backgroundColor: backgroundColor,
           isLabelVisible: countReservations > 0,
           label: Text(badgeTextRes),
-          child: const Icon(Icons.add_circle),
+          child: const Icon(Icons.edit_calendar),
         ),
         label: 'Reservas'
       ),

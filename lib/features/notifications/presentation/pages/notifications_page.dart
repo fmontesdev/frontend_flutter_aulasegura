@@ -136,6 +136,7 @@ class _NotificationsPageState extends ConsumerState<NotificationsPage> {
                       // Lista
                       Expanded(
                         child: AppList(
+                          type: 'notifications',
                           items: filtered,
                           itemBuilder: (item) => AppNotificationCard(
                             id: item.id,

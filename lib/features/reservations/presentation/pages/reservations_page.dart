@@ -116,6 +116,7 @@ class _ReservationsPageState extends ConsumerState<ReservationsPage> {
                       // Lista
                       Expanded(
                         child: AppList(
+                          type: 'reservations',
                           items: filtered,
                           itemBuilder: (item) => AppReservationCard(
                             id: item.id,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:frontend_flutter_aulasegura/features/auth/presentation/providers/auth_providers.dart';
-import 'package:frontend_flutter_aulasegura/features/home/presentation/providers/weekly_schedule_providers.dart';
+import 'package:frontend_flutter_aulasegura/features/schedules/presentation/providers/weekly_schedule_providers.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_welcome_card.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_button.dart';
@@ -119,6 +119,7 @@ class HomePage extends ConsumerWidget {
                     error: (error, stack) => Center(child: Text('Error cargando horarios: $error')),
                     data: (weeklySchedules) {
                       return AppList(
+                        type: 'schedules',
                         items: weeklySchedules.where((s) => s.dayOfWeek == dayOfTheWeek()).toList(),
                         itemBuilder: (item) => AppScheduleCard(
                           classroom: item.room.name,

@@ -4,6 +4,8 @@ import 'package:frontend_flutter_aulasegura/features/reservations/presentation/p
 import 'package:frontend_flutter_aulasegura/core/widgets/app_filter_selector.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_list.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_reservation_card.dart';
+import 'package:frontend_flutter_aulasegura/core/widgets/app_fab.dart';
+import 'package:frontend_flutter_aulasegura/core/widgets/app_fab_hide_on_scroll.dart';
 
 class ReservationsPage extends ConsumerStatefulWidget {
   const ReservationsPage({super.key});
@@ -137,6 +139,19 @@ class _ReservationsPageState extends ConsumerState<ReservationsPage> {
               ),
             ),
           ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: AppFabHideOnScroll(
+        child: AppFab(
+          variant: AppFabVariant.secondary,
+          size: AppFabSize.md,
+          icon: Icons.add,
+          heroTag: 'reservations-fab',
+          tooltip: 'Añadir reserva',
+          onPressed: () {
+            // acción al pulsar el FAB
+          },
         ),
       ),
     );

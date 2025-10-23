@@ -49,68 +49,89 @@ class HomePage extends ConsumerWidget {
                   role: convertRole(authUser.role.name),
                   avatar: 'assets/images/${authUser.avatar}', //! Convertir a URL de la API
                 ),
-                const SizedBox(height: 18),
+                const SizedBox(height: 16),
 
-                // Título “Acceder al aula”
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      'Acceso',
-                      textAlign: TextAlign.center,
-                      style: text.titleLarge?.copyWith(
-                        fontSize: 21,
-                        color: scheme.titles,
-                        height: 0.9,
-                      ),
+                // Card de acceso al aula
+                Material(
+                  color: scheme.onSecondary,
+                  elevation: 1.5,
+                  shadowColor: scheme.onPrimaryContainer.withValues(alpha: 0.4),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(40),
+                    side: BorderSide(
+                      color: scheme.grey.withValues(alpha: 0.2),
+                      width: 0.6,
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 13),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        // Botón NFC
+                        Column(
+                          children: [
+                            Text(
+                              'Acceso por NFC',
+                              textAlign: TextAlign.center,
+                              style: text.bodyMedium?.copyWith(
+                                color: scheme.grey,
+                                // fontWeight: FontWeight.w500
+                              ),
+                            ),
+                            const SizedBox(height: 7),
+                            AppButton(
+                              icon: Icons.nfc_rounded,
+                              onPressed: () {},
+                              size: AppButtonSize.xl,
+                              variant: AppButtonVariant.secondary,
+                              isCircular: true,
+                            ),
+                          ],
+                        ),
+                        // Botón QR
+                        Column(
+                          children: [
+                            Text(
+                              'Acceso por QR',
+                              textAlign: TextAlign.center,
+                              style: text.bodyMedium?.copyWith(
+                                color: scheme.grey,
+                                // fontWeight: FontWeight.w500
+                              ),
+                            ),
+                            const SizedBox(height: 7),
+                            AppButton(
+                              icon: Icons.qr_code,
+                              onPressed: () {},
+                              size: AppButtonSize.xl,
+                              variant: AppButtonVariant.secondary,
+                              isCircular: true,
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
                 ),
-                // const SizedBox(height: 12),
-
-                // Botones NFC + QR
-                Row(
-                  children: [
-                    Expanded(
-                      child: AppButton(
-                        icon: Icons.nfc_rounded,
-                        onPressed: () {},
-                        size: AppButtonSize.xl,
-                        variant: AppButtonVariant.secondary,
-                        isCircular: true,
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: AppButton(
-                        icon: Icons.qr_code,
-                        onPressed: () {},
-                        size: AppButtonSize.xl,
-                        variant: AppButtonVariant.secondary,
-                        isCircular: true,
-                      ),
-                    ),
-                  ],
-                ),
-                // const SizedBox(height: 18),
+                const SizedBox(height: 8),
 
                 // Título “Hoy”
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  padding: const EdgeInsets.symmetric(horizontal: 22),
                   child: Align(
-                    alignment: Alignment.center,
+                    alignment: Alignment.centerLeft,
                     child: Text(
                       'Hoy',
                       textAlign: TextAlign.center,
-                      style: text.titleLarge?.copyWith(
-                        fontSize: 21,
+                      style: text.titleMedium?.copyWith(
                         color: scheme.titles,
+                        fontWeight: FontWeight.w500
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 8),
 
                 // Horarios
                 Expanded(

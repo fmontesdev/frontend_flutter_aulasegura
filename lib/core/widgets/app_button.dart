@@ -78,7 +78,7 @@ class AppButton extends StatelessWidget {
       onPressed: onPressed,
       child: label != null && icon == null
           ? Text(label!)
-          : Icon(icon, size: 105)
+          : Icon(icon, size: 62)
     );
   }
 }

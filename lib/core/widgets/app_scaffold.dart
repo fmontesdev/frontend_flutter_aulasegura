@@ -45,6 +45,7 @@ class _AppScaffoldState extends State<AppScaffold> {
         foregroundColor: scheme.onPrimary,
         elevation: 0.5,
         toolbarHeight: 42,
+        // Franja inferior con título de sección y botón de perfil
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(44), // Alto de la franja inferior
           child: Container(
@@ -59,7 +60,10 @@ class _AppScaffoldState extends State<AppScaffold> {
                     _page,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: theme.textTheme.headlineSmall?.copyWith(color: scheme.onPrimary),
+                    style: theme.textTheme.titleLarge?.copyWith(
+                      color: scheme.onPrimary,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
                 Align(
@@ -67,7 +71,8 @@ class _AppScaffoldState extends State<AppScaffold> {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      IconButton( // Perfil
+                      // Perfil
+                      IconButton(
                         icon: Transform.translate(
                           offset: const Offset(0, -3),
                           child: CircleAvatar(
@@ -78,10 +83,10 @@ class _AppScaffoldState extends State<AppScaffold> {
                           ),
                         ),
                         onPressed: () {
-                          setState(() {
-                            _page = 'Perfil';
-                            _isOverlayPage = true;
-                          });
+                          // setState(() {
+                          //   _page = 'Perfil';
+                          //   _isOverlayPage = true;
+                          // });
                           /* Ir a perfil */
                           Navigator.of(context).push(
                             MaterialPageRoute(

@@ -76,7 +76,7 @@ const appPaletteLight = AppPalette(
   lightGrey: Color(0xFFC7C7C7),
   highlight: Color(0xFF1F3A5F),
   quatertiary: Color(0xFFB9D2ED),
-  titles: Color(0xFFA9C9EF),
+  titles: Color(0xFF99BCE6),
 );
 
 /// Paleta para tema oscuro (ajusta los contrastes)

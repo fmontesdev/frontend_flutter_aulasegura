@@ -4,7 +4,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 1,
     'start_time': '08:15',
     'end_time': '09:10',
-    'room': { 'room_id': 3, 'name': 'Aula 71', 'course': { 'course_id': 1, 'name': '1º DAM' } },
+    'room': { 'room_id': 58, 'room_code': '58', 'name': 'Aula', 'course': { 'course_id': 1, 'name': '1º DAM' } },
     'subject': { 'subject_id': 4, 'name': 'Programación' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -13,7 +13,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 1,
     'start_time': '09:10',
     'end_time': '10:05',
-    'room': { 'room_id': 3, 'name': 'Aula 71', 'course': { 'course_id': 1, 'name': '1º DAM' } },
+    'room': { 'room_id': 58, 'room_code': '58', 'name': 'Aula', 'course': { 'course_id': 1, 'name': '1º DAM' } },
     'subject': { 'subject_id': 4, 'name': 'Programación' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -22,7 +22,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 1,
     'start_time': '10:05',
     'end_time': '11:00',
-    'room': { 'room_id': 2, 'name': 'Laboratorio 2', 'course': { 'course_id': 1, 'name': '1º DAM' } },
+    'room': { 'room_id': 58, 'room_code': '58', 'name': 'Aula', 'course': { 'course_id': 1, 'name': '1º DAM' } },
     'subject': { 'subject_id': 5, 'name': 'Bases de Datos' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -31,7 +31,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 1,
     'start_time': '11:30',
     'end_time': '12:25',
-    'room': { 'room_id': 1, 'name': 'Aula 65', 'course': { 'course_id': 2, 'name': '2º DAM' } },
+    'room': { 'room_id': 56, 'room_code': '56', 'name': 'Aula', 'course': { 'course_id': 2, 'name': '2º DAW' } },
     'subject': { 'subject_id': 1, 'name': 'Desarrollo de interfaces' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -40,7 +40,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 1,
     'start_time': '12:25',
     'end_time': '13:20',
-    'room': { 'room_id': 1, 'name': 'Aula 65', 'course': { 'course_id': 2, 'name': '2º DAM' } },
+    'room': { 'room_id': 56, 'room_code': '56', 'name': 'Aula', 'course': { 'course_id': 2, 'name': '2º DAW' } },
     'subject': { 'subject_id': 1, 'name': 'Desarrollo de interfaces' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -49,7 +49,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 1,
     'start_time': '13:20',
     'end_time': '14:15',
-    'room': { 'room_id': 2, 'name': 'Laboratorio 2', 'course': { 'course_id': 2, 'name': '2º DAM' } },
+    'room': { 'room_id': 65, 'room_code': '65', 'name': 'Aula', 'course': { 'course_id': 2, 'name': '2º DAM' } },
     'subject': { 'subject_id': 2, 'name': 'Acceso a Datos' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -59,7 +59,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 2,
     'start_time': '08:15',
     'end_time': '09:10',
-    'room': { 'room_id': 2, 'name': 'Laboratorio 2', 'course': { 'course_id': 1, 'name': '1º DAM' } },
+    'room': { 'room_id': 58, 'room_code': '58', 'name': 'Aula', 'course': { 'course_id': 1, 'name': '1º DAM' } },
     'subject': { 'subject_id': 5, 'name': 'Bases de Datos' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -68,7 +68,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 2,
     'start_time': '09:10',
     'end_time': '10:05',
-    'room': { 'room_id': 2, 'name': 'Laboratorio 2', 'course': { 'course_id': 1, 'name': '1º DAM' } },
+    'room': { 'room_id': 58, 'room_code': '58', 'name': 'Aula', 'course': { 'course_id': 1, 'name': '1º DAM' } },
     'subject': { 'subject_id': 5, 'name': 'Bases de Datos' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -77,7 +77,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 2,
     'start_time': '10:05',
     'end_time': '11:00',
-    'room': { 'room_id': 3, 'name': 'Aula 71', 'course': { 'course_id': 1, 'name': '1º DAM' } },
+    'room': { 'room_id': 58, 'room_code': '58', 'name': 'Aula', 'course': { 'course_id': 1, 'name': '1º DAM' } },
     'subject': { 'subject_id': 4, 'name': 'Programación' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -86,7 +86,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 2,
     'start_time': '11:30',
     'end_time': '12:25',
-    'room': { 'room_id': 2, 'name': 'Laboratorio 2', 'course': { 'course_id': 2, 'name': '2º DAM' } },
+    'room': { 'room_id': 65, 'room_code': '65', 'name': 'Aula', 'course': { 'course_id': 2, 'name': '2º DAM' } },
     'subject': { 'subject_id': 2, 'name': 'Acceso a Datos' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -95,7 +95,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 2,
     'start_time': '12:25',
     'end_time': '13:20',
-    'room': { 'room_id': 2, 'name': 'Laboratorio 2', 'course': { 'course_id': 2, 'name': '2º DAM' } },
+    'room': { 'room_id': 65, 'room_code': '65', 'name': 'Aula', 'course': { 'course_id': 2, 'name': '2º DAM' } },
     'subject': { 'subject_id': 2, 'name': 'Acceso a Datos' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -104,7 +104,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 2,
     'start_time': '13:20',
     'end_time': '14:15',
-    'room': { 'room_id': 2, 'name': 'Laboratorio 2', 'course': { 'course_id': 2, 'name': '2º DAM' } },
+    'room': { 'room_id': 65, 'room_code': '65', 'name': 'Aula', 'course': { 'course_id': 2, 'name': '2º DAM' } },
     'subject': { 'subject_id': 3, 'name': 'Programación Multimedia y de Dispositivos Móviles' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -114,7 +114,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 3,
     'start_time': '08:15',
     'end_time': '09:10',
-    'room': { 'room_id': 3, 'name': 'Aula 71', 'course': { 'course_id': 1, 'name': '1º DAM' } },
+    'room': { 'room_id': 58, 'room_code': '58', 'name': 'Aula', 'course': { 'course_id': 1, 'name': '1º DAM' } },
     'subject': { 'subject_id': 4, 'name': 'Programación' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -123,7 +123,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 3,
     'start_time': '09:10',
     'end_time': '10:05',
-    'room': { 'room_id': 3, 'name': 'Aula 71', 'course': { 'course_id': 1, 'name': '1º DAM' } },
+    'room': { 'room_id': 58, 'room_code': '58', 'name': 'Aula', 'course': { 'course_id': 1, 'name': '1º DAM' } },
     'subject': { 'subject_id': 4, 'name': 'Programación' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -132,7 +132,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 3,
     'start_time': '10:05',
     'end_time': '11:00',
-    'room': { 'room_id': 2, 'name': 'Laboratorio 2', 'course': { 'course_id': 1, 'name': '1º DAM' } },
+    'room': { 'room_id': 58, 'room_code': '58', 'name': 'Aula', 'course': { 'course_id': 1, 'name': '1º DAM' } },
     'subject': { 'subject_id': 5, 'name': 'Bases de Datos' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -141,7 +141,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 3,
     'start_time': '11:30',
     'end_time': '12:25',
-    'room': { 'room_id': 1, 'name': 'Aula 65', 'course': { 'course_id': 2, 'name': '2º DAM' } },
+    'room': { 'room_id': 56, 'room_code': '56', 'name': 'Aula', 'course': { 'course_id': 2, 'name': '2º DAW' } },
     'subject': { 'subject_id': 1, 'name': 'Desarrollo de interfaces' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -150,7 +150,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 3,
     'start_time': '12:25',
     'end_time': '13:20',
-    'room': { 'room_id': 1, 'name': 'Aula 65', 'course': { 'course_id': 2, 'name': '2º DAM' } },
+    'room': { 'room_id': 56, 'room_code': '56', 'name': 'Aula', 'course': { 'course_id': 2, 'name': '2º DAW' } },
     'subject': { 'subject_id': 1, 'name': 'Desarrollo de interfaces' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -159,7 +159,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 3,
     'start_time': '13:20',
     'end_time': '14:15',
-    'room': { 'room_id': 2, 'name': 'Laboratorio 2', 'course': { 'course_id': 2, 'name': '2º DAM' } },
+    'room': { 'room_id': 65, 'room_code': '65', 'name': 'Aula', 'course': { 'course_id': 2, 'name': '2º DAM' } },
     'subject': { 'subject_id': 3, 'name': 'Programación Multimedia y de Dispositivos Móviles' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -169,7 +169,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 4,
     'start_time': '08:15',
     'end_time': '09:10',
-    'room': { 'room_id': 2, 'name': 'Laboratorio 2', 'course': { 'course_id': 2, 'name': '2º DAM' } },
+    'room': { 'room_id': 65, 'room_code': '65', 'name': 'Aula', 'course': { 'course_id': 2, 'name': '2º DAM' } },
     'subject': { 'subject_id': 2, 'name': 'Acceso a Datos' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -178,7 +178,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 4,
     'start_time': '09:10',
     'end_time': '10:05',
-    'room': { 'room_id': 2, 'name': 'Laboratorio 2', 'course': { 'course_id': 2, 'name': '2º DAM' } },
+    'room': { 'room_id': 65, 'room_code': '65', 'name': 'Aula', 'course': { 'course_id': 2, 'name': '2º DAM' } },
     'subject': { 'subject_id': 2, 'name': 'Acceso a Datos' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -187,7 +187,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 4,
     'start_time': '10:05',
     'end_time': '11:00',
-    'room': { 'room_id': 2, 'name': 'Laboratorio 2', 'course': { 'course_id': 2, 'name': '2º DAM' } },
+    'room': { 'room_id': 65, 'room_code': '65', 'name': 'Aula', 'course': { 'course_id': 2, 'name': '2º DAM' } },
     'subject': { 'subject_id': 3, 'name': 'Programación Multimedia y de Dispositivos Móviles' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -196,7 +196,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 4,
     'start_time': '11:30',
     'end_time': '12:25',
-    'room': { 'room_id': 3, 'name': 'Aula 71', 'course': { 'course_id': 1, 'name': '1º DAM' } },
+    'room': { 'room_id': 58, 'room_code': '58', 'name': 'Aula', 'course': { 'course_id': 1, 'name': '1º DAM' } },
     'subject': { 'subject_id': 4, 'name': 'Programación' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -205,7 +205,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 4,
     'start_time': '12:25',
     'end_time': '13:20',
-    'room': { 'room_id': 3, 'name': 'Aula 71', 'course': { 'course_id': 1, 'name': '1º DAM' } },
+    'room': { 'room_id': 58, 'room_code': '58', 'name': 'Aula', 'course': { 'course_id': 1, 'name': '1º DAM' } },
     'subject': { 'subject_id': 4, 'name': 'Programación' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -214,7 +214,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 4,
     'start_time': '13:20',
     'end_time': '14:15',
-    'room': { 'room_id': 2, 'name': 'Laboratorio 2', 'course': { 'course_id': 1, 'name': '1º DAM' } },
+    'room': { 'room_id': 58, 'room_code': '58', 'name': 'Aula', 'course': { 'course_id': 1, 'name': '1º DAM' } },
     'subject': { 'subject_id': 5, 'name': 'Bases de Datos' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -224,7 +224,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 5,
     'start_time': '08:15',
     'end_time': '09:10',
-    'room': { 'room_id': 1, 'name': 'Aula 65', 'course': { 'course_id': 2, 'name': '2º DAM' } },
+    'room': { 'room_id': 56, 'room_code': '56', 'name': 'Aula', 'course': { 'course_id': 2, 'name': '2º DAM' } },
     'subject': { 'subject_id': 1, 'name': 'Desarrollo de interfaces' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -233,7 +233,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 5,
     'start_time': '09:10',
     'end_time': '10:05',
-    'room': { 'room_id': 1, 'name': 'Aula 65', 'course': { 'course_id': 2, 'name': '2º DAM' } },
+    'room': { 'room_id': 56, 'room_code': '56', 'name': 'Aula', 'course': { 'course_id': 2, 'name': '2º DAM' } },
     'subject': { 'subject_id': 1, 'name': 'Desarrollo de interfaces' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -242,7 +242,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 5,
     'start_time': '10:05',
     'end_time': '11:00',
-    'room': { 'room_id': 2, 'name': 'Laboratorio 2', 'course': { 'course_id': 2, 'name': '2º DAM' } },
+    'room': { 'room_id': 65, 'room_code': '65', 'name': 'Aula', 'course': { 'course_id': 2, 'name': '2º DAM' } },
     'subject': { 'subject_id': 3, 'name': 'Programación Multimedia y de Dispositivos Móviles' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -251,7 +251,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 5,
     'start_time': '11:30',
     'end_time': '12:25',
-    'room': { 'room_id': 3, 'name': 'Aula 71', 'course': { 'course_id': 1, 'name': '1º DAM' } },
+    'room': { 'room_id': 58, 'room_code': '58', 'name': 'Aula', 'course': { 'course_id': 1, 'name': '1º DAM' } },
     'subject': { 'subject_id': 4, 'name': 'Programación' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -260,7 +260,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 5,
     'start_time': '12:25',
     'end_time': '13:20',
-    'room': { 'room_id': 2, 'name': 'Laboratorio 2', 'course': { 'course_id': 1, 'name': '1º DAM' } },
+    'room': { 'room_id': 58, 'room_code': '58', 'name': 'Aula', 'course': { 'course_id': 1, 'name': '1º DAM' } },
     'subject': { 'subject_id': 5, 'name': 'Bases de Datos' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
@@ -269,7 +269,7 @@ const List<Map<String, dynamic>> weeklySchedules = [
     'day_of_week': 5,
     'start_time': '13:20',
     'end_time': '14:15',
-    'room': { 'room_id': 2, 'name': 'Laboratorio 2', 'course': { 'course_id': 2, 'name': '2º DAM' } },
+    'room': { 'room_id': 65, 'room_code': '65', 'name': 'Aula', 'course': { 'course_id': 2, 'name': '2º DAM' } },
     'subject': { 'subject_id': 3, 'name': 'Programación Multimedia y de Dispositivos Móviles' },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   }

@@ -163,7 +163,7 @@ class _AppReservationCardState extends ConsumerState<AppReservationCard> {
                             Icon(Icons.location_on_outlined, color: scheme.secondary, size: 19),
                             const SizedBox(width: 3),
                             Text(
-                              widget.room.name,
+                              '${widget.room.name} ${widget.room.roomCode}',
                               overflow: TextOverflow.ellipsis,
                               style: theme.textTheme.titleMedium?.copyWith(
                                 color: scheme.secondary,

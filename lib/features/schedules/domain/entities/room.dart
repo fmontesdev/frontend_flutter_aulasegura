@@ -3,18 +3,20 @@ import 'package:frontend_flutter_aulasegura/features/schedules/domain/entities/c
 
 class Room extends Equatable {
   final int id;
-  final String? roomCode;
+  final String roomCode;
   final String name;
   final Course? course;
   final int? capacity;
+  final String? building;
   final String? floor;
 
   const Room({
     required this.id,
-    this.roomCode,
+    required this.roomCode,
     required this.name,
     this.course,
     this.capacity,
+    this.building,
     this.floor,
   });
 
@@ -24,6 +26,7 @@ class Room extends Equatable {
     String? name,
     Course? course,
     int? capacity,
+    String? building,
     String? floor,
   }) => Room(
     id: id ?? this.id,
@@ -31,9 +34,10 @@ class Room extends Equatable {
     name: name ?? this.name,
     course: course ?? this.course,
     capacity: capacity ?? this.capacity,
+    building: building ?? this.building,
     floor: floor ?? this.floor,
   );
 
   @override
-  List<Object?> get props => [id, roomCode, name, course, capacity, floor];
+  List<Object?> get props => [id, roomCode, name, course, capacity, building, floor];
 }

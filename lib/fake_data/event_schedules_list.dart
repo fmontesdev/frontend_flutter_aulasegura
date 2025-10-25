@@ -7,7 +7,7 @@ const List<Map<String, dynamic>> eventSchedules = [
     'status': 'approved',
     'reason': 'Reserva de aula para examen de Frontend de 2º DAW',
     'created_at': '2025-10-15T09:10:00',
-    'room': { 'room_id': 3, 'name': 'Aula 71', 'course': { 'course_id': 1, 'name': '1º DAM' } },
+    'room': { 'room_id': 80, 'room_code': '80', 'name': 'Aula', 'course': { 'course_id': 1, 'name': '1º DAM' } },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
   {
@@ -18,7 +18,7 @@ const List<Map<String, dynamic>> eventSchedules = [
     'status': 'approved',
     'reason': 'Reserva de aula para taller de programación',
     'created_at': '2025-10-20T14:00:00',
-    'room': { 'room_id': 1, 'name': 'Aula 65', 'course': { 'course_id': 2, 'name': '2º DAM' } },
+    'room': { 'room_id': 10, 'room_code': '10', 'name': 'Aula', 'course': { 'course_id': 2, 'name': '2º DAM' } },
     'user_id': '6f6dad61-1bba-41b8-bb62-7a8b5ed9cfe5',
   },
   {
@@ -29,7 +29,7 @@ const List<Map<String, dynamic>> eventSchedules = [
     'status': 'approved',
     'reason': 'Reserva de aula para reunión de proyecto',
     'created_at': '2025-10-21T10:00:00',
-    'room': { 'room_id': 2, 'name': 'Laboratorio 2', 'course': { 'course_id': 6, 'name': '1º SMIX' } },
+    'room': { 'room_id': 78, 'room_code': '78', 'name': 'Aula', 'course': { 'course_id': 6, 'name': '1º SMIX' } },
     'user_id': '2b2fdf27-7aad-4b91-bb3d-20e9b8c773d1',
   },
   {
@@ -40,7 +40,7 @@ const List<Map<String, dynamic>> eventSchedules = [
     'status': 'pending',
     'reason': 'Reserva de aula para clase de refuerzo',
     'created_at': '2025-10-22T08:00:00',
-    'room': { 'room_id': 4, 'name': 'Aula 52', 'course': { 'course_id': 3, 'name': '1º DAW' } },
+    'room': { 'room_id': 79, 'room_code': '79', 'name': 'Aula', 'course': { 'course_id': 3, 'name': '1º DAW' } },
     'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
   },
   {
@@ -49,9 +49,9 @@ const List<Map<String, dynamic>> eventSchedules = [
     'start_at': '2025-11-06T13:00:00',
     'end_at': '2025-11-06T15:00:00',
     'status': 'approved',
-    'reason': 'Reserva de aula para práctica de laboratorio',
+    'reason': 'Reserva de aula para práctica de informática',
     'created_at': '2025-10-23T11:00:00',
-    'room': { 'room_id': 5, 'name': 'Aula 20', 'course': { 'course_id': 4, 'name': '1º AFI' } },
+    'room': { 'room_id': 66, 'room_code': '66', 'name': 'Taller', 'course': { 'course_id': 4, 'name': '1º AFI' } },
     'user_id': '6f6dad61-1bba-41b8-bb62-7a8b5ed9cfe5',
   },
   {
@@ -62,7 +62,7 @@ const List<Map<String, dynamic>> eventSchedules = [
     'status': 'approved',
     'reason': 'Reserva de aula para presentación de proyecto',
     'created_at': '2025-10-25T12:00:00',
-    'room': { 'room_id': 6, 'name': 'Aula 45', 'course': { 'course_id': 5, 'name': '2º SMIX' } },
+    'room': { 'room_id': 9, 'room_code': '9', 'name': 'Aula', 'course': { 'course_id': 5, 'name': '2º SMIX' } },
     'user_id': '2b2fdf27-7aad-4b91-bb3d-20e9b8c773d1',
   },
 ];

@@ -40,7 +40,7 @@ class EventScheduleNotifier extends AsyncNotifier<List<EventSchedule>> {
       return <EventSchedule>[];
     }
     // Carga inicial de reservas del usuario autenticado
-    return eventScheduleUseCases.getEventSchedulesByUserId(user.id);
+    return await eventScheduleUseCases.getEventSchedulesByUserId(user.id);
   }
 
   /// Elimina una reserva por su ID

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:frontend_flutter_aulasegura/app/router.dart';
@@ -11,6 +12,8 @@ const kClaveNotificaciones = 'notificaciones';
 Future<void> main() async {
   // Asegura que los widgets estén inicializados
   WidgetsFlutterBinding.ensureInitialized();
+  // Inicializa la localización para 'es_ES'
+  await initializeDateFormatting('es_ES', null);
 
   // Leemos la preferencia antes de arrancar la app
   final preferencias = await SharedPreferences.getInstance();
@@ -104,4 +107,3 @@ class _EstadoAplicacion extends State<MyApp> {
     );
   }
 }
-

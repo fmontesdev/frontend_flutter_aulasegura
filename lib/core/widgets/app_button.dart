@@ -35,28 +35,28 @@ class AppButton extends StatelessWidget {
     // Colores derivados del ColorScheme
     final (bg, fg) = switch (variant) {
       AppButtonVariant.primary => (scheme.primary, scheme.onPrimary),
-      AppButtonVariant.secondary => (scheme.secondary, scheme.onPrimary),
+      AppButtonVariant.secondary => (scheme.tertiary, scheme.onTertiary),
       AppButtonVariant.danger => (scheme.error, scheme.onError),
     };
 
     // Padding y texto por tamaño
     final (padding, textStyle) = switch (size) {
       AppButtonSize.sm => (
-          const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-          theme.textTheme.labelLarge?.copyWith(fontSize: 12, fontWeight: FontWeight.w600)
-        ),
+        const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        theme.textTheme.titleSmall,
+      ),
       AppButtonSize.md => (
-          const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-          theme.textTheme.labelLarge?.copyWith(fontSize: 14, fontWeight: FontWeight.w600)
-        ),
-        AppButtonSize.lg => (
-            const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            theme.textTheme.labelLarge?.copyWith(fontSize: 18, fontWeight: FontWeight.w600)
-          ),
+        const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+        theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w500),
+      ),
+      AppButtonSize.lg => (
+        const EdgeInsets.symmetric(horizontal: 18, vertical: 17),
+        theme.textTheme.titleLarge,
+      ),
       AppButtonSize.xl => (
-          const EdgeInsets.symmetric(horizontal: 26, vertical: 31),
-          theme.textTheme.labelLarge?.copyWith(fontSize: 22, fontWeight: FontWeight.w600)
-        ),
+        const EdgeInsets.symmetric(horizontal: 22, vertical: 22),
+        theme.textTheme.titleLarge?.copyWith(fontSize: 22)
+      ),
     };
 
     final resolvedBg = backgroundColorOverride ?? bg;
@@ -78,7 +78,7 @@ class AppButton extends StatelessWidget {
       onPressed: onPressed,
       child: label != null && icon == null
           ? Text(label!)
-          : Icon(icon, size: 62)
+          : Icon(icon, size: 82.5)
     );
   }
 }

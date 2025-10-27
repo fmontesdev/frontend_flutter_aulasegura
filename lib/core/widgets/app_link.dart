@@ -58,14 +58,14 @@ class _AppLinkState extends State<AppLink> {
         );
       case AppLinkSize.lg:
         return (
-          fontSize: 16.5,
+          fontSize: 18,
           underlineThickness: 0,
           padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10)
         );
       case AppLinkSize.md:
       default:
         return (
-          fontSize: 14,
+          fontSize: 15.5,
           underlineThickness: 0,
           padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8)
         );

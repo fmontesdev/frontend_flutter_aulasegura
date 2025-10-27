@@ -7,7 +7,6 @@ import 'package:frontend_flutter_aulasegura/core/widgets/app_list.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_reservation_card.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_fab.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_fab_hide_on_scroll.dart';
-import 'package:frontend_flutter_aulasegura/features/reservations/presentation/pages/create_reservation_page.dart';
 
 class ReservationsPage extends ConsumerStatefulWidget {
   const ReservationsPage({super.key});
@@ -61,7 +60,7 @@ class _ReservationsPageState extends ConsumerState<ReservationsPage> {
     return Scaffold(
       backgroundColor: scheme.primaryContainer,
       body: Padding(
-        padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
+        padding: const EdgeInsets.only(top: 18, left: 18, right: 18),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [

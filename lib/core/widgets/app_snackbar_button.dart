@@ -49,8 +49,8 @@ class AppSnackBarButton extends StatelessWidget {
           20.0,
         ),
       AppSnackBarButtonSize.md => (
-          const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-          theme.textTheme.labelLarge?.copyWith(fontSize: 14, fontWeight: FontWeight.w600),
+          const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          theme.textTheme.titleSmall,
           24.0,
         ),
       AppSnackBarButtonSize.lg => (
@@ -91,7 +91,7 @@ class AppSnackBarButton extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(50),
             ),
-            margin: const EdgeInsets.all(16),
+            margin: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
           ),
         );
       },
@@ -99,7 +99,7 @@ class AppSnackBarButton extends StatelessWidget {
       label: label != null ? Text(label!) : const SizedBox.shrink(),
       style: ButtonStyle(
         // Ocupa todo el ancho disponible y altura según el tamaño
-        minimumSize: WidgetStateProperty.all<Size>(const Size.fromHeight(46)),
+        minimumSize: WidgetStateProperty.all<Size>(const Size.fromHeight(42)),
         // Color de fondo
         backgroundColor: WidgetStateProperty.all<Color>(resolvedBg.withValues(alpha: 0.8)),
         // Efectos de overlay (hover, pressed, focused)

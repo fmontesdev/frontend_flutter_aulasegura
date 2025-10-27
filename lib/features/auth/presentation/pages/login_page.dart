@@ -123,7 +123,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                           controller: _emailCtrl,
                           validator: _validateEmail,
                         ),
-                        const SizedBox(height: 20),
+                        const SizedBox(height: 22),
 
                         // Password con toggle
                         AppTextFormField(

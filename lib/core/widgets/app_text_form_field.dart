@@ -112,13 +112,13 @@ class AppTextFormField extends StatelessWidget {
       case AppTextFieldVariant.email:
       case AppTextFieldVariant.password:
         return (
-          fill: scheme.tertiary,
-          borderEnabled: scheme.tertiary,
-          borderFocused: scheme.highlight,
+          fill: scheme.quatertiary,
+          borderEnabled: scheme.quatertiary,
+          borderFocused: scheme.onPrimary,
           icon: scheme.onPrimary,
           label: scheme.primary,
-          floatingLabel: scheme.highlight,
-          text: scheme.onTertiary,
+          floatingLabel: scheme.onPrimary,
+          text: scheme.onQuatertiary,
           hint: scheme.darkGrey,
         );
       case AppTextFieldVariant.number:
@@ -153,7 +153,8 @@ class AppTextFormField extends StatelessWidget {
 
     // estilo de texto del input (aplica override si llega)
     final inputTextStyle = (textTheme.bodyLarge ?? const TextStyle()).copyWith(
-      color: textColor ?? tone.text // si textColor == null, usa el de la variante
+      color: textColor ?? tone.text, // si textColor == null, usa el de la variante
+      fontSize: 17,
     );
 
     return FormField<String>(
@@ -189,21 +190,28 @@ class AppTextFormField extends StatelessWidget {
           style: inputTextStyle,
           decoration: InputDecoration(
             labelText: label ?? tokens.label,
+            labelStyle: (const TextStyle()).copyWith(
+              fontWeight: FontWeight.w500,
+              fontSize: 17,
+              color: labelColor ?? tone.label,
+            ),
             hintText: hintText ?? tokens.hintText,
             hintStyle: TextStyle(
               color: hintColor ?? tone.hint,
             ),
+            floatingLabelStyle: textTheme.titleMedium?.copyWith(
+              fontWeight: FontWeight.w500,
+              fontSize: 21,
+              color: floatingColor,
+            ),
             errorText: state.errorText,
+            errorStyle: TextStyle(
+              color: scheme.error,
+              fontSize: 14.5,
+              fontWeight: FontWeight.w600,
+            ),
             filled: true,
             fillColor: tone.fill,
-            labelStyle: (const TextStyle()).copyWith(
-              fontWeight: FontWeight.w500,
-              color: labelColor ?? tone.label,
-            ),
-            floatingLabelStyle: (const TextStyle()).copyWith(
-                fontWeight: FontWeight.w500,
-                color: floatingColor
-              ),
             hoverColor: scheme.highlight.withValues(alpha: 0.025),
             prefixIcon: (leadingIcon ?? tokens.icon) != null
               ? Icon(leadingIcon ?? tokens.icon, color: tone.icon)
@@ -217,25 +225,20 @@ class AppTextFormField extends StatelessWidget {
                 : null,
             contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
             enabledBorder: OutlineInputBorder(
-              borderRadius: const BorderRadius.all(Radius.circular(25)),
+              borderRadius: const BorderRadius.all(Radius.circular(40)),
               borderSide: BorderSide(color: tone.borderEnabled, width: 1),
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: const BorderRadius.all(Radius.circular(25)),
+              borderRadius: const BorderRadius.all(Radius.circular(40)),
               borderSide: BorderSide(color: tone.borderFocused, width: 1.6),
             ),
             errorBorder: OutlineInputBorder(
-              borderRadius: const BorderRadius.all(Radius.circular(25)),
+              borderRadius: const BorderRadius.all(Radius.circular(40)),
               borderSide: BorderSide(color: scheme.error, width: 1.2),
             ),
             focusedErrorBorder: OutlineInputBorder(
-              borderRadius: const BorderRadius.all(Radius.circular(25)),
+              borderRadius: const BorderRadius.all(Radius.circular(40)),
               borderSide: BorderSide(color: scheme.error, width: 1.6),
-            ),
-            errorStyle: TextStyle(
-              color: scheme.error,
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
             ),
           ),
         );

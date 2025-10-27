@@ -26,13 +26,13 @@ class HomePage extends ConsumerWidget {
     return Scaffold(
       backgroundColor: scheme.primaryContainer,
       body: Padding(
-        padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
+        padding: const EdgeInsets.only(top: 18, left: 18, right: 18),
         child: userAsync.when(
           loading: () => const Center(child: CircularProgressIndicator()),
           error: (error, stack) => Center(child: Text('Error de sesión: $error')),
           data: (authUser) {
             if (authUser == null) {
-              // No hay sesión → vuelve a login
+              // Si no hay sesión, vuelve al login
               Future.microtask(() {
                 if (context.mounted) GoRouter.of(context).go('/login');
               });
@@ -49,7 +49,7 @@ class HomePage extends ConsumerWidget {
                   role: convertRole(authUser.role.name),
                   avatar: 'assets/images/${authUser.avatar}', //! Convertir a URL de la API
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 18),
 
                 // Card de acceso al aula
                 Material(
@@ -63,8 +63,10 @@ class HomePage extends ConsumerWidget {
                       width: 0.6,
                     ),
                   ),
+
+                  // Card botones NFC / QR
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 13),
+                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -73,13 +75,11 @@ class HomePage extends ConsumerWidget {
                           children: [
                             Text(
                               'Acceso por NFC',
-                              textAlign: TextAlign.center,
                               style: text.bodyMedium?.copyWith(
                                 color: scheme.grey,
-                                // fontWeight: FontWeight.w500
                               ),
                             ),
-                            const SizedBox(height: 7),
+                            const SizedBox(height: 5),
                             AppButton(
                               icon: Icons.nfc_rounded,
                               onPressed: () {},
@@ -94,13 +94,11 @@ class HomePage extends ConsumerWidget {
                           children: [
                             Text(
                               'Acceso por QR',
-                              textAlign: TextAlign.center,
                               style: text.bodyMedium?.copyWith(
                                 color: scheme.grey,
-                                // fontWeight: FontWeight.w500
                               ),
                             ),
-                            const SizedBox(height: 7),
+                            const SizedBox(height: 5),
                             AppButton(
                               icon: Icons.qr_code,
                               onPressed: () {},
@@ -114,7 +112,7 @@ class HomePage extends ConsumerWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 11),
 
                 // Título “Hoy”
                 Padding(
@@ -123,15 +121,14 @@ class HomePage extends ConsumerWidget {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       'Hoy',
-                      textAlign: TextAlign.center,
-                      style: text.titleMedium?.copyWith(
+                      style: text.titleLarge?.copyWith(
                         color: scheme.titles,
                         fontWeight: FontWeight.w500
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 11),
 
                 // Horarios
                 Expanded(
@@ -143,7 +140,7 @@ class HomePage extends ConsumerWidget {
                         type: 'schedules',
                         items: weeklySchedules.where((s) => s.dayOfWeek == dayOfTheWeek()).toList(),
                         itemBuilder: (item) => AppScheduleCard(
-                          classroom: item.room.name,
+                          classroom: '${item.room.name} ${item.room.roomCode}',
                           group: item.room.course?.name ?? 'Sin grupo',
                           timeRange: '${item.startTime} - ${item.endTime}',
                           subject: item.subject?.name ?? 'Sin asignatura',

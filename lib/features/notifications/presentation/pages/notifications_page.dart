@@ -42,7 +42,7 @@ class _NotificationsPageState extends ConsumerState<NotificationsPage> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(50),
         ),
-        margin: const EdgeInsets.all(16),
+        margin: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
         action: SnackBarAction(
           label: 'Deshacer',
           onPressed: () => _notifier.markAsUnread(id),
@@ -59,7 +59,7 @@ class _NotificationsPageState extends ConsumerState<NotificationsPage> {
     return Scaffold(
       backgroundColor: scheme.primaryContainer,
       body: Padding(
-        padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
+        padding: const EdgeInsets.only(top: 18, left: 18, right: 18),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -121,7 +121,7 @@ class _NotificationsPageState extends ConsumerState<NotificationsPage> {
 
                       // Botón "Marcar todas como leídas"
                       if (pendingCount > 0) ...[
-                        const SizedBox(height: 10),
+                        const SizedBox(height: 12),
                         AppSnackBarButton(
                           variant: AppSnackBarButtonVariant.success,
                           size: AppSnackBarButtonSize.md,

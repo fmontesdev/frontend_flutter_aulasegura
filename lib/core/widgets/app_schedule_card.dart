@@ -55,7 +55,7 @@ class _AppScheduleCardState extends State<AppScheduleCard> {
             ),
           ),
           child: Container(
-            padding: const EdgeInsets.fromLTRB(20, 11, 20, 12),
+            padding: const EdgeInsets.fromLTRB(20, 12, 22, 12),
             child: Row(
               children: [
                 Expanded(
@@ -72,7 +72,6 @@ class _AppScheduleCardState extends State<AppScheduleCard> {
                             overflow: TextOverflow.ellipsis,
                             style: theme.textTheme.titleMedium?.copyWith(
                               color: scheme.secondary,
-                              fontSize: 17.3,
                             ),
                           ),
                         ],
@@ -82,13 +81,14 @@ class _AppScheduleCardState extends State<AppScheduleCard> {
                       // Grupo
                       Row(
                         children: [
-                          Icon(Icons.school_outlined, color: scheme.darkGrey, size: 19),
+                          Icon(Icons.school_outlined, color: scheme.grey, size: 19),
                           const SizedBox(width: 6),
                           Text(
                             widget.group,
                             overflow: TextOverflow.ellipsis,
                             style: theme.textTheme.bodyMedium?.copyWith(
-                              color: scheme.darkGrey,
+                              fontSize: 15.5,
+                              color: scheme.grey,
                             ),
                           ),
                         ],
@@ -112,7 +112,6 @@ class _AppScheduleCardState extends State<AppScheduleCard> {
                             overflow: TextOverflow.ellipsis,
                             style: theme.textTheme.titleMedium?.copyWith(
                               color: scheme.secondary,
-                              fontSize: 17.3,
                             ),
                           ),
                         ],
@@ -124,7 +123,8 @@ class _AppScheduleCardState extends State<AppScheduleCard> {
                         widget.subject,
                         overflow: TextOverflow.ellipsis,
                         style: theme.textTheme.bodyMedium?.copyWith(
-                          color: scheme.darkGrey,
+                          fontSize: 15.5,
+                          color: scheme.grey,
                         ),
                       ),
                     ],

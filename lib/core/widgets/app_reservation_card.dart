@@ -123,7 +123,7 @@ class _AppReservationCardState extends ConsumerState<AppReservationCard> {
             child: ColoredBox(
               color: scheme.onSecondary,
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(11, 12, 13, 12),
+                padding: const EdgeInsets.fromLTRB(12, 12, 16, 12),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -142,15 +142,13 @@ class _AppReservationCardState extends ConsumerState<AppReservationCard> {
                           children: [
                             // Fecha de reserva
                             const SizedBox(width: 2),
-                            Icon(Icons.calendar_today_outlined, color: scheme.darkGrey, size: 17),
+                            Icon(Icons.calendar_today_outlined, color: scheme.grey, size: 17),
                             const SizedBox(width: 6),
                             Text(
                               dateFormatter(DateTime.parse(widget.startAt)),
                               overflow: TextOverflow.ellipsis,
-                              style: theme.textTheme.bodyMedium?.copyWith(
-                                color: scheme.darkGrey,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w400,
+                              style: theme.textTheme.bodyLarge?.copyWith(
+                                color: scheme.grey,
                               ),
                             ),
                           ],
@@ -167,7 +165,6 @@ class _AppReservationCardState extends ConsumerState<AppReservationCard> {
                               overflow: TextOverflow.ellipsis,
                               style: theme.textTheme.titleMedium?.copyWith(
                                 color: scheme.secondary,
-                                fontSize: 17,
                               ),
                             ),
                             const SizedBox(width: 14),
@@ -180,7 +177,6 @@ class _AppReservationCardState extends ConsumerState<AppReservationCard> {
                               overflow: TextOverflow.ellipsis,
                               style: theme.textTheme.titleMedium?.copyWith(
                                 color: scheme.secondary,
-                                fontSize: 17,
                               ),
                             ),
                           ]

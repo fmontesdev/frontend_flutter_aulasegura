@@ -7,6 +7,8 @@ class AppPalette {
   final Color onSecondary;
   final Color tertiary;
   final Color onTertiary;
+  final Color quatertiary;
+  final Color onQuatertiary;
   final Color primaryContainer;
   final Color onPrimaryContainer;
   // final Color surface;
@@ -22,8 +24,8 @@ class AppPalette {
   final Color grey;
   final Color lightGrey;
   final Color highlight;
-  final Color quatertiary;
   final Color titles;
+  final Color card;
 
   const AppPalette({
     required this.primary,
@@ -32,6 +34,8 @@ class AppPalette {
     required this.onSecondary,
     required this.tertiary,
     required this.onTertiary,
+    required this.quatertiary,
+    required this.onQuatertiary,
     required this.primaryContainer,
     required this.onPrimaryContainer,
     // required this.surface,
@@ -47,19 +51,21 @@ class AppPalette {
     required this.grey,
     required this.lightGrey,
     required this.highlight,
-    required this.quatertiary,
     required this.titles,
+    required this.card,
   });
 }
 
 /// Paleta para tema claro
 const appPaletteLight = AppPalette(
-  primary: Color(0xFF1F3A5F),
+  primary: Color(0xFF182D73),
   onPrimary: Colors.white,
-  secondary: Color(0xFF3D78B8),
+  secondary: Color(0xFF306AC6),
   onSecondary: Colors.white,
-  tertiary: Color(0xFFBCD5F3),
-  onTertiary: Colors.black,
+  tertiary: Color(0xFF3B82F6),
+  onTertiary: Colors.white,
+  quatertiary: Color(0xFFABC7F5),
+  onQuatertiary: Colors.black,
   primaryContainer: Color(0xFFF3F7FB),
   onPrimaryContainer: Colors.black,
   // surface: Color(0xFFF2F2F2),
@@ -71,22 +77,25 @@ const appPaletteLight = AppPalette(
   onWarning: Colors.white,
   error: Color(0xFFDC2626),
   onError: Colors.white,
-  darkGrey: Color(0xFF535353),
-  grey: Color(0xFFA2A2A2),
-  lightGrey: Color(0xFFC7C7C7),
-  highlight: Color(0xFF1F3A5F),
-  quatertiary: Color(0xFFB9D2ED),
-  titles: Color(0xFF99BCE6),
+  darkGrey: Color(0xFF404040),
+  grey: Color(0xFF808080),
+  lightGrey: Color(0xFFD3D3D3),
+  highlight: Color(0xFF182D73),
+  titles: Color.fromARGB(255, 127, 172, 245),
+  // titles2: Color(0xFF99BCE6),
+  card: Color(0xFFFFFFFF),
 );
 
 /// Paleta para tema oscuro (ajusta los contrastes)
 const appPaletteDark = AppPalette(
-  primary: Color(0xFF1F3A5F),
+  primary: Color(0xFF182D73),
   onPrimary: Colors.white,
-  secondary: Color(0xFF3D78B8),
+  secondary: Color(0xFF306AC6),
   onSecondary: Color(0xFF262626),
-  tertiary: Color(0xFFBCD5F3),
+  tertiary: Color(0xFF3B82F6),
   onTertiary: Colors.black,
+  quatertiary: Color(0xFFABC7F5),
+  onQuatertiary: Colors.black,
   primaryContainer: Color(0xFF171717),
   onPrimaryContainer: Colors.white,
   // surface: Color(0xFF071A12),
@@ -98,12 +107,12 @@ const appPaletteDark = AppPalette(
   onWarning: Color(0xFF0B0B0B),
   error: Color(0xFFDC2626),
   onError: Colors.white,
-  darkGrey: Color(0xFF535353),
-  grey: Color(0xFFA2A2A2),
-  lightGrey: Color(0xFFC7C7C7),
+  darkGrey: Color(0xFF404040),
+  grey: Color(0xFF808080),
+  lightGrey: Color(0xFFD3D3D3),
   highlight: Colors.white,
-  quatertiary: Color(0xFFB9D2ED),
   titles: Color(0xFF535353),
+  card: Color(0xFF1E1E1E),
 );
 
 /// Devuelve la paleta adecuada según el brillo del tema activo.

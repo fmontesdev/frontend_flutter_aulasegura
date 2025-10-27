@@ -37,8 +37,8 @@ class AppWelcomeCard extends StatelessWidget {
           ClipOval(
             child: Image.asset(
               avatar,
-              width: 90,
-              height: 90,
+              width: 100,
+              height: 100,
               fit: BoxFit.cover,
               semanticLabel: 'Avatar Clara',
             ),
@@ -54,9 +54,8 @@ class AppWelcomeCard extends StatelessWidget {
                 Text(
                   date,
                   overflow: TextOverflow.ellipsis,
-                  style: theme.textTheme.bodyMedium?.copyWith(
+                  style: theme.textTheme.bodyLarge?.copyWith(
                     color: scheme.grey,
-                    fontSize: 15,
                   ),
                 ),
                 const SizedBox(height: 1),
@@ -64,7 +63,7 @@ class AppWelcomeCard extends StatelessWidget {
                 Text(
                   'Hola $name!',
                   overflow: TextOverflow.ellipsis,
-                  style: theme.textTheme.headlineMedium?.copyWith(
+                  style: theme.textTheme.headlineLarge?.copyWith(
                     color: scheme.secondary,
                   ),
                 ),
@@ -72,8 +71,9 @@ class AppWelcomeCard extends StatelessWidget {
                 // Rol
                 Text(
                   role,
-                  style: theme.textTheme.bodyMedium?.copyWith(
+                  style: theme.textTheme.bodyLarge?.copyWith(
                     color: scheme.darkGrey,
+                    // fontWeight: FontWeight.w500,
                   ),
                 ),
               ],

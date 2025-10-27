@@ -11,7 +11,7 @@ class AppFilterSelector extends StatelessWidget {
     required this.options,
     required this.selectedIndex,
     required this.onChanged,
-    this.height = 38,
+    this.height = 42,
   });
 
   @override
@@ -21,7 +21,7 @@ class AppFilterSelector extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: Material(
-        color: scheme.secondary.withValues(alpha: 0.15), // fondo “píldora”
+        color: scheme.secondary.withValues(alpha: 0.18), // Fondo “píldora”
         borderRadius: BorderRadius.circular(25),
           child: Row(
             children: List.generate(options.length, (i) {
@@ -37,7 +37,7 @@ class AppFilterSelector extends StatelessWidget {
                       height: height,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        color: selected ? scheme.secondary : Colors.transparent,
+                        color: selected ? scheme.secondary : Colors.transparent, // Fondo opción seleccionada
                         borderRadius: BorderRadius.circular(25),
                       ),
                       child: Text(
@@ -45,8 +45,10 @@ class AppFilterSelector extends StatelessWidget {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith( // Texto opción
                               color: selected ? scheme.onSecondary : scheme.onSurface,
+                              fontSize: 15.5,
+                              fontWeight: selected ? FontWeight.w500 : FontWeight.w400,
                             ),
                       ),
                     ),

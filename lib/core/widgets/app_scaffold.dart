@@ -44,7 +44,7 @@ class _AppScaffoldState extends State<AppScaffold> {
         backgroundColor: scheme.primary,
         foregroundColor: scheme.onPrimary,
         elevation: 0.5,
-        toolbarHeight: 42,
+        toolbarHeight: 32,
         // Franja inferior con título de sección y botón de perfil
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(44), // Alto de la franja inferior

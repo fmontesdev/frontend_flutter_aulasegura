@@ -125,7 +125,7 @@ class _AppNotificationCardState extends ConsumerState<AppNotificationCard> {
             child: ColoredBox(
               color: backgroundColor,
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(11, 12, 22, 12),
+                padding: const EdgeInsets.fromLTRB(12, 12, 22, 12),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -135,8 +135,8 @@ class _AppNotificationCardState extends ConsumerState<AppNotificationCard> {
                       child: Icon(
                       switch (widget.type) {
                         'access' => widget.title.contains('aprobado')
-                            ? Icons.lock_open
-                            : Icons.lock_outline,
+                          ? Icons.lock_open
+                          : Icons.lock_outline,
                         'warning' => Icons.warning_amber,
                         'alert' => Icons.error_outline,
                         _ => Icons.error_outline,
@@ -160,7 +160,6 @@ class _AppNotificationCardState extends ConsumerState<AppNotificationCard> {
                                   overflow: TextOverflow.ellipsis,
                                   style: theme.textTheme.titleMedium?.copyWith(
                                     color: titleColor,
-                                    fontSize: 17,
                                   ),
                                 ),
                               ),

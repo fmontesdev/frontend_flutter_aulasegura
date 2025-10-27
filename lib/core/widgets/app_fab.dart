@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 enum AppFabVariant { primary, secondary, danger }
-enum AppFabSize { sm, md, lg, xl }
+enum AppFabSize { sm, md, lg }
 
 class AppFab extends StatelessWidget {
   final AppFabVariant variant;
@@ -33,36 +33,42 @@ class AppFab extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
+    final text = theme.textTheme;
 
     // Colores derivados del ColorScheme
     final (bg, fg) = switch (variant) {
       AppFabVariant.primary => (scheme.primary, scheme.onPrimary),
-      AppFabVariant.secondary => (scheme.secondary, scheme.onPrimary),
+      AppFabVariant.secondary => (scheme.tertiary, scheme.onTertiary),
       AppFabVariant.danger => (scheme.error, scheme.onError),
-    };
-
-    // Padding y texto por tamaño
-    final (iconSize, internalPadding) = switch (size) {
-      AppFabSize.sm => (
-        24.0,
-        const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-      ),
-      AppFabSize.md => (
-        28.0,
-        const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-      ),
-      AppFabSize.lg => (
-        32.0,
-        const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-      ),
-      AppFabSize.xl => (
-        36.0,
-        const EdgeInsets.symmetric(horizontal: 26, vertical: 31),
-      ),
     };
 
     final resolvedBg = backgroundColorOverride ?? bg;
     final resolvedFg = foregroundColorOverride ?? fg;
+
+    // Icono, Texto y Padding según tamaño
+    final (iconSize, textStyle, horizontalPadding) = switch (size) {
+      AppFabSize.sm => (
+        28.0,
+        text.titleSmall?.copyWith(
+          color: resolvedFg,
+        ),
+        const EdgeInsets.only(left: 11, right: 20), // El padding vertical viene fijo en FloatingActionButton
+      ),
+      AppFabSize.md => (
+        32.0,
+        text.titleMedium?.copyWith(
+          color: resolvedFg,
+        ),
+        const EdgeInsets.only(left: 15, right: 24), // El padding vertical viene fijo en FloatingActionButton
+      ),
+      AppFabSize.lg => (
+        36.0,
+        text.titleLarge?.copyWith(
+          color: resolvedFg,
+        ),
+        const EdgeInsets.only(left: 19, right: 28), // El padding vertical viene fijo en FloatingActionButton
+      ),
+    };
 
     final bool isExtended = label != null && label!.isNotEmpty;
 
@@ -75,16 +81,11 @@ class AppFab extends StatelessWidget {
         hoverElevation: 3,
         backgroundColor: resolvedBg,
         foregroundColor: resolvedFg,
-        onPressed: onPressed,
         shape: const CircleBorder(),
+        onPressed: onPressed,
         child: Icon(icon, size: iconSize),
       );
     }
-
-    // FAB extendido (pill)
-    final textStyle = theme.textTheme.labelLarge?.copyWith(
-      fontWeight: FontWeight.w600,
-    );
 
     return Padding(
       padding: EdgeInsets.zero,
@@ -95,17 +96,10 @@ class AppFab extends StatelessWidget {
         hoverElevation: 3,
         backgroundColor: resolvedBg,
         foregroundColor: resolvedFg,
-        label: Padding(
-          padding: internalPadding,
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(icon, size: iconSize),
-              const SizedBox(width: 10),
-              Text(label!, style: textStyle),
-            ],
-          ),
-        ),
+        shape: const StadiumBorder(),
+        icon: Icon(icon, size: iconSize),
+        label: Text(label!, style: textStyle),
+        extendedPadding: horizontalPadding,
         onPressed: onPressed,
       ),
     );

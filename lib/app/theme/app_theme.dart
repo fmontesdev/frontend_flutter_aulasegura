@@ -5,22 +5,23 @@ class AppTheme {
   // ================== Tipografías ==================
 
   static final TextTheme _textTheme = const TextTheme(
-    displayLarge: TextStyle(fontSize: 54, fontWeight: FontWeight.w700),
+    displayLarge: TextStyle(fontSize: 62, fontWeight: FontWeight.w700),
     
     headlineLarge: TextStyle(fontSize: 28, fontWeight: FontWeight.w700),
     headlineMedium: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
-    headlineSmall: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
+    headlineSmall: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
 
     titleLarge: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
     titleMedium: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
     titleSmall: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
 
-    bodyLarge: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, height: 1.4),
-    bodyMedium: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, height: 1.4),
-    bodySmall: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, height: 1.4),
+    bodyLarge: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, height: 1.5),
+    bodyMedium: TextStyle(fontSize: 15, fontWeight: FontWeight.w400, height: 1.5),
+    bodySmall: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, height: 1.5),
 
-    labelLarge: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-    labelSmall: TextStyle(fontSize: 11, letterSpacing: 0.2),
+    labelLarge: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+    labelMedium: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+    labelSmall: TextStyle(fontSize: 11, letterSpacing: 0.2, fontWeight: FontWeight.w500),
     
   );
 
@@ -230,6 +231,14 @@ class AppTheme {
 /// Usa automáticamente la paleta light/dark según el tema activo.
 
 extension AppColorScheme on ColorScheme {
+  Color get quatertiary => brightness == Brightness.dark
+    ? appPaletteDark.quatertiary
+    : appPaletteLight.quatertiary;
+
+  Color get onQuatertiary => brightness == Brightness.dark
+      ? appPaletteDark.onQuatertiary
+      : appPaletteLight.onQuatertiary;
+
   Color get success => brightness == Brightness.dark
       ? appPaletteDark.success
       : appPaletteLight.success;
@@ -262,11 +271,11 @@ extension AppColorScheme on ColorScheme {
     ? appPaletteDark.highlight
     : appPaletteLight.highlight;
 
-  Color get quatertiary => brightness == Brightness.dark
-    ? appPaletteDark.quatertiary
-    : appPaletteLight.quatertiary;
-
   Color get titles => brightness == Brightness.dark
     ? appPaletteDark.titles
     : appPaletteLight.titles;
+
+  Color get card => brightness == Brightness.dark
+    ? appPaletteDark.card
+    : appPaletteLight.card;
 }

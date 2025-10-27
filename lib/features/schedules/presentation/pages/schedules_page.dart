@@ -13,7 +13,6 @@ class SchedulesPage extends ConsumerStatefulWidget {
 }
 
 class _SchedulesPageState extends ConsumerState<SchedulesPage> {
-  // int _selectedTypeIndex = 0;
   int _selectedDayIndex = 0;
 
   @override
@@ -25,7 +24,7 @@ class _SchedulesPageState extends ConsumerState<SchedulesPage> {
     return Scaffold(
       backgroundColor: scheme.primaryContainer,
       body: Padding(
-        padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
+        padding: const EdgeInsets.only(top: 18, left: 18, right: 18),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [

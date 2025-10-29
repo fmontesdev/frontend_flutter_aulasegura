@@ -1,0 +1,12 @@
+{
+  "salute": "Hello {userName}!",
+  "@saludo": {
+    "description": "Message (salute) with dynamic parameter (username)",
+    "placeholders": {
+      "userName": {
+        "type": "String",
+        "example": "Carla"
+      }
+    }
+  }
+}

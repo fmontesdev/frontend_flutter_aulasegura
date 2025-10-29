@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 import 'package:frontend_flutter_aulasegura/app/router.dart';
@@ -40,6 +42,19 @@ class MyApp extends ConsumerWidget {
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
       themeMode: darkMode! ? ThemeMode.dark : ThemeMode.light,
+      // Añade soporte para localizaciones
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('es'), // Spanish
+        const Locale('ca'), // Catalan
+        const Locale('en'), // English
+      ],
+      locale: Locale(language ?? 'es'),
       routerConfig: router,
     );
   }

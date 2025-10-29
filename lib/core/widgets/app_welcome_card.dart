@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
+import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
 
 class AppWelcomeCard extends StatelessWidget {
   final String date;
@@ -61,7 +62,8 @@ class AppWelcomeCard extends StatelessWidget {
                 const SizedBox(height: 1),
                 // Hola Nombre!
                 Text(
-                  'Hola $name!',
+                  // 'Hola $name!',
+                  AppLocalizations.of(context)!.salute(name),
                   overflow: TextOverflow.ellipsis,
                   style: theme.textTheme.headlineLarge?.copyWith(
                     color: scheme.secondary,

@@ -18,141 +18,109 @@ final _shellNavigatorResKey = GlobalKey<NavigatorState>(debugLabel: 'reservation
 final _shellNavigatorScheduleKey = GlobalKey<NavigatorState>(debugLabel: 'scheduleNav'); // Clave para la rama "schedule"
 final _shellNavigatorNotiKey = GlobalKey<NavigatorState>(debugLabel: 'notificationNav'); // Clave para la rama "notification"
 
-typedef BoolGetter = bool Function();
-typedef StringGetter = String Function();
+final router = GoRouter (
+  navigatorKey: _rootNavigatorKey,
+  initialLocation: '/login',
+  routes: <RouteBase>[
+    GoRoute(
+      name: 'login',
+      path: '/login',
+      builder: (context, state) => const LoginPage(),
+    ),
 
-class AppRouter {
-  final BoolGetter getModoOscuro;
-  final StringGetter getIdioma;
-  final BoolGetter getNotificaciones;
-  final ValueChanged<bool> onCambioModoOscuro;
-  final ValueChanged<String> onCambioIdioma;
-  final ValueChanged<bool> onCambioNotificaciones;
-
-  late final GoRouter router;
-
-  // 🔹 Constructor clásico al uso
-  AppRouter({
-    required this.getModoOscuro,
-    required this.getIdioma,
-    required this.getNotificaciones,
-    required this.onCambioModoOscuro,
-    required this.onCambioIdioma,
-    required this.onCambioNotificaciones,
-  }) {
-    // Inicializamos el GoRouter dentro del constructor
-    router = GoRouter (
-      navigatorKey: _rootNavigatorKey,
-      initialLocation: '/login',
-      routes: <RouteBase>[
-        GoRoute(
-          name: 'login',
-          path: '/login',
-          builder: (context, state) => const LoginPage(),
-        ),
-
-      // StatefulShellRoute añade estado de navegación interna a cada sección (rama/pestaña)
-      StatefulShellRoute.indexedStack(
-        builder: (context, state, navigationShell) {
-          return AppScaffold(
-            navigationShell: navigationShell,
-            modoOscuro: getModoOscuro(),
-            idioma: getIdioma(),
-            notificaciones: getNotificaciones(),
-            onCambioIdioma: onCambioIdioma,
-            onCambioModoOscuro: onCambioModoOscuro,
-            onCambioNotificaciones: onCambioNotificaciones,
-          );
-        },
-        branches: [
-          StatefulShellBranch(
-            navigatorKey: _shellNavigatorHomeKey,
-            routes: [
-              GoRoute(
-                name: 'home',
-                path: '/home',
-                builder: (context, state) => const HomePage(),
-              ),
-            ],
-          ),
-          StatefulShellBranch(
-            navigatorKey: _shellNavigatorMapKey,
-            routes: [
-              GoRoute(
-                name: 'map',
-                path: '/map',
-                builder: (context, state) => const MapPage(),
-              ),
-            ],
-          ),
-          StatefulShellBranch(
-            navigatorKey: _shellNavigatorResKey,
-            routes: [
-              GoRoute(
-                name: 'reservations',
-                path: '/reservations',
-                builder: (context, state) => const ReservationsPage(),
-              ),
-            ],
-          ),
-          StatefulShellBranch(
-            navigatorKey: _shellNavigatorScheduleKey,
-            routes: [
-              GoRoute(
-                name: 'schedules',
-                path: '/schedules',
-                builder: (context, state) => const SchedulesPage(),
-              ),
-            ],
-          ),
-          StatefulShellBranch(
-            navigatorKey: _shellNavigatorNotiKey,
-            routes: [
-              GoRoute(
-                name: 'notifications',
-                path: '/notifications',
-                builder: (context, state) => const NotificationsPage(),
-              ),
-            ],
+  // StatefulShellRoute añade estado de navegación interna a cada sección (rama/pestaña)
+  StatefulShellRoute.indexedStack(
+    builder: (context, state, navigationShell) {
+      return AppScaffold(
+        navigationShell: navigationShell,
+      );
+    },
+    branches: [
+      StatefulShellBranch(
+        navigatorKey: _shellNavigatorHomeKey,
+        routes: [
+          GoRoute(
+            name: 'home',
+            path: '/home',
+            builder: (context, state) => const HomePage(),
           ),
         ],
       ),
+      StatefulShellBranch(
+        navigatorKey: _shellNavigatorMapKey,
+        routes: [
+          GoRoute(
+            name: 'map',
+            path: '/map',
+            builder: (context, state) => const MapPage(),
+          ),
+        ],
+      ),
+      StatefulShellBranch(
+        navigatorKey: _shellNavigatorResKey,
+        routes: [
+          GoRoute(
+            name: 'reservations',
+            path: '/reservations',
+            builder: (context, state) => const ReservationsPage(),
+          ),
+        ],
+      ),
+      StatefulShellBranch(
+        navigatorKey: _shellNavigatorScheduleKey,
+        routes: [
+          GoRoute(
+            name: 'schedules',
+            path: '/schedules',
+            builder: (context, state) => const SchedulesPage(),
+          ),
+        ],
+      ),
+      StatefulShellBranch(
+        navigatorKey: _shellNavigatorNotiKey,
+        routes: [
+          GoRoute(
+            name: 'notifications',
+            path: '/notifications',
+            builder: (context, state) => const NotificationsPage(),
+          ),
+        ],
+      ),
+    ],
+  ),
 
-        // Ruta fullscreen fuera del ShellRoute
-        GoRoute(
-          name: 'reservation_create',
-          path: '/reservations/create',
-          parentNavigatorKey: _rootNavigatorKey, // Usamos el root navigator
-          // builder: (_, _) => const CreateReservationPage(),
-          pageBuilder: (context, state) => slideFromRightPage(const CreateReservationPage(), state),
-        ),
+    // Ruta fullscreen fuera del ShellRoute
+    GoRoute(
+      name: 'reservation_create',
+      path: '/reservations/create',
+      parentNavigatorKey: _rootNavigatorKey, // Usamos el root navigator
+      pageBuilder: (context, state) => slideFromRightPage(const CreateReservationPage(), state),
+    ),
 
-        /// Ejemplo con params
-        // GoRoute(
-        //   path: '/fruits/:id',
-        //   builder: (context, state) {
-        //     final id = state.pathParameters["id"]! // Get "id" param from URL
-        //     return FruitsPage(id: id);
-        //   },
-        // ),
+    /// Ejemplo con params
+    // GoRoute(
+    //   path: '/fruits/:id',
+    //   builder: (context, state) {
+    //     final id = state.pathParameters["id"]! // Get "id" param from URL
+    //     return FruitsPage(id: id);
+    //   },
+    // ),
 
-        /// Ejemplo con rutas hijas
-        // GoRoute(
-        //   path: '/fruits',
-        //   builder: (context, state) {
-        //     return FruitsPage();
-        //   },
-        //   routes: <RouteBase>[ // Add child routes
-        //     GoRoute(
-        //       path: 'fruits-details', // NOTE: Don't need to specify "/" character for router’s parents
-        //       builder: (context, state) {
-        //         return FruitDetailsPage();
-        //       },
-        //     ),
-        //   ],
-        // )
+    /// Ejemplo con rutas hijas
+    // GoRoute(
+    //   path: '/fruits',
+    //   builder: (context, state) {
+    //     return FruitsPage();
+    //   },
+    //   routes: <RouteBase>[ // Add child routes
+    //     GoRoute(
+    //       path: 'fruits-details', // NOTE: Don't need to specify "/" character for router’s parents
+    //       builder: (context, state) {
+    //         return FruitDetailsPage();
+    //       },
+    //     ),
+    //   ],
+    // )
 
-      ],
-    );
-  }
-}
+  ],
+);

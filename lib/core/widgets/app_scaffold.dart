@@ -1,28 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_bottom_nav.dart';
-import 'package:frontend_flutter_aulasegura/catalog/demos/preferences_demo.dart';
+import 'package:frontend_flutter_aulasegura/features/preferences/presentation/pages/preferences_page.dart';
 
 class AppScaffold extends StatefulWidget {
   final List<Widget>? pages;
   final StatefulNavigationShell navigationShell;
-  final bool modoOscuro;
-  final String idioma;
-  final bool notificaciones;
-  final ValueChanged<bool> onCambioModoOscuro;
-  final ValueChanged<String> onCambioIdioma;
-  final ValueChanged<bool> onCambioNotificaciones;
 
   const AppScaffold({
     super.key,
     this.pages,
     required this.navigationShell,
-    required this.modoOscuro,
-    required this.idioma,
-    required this.notificaciones,
-    required this.onCambioModoOscuro,
-    required this.onCambioIdioma,
-    required this.onCambioNotificaciones,
   });
 
   @override
@@ -50,7 +38,7 @@ class _AppScaffoldState extends State<AppScaffold> {
           preferredSize: const Size.fromHeight(44), // Alto de la franja inferior
           child: Container(
             height: 44, // Alto de la franja inferior
-            padding: const EdgeInsets.only(left: 16, right: 4),
+            padding: const EdgeInsets.only(left: 16, right: 7, bottom: 8),
             alignment: Alignment.centerLeft,
             child: Row(
               // crossAxisAlignment: CrossAxisAlignment.center,
@@ -62,7 +50,7 @@ class _AppScaffoldState extends State<AppScaffold> {
                     overflow: TextOverflow.ellipsis,
                     style: theme.textTheme.titleLarge?.copyWith(
                       color: scheme.onPrimary,
-                      fontWeight: FontWeight.w500,
+                      fontSize: 21
                     ),
                   ),
                 ),
@@ -74,12 +62,12 @@ class _AppScaffoldState extends State<AppScaffold> {
                       // Perfil
                       IconButton(
                         icon: Transform.translate(
-                          offset: const Offset(0, -3),
+                          offset: const Offset(0, -11),
                           child: CircleAvatar(
                             radius: 16,
                             backgroundColor: scheme.primary,
                             // backgroundImage: NetworkImage(...), // si tienes foto
-                            child: Icon(Icons.account_circle, size: 30, color: scheme.onPrimary),
+                            child: Icon(Icons.account_circle, size: 34, color: scheme.onPrimary),
                           ),
                         ),
                         onPressed: () {
@@ -90,14 +78,7 @@ class _AppScaffoldState extends State<AppScaffold> {
                           /* Ir a perfil */
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (_) => PreferencesDemo(
-                                modoOscuro: widget.modoOscuro,
-                                idioma: widget.idioma,
-                                notificaciones: widget.notificaciones,
-                                onCambioIdioma: widget.onCambioIdioma,
-                                onCambioModoOscuro: widget.onCambioModoOscuro,
-                                onCambioNotificaciones: widget.onCambioNotificaciones,
-                              ),
+                              builder: (_) => const PreferencesPage(),
                             ),
                           );
                         },
@@ -125,4 +106,3 @@ class _AppScaffoldState extends State<AppScaffold> {
     );
   }
 }
-

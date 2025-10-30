@@ -9,8 +9,8 @@ import 'package:frontend_flutter_aulasegura/core/widgets/app_button.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_list.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_schedule_card.dart';
 import 'package:frontend_flutter_aulasegura/core/utils/date_formatter.dart';
-import 'package:frontend_flutter_aulasegura/core/utils/convert_role.dart';
 import 'package:frontend_flutter_aulasegura/core/utils/day_of_the_week.dart';
+import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -23,13 +23,15 @@ class HomePage extends ConsumerWidget {
     final userAsync = ref.watch(authProvider);
     final weeklySchedulesAsync = ref.watch(weeklyScheduleProvider);
 
+    final l10n = AppLocalizations.of(context)!;
+
     return Scaffold(
       backgroundColor: scheme.primaryContainer,
       body: Padding(
         padding: const EdgeInsets.only(top: 18, left: 18, right: 18),
         child: userAsync.when(
           loading: () => const Center(child: CircularProgressIndicator()),
-          error: (error, stack) => Center(child: Text('Error de sesión: $error')),
+          error: (error, stack) => Center(child: Text(l10n.sessionError(error))), //? Mensaje de error de sesión con internacionalización
           data: (authUser) {
             if (authUser == null) {
               // Si no hay sesión, vuelve al login
@@ -42,16 +44,16 @@ class HomePage extends ConsumerWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                // Card de bienvenida
+                /// Card de bienvenida
                 AppWelcomeCard(
-                  date: dateFormatter(DateTime.now()),
+                  date: dateFormatter(context, DateTime.now()),
                   name: authUser.name,
-                  role: convertRole(authUser.role.name),
+                  role: authUser.role.name,
                   avatar: 'assets/images/${authUser.avatar}', //! Convertir a URL de la API
                 ),
                 const SizedBox(height: 18),
 
-                // Card de acceso al aula
+                /// Card botones acceso al aula
                 Material(
                   color: scheme.onSecondary,
                   elevation: 1.5,
@@ -70,11 +72,11 @@ class HomePage extends ConsumerWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        // Botón NFC
+                        /// Botón NFC
                         Column(
                           children: [
                             Text(
-                              'Acceso por NFC',
+                              l10n.nfcAccess, //? Descripción del botón de acceso NFC con internacionalización
                               style: text.bodyMedium?.copyWith(
                                 color: scheme.grey,
                               ),
@@ -89,11 +91,11 @@ class HomePage extends ConsumerWidget {
                             ),
                           ],
                         ),
-                        // Botón QR
+                        /// Botón QR
                         Column(
                           children: [
                             Text(
-                              'Acceso por QR',
+                              l10n.qrAccess,  //? Descripción del botón de acceso QR con internacionalización
                               style: text.bodyMedium?.copyWith(
                                 color: scheme.grey,
                               ),
@@ -114,13 +116,13 @@ class HomePage extends ConsumerWidget {
                 ),
                 const SizedBox(height: 11),
 
-                // Título “Hoy”
+                /// Título “Hoy”
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 22),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      'Hoy',
+                      l10n.today,  //? Título "Hoy" con internacionalización
                       style: text.titleLarge?.copyWith(
                         color: scheme.titles,
                         fontWeight: FontWeight.w500
@@ -130,11 +132,11 @@ class HomePage extends ConsumerWidget {
                 ),
                 const SizedBox(height: 11),
 
-                // Horarios
+                /// Horarios
                 Expanded(
                   child: weeklySchedulesAsync.when(
                     loading: () => const Center(child: CircularProgressIndicator()),
-                    error: (error, stack) => Center(child: Text('Error cargando horarios: $error')),
+                    error: (error, stack) => Center(child: Text(l10n.loadingSchedulesError(error))), //? Mensaje de error cargando horarios con internacionalización
                     data: (weeklySchedules) {
                       return AppList(
                         type: 'schedules',

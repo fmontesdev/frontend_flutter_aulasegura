@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 import 'package:frontend_flutter_aulasegura/core/utils/date_formatter.dart';
 import 'package:frontend_flutter_aulasegura/features/schedules/domain/entities/room.dart';
+import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
 
 class AppReservationCard extends ConsumerStatefulWidget {
   final int id;
@@ -51,6 +52,8 @@ class _AppReservationCardState extends ConsumerState<AppReservationCard> {
     final double hoverElevation = 3.5;
     final elevation = _isHover ? hoverElevation : baseElevation;
 
+    final l10n = AppLocalizations.of(context)!;
+
     switch (widget.status) {
       case 'pending':
         icon = Icons.hourglass_empty;
@@ -88,7 +91,7 @@ class _AppReservationCardState extends ConsumerState<AppReservationCard> {
           ),
           clipBehavior: Clip.antiAlias, // Para que el Dismissible no sobresalga
 
-          // Swipe para marcar como leída (con Deshacer)
+          /// Swipe para marcar como leída (con Deshacer)
           child: Dismissible(
             key: ValueKey('res-${widget.id}'), // Clave única para cada reserva
             direction: DismissDirection.endToStart, // Dirección del swipe
@@ -103,7 +106,7 @@ class _AppReservationCardState extends ConsumerState<AppReservationCard> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    'Eliminar',
+                    l10n.delete, //? Mensaje de eliminar con internacionalización
                     style: TextStyle(
                       color: scheme.onSecondary,
                       fontWeight: FontWeight.w600,
@@ -127,7 +130,7 @@ class _AppReservationCardState extends ConsumerState<AppReservationCard> {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // Icono de estado de la reserva
+                    /// Icono de estado de la reserva
                     Container(
                     alignment: Alignment.centerLeft, // Alineación a la izquierda
                     child: Icon(icon, color: iconColor, size: 30),
@@ -140,12 +143,12 @@ class _AppReservationCardState extends ConsumerState<AppReservationCard> {
                       children: [
                         Row(
                           children: [
-                            // Fecha de reserva
+                            /// Fecha de reserva
                             const SizedBox(width: 2),
                             Icon(Icons.calendar_today_outlined, color: scheme.grey, size: 17),
                             const SizedBox(width: 6),
                             Text(
-                              dateFormatter(DateTime.parse(widget.startAt)),
+                              dateFormatter(context, DateTime.parse(widget.startAt)),
                               overflow: TextOverflow.ellipsis,
                               style: theme.textTheme.bodyLarge?.copyWith(
                                 color: scheme.grey,
@@ -157,7 +160,7 @@ class _AppReservationCardState extends ConsumerState<AppReservationCard> {
 
                         Row(
                           children: [
-                            // Aula
+                            /// Aula
                             Icon(Icons.location_on_outlined, color: scheme.secondary, size: 19),
                             const SizedBox(width: 3),
                             Text(
@@ -169,7 +172,7 @@ class _AppReservationCardState extends ConsumerState<AppReservationCard> {
                             ),
                             const SizedBox(width: 14),
 
-                            // Horas de reserva
+                            /// Horas de reserva
                             Icon(Icons.access_time, color: scheme.secondary, size: 19),
                             const SizedBox(width: 6),
                             Text(
@@ -185,7 +188,7 @@ class _AppReservationCardState extends ConsumerState<AppReservationCard> {
 
                         Row(
                           children: [
-                          // Descripción
+                          /// Descripción
                             const SizedBox(width: 2),
                             Expanded(
                               child: Text(

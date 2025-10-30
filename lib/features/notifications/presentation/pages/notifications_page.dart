@@ -5,6 +5,7 @@ import 'package:frontend_flutter_aulasegura/core/widgets/app_filter_selector.dar
 import 'package:frontend_flutter_aulasegura/core/widgets/app_list.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_notification_card.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_snackbar_button.dart';
+import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
 
 class NotificationsPage extends ConsumerStatefulWidget {
   const NotificationsPage({super.key});
@@ -32,9 +33,9 @@ class _NotificationsPageState extends ConsumerState<NotificationsPage> {
     messenger.removeCurrentSnackBar();
     messenger.showSnackBar(
       SnackBar(
-        content: const Padding(
-          padding: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-          child: Text('Notificación marcada como leída'),
+        content: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+          child: Text(AppLocalizations.of(context)!.notiMarkedAsRead), //? Mensaje de notificación marcada como leída con internacionalización
         ),
         backgroundColor: scheme.primary,
         behavior: SnackBarBehavior.floating,
@@ -44,7 +45,7 @@ class _NotificationsPageState extends ConsumerState<NotificationsPage> {
         ),
         margin: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
         action: SnackBarAction(
-          label: 'Deshacer',
+          label: AppLocalizations.of(context)!.undo, //? Etiqueta de deshacer con internacionalización
           onPressed: () => _notifier.markAsUnread(id),
         ),
       ),
@@ -55,6 +56,7 @@ class _NotificationsPageState extends ConsumerState<NotificationsPage> {
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
     final notificationsAsync = ref.watch(notificationProvider);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       backgroundColor: scheme.primaryContainer,
@@ -66,7 +68,7 @@ class _NotificationsPageState extends ConsumerState<NotificationsPage> {
             Expanded(
               child: notificationsAsync.when(
                 loading: () => const Center(child: CircularProgressIndicator()),
-                error: (error, stack) => Center(child: Text('Error cargando notificaciones: $error')),
+                error: (error, stack) => Center(child: Text(l10n.loadingNotificationsError(error))), //? Mensaje de error cargando notificaciones con internacionalización
                 data: (notifications) {
                   // Cálculos de disponibilidad por categoría
                   final pendingCount = notifications.where((n) => !n.isRead).length;
@@ -79,24 +81,24 @@ class _NotificationsPageState extends ConsumerState<NotificationsPage> {
                   final predicates = <bool Function(dynamic)>[];
 
                   if (pendingCount > 0) {
-                      options.add('Pend.');
+                      options.add(l10n.notificationSelectorOption('pending'));
                       predicates.add((n) => !n.isRead);
                   }
                   if (accessCount > 0) {
-                    options.add('Accesos');
+                    options.add(l10n.notificationSelectorOption('access'));
                     predicates.add((n) => n.type == 'access' && !n.isRead);
                   }
                   if (alertCount > 0) {
-                    options.add('Avisos');
+                    options.add(l10n.notificationSelectorOption('notice'));
                     predicates.add((n) => n.type == 'alert' && !n.isRead);
                   }
                   if (warningCount > 0) {
-                    options.add('Alertas');
+                    options.add(l10n.notificationSelectorOption('warning'));
                     predicates.add((n) => n.type == 'warning' && !n.isRead);
                   }
 
                   // "Todas" SIEMPRE visible
-                  options.add('Todas');
+                  options.add(l10n.notificationSelectorOption('all'));
                   predicates.add((_) => true);
 
                   // Asegura índice válido si cambia el nº de opciones
@@ -112,28 +114,28 @@ class _NotificationsPageState extends ConsumerState<NotificationsPage> {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      // Selector de filtros dinámico
+                      /// Selector de filtros dinámico
                       AppFilterSelector(
                         options: options,
                         selectedIndex: safeSelected,
                         onChanged: (i) => setState(() => _selectedIndex = i),
                       ),
 
-                      // Botón "Marcar todas como leídas"
+                      /// Botón "Marcar todas como leídas"
                       if (pendingCount > 0) ...[
                         const SizedBox(height: 12),
                         AppSnackBarButton(
                           variant: AppSnackBarButtonVariant.success,
                           size: AppSnackBarButtonSize.md,
                           icon: Icons.done_all,
-                          label: 'Marcar todas como leídas ($pendingCount)',
+                          label: l10n.markAllAsRead(pendingCount), //? Botón de marcar todas como leídas con internacionalización
                           onPressed: () => _notifier.markAllAsRead(),
-                          snackBarMessage: 'Todas las notificaciones marcadas como leídas',
+                          snackBarMessage: l10n.allMarkedAsRead, //? Mensaje del SnackBar con internacionalización
                         ),
                       ],
                       const SizedBox(height: 18),
 
-                      // Lista
+                      /// Lista
                       Expanded(
                         child: AppList(
                           type: 'notifications',
@@ -141,7 +143,7 @@ class _NotificationsPageState extends ConsumerState<NotificationsPage> {
                           itemBuilder: (item) => AppNotificationCard(
                             id: item.id,
                             type: item.type,
-                            title: item.title,
+                            title: l10n.notificationTitle(item.title), //? Título de la notificación con internacionalización
                             body: item.body,
                             date: item.createdAt,
                             isRead: item.isRead,

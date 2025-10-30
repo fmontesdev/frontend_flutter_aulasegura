@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_bottom_nav.dart';
 import 'package:frontend_flutter_aulasegura/features/preferences/presentation/pages/preferences_page.dart';
+import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
 
 class AppScaffold extends StatefulWidget {
   final List<Widget>? pages;
@@ -18,13 +19,14 @@ class AppScaffold extends StatefulWidget {
 }
 
 class _AppScaffoldState extends State<AppScaffold> {
-  String _page = 'Inicio';
+  String _page = 'home';
   bool _isOverlayPage = false;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       backgroundColor: scheme.primaryContainer,
@@ -41,11 +43,11 @@ class _AppScaffoldState extends State<AppScaffold> {
             padding: const EdgeInsets.only(left: 16, right: 7, bottom: 8),
             alignment: Alignment.centerLeft,
             child: Row(
-              // crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                /// Título de la página actual
                 Expanded(
-                  child: Text( // Título
-                    _page,
+                  child: Text(
+                    l10n.page(_page), //? Nombre de la página actual con internacionalización
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: theme.textTheme.titleLarge?.copyWith(
@@ -59,7 +61,7 @@ class _AppScaffoldState extends State<AppScaffold> {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      // Perfil
+                      /// Perfil
                       IconButton(
                         icon: Transform.translate(
                           offset: const Offset(0, -11),
@@ -82,7 +84,7 @@ class _AppScaffoldState extends State<AppScaffold> {
                             ),
                           );
                         },
-                        tooltip: 'Perfil',
+                        tooltip: l10n.profile, //? Tooltip del botón de perfil con internacionalización
                       ),
                     ],
                   ),

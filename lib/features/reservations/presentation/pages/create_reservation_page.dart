@@ -7,7 +7,7 @@ import 'package:frontend_flutter_aulasegura/core/widgets/app_table_calendar.dart
 import 'package:frontend_flutter_aulasegura/core/widgets/app_timeslot_pill.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_slider_selector.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_button.dart';
-
+import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
 
 class CreateReservationPage extends ConsumerWidget {
   const CreateReservationPage({super.key});
@@ -17,6 +17,7 @@ class CreateReservationPage extends ConsumerWidget {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
     final text   = theme.textTheme;
+    final l10n = AppLocalizations.of(context)!;
 
     // Escucha los cambios en las franjas horarias
     final timeSlotAsync = ref.watch(timeSlotProvider);
@@ -30,28 +31,31 @@ class CreateReservationPage extends ConsumerWidget {
           elevation: 0.5,
           automaticallyImplyLeading: false, // Desactiva el botón automático
           flexibleSpace: SafeArea(
-            child: Align(
-              alignment: Alignment.bottomLeft, // Alinea contenido abajo a la izquierda
-                child: Row(
-                children: [
-                  // Flecha de retroceso
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back),
-                    color: scheme.onPrimary,
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                  ),
-                  const SizedBox(width: 8),
-                  // Título
-                  Text(
-                    'Solicitar reserva',
-                    style: theme.textTheme.titleLarge?.copyWith(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 1, bottom: 3),
+              child: Align(
+                alignment: Alignment.bottomLeft, // Alinea contenido abajo a la izquierda
+                  child: Row(
+                  children: [
+                    /// Flecha de retroceso
+                    IconButton(
+                      icon: const Icon(Icons.arrow_back),
                       color: scheme.onPrimary,
-                      fontWeight: FontWeight.w500,
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
                     ),
-                  ),
-                ],
+                    const SizedBox(width: 8),
+                    /// Título
+                    Text(
+                      l10n.requestReservation, //? Título de la página "Solicitar reserva" con internacionalización
+                      style: theme.textTheme.titleLarge?.copyWith(
+                        color: scheme.onPrimary,
+                        fontSize: 21
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -61,6 +65,7 @@ class CreateReservationPage extends ConsumerWidget {
         padding: const EdgeInsets.all(18),
         child: Column(
           children: [
+            /// Calendario
             AppTableCalendar(
               onDaySelected: (selectedDay) {
                 // Lógica al seleccionar un día
@@ -68,7 +73,7 @@ class CreateReservationPage extends ConsumerWidget {
             ),
             const SizedBox(height: 14),
 
-            // Título “Horario” con icono
+            /// Título “Horario” con icono
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 22),
               child: Align(
@@ -81,7 +86,7 @@ class CreateReservationPage extends ConsumerWidget {
                           Icon(Icons.schedule, color: scheme.titles),
                           const SizedBox(width: 8),
                           Text(
-                            'Horario',
+                            l10n.schedule, //? Título "Horario" con internacionalización
                             style: text.titleLarge?.copyWith(
                               color: scheme.titles,
                               fontWeight: FontWeight.w500,
@@ -101,7 +106,7 @@ class CreateReservationPage extends ConsumerWidget {
               loading: () => const Center(child: CircularProgressIndicator()),
               error: (error, stack) => Center(child: Text('Error cargando franjas horarias: $error')),
               data: (timeSlots) {
-                // Selector de franjas horarias
+                /// Selector de franjas horarias
                 return AppSliderSelector<TimeSlot>(
                   items: timeSlots,
                   selectionMode: SelectionMode.range, // single | multi | range
@@ -124,14 +129,14 @@ class CreateReservationPage extends ConsumerWidget {
             ),
             const SizedBox(height: 12),
 
-            // Info
+            /// Info
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 22),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    'Desliza para ver más horarios',
+                    l10n.slideToSeeMoreSchedules, //? Mensaje "Desliza para ver más horarios" con internacionalización
                     style: text.bodyMedium?.copyWith(
                     color: scheme.grey,
                     ),
@@ -202,7 +207,7 @@ class CreateReservationPage extends ConsumerWidget {
           child: SizedBox(
             width: double.infinity, // Ancho completo
             child: AppButton(
-              label: 'Buscar aulas disponibles',
+              label: l10n.searchForAvailableClassrooms, //? Mensaje del botón "Buscar aulas disponibles" con internacionalización
               onPressed: () {},
               size: AppButtonSize.md,
               variant: AppButtonVariant.secondary,

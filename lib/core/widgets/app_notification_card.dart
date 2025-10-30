@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 import 'package:frontend_flutter_aulasegura/core/utils/date_formatter.dart';
+import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
 
 class AppNotificationCard extends ConsumerStatefulWidget {
   final int id;
@@ -70,6 +71,8 @@ class _AppNotificationCardState extends ConsumerState<AppNotificationCard> {
     final double hoverElevation = 3.5;
     final elevation = _isHover ? hoverElevation : baseElevation;
 
+    final l10n = AppLocalizations.of(context)!;
+
     return MouseRegion(
       onEnter: (_) => setState(() => _isHover = true),
       onExit:  (_) => setState(() => _isHover = false),
@@ -90,7 +93,7 @@ class _AppNotificationCardState extends ConsumerState<AppNotificationCard> {
           ),
           clipBehavior: Clip.antiAlias, // Para que el Dismissible no sobresalga
 
-          // Swipe para marcar como leída (con Deshacer)
+          /// Swipe para marcar como leída (con Deshacer)
           child: Dismissible(
             key: ValueKey('notif-${widget.id}'), // Clave única para cada notificación
             direction: widget.isRead ? DismissDirection.none : DismissDirection.endToStart, // Dirección swipe solo si no está leída
@@ -105,7 +108,7 @@ class _AppNotificationCardState extends ConsumerState<AppNotificationCard> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    'Marcar como leída',
+                    l10n.markAsRead, //? Mensaje para marcar como leída con internacionalización
                     style: TextStyle(
                       color: scheme.onSecondary,
                       fontWeight: FontWeight.w600,
@@ -129,7 +132,7 @@ class _AppNotificationCardState extends ConsumerState<AppNotificationCard> {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // Icono de notificación
+                    /// Icono de notificación
                     Container(
                       alignment: Alignment.center,
                       child: Icon(
@@ -154,7 +157,7 @@ class _AppNotificationCardState extends ConsumerState<AppNotificationCard> {
                           Row(
                             children: [
                               Expanded(
-                                // Título
+                                /// Título
                                 child: Text(
                                   widget.title,
                                   overflow: TextOverflow.ellipsis,
@@ -164,9 +167,9 @@ class _AppNotificationCardState extends ConsumerState<AppNotificationCard> {
                                 ),
                               ),
                               const SizedBox(height: 2),
-                              // Fecha
+                              /// Fecha
                               Text(
-                                dateTimeFormatter(widget.date),
+                                dateTimeFormatter(context, widget.date),
                                 overflow: TextOverflow.ellipsis,
                                 style: theme.textTheme.bodyMedium?.copyWith(
                                   color: dateColor,
@@ -175,7 +178,7 @@ class _AppNotificationCardState extends ConsumerState<AppNotificationCard> {
                             ],
                           ),
                           const SizedBox(height: 2),
-                          // Cuerpo
+                          /// Cuerpo
                           Text(
                             widget.body,
                             style: theme.textTheme.bodyMedium?.copyWith(

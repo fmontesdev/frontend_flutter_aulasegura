@@ -20,6 +20,7 @@ class AppWelcomeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme  = Theme.of(context);
     final scheme = theme.colorScheme;
+    final l10n   = AppLocalizations.of(context)!;
 
     return Material(
       color: scheme.onSecondary,
@@ -51,7 +52,7 @@ class AppWelcomeCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Fecha
+                /// Fecha
                 Text(
                   date,
                   overflow: TextOverflow.ellipsis,
@@ -60,19 +61,18 @@ class AppWelcomeCard extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 1),
-                // Hola Nombre!
+                /// Hola Nombre!
                 Text(
-                  // 'Hola $name!',
-                  AppLocalizations.of(context)!.salute(name),
+                  l10n.salute(name), //? Nombre del usuario autenticado con internacionalización
                   overflow: TextOverflow.ellipsis,
                   style: theme.textTheme.headlineLarge?.copyWith(
                     color: scheme.secondary,
                   ),
                 ),
                 const SizedBox(height: 1),
-                // Rol
+                /// Rol
                 Text(
-                  role,
+                  l10n.role(role), //? Rol del usuario autenticado con internacionalización
                   style: theme.textTheme.bodyLarge?.copyWith(
                     color: scheme.darkGrey,
                     // fontWeight: FontWeight.w500,

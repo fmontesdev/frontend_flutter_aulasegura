@@ -1,4 +1,87 @@
 {
+  "enterEmail": "Introdueix el teu email",
+  "@enterEmail": {
+    "description": "Static message (enter your email)"
+  },
+  "emailValidation": "Email no válid",
+  "@emailValidation": {
+    "description": "Static message (invalid email)"
+  },
+  "emailHintText": "exemple@domini.com",
+  "@emailHintText": {
+    "description": "Static message (example@domain.com)"
+  },
+  "enterPassword": "Introdueix la teva contrasenya",
+  "@enterPassword": {
+    "description": "Static message (enter your password)"
+  },
+  "passwordValidation": "Mínim 8 caracters",
+  "@passwordValidation": {
+    "description": "Static message (minimum 8 characters)"
+  },
+  "recoverPassword": "Recuperar contrasenya",
+  "@recoverPassword": {
+    "description": "Static message (recover password)"
+  },
+  "descriptionLabel": "Descripció",
+  "@descriptionLabel": {
+    "description": "Static message (description)"
+  },
+  "descriptionHintText": "Afegeix una descripció...",
+  "@descriptionHintText": {
+    "description": "Static message (add a description)"
+  },
+  "checkFields": "Revisa els camps",
+  "@checkFields": {
+    "description": "Static message (check the fields)"
+  },
+  "loginError": "No s'ha pogut iniciar sessió: {error}",
+  "@loginError": {
+    "description": "Error message (login) with dynamic parameter (error)",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "forgotPassword": "Has oblidat la contrasenya?",
+  "@forgotPassword": {
+    "description": "Static message (Did you forget your password?)"
+  },
+  "login": "Inicia sessió",
+  "@login": {
+    "description": "Static message (login)"
+  },
+  "show": "Mostrar",
+  "@show": {
+    "description": "Static message (show)"
+  },
+  "hide": "Amagar",
+  "@hide": {
+    "description": "Static message (hide)"
+  },
+  "page": "{pageName, select, home{Inici} map{Mapa} reservations{Reserves} schedules{Horaris} notifications{Notificacions} other{Desconegut}}",
+  "@page": {
+    "description": "Localized page by pageName",
+    "placeholders": {
+      "pageName": {
+        "type": "String"
+      }
+    }
+  },
+  "profile": "Perfil",
+  "@profile": {
+    "description": "Static message (profile)"
+  },
+  "sessionError": "Error de sessió: {error}",
+  "@sessionError": {
+    "description": "Error message (loading session) with dynamic parameter (error)",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
   "salute": "Hola {userName}!",
   "@saludo": {
     "description": "Message (salute) with dynamic parameter (username)",
@@ -8,5 +91,126 @@
         "example": "Carla"
       }
     }
+  },
+  "role": "{rolName, select, admin{Administrador} teacher{Professor} janitor{Conserge} support_staff{Personal auxiliar} other{Desconegut}}",
+  "@role": {
+    "description": "Localized role by roleName",
+    "placeholders": {
+      "rolName": {
+        "type": "String"
+      }
+    }
+  },
+  "nfcAccess": "Accés per NFC",
+  "@nfcAccess": {
+    "description": "Static message (access type)"
+  },
+  "qrAccess": "Accés per QR",
+  "@qrAccess": {
+    "description": "Static message (access type)"
+  },
+  "today": "Hui",
+  "@today": {
+    "description": "Static message (today)"
+  },
+  "reservationSelectorOption": "{nameOption, select, approved{Aprobades} pending{Pendents} revoked{Cancel·lades} other{Desconegut}}",
+  "@reservationSelectorOptions": {
+    "description": "Localized reservation selector option by nameOption",
+    "placeholders": {
+      "nameOption": {
+        "type": "String"
+      }
+    }
+  },
+  "requestReservation": "Sol·licitar reserva",
+  "@requestReservation": {
+    "description": "Static message (request reservation)"
+  },
+  "delete": "Eliminar",
+  "@delete": {
+    "description": "Static message (delete)"
+  },
+  "schedule": "Horari",
+  "@schedule": {
+    "description": "Static message (schedule)"
+  },
+  "slideToSeeMoreSchedules": "Llisca per veure més horaris",
+  "@slideToSeeMoreSchedules": {
+    "description": "Static message (slide to see more schedules)"
+  },
+  "searchForAvailableClassrooms": "Buscar aules disponibles",
+  "@searchForAvailableClassrooms": {
+    "description": "Static message (search for available classrooms)"
+  },
+  "dayOfWeek": "{dayName, select, monday{Dilluns} tuesday{Dimarts} wednesday{Dimec.} thursday{Dijous} friday{Divend.} other{Desconegut}}",
+  "@dayOfWeek": {
+    "description": "Localized day of week by dayName",
+    "placeholders": {
+      "dayName": {
+        "type": "String"
+      }
+    }
+  },
+  "loadingSchedulesError": "Error carregant horaris: {error}",
+  "@loadingSchedulesError": {
+    "description": "Error message (loading schedules) with dynamic parameter (error)",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "notificationSelectorOption": "{nameOption, select, pending{Pend.} access{Accessos} notice{Avisos} warning{Alertes} all{Totes} other{Desconegut}}",
+  "@notificationSelectorOption": {
+    "description": "Localized notification selector option by nameOption",
+    "placeholders": {
+      "nameOption": {
+        "type": "String"
+      }
+    }
+  },
+  "markAllAsRead": "Marcar totes com a llegides ({pendingCount})",
+  "@markAllAsRead": {
+    "description": "Botton message (mark all as read) with dynamic parameter (pendingCount)",
+    "placeholders": {
+      "pendingCount": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "allMarkedAsRead": "Totes les notificacions marcades como a llegides",
+  "@allMarkedAsRead": {
+    "description": "Snackbar message when marking all as read"
+  },
+  "loadingNotificationsError": "Error carregant notificacions: {error}",
+  "@loadingNotificationsError": {
+    "description": "Error message (loading notifications) with dynamic parameter (error)",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "notiMarkedAsRead": "Notificació marcada como a llegida",
+  "@notiMarkedAsRead": {
+    "description": "Static message (Notification marked as read)"
+  },
+  "undo": "Desfer",
+  "@undo": {
+    "description": "Static message (undo)"
+  },
+  "notificationTitle": "{nameTitle, select, approved{Accés aprovat} denied{Accés denegat} notice{Avís general} warning{Alerta} other{Desconegut}}",
+  "@notificationTitle": {
+    "description": "Localized notification title option by nameTitle",
+    "placeholders": {
+      "nameTitle": {
+        "type": "String"
+      }
+    }
+  },
+  "markAsRead": "Marcar como a llegida",
+  "@markAsRead": {
+    "description": "Static message (Mark as read)"
   }
 }

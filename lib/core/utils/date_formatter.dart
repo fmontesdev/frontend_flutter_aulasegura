@@ -1,17 +1,20 @@
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-// Formatea una fecha en formato "d 'de' MMMM 'de' y" (ejemplo: 5 de octubre de 2023)
-String dateFormatter(DateTime date) {
-  final formatter = DateFormat('d \'de\' MMMM \'de\' y', 'es_ES');
+// Formatea una fecha en formato "d 'de' MMMM 'de' y" con internacionalización (ejemplo: 5 de octubre de 2023)
+String dateFormatter(BuildContext context, DateTime date) {
+  final locale = Localizations.localeOf(context).toString(); // 'es', 'ca', 'en'
+  final formatter = DateFormat.yMMMMd(locale);
   final formattedDate = formatter.format(date);
 
   return formattedDate;
 }
 
-// Formatea una fecha y hora en formato dd/MM/yy hh:mm (ejemplo: 05/10/23 14:30)
-String dateTimeFormatter(DateTime date) {
-  final formatter = DateFormat('dd/MM/yy hh:mm', 'es_ES');
-  final formattedDate = formatter.format(date);
+// Formatea una fecha y hora en formato dd/MM/yy hh:mm con internacionalización (ejemplo: 05/10/23 14:30)
+String dateTimeFormatter(BuildContext context, DateTime datetime) {
+  final locale = Localizations.localeOf(context).toString(); // 'es', 'ca', 'en'
+  final formatter = DateFormat.yMd(locale).add_Hm();
+  final formattedDate = formatter.format(datetime);
 
   return formattedDate;
 }

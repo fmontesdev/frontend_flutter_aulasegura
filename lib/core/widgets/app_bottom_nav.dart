@@ -4,6 +4,7 @@ import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 import 'package:go_router/go_router.dart';
 import 'package:frontend_flutter_aulasegura/features/reservations/presentation/providers/event_schedule_providers.dart';
 import 'package:frontend_flutter_aulasegura/features/notifications/presentation/providers/notification_providers.dart';
+import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
 
 class AppBottomNav extends ConsumerStatefulWidget {
   final StatefulNavigationShell navigationShell;
@@ -28,7 +29,7 @@ class _AppBottomNavState extends ConsumerState<AppBottomNav> {
       index,
       initialLocation: isReselect, // Si es reselect, se resetea la pila de navegación interna
     );
-    widget.onChanged?.call(['Inicio', 'Mapa', 'Reservas', 'Horarios', 'Notificaciones'][index]); // Actualiza título en AppScaffold
+    widget.onChanged?.call(['home', 'map', 'reservations', 'schedules', 'notifications'][index]); // Actualiza título en AppScaffold
   }
   
   @override
@@ -55,16 +56,18 @@ class _AppBottomNavState extends ConsumerState<AppBottomNav> {
     final badgeTextNotis = unreadCount > 9 ? '9+' : unreadCount.toString();
     final badgeTextRes = countReservations > 9 ? '9+' : countReservations.toString();
 
+    final l10n = AppLocalizations.of(context)!;
+
     final destinations = [
-      const NavigationDestination(
-        icon: Icon(Icons.home_outlined),
-        selectedIcon: Icon(Icons.home),
-        label: 'Inicio'
+      NavigationDestination(
+        icon: const Icon(Icons.home_outlined),
+        selectedIcon: const Icon(Icons.home),
+        label: l10n.page('home'), //? Nombre de la página "inicio" con internacionalización
       ),
-      const NavigationDestination(
-        icon: Icon(Icons.map_outlined),
-        selectedIcon: Icon(Icons.map),
-        label: 'Mapa'
+      NavigationDestination(
+        icon: const Icon(Icons.map_outlined),
+        selectedIcon: const Icon(Icons.map),
+        label: l10n.page('map'), //? Nombre de la página "mapa" con internacionalización
       ),
       NavigationDestination(
         icon: Badge(
@@ -79,12 +82,12 @@ class _AppBottomNavState extends ConsumerState<AppBottomNav> {
           label: Text(badgeTextRes),
           child: const Icon(Icons.edit_calendar),
         ),
-        label: 'Reservas'
+        label: l10n.page('reservations'), //? Nombre de la página "reservas" con internacionalización
       ),
-      const NavigationDestination(
-        icon: Icon(Icons.access_time),
-        selectedIcon: Icon(Icons.access_time_filled),
-        label: 'Horarios'
+      NavigationDestination(
+        icon: const Icon(Icons.access_time),
+        selectedIcon: const Icon(Icons.access_time_filled),
+        label: l10n.page('schedules'), //? Nombre de la página "horarios" con internacionalización
       ),
       NavigationDestination(
         icon: Badge(
@@ -99,7 +102,7 @@ class _AppBottomNavState extends ConsumerState<AppBottomNav> {
           label: Text(badgeTextNotis),
           child: const Icon(Icons.notifications),
         ),
-        label: 'Notificaciones'
+        label: l10n.page('notifications'), //? Nombre de la página "notificaciones" con internacionalización
       ),
     ];
 

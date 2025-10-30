@@ -4,6 +4,7 @@ import 'package:frontend_flutter_aulasegura/features/schedules/presentation/prov
 import 'package:frontend_flutter_aulasegura/core/widgets/app_filter_selector.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_list.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_schedule_card.dart';
+import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
 
 class SchedulesPage extends ConsumerStatefulWidget {
   const SchedulesPage({super.key});
@@ -18,8 +19,8 @@ class _SchedulesPageState extends ConsumerState<SchedulesPage> {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
-
     final weeklySchedulesAsync = ref.watch(weeklyScheduleProvider);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       backgroundColor: scheme.primaryContainer,
@@ -28,19 +29,25 @@ class _SchedulesPageState extends ConsumerState<SchedulesPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // Filtro de día de la semana
+            /// Filtro de día de la semana
             AppFilterSelector(
-              options: const ['Lunes', 'Martes', 'Miérc.', 'Jueves', 'Viernes'],
+              options: [
+                l10n.dayOfWeek('monday'),
+                l10n.dayOfWeek('tuesday'),
+                l10n.dayOfWeek('wednesday'),
+                l10n.dayOfWeek('thursday'),
+                l10n.dayOfWeek('friday')
+              ],
               selectedIndex: _selectedDayIndex,
               onChanged: (i) => setState(() => _selectedDayIndex = i),
             ),
             const SizedBox(height: 18),
 
-            // Horarios
+            /// Horarios
             Expanded(
               child: weeklySchedulesAsync.when(
                 loading: () => const Center(child: CircularProgressIndicator()),
-                error: (error, stack) => Center(child: Text('Error cargando horarios: $error')),
+                error: (error, stack) => Center(child: Text(l10n.loadingSchedulesError(error))), //? Mensaje de error cargando horarios con internacionalización
                 data: (weeklySchedules) {
                   return AppList(
                     type: 'schedules',

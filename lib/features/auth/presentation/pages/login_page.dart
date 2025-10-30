@@ -5,6 +5,7 @@ import 'package:frontend_flutter_aulasegura/core/widgets/app_text_form_field.dar
 import 'package:frontend_flutter_aulasegura/core/widgets/app_link.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_button.dart';
 import 'package:frontend_flutter_aulasegura/features/auth/presentation/providers/auth_providers.dart';
+import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
 
 class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});
@@ -28,36 +29,36 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
   // Validadores
 
-  String? _validateEmail(String? v) {
+  String? validateEmail(String? v, AppLocalizations l10n) {
     final value = (v ?? '').trim();
-    if (value.isEmpty) return 'Introduce tu email';
-    if (!value.contains('@') || !value.contains('.')) return 'Email no válido';
+    if (value.isEmpty) return l10n.enterEmail; //? Mensaje de email vacío con internacionalización
+    if (!value.contains('@') || !value.contains('.')) return l10n.emailValidation; //? Mensaje de email no válido con internacionalización
     return null;
   }
 
-  String? _validatePassword(String? v) {
+  String? validatePassword(String? v, AppLocalizations l10n) {
     final value = v ?? '';
-    if (value.isEmpty) return 'Introduce tu contraseña';
-    if (value.length < 8) return 'Mínimo 8 caracteres';
+    if (value.isEmpty) return l10n.enterPassword; //? Mensaje de contraseña vacía con internacionalización
+    if (value.length < 8) return l10n.passwordValidation; //? Mensaje de contraseña demasiado corta con internacionalización
     return null;
   }
 
   // Funciones
 
-  void _toggleObscure() => setState(() => _obscured = !_obscured);
+  void toggleObscure() => setState(() => _obscured = !_obscured);
 
-  void _forgotPassword() {
+  void forgotPassword(AppLocalizations l10n) {
     /// Navegar a recuperación
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Recuperar contraseña')),
+      SnackBar(content: Text(l10n.forgotPassword)), //? Mensaje de recuperar contraseña con internacionalización
     );
   }
 
-  Future<void> _submit() async {
+  Future<void> submit(AppLocalizations l10n) async {
     final ok = _formKey.currentState?.validate() ?? false;
     if (!ok) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Revisa los campos')),
+        SnackBar(content: Text(l10n.checkFields)), //? Mensaje de revisar los campos con internacionalización
       );
       return;
     }
@@ -66,10 +67,10 @@ class _LoginPageState extends ConsumerState<LoginPage> {
       await ref.read(authProvider.notifier).signIn(_emailCtrl.text, _passCtrl.text);
       if (!mounted) return;
       GoRouter.of(context).go('/home');
-    } catch (e) {
+    } catch (error) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('No se pudo iniciar sesión: $e')),
+        SnackBar(content: Text(l10n.loginError(error))), //? Mensaje de error al iniciar sesión con internacionalización
       );
     }
   }
@@ -78,6 +79,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   Widget build(BuildContext context) {
     final t = Theme.of(context).textTheme;
     final scheme = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       backgroundColor: scheme.primary,
@@ -97,7 +99,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        // Logo
+                        /// Logo
                         Image.asset(
                           'assets/images/logo.png',
                           width: 170,
@@ -107,7 +109,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                         ),
                         const SizedBox(height: 10),
 
-                        // Nombre app
+                        /// Nombre app
                         Text(
                           'AulaSegura',
                           style: t.displayLarge?.copyWith(
@@ -117,28 +119,28 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                         ),
                         const SizedBox(height: 85),
 
-                        // Email
+                        /// Email
                         AppTextFormField(
                           variant: AppTextFieldVariant.email,
                           controller: _emailCtrl,
-                          validator: _validateEmail,
+                          validator: (value) => validateEmail(value, l10n),
                         ),
                         const SizedBox(height: 22),
 
-                        // Password con toggle
+                        /// Password con toggle
                         AppTextFormField(
                           variant: AppTextFieldVariant.password,
                           controller: _passCtrl,
                           isObscured: _obscured,
-                          onToggleObscure: _toggleObscure,
-                          validator: _validatePassword,
+                          onToggleObscure: () => toggleObscure(),
+                          validator: (value) => validatePassword(value, l10n),
                           ),
                         const SizedBox(height: 14),
 
-                        // Link "Se te olvidó la contraseña?"
+                        /// Link "Se te olvidó la contraseña?"
                         AppLink(
-                          text: '¿Se te olvidó la contraseña?',
-                          onTap: _forgotPassword,
+                          text: l10n.forgotPassword, //? Mensaje "¿Se te olvidó la contraseña?" con internacionalización
+                          onTap: () => forgotPassword(l10n),
                           size: AppLinkSize.lg,
                           align: AppLinkAlign.end,
                           color: scheme.onPrimary,
@@ -148,10 +150,10 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                         ),
                         const SizedBox(height: 65),
 
-                        // Botón login
+                        /// Botón login
                         AppButton(
-                          label: 'Inicia sesión',
-                          onPressed: _submit,
+                          label: l10n.login, //? Mensaje del botón "Inicia sesión" con internacionalización
+                          onPressed: () => submit(l10n),
                           size: AppButtonSize.lg,
                           variant: AppButtonVariant.secondary,
                         ),

@@ -100,11 +100,233 @@ abstract class AppLocalizations {
     Locale('es'),
   ];
 
+  /// Static message (enter your email)
+  ///
+  /// In es, this message translates to:
+  /// **'Introduce tu email'**
+  String get enterEmail;
+
+  /// Static message (invalid email)
+  ///
+  /// In es, this message translates to:
+  /// **'Email no válido'**
+  String get emailValidation;
+
+  /// Static message (example@domain.com)
+  ///
+  /// In es, this message translates to:
+  /// **'ejemplo@dominio.com'**
+  String get emailHintText;
+
+  /// Static message (enter your password)
+  ///
+  /// In es, this message translates to:
+  /// **'Introduce tu contraseña'**
+  String get enterPassword;
+
+  /// Static message (minimum 8 characters)
+  ///
+  /// In es, this message translates to:
+  /// **'Mínimo 8 caracteres'**
+  String get passwordValidation;
+
+  /// Static message (recover password)
+  ///
+  /// In es, this message translates to:
+  /// **'Recuperar contraseña'**
+  String get recoverPassword;
+
+  /// Static message (description)
+  ///
+  /// In es, this message translates to:
+  /// **'Descripción'**
+  String get descriptionLabel;
+
+  /// Static message (add a description)
+  ///
+  /// In es, this message translates to:
+  /// **'Añade una descripción...'**
+  String get descriptionHintText;
+
+  /// Static message (check the fields)
+  ///
+  /// In es, this message translates to:
+  /// **'Revisa los campos'**
+  String get checkFields;
+
+  /// Error message (login) with dynamic parameter (error)
+  ///
+  /// In es, this message translates to:
+  /// **'No se pudo iniciar sesión: {error}'**
+  String loginError(Object error);
+
+  /// Static message (Did you forget your password?)
+  ///
+  /// In es, this message translates to:
+  /// **'¿Se te olvidó la contraseña?'**
+  String get forgotPassword;
+
+  /// Static message (login)
+  ///
+  /// In es, this message translates to:
+  /// **'Inicia sesión'**
+  String get login;
+
+  /// Static message (show)
+  ///
+  /// In es, this message translates to:
+  /// **'Mostrar'**
+  String get show;
+
+  /// Static message (hide)
+  ///
+  /// In es, this message translates to:
+  /// **'Ocultar'**
+  String get hide;
+
+  /// Localized page by pageName
+  ///
+  /// In es, this message translates to:
+  /// **'{pageName, select, home{Inicio} map{Mapa} reservations{Reservas} schedules{Horarios} notifications{Notificaciones} other{Desconocido}}'**
+  String page(String pageName);
+
+  /// Static message (profile)
+  ///
+  /// In es, this message translates to:
+  /// **'Perfil'**
+  String get profile;
+
+  /// Error message (loading session) with dynamic parameter (error)
+  ///
+  /// In es, this message translates to:
+  /// **'Error de sesión: {error}'**
+  String sessionError(Object error);
+
   /// Message (salute) with dynamic parameter (username)
   ///
   /// In es, this message translates to:
   /// **'Hola {userName}!'**
   String salute(String userName);
+
+  /// Localized role by roleName
+  ///
+  /// In es, this message translates to:
+  /// **'{rolName, select, admin{Administrador} teacher{Profesor} janitor{Conserje} support_staff{Personal auxiliar} other{Desconocido}}'**
+  String role(String rolName);
+
+  /// Static message (access type)
+  ///
+  /// In es, this message translates to:
+  /// **'Acceso por NFC'**
+  String get nfcAccess;
+
+  /// Static message (access type)
+  ///
+  /// In es, this message translates to:
+  /// **'Acceso por QR'**
+  String get qrAccess;
+
+  /// Static message (today)
+  ///
+  /// In es, this message translates to:
+  /// **'Hoy'**
+  String get today;
+
+  /// No description provided for @reservationSelectorOption.
+  ///
+  /// In es, this message translates to:
+  /// **'{nameOption, select, approved{Aprobadas} pending{Pendientes} revoked{Canceladas} other{Desconocido}}'**
+  String reservationSelectorOption(String nameOption);
+
+  /// Static message (request reservation)
+  ///
+  /// In es, this message translates to:
+  /// **'Solicitar reserva'**
+  String get requestReservation;
+
+  /// Static message (delete)
+  ///
+  /// In es, this message translates to:
+  /// **'Eliminar'**
+  String get delete;
+
+  /// Static message (schedule)
+  ///
+  /// In es, this message translates to:
+  /// **'Horario'**
+  String get schedule;
+
+  /// Static message (slide to see more schedules)
+  ///
+  /// In es, this message translates to:
+  /// **'Desliza para ver más horarios'**
+  String get slideToSeeMoreSchedules;
+
+  /// Static message (search for available classrooms)
+  ///
+  /// In es, this message translates to:
+  /// **'Buscar aulas disponibles'**
+  String get searchForAvailableClassrooms;
+
+  /// Localized day of week by dayName
+  ///
+  /// In es, this message translates to:
+  /// **'{dayName, select, monday{Lunes} tuesday{Martes} wednesday{Miérc.} thursday{Jueves} friday{Viernes} other{Desconocido}}'**
+  String dayOfWeek(String dayName);
+
+  /// Error message (loading schedules) with dynamic parameter (error)
+  ///
+  /// In es, this message translates to:
+  /// **'Error cargando horarios: {error}'**
+  String loadingSchedulesError(Object error);
+
+  /// Localized notification selector option by nameOption
+  ///
+  /// In es, this message translates to:
+  /// **'{nameOption, select, pending{Pend.} access{Accesos} notice{Avisos} warning{Alertas} all{Todas} other{Desconocido}}'**
+  String notificationSelectorOption(String nameOption);
+
+  /// Botton message (mark all as read) with dynamic parameter (pendingCount)
+  ///
+  /// In es, this message translates to:
+  /// **'Marcar todas como leídas ({pendingCount})'**
+  String markAllAsRead(int pendingCount);
+
+  /// Snackbar message when marking all as read
+  ///
+  /// In es, this message translates to:
+  /// **'Todas las notificaciones marcadas como leídas'**
+  String get allMarkedAsRead;
+
+  /// Error message (loading notifications) with dynamic parameter (error)
+  ///
+  /// In es, this message translates to:
+  /// **'Error cargando notificaciones: {error}'**
+  String loadingNotificationsError(Object error);
+
+  /// Static message (Notification marked as read)
+  ///
+  /// In es, this message translates to:
+  /// **'Notificación marcada como leida'**
+  String get notiMarkedAsRead;
+
+  /// Static message (undo)
+  ///
+  /// In es, this message translates to:
+  /// **'Deshacer'**
+  String get undo;
+
+  /// Localized notification title option by nameTitle
+  ///
+  /// In es, this message translates to:
+  /// **'{nameTitle, select, approved{Acceso aprobado} denied{Acceso denegado} notice{Aviso general} warning{Alerta} other{Desconocido}}'**
+  String notificationTitle(String nameTitle);
+
+  /// Static message (Mark as read)
+  ///
+  /// In es, this message translates to:
+  /// **'Marcar como leida'**
+  String get markAsRead;
 }
 
 class _AppLocalizationsDelegate

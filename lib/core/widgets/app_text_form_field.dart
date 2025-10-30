@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
+import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
 
 enum AppTextFieldVariant { email, password, text, number, multiline }
 
@@ -53,12 +54,12 @@ class AppTextFormField extends StatelessWidget {
   // ---------- Configuración por variante ----------
 
   ({String? label, String? hintText,TextInputType keyboard, TextInputAction action, IconData? icon, Iterable<String>? hints})
-  _tokensForVariant(AppTextFieldVariant? v) {
+  _tokensForVariant(AppTextFieldVariant? v, AppLocalizations l10n) {
     switch (v) {
       case AppTextFieldVariant.email:
         return (
-          label: 'Introduce tu email',
-          hintText: 'ejemplo@dominio.com',
+          label: l10n.enterEmail, //? Etiqueta del campo de email con internacionalización
+          hintText: l10n.emailHintText, //? HintText del campo de email con internacionalización
           keyboard: TextInputType.emailAddress,
           action: TextInputAction.next,
           icon: Icons.alternate_email,
@@ -66,7 +67,7 @@ class AppTextFormField extends StatelessWidget {
         );
       case AppTextFieldVariant.password:
         return (
-          label: 'Introduce tu contraseña',
+          label: l10n.enterPassword, //? Etiqueta del campo de contraseña con internacionalización
           hintText: null,
           keyboard: TextInputType.text,
           action: TextInputAction.next,
@@ -84,8 +85,8 @@ class AppTextFormField extends StatelessWidget {
         );
       case AppTextFieldVariant.multiline:
         return (
-          label: 'Descripción',
-          hintText: 'Añade una descripción…',
+          label: l10n.descriptionLabel, //? Etiqueta del campo de descripción con internacionalización
+          hintText: l10n.descriptionHintText, //? HintText del campo de descripción con internacionalización
           keyboard: TextInputType.multiline,
           action: TextInputAction.newline,
           icon: null,
@@ -143,9 +144,10 @@ class AppTextFormField extends StatelessWidget {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
     final textTheme = theme.textTheme;
+        final l10n = AppLocalizations.of(context)!;
 
     // Variantes
-    final tokens = _tokensForVariant(variant);
+    final tokens = _tokensForVariant(variant, l10n);
     final tone = _colorsForVariant(scheme, variant);
 
     final obscure = (variant == AppTextFieldVariant.password) ? (isObscured ?? true) : false;
@@ -218,7 +220,7 @@ class AppTextFormField extends StatelessWidget {
               : null,
             suffixIcon: showToggle
                 ? IconButton(
-                    tooltip: obscure ? 'Mostrar' : 'Ocultar',
+                    tooltip: obscure ? l10n.show : l10n.hide, //? Tooltip para toggle visibilidad con internacionalización
                     onPressed: onToggleObscure,
                     icon: Icon(obscure ? Icons.visibility : Icons.visibility_off, color: tone.icon),
                   )
@@ -246,4 +248,3 @@ class AppTextFormField extends StatelessWidget {
     );
   }
 }
-

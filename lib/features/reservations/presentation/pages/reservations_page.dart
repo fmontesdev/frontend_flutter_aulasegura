@@ -7,6 +7,7 @@ import 'package:frontend_flutter_aulasegura/core/widgets/app_list.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_reservation_card.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_fab.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_fab_hide_on_scroll.dart';
+import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
 
 class ReservationsPage extends ConsumerStatefulWidget {
   const ReservationsPage({super.key});
@@ -56,6 +57,7 @@ class _ReservationsPageState extends ConsumerState<ReservationsPage> {
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
     final reservationsAsync = ref.watch(eventScheduleProvider);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       backgroundColor: scheme.primaryContainer,
@@ -79,21 +81,17 @@ class _ReservationsPageState extends ConsumerState<ReservationsPage> {
                   final predicates = <bool Function(dynamic)>[];
 
                   if (approvedCount > 0) {
-                    options.add('Aprobadas');
+                    options.add(l10n.reservationSelectorOption('approved'));
                     predicates.add((r) => r.status == 'approved' && DateTime.parse(r.endAt).isAfter(DateTime.now()));
                   }
                   if (pendingCount > 0) {
-                    options.add('Pendientes');
+                    options.add(l10n.reservationSelectorOption('pending'));
                     predicates.add((r) => r.status == 'pending' && DateTime.parse(r.endAt).isAfter(DateTime.now()));
                   }
                   if (revokedCount > 0) {
-                    options.add('Canceladas');
+                    options.add(l10n.reservationSelectorOption('revoked'));
                     predicates.add((r) => r.status == 'revoked' && DateTime.parse(r.endAt).isAfter(DateTime.now()));
                   }
-
-                  // "Todas" SIEMPRE visible
-                  // options.add('Todas');
-                  // predicates.add((_) => true);
 
                   // Asegura índice válido si cambia el nº de opciones
                   final safeSelected = (_selectedIndex < options.length)
@@ -108,7 +106,7 @@ class _ReservationsPageState extends ConsumerState<ReservationsPage> {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      // Selector de filtros dinámico
+                      /// Selector de filtros dinámico
                       AppFilterSelector(
                         options: options,
                         selectedIndex: safeSelected,
@@ -116,7 +114,7 @@ class _ReservationsPageState extends ConsumerState<ReservationsPage> {
                       ),
                       const SizedBox(height: 18),
 
-                      // Lista
+                      /// Lista
                       Expanded(
                         child: AppList(
                           type: 'reservations',
@@ -149,7 +147,7 @@ class _ReservationsPageState extends ConsumerState<ReservationsPage> {
           size: AppFabSize.md,
           icon: Icons.add,
           heroTag: 'reservations-fab',
-          tooltip: 'Solicitar reserva',
+          tooltip: l10n.requestReservation, //? Tooltip del botón de solicitar reserva con internacionalización
           onPressed: () {
             context.push('/reservations/create');
           },

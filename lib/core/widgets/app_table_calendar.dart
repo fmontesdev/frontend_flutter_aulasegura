@@ -34,6 +34,7 @@ class _AppTableCalendarState extends State<AppTableCalendar> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
+    final locale = Localizations.localeOf(context).toString(); // 'es', 'ca', 'en'
 
     return Card(
       elevation: 2,
@@ -42,7 +43,7 @@ class _AppTableCalendarState extends State<AppTableCalendar> {
       child: Padding(
         padding: const EdgeInsets.fromLTRB(9, 0, 12, 8),
         child: TableCalendar(
-          locale: 'es_ES',
+          locale: locale,
           firstDay: DateTime.now(),
           lastDay: DateTime.utc(2026, 7, 31),
           focusedDay: _focusedDay,

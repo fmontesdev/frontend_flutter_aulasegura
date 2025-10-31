@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_bottom_nav.dart';
-import 'package:frontend_flutter_aulasegura/features/preferences/presentation/pages/preferences_page.dart';
 import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
 
-class AppScaffold extends StatefulWidget {
+class AppMainScaffold extends StatefulWidget {
   final List<Widget>? pages;
   final StatefulNavigationShell navigationShell;
 
-  const AppScaffold({
+  const AppMainScaffold({
     super.key,
     this.pages,
     required this.navigationShell,
   });
 
   @override
-  State<AppScaffold> createState() => _AppScaffoldState();
+  State<AppMainScaffold> createState() => _AppMainScaffoldState();
 }
 
-class _AppScaffoldState extends State<AppScaffold> {
+class _AppMainScaffoldState extends State<AppMainScaffold> {
   String _page = 'home';
   bool _isOverlayPage = false;
 
@@ -73,16 +72,7 @@ class _AppScaffoldState extends State<AppScaffold> {
                           ),
                         ),
                         onPressed: () {
-                          // setState(() {
-                          //   _page = 'Perfil';
-                          //   _isOverlayPage = true;
-                          // });
-                          /* Ir a perfil */
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (_) => const PreferencesPage(),
-                            ),
-                          );
+                          context.push('/profile');
                         },
                         tooltip: l10n.profile, //? Tooltip del botón de perfil con internacionalización
                       ),

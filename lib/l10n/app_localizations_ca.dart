@@ -12,7 +12,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get enterEmail => 'Introdueix el teu email';
 
   @override
-  String get emailValidation => 'Email no válid';
+  String get emailValidation => 'Email no vàlid';
 
   @override
   String get emailHintText => 'exemple@domini.com';
@@ -21,7 +21,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get enterPassword => 'Introdueix la teva contrasenya';
 
   @override
-  String get passwordValidation => 'Mínim 8 caracters';
+  String get passwordValidation => 'Mínim 8 caràcters';
 
   @override
   String get recoverPassword => 'Recuperar contrasenya';
@@ -66,7 +66,7 @@ class AppLocalizationsCa extends AppLocalizations {
   }
 
   @override
-  String get profile => 'Perfil';
+  String get profile => 'El meu perfil';
 
   @override
   String sessionError(Object error) {
@@ -163,7 +163,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get allMarkedAsRead =>
-      'Totes les notificacions marcades como a llegides';
+      'Totes les notificacions marcades com a llegides';
 
   @override
   String loadingNotificationsError(Object error) {
@@ -171,7 +171,7 @@ class AppLocalizationsCa extends AppLocalizations {
   }
 
   @override
-  String get notiMarkedAsRead => 'Notificació marcada como a llegida';
+  String get notiMarkedAsRead => 'Notificació marcada com a llegida';
 
   @override
   String get undo => 'Desfer';
@@ -189,5 +189,5 @@ class AppLocalizationsCa extends AppLocalizations {
   }
 
   @override
-  String get markAsRead => 'Marcar como a llegida';
+  String get markAsRead => 'Marcar com a llegida';
 }

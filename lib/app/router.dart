@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:frontend_flutter_aulasegura/features/auth/presentation/pages/login_page.dart';
-import 'package:frontend_flutter_aulasegura/core/widgets/app_scaffold.dart';
+import 'package:frontend_flutter_aulasegura/core/widgets/app_main_scaffold.dart';
 import 'package:frontend_flutter_aulasegura/features/home/presentation/pages/home_page.dart';
 import 'package:frontend_flutter_aulasegura/features/map/presentation/pages/map_page.dart';
 import 'package:frontend_flutter_aulasegura/features/reservations/presentation/pages/reservations_page.dart';
 import 'package:frontend_flutter_aulasegura/features/reservations/presentation/pages/create_reservation_page.dart';
 import 'package:frontend_flutter_aulasegura/features/schedules/presentation/pages/schedules_page.dart';
 import 'package:frontend_flutter_aulasegura/features/notifications/presentation/pages/notifications_page.dart';
+import 'package:frontend_flutter_aulasegura/features/profile/presentation/pages/profile_page.dart';
 import 'package:frontend_flutter_aulasegura/core/utils/slide_from_right_page.dart';
 
 // GlobalKeys para estados de navegación
@@ -28,10 +29,10 @@ final router = GoRouter (
       builder: (context, state) => const LoginPage(),
     ),
 
-  // StatefulShellRoute añade estado de navegación interna a cada sección (rama/pestaña)
+  /// StatefulShellRoute añade estado de navegación interna a cada sección (rama/pestaña)
   StatefulShellRoute.indexedStack(
     builder: (context, state, navigationShell) {
-      return AppScaffold(
+      return AppMainScaffold(
         navigationShell: navigationShell,
       );
     },
@@ -89,38 +90,44 @@ final router = GoRouter (
     ],
   ),
 
-    // Ruta fullscreen fuera del ShellRoute
-    GoRoute(
-      name: 'reservation_create',
-      path: '/reservations/create',
-      parentNavigatorKey: _rootNavigatorKey, // Usamos el root navigator
-      pageBuilder: (context, state) => slideFromRightPage(const CreateReservationPage(), state),
-    ),
+  /// Rutas fullscreen fuera del ShellRoute
+  GoRoute(
+    name: 'profile',
+    path: '/profile',
+    parentNavigatorKey: _rootNavigatorKey, // Usamos el root navigator
+    pageBuilder: (context, state) => slideFromRightPage(const ProfilePage(), state),
+  ),
+  GoRoute(
+    name: 'reservation_create',
+    path: '/reservations/create',
+    parentNavigatorKey: _rootNavigatorKey, // Usamos el root navigator
+    pageBuilder: (context, state) => slideFromRightPage(const CreateReservationPage(), state),
+  ),
 
-    /// Ejemplo con params
-    // GoRoute(
-    //   path: '/fruits/:id',
-    //   builder: (context, state) {
-    //     final id = state.pathParameters["id"]! // Get "id" param from URL
-    //     return FruitsPage(id: id);
-    //   },
-    // ),
+  /// Ejemplo con params
+  // GoRoute(
+  //   path: '/fruits/:id',
+  //   builder: (context, state) {
+  //     final id = state.pathParameters["id"]! // Get "id" param from URL
+  //     return FruitsPage(id: id);
+  //   },
+  // ),
 
-    /// Ejemplo con rutas hijas
-    // GoRoute(
-    //   path: '/fruits',
-    //   builder: (context, state) {
-    //     return FruitsPage();
-    //   },
-    //   routes: <RouteBase>[ // Add child routes
-    //     GoRoute(
-    //       path: 'fruits-details', // NOTE: Don't need to specify "/" character for router’s parents
-    //       builder: (context, state) {
-    //         return FruitDetailsPage();
-    //       },
-    //     ),
-    //   ],
-    // )
+  /// Ejemplo con rutas hijas
+  // GoRoute(
+  //   path: '/fruits',
+  //   builder: (context, state) {
+  //     return FruitsPage();
+  //   },
+  //   routes: <RouteBase>[ // Add child routes
+  //     GoRoute(
+  //       path: 'fruits-details', // NOTE: Don't need to specify "/" character for router’s parents
+  //       builder: (context, state) {
+  //         return FruitDetailsPage();
+  //       },
+  //     ),
+  //   ],
+  // )
 
   ],
 );

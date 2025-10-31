@@ -212,5 +212,9 @@
   "markAsRead": "Mark as read",
   "@markAsRead": {
     "description": "Static message (Mark as read)"
+  },
+  "profile": "My profile",
+  "@profile": {
+    "description": "Static message (my profile)"
   }
 }

@@ -1,9 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:frontend_flutter_aulasegura/features/preferences/data/datasources/preferences_local_datasource.dart';
-import 'package:frontend_flutter_aulasegura/features/preferences/data/repositories/preferences_repository_impl.dart';
-import 'package:frontend_flutter_aulasegura/features/preferences/domain/repositories/preferences_repository.dart';
-import 'package:frontend_flutter_aulasegura/features/preferences/domain/usecases/preferences_usecases.dart';
-import 'package:frontend_flutter_aulasegura/features/preferences/domain/entities/preferences.dart';
+import 'package:frontend_flutter_aulasegura/features/profile/data/datasources/preferences_local_datasource.dart';
+import 'package:frontend_flutter_aulasegura/features/profile/data/repositories/preferences_repository_impl.dart';
+import 'package:frontend_flutter_aulasegura/features/profile/domain/repositories/preferences_repository.dart';
+import 'package:frontend_flutter_aulasegura/features/profile/domain/usecases/preferences_usecases.dart';
+import 'package:frontend_flutter_aulasegura/features/profile/domain/entities/preferences.dart';
 
 // import 'package:frontend_flutter_aulasegura/features/auth/presentation/providers/auth_providers.dart';
 

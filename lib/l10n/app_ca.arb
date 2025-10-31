@@ -3,7 +3,7 @@
   "@enterEmail": {
     "description": "Static message (enter your email)"
   },
-  "emailValidation": "Email no válid",
+  "emailValidation": "Email no vàlid",
   "@emailValidation": {
     "description": "Static message (invalid email)"
   },
@@ -15,7 +15,7 @@
   "@enterPassword": {
     "description": "Static message (enter your password)"
   },
-  "passwordValidation": "Mínim 8 caracters",
+  "passwordValidation": "Mínim 8 caràcters",
   "@passwordValidation": {
     "description": "Static message (minimum 8 characters)"
   },
@@ -179,7 +179,7 @@
       }
     }
   },
-  "allMarkedAsRead": "Totes les notificacions marcades como a llegides",
+  "allMarkedAsRead": "Totes les notificacions marcades com a llegides",
   "@allMarkedAsRead": {
     "description": "Snackbar message when marking all as read"
   },
@@ -192,7 +192,7 @@
       }
     }
   },
-  "notiMarkedAsRead": "Notificació marcada como a llegida",
+  "notiMarkedAsRead": "Notificació marcada com a llegida",
   "@notiMarkedAsRead": {
     "description": "Static message (Notification marked as read)"
   },
@@ -209,8 +209,12 @@
       }
     }
   },
-  "markAsRead": "Marcar como a llegida",
+  "markAsRead": "Marcar com a llegida",
   "@markAsRead": {
     "description": "Static message (Mark as read)"
+  },
+  "profile": "El meu perfil",
+  "@profile": {
+    "description": "Static message (my profile)"
   }
 }

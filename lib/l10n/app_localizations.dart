@@ -190,10 +190,10 @@ abstract class AppLocalizations {
   /// **'{pageName, select, home{Inicio} map{Mapa} reservations{Reservas} schedules{Horarios} notifications{Notificaciones} other{Desconocido}}'**
   String page(String pageName);
 
-  /// Static message (profile)
+  /// Static message (my profile)
   ///
   /// In es, this message translates to:
-  /// **'Perfil'**
+  /// **'Mi perfil'**
   String get profile;
 
   /// Error message (loading session) with dynamic parameter (error)

@@ -66,7 +66,7 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
-  String get profile => 'Perfil';
+  String get profile => 'Mi perfil';
 
   @override
   String sessionError(Object error) {

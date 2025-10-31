@@ -1,4 +1,4 @@
-import 'package:frontend_flutter_aulasegura/features/preferences/domain/entities/preferences.dart';
+import 'package:frontend_flutter_aulasegura/features/profile/domain/entities/preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class PreferencesLocalDataSource {

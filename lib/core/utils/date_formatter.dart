@@ -21,7 +21,7 @@ String dateTimeFormatter(BuildContext context, DateTime datetime) {
 
 // Formatea una franja horaria en formato HH:mm - HH:mm (ejemplo: 14:30 - 15:30)
 String timeReservation(DateTime startAt, DateTime endAt) {
-  final formatter = DateFormat('HH:mm', 'es_ES');
+  final formatter = DateFormat('HH:mm');
   final formattedTime = '${formatter.format(startAt)} - ${formatter.format(endAt)}';
 
   return formattedTime;
@@ -29,7 +29,7 @@ String timeReservation(DateTime startAt, DateTime endAt) {
 
 // Formatea una hora en formato HH:mm (ejemplo: 14:30)
 String timeFormatter(DateTime time) {
-  final formatter = DateFormat('HH:mm', 'es_ES');
+  final formatter = DateFormat('HH:mm');
   final formattedTime = formatter.format(time);
 
   return formattedTime;

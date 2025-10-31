@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:frontend_flutter_aulasegura/features/preferences/presentation/providers/preferences_providers.dart';
+import 'package:frontend_flutter_aulasegura/features/profile/presentation/providers/preferences_providers.dart';
+import 'package:frontend_flutter_aulasegura/core/widgets/app_overlay_scaffold.dart';
+import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
 
-class PreferencesPage extends ConsumerStatefulWidget {
-  const PreferencesPage({super.key,});
+class ProfilePage extends ConsumerStatefulWidget {
+  const ProfilePage({super.key,});
 
   @override
-  ConsumerState<PreferencesPage> createState() => _PreferencesPageState();
+  ConsumerState<ProfilePage> createState() => _ProfilePageState();
 }
 
-class _PreferencesPageState extends ConsumerState<PreferencesPage> {
+class _ProfilePageState extends ConsumerState<ProfilePage> {
   final FocusNode _dropdownFocusNode = FocusNode();
 
   static const List<String> _idiomasDisponibles = ['es', 'ca', 'en'];
@@ -39,11 +41,10 @@ class _PreferencesPageState extends ConsumerState<PreferencesPage> {
       orElse: () => false,
     );
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Preferencias'),
-        centerTitle: false,
-      ),
+    final l10n = AppLocalizations.of(context)!;
+
+    return AppOverlayScaffold(
+      title: l10n.profile,
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: ListView(
@@ -103,13 +104,6 @@ class _PreferencesPageState extends ConsumerState<PreferencesPage> {
               secondary: const Icon(Icons.notifications_active_outlined),
             ),
             const Divider(),
-            
-            /// Selector de tamaño de texto (placeholder)
-            const ListTile(
-              leading: Icon(Icons.format_size),
-              title: Text('Tamaño del texto'),
-              subtitle: Text('Ajustar densidad o escala tipográfica'),
-            ),
           ],
         ),
       ),

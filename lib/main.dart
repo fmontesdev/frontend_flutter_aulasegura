@@ -4,7 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 import 'package:frontend_flutter_aulasegura/app/router.dart';
-import 'package:frontend_flutter_aulasegura/features/preferences/presentation/providers/preferences_providers.dart';
+import 'package:frontend_flutter_aulasegura/features/profile/presentation/providers/preferences_providers.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized(); // Asegura que los widgets estén inicializados
@@ -47,9 +47,9 @@ class MyApp extends ConsumerWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: [
-        const Locale('es'), // Spanish
-        const Locale('ca'), // Catalan
-        const Locale('en'), // English
+        const Locale('es'), // Español
+        const Locale('ca'), // Catalán
+        const Locale('en'), // Inglés
       ],
       locale: Locale(language ?? 'es'),
       routerConfig: router,

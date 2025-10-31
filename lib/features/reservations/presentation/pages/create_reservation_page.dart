@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 import 'package:frontend_flutter_aulasegura/features/reservations/presentation/providers/time_slot_providers.dart';
 import 'package:frontend_flutter_aulasegura/features/reservations/domain/entities/time_slot.dart';
+import 'package:frontend_flutter_aulasegura/core/widgets/app_overlay_scaffold.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_table_calendar.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_timeslot_pill.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_slider_selector.dart';
@@ -22,45 +23,8 @@ class CreateReservationPage extends ConsumerWidget {
     // Escucha los cambios en las franjas horarias
     final timeSlotAsync = ref.watch(timeSlotProvider);
 
-    return Scaffold(
-      backgroundColor: scheme.primaryContainer,
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(76),
-        child: AppBar(
-          backgroundColor: scheme.primary,
-          elevation: 0.5,
-          automaticallyImplyLeading: false, // Desactiva el botón automático
-          flexibleSpace: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 1, bottom: 3),
-              child: Align(
-                alignment: Alignment.bottomLeft, // Alinea contenido abajo a la izquierda
-                  child: Row(
-                  children: [
-                    /// Flecha de retroceso
-                    IconButton(
-                      icon: const Icon(Icons.arrow_back),
-                      color: scheme.onPrimary,
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                    ),
-                    const SizedBox(width: 8),
-                    /// Título
-                    Text(
-                      l10n.requestReservation, //? Título de la página "Solicitar reserva" con internacionalización
-                      style: theme.textTheme.titleLarge?.copyWith(
-                        color: scheme.onPrimary,
-                        fontSize: 21
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
+    return AppOverlayScaffold(
+      title: l10n.requestReservation, //? Título de la página "Solicitar reserva" con internacionalización
       body: Padding(
         padding: const EdgeInsets.all(18),
         child: Column(

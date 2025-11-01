@@ -1,6 +1,10 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_text_form_field.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_link.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_button.dart';
@@ -65,7 +69,19 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
     try {
       await ref.read(authProvider.notifier).signIn(_emailCtrl.text, _passCtrl.text);
+
       if (!mounted) return;
+
+      // Prefetch del avatar del usuario para que cargue rápido en home
+      final user = ref.read(authProvider).value;
+      if (user != null) {
+        final base = dotenv.env['IMAGE_SERVER_URL'] ?? 'http://localhost:8090';
+        final url  = '$base/${user.avatar}';
+        final provider = CachedNetworkImageProvider(url);
+        // Descarga y decodifica en caché de imagen
+        await precacheImage(provider, context);
+      }
+
       GoRouter.of(context).go('/home');
     } catch (error) {
       if (!mounted) return;

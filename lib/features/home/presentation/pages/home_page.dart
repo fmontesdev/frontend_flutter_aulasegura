@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:frontend_flutter_aulasegura/features/auth/presentation/providers/auth_providers.dart';
 import 'package:frontend_flutter_aulasegura/features/schedules/presentation/providers/weekly_schedule_providers.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
@@ -24,6 +25,7 @@ class HomePage extends ConsumerWidget {
     final weeklySchedulesAsync = ref.watch(weeklyScheduleProvider);
 
     final l10n = AppLocalizations.of(context)!;
+    final imageServerUrl = dotenv.env['IMAGE_SERVER_URL'] ?? 'http://localhost:8090';
 
     return Scaffold(
       backgroundColor: scheme.primaryContainer,
@@ -49,7 +51,7 @@ class HomePage extends ConsumerWidget {
                   date: dateFormatter(context, DateTime.now()),
                   name: authUser.name,
                   role: authUser.role.name,
-                  avatar: 'assets/images/${authUser.avatar}', //! Convertir a URL de la API
+                  avatarUrl: '$imageServerUrl/${authUser.avatar}',
                 ),
                 const SizedBox(height: 18),
 

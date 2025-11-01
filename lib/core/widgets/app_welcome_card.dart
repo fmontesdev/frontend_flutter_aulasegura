@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
 
@@ -6,14 +7,14 @@ class AppWelcomeCard extends StatelessWidget {
   final String date;
   final String name;
   final String role;
-  final String avatar;
+  final String avatarUrl;
 
   const AppWelcomeCard({
     super.key,
     required this.date,
     required this.name,
     required this.role,
-    required this.avatar,
+    required this.avatarUrl,
   });
 
   @override
@@ -35,15 +36,10 @@ class AppWelcomeCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          // Avatar circular
-          ClipOval(
-            child: Image.asset(
-              avatar,
-              width: 100,
-              height: 100,
-              fit: BoxFit.cover,
-              semanticLabel: 'Avatar Clara',
-            ),
+          /// Avatar circular
+          CircleAvatar(
+            radius: 50, // radio del avatar
+            backgroundImage: CachedNetworkImageProvider(avatarUrl), // Carga imagen desde URL con caché
           ),
           const SizedBox(width: 16),
 

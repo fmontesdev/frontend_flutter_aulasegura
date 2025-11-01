@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:frontend_flutter_aulasegura/app/router.dart';
 import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
-import 'package:frontend_flutter_aulasegura/app/router.dart';
 import 'package:frontend_flutter_aulasegura/features/profile/presentation/providers/preferences_providers.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized(); // Asegura que los widgets estén inicializados
+  await dotenv.load(fileName: '.env'); // Carga las variables de entorno desde el archivo .env
   runApp(const ProviderScope(child: MyApp()),);
 }
 

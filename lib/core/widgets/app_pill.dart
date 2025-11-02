@@ -1,107 +1,73 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 
-enum AppPillVariant { primary, secondary, tertiary }
+enum AppPillVariant { primary, secondary, tertiary, quatertiary }
 enum AppPillSize { sm, md, lg }
 
 class AppPill extends StatelessWidget {
   final AppPillVariant variant;
   final AppPillSize size;
-  final String? label;
   final IconData? icon;
-  final void Function()? onTap;
-  final bool isSelected;
-  final bool isCircular; // útil para píldoras sólo con icono
-  final bool enabled;
+  final String label;
 
   const AppPill({
     super.key,
     this.variant = AppPillVariant.primary,
     this.size = AppPillSize.md,
-    this.label,
     this.icon,
-    this.onTap,
-    this.isSelected = false,
-    this.isCircular = false,
-    this.enabled = true,
+    required this.label
   });
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
+    final text   = theme.textTheme;
 
-    // Colores por variante para el estado seleccionado
-    final (selBg, selFg) = switch (variant) {
+    // Colores por variante
+    final (background, foreground) = switch (variant) {
       AppPillVariant.primary => (scheme.primary, scheme.onPrimary),
       AppPillVariant.secondary => (scheme.secondary, scheme.onSecondary),
       AppPillVariant.tertiary => (scheme.tertiary, scheme.onTertiary),
+      AppPillVariant.quatertiary => (scheme.quatertiary.withValues(alpha: 0.4), scheme.secondary),
     };
-
-    // Estado base de la pill: blanco con sombra, estado seleccionado = variante
-    final Color background = isSelected ? selBg : scheme.card;
-    final Color foreground = isSelected ? selFg : scheme.onSurface;
-    // Grosor de la fuente según estado seleccionado
-    final FontWeight fontWeight = isSelected ? FontWeight.w600 : FontWeight.w500;
 
     // Padding, tipo de texto y icono por tamaño
     final (padding, textStyle, iconSize) = switch (size) {
       AppPillSize.sm => (
-        const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-        theme.textTheme.labelSmall?.copyWith(fontWeight: fontWeight, color: foreground),
-        14.0,
+        const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+        text.labelLarge?.copyWith(color: foreground),
+        18.0,
       ),
       AppPillSize.md => (
-        const EdgeInsets.symmetric(horizontal: 12, vertical: 13),
-        theme.textTheme.labelMedium?.copyWith(fontWeight: fontWeight, color: foreground),
-        16.0,
+        const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
+        text.labelLarge?.copyWith(fontSize: 15, color: foreground),
+        20.0,
       ),
       AppPillSize.lg => (
-        const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-        theme.textTheme.labelLarge?.copyWith(fontWeight: fontWeight, color: foreground),
-        18.0,
+        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        text.labelLarge?.copyWith(fontSize: 16, color: foreground),
+        22.0,
       ),
     };
 
-    final shape = isCircular ? const CircleBorder() : const StadiumBorder();
-
-    return Opacity(
-      opacity: enabled ? 1.0 : 0.5,
-      child: Material(
+    return Container(
+      padding: padding,
+      decoration: ShapeDecoration(
         color: background,
-        shape: shape,
-        elevation: 2,
-        shadowColor: scheme.onPrimaryContainer.withValues(alpha: 0.4),
-        surfaceTintColor: isSelected ? null : Colors.transparent, // Evita tinte M3 sobre blanco
-        child: InkWell(
-          customBorder: shape,
-          onTap: enabled ? onTap : null,
-          child: Padding(
-            padding: padding,
-            child: () {
-              final hasText = (label != null && label!.trim().isNotEmpty);
-              final hasIcon = icon != null;
-
-              // Sólo texto
-              if (hasText && !hasIcon) {
-                return Text(label!, style: textStyle);
-              }
-              // Sólo icono
-              if (!hasText && hasIcon) {
-                return Icon(icon, size: iconSize, color: foreground);
-              }
-              // Icono + texto
-              return Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(icon, size: iconSize, color: foreground),
-                  const SizedBox(width: 8),
-                  Text(label ?? '', style: textStyle),
-                ],
-              );
-            }(),
-          ),
-        ),
+        shape: const StadiumBorder(),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          /// Icono
+          if (icon != null) ...[
+            Icon(icon!, color: foreground, size: iconSize),
+            const SizedBox(width: 6),
+          ],
+          /// Info
+          Text(label, style: textStyle),
+        ],
       ),
     );
   }

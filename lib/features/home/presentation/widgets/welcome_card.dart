@@ -3,13 +3,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
 
-class AppWelcomeCard extends StatelessWidget {
+class WelcomeCard extends StatelessWidget {
   final String date;
   final String name;
   final String role;
   final String avatarUrl;
 
-  const AppWelcomeCard({
+  const WelcomeCard({
     super.key,
     required this.date,
     required this.name,

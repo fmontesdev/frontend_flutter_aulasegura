@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:frontend_flutter_aulasegura/features/reservations/presentation/providers/event_schedule_providers.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_filter_selector.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_list.dart';
-import 'package:frontend_flutter_aulasegura/core/widgets/app_reservation_card.dart';
+import 'package:frontend_flutter_aulasegura/features/reservations/presentation/widgets/reservation_card.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_fab.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_fab_hide_on_scroll.dart';
 import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
@@ -119,7 +119,7 @@ class _ReservationsPageState extends ConsumerState<ReservationsPage> {
                         child: AppList(
                           type: 'reservations',
                           items: filtered,
-                          itemBuilder: (item) => AppReservationCard(
+                          itemBuilder: (item) => ReservationCard(
                             id: item.id,
                             type: item.type,
                             startAt: item.startAt,

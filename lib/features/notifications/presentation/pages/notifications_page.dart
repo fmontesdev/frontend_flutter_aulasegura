@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:frontend_flutter_aulasegura/features/notifications/presentation/providers/notification_providers.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_filter_selector.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_list.dart';
-import 'package:frontend_flutter_aulasegura/core/widgets/app_notification_card.dart';
+import 'package:frontend_flutter_aulasegura/features/notifications/presentation/widgets/notification_card.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_snackbar_button.dart';
 import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
 
@@ -140,7 +140,7 @@ class _NotificationsPageState extends ConsumerState<NotificationsPage> {
                         child: AppList(
                           type: 'notifications',
                           items: filtered,
-                          itemBuilder: (item) => AppNotificationCard(
+                          itemBuilder: (item) => NotificationCard(
                             id: item.id,
                             type: item.type,
                             title: l10n.notificationTitle(item.title), //? Título de la notificación con internacionalización

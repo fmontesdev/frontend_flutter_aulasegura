@@ -5,7 +5,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:frontend_flutter_aulasegura/features/auth/presentation/providers/auth_providers.dart';
 import 'package:frontend_flutter_aulasegura/features/schedules/presentation/providers/weekly_schedule_providers.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
-import 'package:frontend_flutter_aulasegura/core/widgets/app_welcome_card.dart';
+import 'package:frontend_flutter_aulasegura/features/home/presentation/widgets/welcome_card.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_button.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_list.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_schedule_card.dart';
@@ -47,7 +47,7 @@ class HomePage extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 /// Card de bienvenida
-                AppWelcomeCard(
+                WelcomeCard(
                   date: dateFormatter(context, DateTime.now()),
                   name: authUser.name,
                   role: authUser.role.name,

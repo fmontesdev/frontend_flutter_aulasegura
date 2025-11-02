@@ -4,7 +4,7 @@ import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 import 'package:frontend_flutter_aulasegura/core/utils/date_formatter.dart';
 import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
 
-class AppNotificationCard extends ConsumerStatefulWidget {
+class NotificationCard extends ConsumerStatefulWidget {
   final int id;
   final String type;
   final String title;
@@ -13,7 +13,7 @@ class AppNotificationCard extends ConsumerStatefulWidget {
   final bool isRead;
   final VoidCallback onMarkRead; // Callback cuando la notificación se marca como leída
 
-  const AppNotificationCard({
+  const NotificationCard({
     super.key,
     required this.id,
     required this.type,
@@ -25,10 +25,10 @@ class AppNotificationCard extends ConsumerStatefulWidget {
   });
 
   @override
-  ConsumerState<AppNotificationCard> createState() => _AppNotificationCardState();
+  ConsumerState<NotificationCard> createState() => _NotificationCardState();
 }
 
-class _AppNotificationCardState extends ConsumerState<AppNotificationCard> {
+class _NotificationCardState extends ConsumerState<NotificationCard> {
   bool _isHover = false; // Estado de hover para cambiar el borde
 
   @override

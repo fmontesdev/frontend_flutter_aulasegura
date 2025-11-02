@@ -5,7 +5,7 @@ import 'package:frontend_flutter_aulasegura/core/utils/date_formatter.dart';
 import 'package:frontend_flutter_aulasegura/features/schedules/domain/entities/room.dart';
 import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
 
-class AppReservationCard extends ConsumerStatefulWidget {
+class ReservationCard extends ConsumerStatefulWidget {
   final int id;
   final String type;
   final String startAt;
@@ -16,7 +16,7 @@ class AppReservationCard extends ConsumerStatefulWidget {
   final Room room;
   final VoidCallback onDelete; // Callback cuando la reserva se elimina
 
-  const AppReservationCard({
+  const ReservationCard({
     super.key,
     required this.id,
     required this.type,
@@ -30,10 +30,10 @@ class AppReservationCard extends ConsumerStatefulWidget {
   });
 
   @override
-  ConsumerState<AppReservationCard> createState() => _AppReservationCardState();
+  ConsumerState<ReservationCard> createState() => _ReservationCardState();
 }
 
-class _AppReservationCardState extends ConsumerState<AppReservationCard> {
+class _ReservationCardState extends ConsumerState<ReservationCard> {
   bool _isHover = false; // Estado de hover para cambiar el borde
 
   @override

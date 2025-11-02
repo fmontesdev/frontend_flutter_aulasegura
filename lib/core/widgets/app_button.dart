@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 
-enum AppButtonVariant { primary, secondary, danger }
+enum AppButtonVariant { primary, secondary, danger, lightRed }
 enum AppButtonSize { sm, md, lg, xl }
 
 class AppButton extends StatelessWidget {
@@ -10,6 +11,8 @@ class AppButton extends StatelessWidget {
   final IconData? icon;
   final VoidCallback onPressed;
   final bool isCircular;
+  final bool border;
+  final bool overlayColor;
 
   // Overrides opcionales por si queremos forzar colores puntuales
   final Color? backgroundColorOverride;
@@ -25,6 +28,8 @@ class AppButton extends StatelessWidget {
     this.backgroundColorOverride,
     this.foregroundColorOverride,
     this.isCircular = false,
+    this.border = false,
+    this.overlayColor = false,
   });
 
   @override
@@ -32,14 +37,15 @@ class AppButton extends StatelessWidget {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
 
-    // Colores derivados del ColorScheme
+    /// Colores derivados del ColorScheme
     final (bg, fg) = switch (variant) {
       AppButtonVariant.primary => (scheme.primary, scheme.onPrimary),
       AppButtonVariant.secondary => (scheme.tertiary, scheme.onTertiary),
       AppButtonVariant.danger => (scheme.error, scheme.onError),
+      AppButtonVariant.lightRed => (scheme.onPrimary, scheme.error.withValues(alpha: 0.6)),
     };
 
-    // Padding y texto por tamaño
+    /// Padding y texto por tamaño
     final (padding, textStyle) = switch (size) {
       AppButtonSize.sm => (
         const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -62,10 +68,33 @@ class AppButton extends StatelessWidget {
     final resolvedBg = backgroundColorOverride ?? bg;
     final resolvedFg = foregroundColorOverride ?? fg;
 
-    // Define el botón redondo
+    /// Define la forma del botón y el borde si existe
     final shape = isCircular
-        ? const CircleBorder()
-        : const StadiumBorder();
+        ? CircleBorder(
+            side: border
+              ? BorderSide(
+                  color: resolvedFg,
+                  width: 1.5,
+                )
+              : BorderSide.none,
+          )
+
+        : StadiumBorder(
+            side: border
+              ? BorderSide(
+                  color: resolvedFg,
+                  width: 1.5,
+                )
+              : BorderSide.none,
+        );
+
+    /// Define el overlayColor si existe
+    final overlay = WidgetStateProperty.resolveWith((states) {
+      if (states.contains(WidgetState.pressed)) return resolvedFg.withValues(alpha: 0.10);
+      if (states.contains(WidgetState.hovered)) return resolvedFg.withValues(alpha: 0.09);
+      if (states.contains(WidgetState.focused))  return resolvedFg.withValues(alpha: 0.09);
+      return null;
+    });
 
     return ElevatedButton(
       style: theme.elevatedButtonTheme.style?.copyWith(
@@ -74,11 +103,23 @@ class AppButton extends StatelessWidget {
         padding: WidgetStatePropertyAll(padding),
         textStyle: WidgetStatePropertyAll(textStyle),
         shape: WidgetStatePropertyAll(shape),
+        overlayColor: overlayColor ? overlay : null,
       ),
       onPressed: onPressed,
       child: label != null && icon == null
           ? Text(label!)
-          : Icon(icon, size: 82.5)
+
+        : label != null && icon != null
+            ? Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(icon, size: 20),
+                  const SizedBox(width: 6),
+                  Text(label!),
+                ],
+              )
+
+        : Icon(icon, size: 82.5)
     );
   }
 }

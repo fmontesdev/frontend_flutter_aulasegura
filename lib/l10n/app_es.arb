@@ -216,5 +216,73 @@
   "profile": "Mi perfil",
   "@profile": {
     "description": "Static message (my profile)"
+  },
+  "department": "{departmentName, select, artes_plasticas{Artes Plásticas} biologia_y_geologia{Biología y Geología} economia{Economía} educacion_fisica{Educación Física} administracion{Administración} comercio{Comercio} informatica{Informática} filosofia{Filosofía} fisica_y_quimica{Física y Química} fol{Fol} frances{Francés} geografia_e_historia{Geografía e Historia} ingles{Inglés} latin{Latín} castellano{Castellano} valenciano{Valenciano} matematicas{Matemáticas} musica{Música} orientacion{Orientación} religion{Religión} tecnologia{Tecnología} other{Desconocido}}",
+  "@department": {
+    "description": "Localized department by departmentName",
+    "placeholders": {
+      "departmentName": {
+        "type": "String"
+      }
+    }
+  },
+  "logout": "Cerrar sesión",
+  "@logout": {
+    "description": "Static message (logout)"
+  },
+  "security": "Seguridad",
+  "@security": {
+    "description": "Static message (security)"
+  },
+  "changePassword": "Cambiar contraseña",
+  "@changePassword": {
+    "description": "Static message (change password)"
+  },
+  "updatePassword": "Actualiza tu contraseña",
+  "@updatePassword": {
+    "description": "Static message (update password)"
+  },
+  "preferences": "Preferencias",
+  "@preferences": {
+    "description": "Static message (preferences)"
+  },
+  "darkTheme": "Tema oscuro",
+  "@darkTheme": {
+    "description": "Static message (dark theme)"
+  },
+  "onOff": "{boolean, select, true{Activado} false{Desactivado} other{Desconocido}}",
+  "@onOff": {
+    "description": "Localized action by boolean",
+    "placeholders": {
+      "boolean": {
+        "type": "String"
+      }
+    }
+  },
+  "language": "Idioma",
+  "@language": {
+    "description": "Static message (language)"
+  },
+  "languageName": "{languageTag, select, es{Castellano} ca{Valenciano} en{Inglés} other{Desconocido}}",
+  "@languageName": {
+    "description": "Localized language by languageTag",
+    "placeholders": {
+      "languageTag": {
+        "type": "String"
+      }
+    }
+  },
+  "notifications": "Notificaciones",
+  "@notifications": {
+    "description": "Static message (notifications)"
+  },
+  "onOffFemeninPlural": "{boolean, select, true{Activadas} false{Desactivadas} other{Desconocido}}",
+  "@onOffPlural": {
+    "description": "Localized action by boolean",
+    "placeholders": {
+      "boolean": {
+        "type": "String"
+      }
+    }
   }
 }

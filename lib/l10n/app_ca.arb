@@ -216,5 +216,73 @@
   "profile": "El meu perfil",
   "@profile": {
     "description": "Static message (my profile)"
+  },
+  "department": "{departmentName, select, artes_plasticas{Arts Plàstiques} biologia_y_geologia{Biologia i Geologia} economia{Economia} educacion_fisica{Educació Física} administracion{Administració} comercio{Comerç} informatica{Informàtica} filosofia{Filosofia} fisica_y_quimica{Física i Química} fol{Fol} frances{Francés} geografia_e_historia{Geografia i Història} ingles{Anglés} latin{Llatí} castellano{Castellà} valenciano{Valencià} matematicas{Matemàtiques} musica{Música} orientacion{Orientació} religion{Religió} tecnologia{Tecnologia} other{Desconegut}}",
+  "@department": {
+    "description": "Localized department by departmentName",
+    "placeholders": {
+      "departmentName": {
+        "type": "String"
+      }
+    }
+  },
+  "logout": "Tancar sessió",
+  "@logout": {
+    "description": "Static message (logout)"
+  },
+  "security": "Seguretat",
+  "@security": {
+    "description": "Static message (security)"
+  },
+  "changePassword": "Canviar contrasenya",
+  "@changePassword": {
+    "description": "Static message (change password)"
+  },
+  "updatePassword": "Actualitza la teva contrasenya",
+  "@updatePassword": {
+    "description": "Static message (update password)"
+  },
+  "preferences": "Preferències",
+  "@preferences": {
+    "description": "Static message (preferences)"
+  },
+  "darkTheme": "Tema fosc",
+  "@darkTheme": {
+    "description": "Static message (dark theme)"
+  },
+  "onOff": "{boolean, select, true{Activat} false{Desactivat} other{Desconegut}}",
+  "@onOff": {
+    "description": "Localized action by boolean",
+    "placeholders": {
+      "boolean": {
+        "type": "String"
+      }
+    }
+  },
+  "language": "Idioma",
+  "@language": {
+    "description": "Static message (language)"
+  },
+  "languageName": "{languageTag, select, es{Castellà} ca{Valencià} en{Anglés} other{Desconegut}}",
+  "@languageName": {
+    "description": "Localized language by languageTag",
+    "placeholders": {
+      "languageTag": {
+        "type": "String"
+      }
+    }
+  },
+  "notifications": "Notificacions",
+  "@notifications": {
+    "description": "Static message (notifications)"
+  },
+  "onOffFemeninPlural": "{boolean, select, true{Activades} false{Desactivades} other{Desconegut}}",
+  "@onOffPlural": {
+    "description": "Localized action by boolean",
+    "placeholders": {
+      "boolean": {
+        "type": "String"
+      }
+    }
   }
 }

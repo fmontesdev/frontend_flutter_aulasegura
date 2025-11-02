@@ -216,5 +216,73 @@
   "profile": "My profile",
   "@profile": {
     "description": "Static message (my profile)"
+  },
+  "department": "{departmentName, select, artes_plasticas{Visual Arts} biologia_y_geologia{Biology and Geology} economia{Economics} educacion_fisica{Physical Education} administracion{Business Administration} comercio{Commerce} informatica{Computer Science} filosofia{Philosophy} fisica_y_quimica{Physics and Chemistry} fol{Fol} frances{French} geografia_e_historia{Geography and History} ingles{English} latin{Latin} castellano{Spanish} valenciano{Valencian} matematicas{Mathematics} musica{Music} orientacion{Guidance} religion{Religion} tecnologia{Technology} other{Unknown}}",
+  "@department": {
+    "description": "Localized department by departmentName",
+    "placeholders": {
+      "departmentName": {
+        "type": "String"
+      }
+    }
+  },
+  "logout": "Log out",
+  "@logout": {
+    "description": "Static message (logout)"
+  },
+  "security": "Security",
+  "@security": {
+    "description": "Static message (security)"
+  },
+  "changePassword": "Change password",
+  "@changePassword": {
+    "description": "Static message (change password)"
+  },
+  "updatePassword": "Update your password",
+  "@updatePassword": {
+    "description": "Static message (update password)"
+  },
+  "preferences": "Preferences",
+  "@preferences": {
+    "description": "Static message (preferences)"
+  },
+  "darkTheme": "Dark theme",
+  "@darkTheme": {
+    "description": "Static message (dark theme)"
+  },
+  "onOff": "{boolean, select, true{On} false{Off} other{Unknown}}",
+  "@onOff": {
+    "description": "Localized action by boolean",
+    "placeholders": {
+      "boolean": {
+        "type": "String"
+      }
+    }
+  },
+  "language": "Language",
+  "@language": {
+    "description": "Static message (language)"
+  },
+  "languageName": "{languageTag, select, es{Spanish} ca{Valencian} en{English} other{Unknown}}",
+  "@languageName": {
+    "description": "Localized language by languageTag",
+    "placeholders": {
+      "languageTag": {
+        "type": "String"
+      }
+    }
+  },
+  "notifications": "Notifications",
+  "@notifications": {
+    "description": "Static message (notifications)"
+  },
+  "onOffFemeninPlural": "{boolean, select, true{On} false{Off} other{Unknown}}",
+  "@onOffPlural": {
+    "description": "Localized action by boolean",
+    "placeholders": {
+      "boolean": {
+        "type": "String"
+      }
+    }
   }
 }

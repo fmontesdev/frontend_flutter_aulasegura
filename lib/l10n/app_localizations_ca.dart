@@ -190,4 +190,88 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get markAsRead => 'Marcar com a llegida';
+
+  @override
+  String department(String departmentName) {
+    String _temp0 = intl.Intl.selectLogic(departmentName, {
+      'artes_plasticas': 'Arts Plàstiques',
+      'biologia_y_geologia': 'Biologia i Geologia',
+      'economia': 'Economia',
+      'educacion_fisica': 'Educació Física',
+      'administracion': 'Administració',
+      'comercio': 'Comerç',
+      'informatica': 'Informàtica',
+      'filosofia': 'Filosofia',
+      'fisica_y_quimica': 'Física i Química',
+      'fol': 'Fol',
+      'frances': 'Francés',
+      'geografia_e_historia': 'Geografia i Història',
+      'ingles': 'Anglés',
+      'latin': 'Llatí',
+      'castellano': 'Castellà',
+      'valenciano': 'Valencià',
+      'matematicas': 'Matemàtiques',
+      'musica': 'Música',
+      'orientacion': 'Orientació',
+      'religion': 'Religió',
+      'tecnologia': 'Tecnologia',
+      'other': 'Desconegut',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get logout => 'Tancar sessió';
+
+  @override
+  String get security => 'Seguretat';
+
+  @override
+  String get changePassword => 'Canviar contrasenya';
+
+  @override
+  String get updatePassword => 'Actualitza la teva contrasenya';
+
+  @override
+  String get preferences => 'Preferències';
+
+  @override
+  String get darkTheme => 'Tema fosc';
+
+  @override
+  String onOff(String boolean) {
+    String _temp0 = intl.Intl.selectLogic(boolean, {
+      'true': 'Activat',
+      'false': 'Desactivat',
+      'other': 'Desconegut',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get language => 'Idioma';
+
+  @override
+  String languageName(String languageTag) {
+    String _temp0 = intl.Intl.selectLogic(languageTag, {
+      'es': 'Castellà',
+      'ca': 'Valencià',
+      'en': 'Anglés',
+      'other': 'Desconegut',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get notifications => 'Notificacions';
+
+  @override
+  String onOffFemeninPlural(String boolean) {
+    String _temp0 = intl.Intl.selectLogic(boolean, {
+      'true': 'Activades',
+      'false': 'Desactivades',
+      'other': 'Desconegut',
+    });
+    return '$_temp0';
+  }
 }

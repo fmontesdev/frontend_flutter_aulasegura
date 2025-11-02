@@ -327,6 +327,78 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Marcar como leida'**
   String get markAsRead;
+
+  /// Localized department by departmentName
+  ///
+  /// In es, this message translates to:
+  /// **'{departmentName, select, artes_plasticas{Artes Plásticas} biologia_y_geologia{Biología y Geología} economia{Economía} educacion_fisica{Educación Física} administracion{Administración} comercio{Comercio} informatica{Informática} filosofia{Filosofía} fisica_y_quimica{Física y Química} fol{Fol} frances{Francés} geografia_e_historia{Geografía e Historia} ingles{Inglés} latin{Latín} castellano{Castellano} valenciano{Valenciano} matematicas{Matemáticas} musica{Música} orientacion{Orientación} religion{Religión} tecnologia{Tecnología} other{Desconocido}}'**
+  String department(String departmentName);
+
+  /// Static message (logout)
+  ///
+  /// In es, this message translates to:
+  /// **'Cerrar sesión'**
+  String get logout;
+
+  /// Static message (security)
+  ///
+  /// In es, this message translates to:
+  /// **'Seguridad'**
+  String get security;
+
+  /// Static message (change password)
+  ///
+  /// In es, this message translates to:
+  /// **'Cambiar contraseña'**
+  String get changePassword;
+
+  /// Static message (update password)
+  ///
+  /// In es, this message translates to:
+  /// **'Actualiza tu contraseña'**
+  String get updatePassword;
+
+  /// Static message (preferences)
+  ///
+  /// In es, this message translates to:
+  /// **'Preferencias'**
+  String get preferences;
+
+  /// Static message (dark theme)
+  ///
+  /// In es, this message translates to:
+  /// **'Tema oscuro'**
+  String get darkTheme;
+
+  /// Localized action by boolean
+  ///
+  /// In es, this message translates to:
+  /// **'{boolean, select, true{Activado} false{Desactivado} other{Desconocido}}'**
+  String onOff(String boolean);
+
+  /// Static message (language)
+  ///
+  /// In es, this message translates to:
+  /// **'Idioma'**
+  String get language;
+
+  /// Localized language by languageTag
+  ///
+  /// In es, this message translates to:
+  /// **'{languageTag, select, es{Castellano} ca{Valenciano} en{Inglés} other{Desconocido}}'**
+  String languageName(String languageTag);
+
+  /// Static message (notifications)
+  ///
+  /// In es, this message translates to:
+  /// **'Notificaciones'**
+  String get notifications;
+
+  /// No description provided for @onOffFemeninPlural.
+  ///
+  /// In es, this message translates to:
+  /// **'{boolean, select, true{Activadas} false{Desactivadas} other{Desconocido}}'**
+  String onOffFemeninPlural(String boolean);
 }
 
 class _AppLocalizationsDelegate

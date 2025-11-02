@@ -200,6 +200,34 @@ class AppTheme {
     );
   }
 
+  // ================== BottomSheet ==================
+
+  static BottomSheetThemeData _bottomSheetTheme(ColorScheme scheme) {
+    return BottomSheetThemeData(
+      backgroundColor: scheme.surface,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
+      ),
+      elevation: 8,
+      modalElevation: 8,
+      shadowColor: scheme.onPrimaryContainer.withValues(alpha: 0.25),
+      dragHandleColor: scheme.primary, // Color del “pill”
+      dragHandleSize: const Size(38, 4), // Ancho y alto
+    );
+  }
+
+  // ================== Divider ==================
+
+  static DividerThemeData _dividerTheme(ColorScheme scheme) {
+    return DividerThemeData(
+      color: scheme.lightGrey,
+      space: 20,
+      thickness: 1,
+      indent: 12,
+      endIndent: 12,
+    );
+  }
+
   /// ================== Temas ==================
 
   static ThemeData light = ThemeData(
@@ -212,6 +240,8 @@ class AppTheme {
     appBarTheme: _appBarTheme(_textTheme, _lightScheme),
     switchTheme: _switchTheme(_lightScheme),
     navigationBarTheme: _navBarTheme(_lightScheme),
+    bottomSheetTheme: _bottomSheetTheme(_lightScheme),
+    dividerTheme: _dividerTheme(_lightScheme),
   );
 
   static ThemeData dark = ThemeData(
@@ -223,7 +253,9 @@ class AppTheme {
     iconButtonTheme: _iconButtonTheme(_darkScheme),
     appBarTheme: _appBarTheme(_textTheme, _darkScheme),
     switchTheme: _switchTheme(_darkScheme),
-    navigationBarTheme: _navBarTheme(_darkScheme), 
+    navigationBarTheme: _navBarTheme(_darkScheme),
+    bottomSheetTheme: _bottomSheetTheme(_darkScheme),
+    dividerTheme: _dividerTheme(_darkScheme),
   );
 }
 

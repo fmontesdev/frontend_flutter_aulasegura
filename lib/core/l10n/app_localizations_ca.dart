@@ -305,6 +305,12 @@ class AppLocalizationsCa extends AppLocalizations {
   String get darkTheme => 'Tema fosc';
 
   @override
+  String get lightTheme => 'Tema clar';
+
+  @override
+  String get home => 'Inici';
+
+  @override
   String onOff(String boolean) {
     String _temp0 = intl.Intl.selectLogic(boolean, {
       'true': 'Activat',
@@ -340,4 +346,194 @@ class AppLocalizationsCa extends AppLocalizations {
     });
     return '$_temp0';
   }
+
+  @override
+  String get development => 'Desenvolupament';
+
+  @override
+  String get widgetCatalog => 'Catàleg de Widgets';
+
+  @override
+  String get exploreComponents => 'Explora els components de l\'app';
+
+  @override
+  String get listsAndTiles => 'Llistes i Tiles';
+
+  @override
+  String get selectableTilesWithSwitch => 'Tiles seleccionables i amb switch';
+
+  @override
+  String get selectors => 'Selectors';
+
+  @override
+  String get horizontalSlideSelectors => 'Selectors lliscants horitzontals';
+
+  @override
+  String get calendars => 'Calendaris';
+
+  @override
+  String get monthlyCalendarWithSelection => 'Calendari mensual amb selecció';
+
+  @override
+  String get iconOptionTile => 'Llista amb icones';
+
+  @override
+  String get selectableTile => 'Llista seleccionable';
+
+  @override
+  String get activated => 'Activat';
+
+  @override
+  String get deactivated => 'Desactivat';
+
+  @override
+  String get activatedFeminine => 'Activades';
+
+  @override
+  String get deactivatedFeminine => 'Desactivades';
+
+  @override
+  String get simpleSelector => 'Selector Simple';
+
+  @override
+  String get singleElementSelection => 'Selecció única d\'elements';
+
+  @override
+  String get multipleSelector => 'Selector Múltiple';
+
+  @override
+  String get multipleElementSelection => 'Selecció múltiple d\'elements';
+
+  @override
+  String get selected => 'Seleccionat';
+
+  @override
+  String get selectedPlural => 'Seleccionats';
+
+  @override
+  String get tableCalendar => 'Calendari en format taula';
+
+  @override
+  String get monthlyCalendarWithDaySelection =>
+      'Calendari mensual amb selecció de dies';
+
+  @override
+  String get selectedDate => 'Data seleccionada';
+
+  @override
+  String get componentCatalog => 'Catàleg de Components';
+
+  @override
+  String get components => 'Components';
+
+  @override
+  String get buttons => 'Botons';
+
+  @override
+  String get variantsStatesAndSizes => 'Variants, estats i mides';
+
+  @override
+  String get textInputs => 'Inputs de Text';
+
+  @override
+  String get variantsAndValidations => 'Variants i validacions';
+
+  @override
+  String get links => 'Enllaços';
+
+  @override
+  String get secondaryActionLinks => 'Enllaços d\'acció secundaris';
+
+  @override
+  String get cards => 'Targetes';
+
+  @override
+  String get differentCardsWithContent => 'Diferents targetes amb contingut';
+
+  @override
+  String get filters => 'Filtres';
+
+  @override
+  String get differentTypesOfFilters => 'Diferents tipus de filtres';
+
+  @override
+  String get primaryColorButton => 'Botó color primari';
+
+  @override
+  String get secondaryColorButton => 'Botó color secundari';
+
+  @override
+  String get dangerColorButton => 'Botó color perill';
+
+  @override
+  String get homePageButtons => 'Botons de la pàgina d\'inici';
+
+  @override
+  String get floatingActionButton => 'Botó d\'acció flotant (FAB)';
+
+  @override
+  String get small => 'Petit';
+
+  @override
+  String get medium => 'Mitjà';
+
+  @override
+  String get large => 'Gran';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get passwordToggleShowHide => 'Contrasenya (canviar mostrar/ocultar)';
+
+  @override
+  String get multiline => 'Multilínia';
+
+  @override
+  String get validateInputs => 'Validar inputs';
+
+  @override
+  String get enterYourEmail => 'Introdueix el teu email';
+
+  @override
+  String get invalidEmail => 'Email no vàlid';
+
+  @override
+  String get enterYourPassword => 'Introdueix la teva contrasenya';
+
+  @override
+  String get minimum8Characters => 'Mínim 8 caràcters';
+
+  @override
+  String get enterDescription => 'Introdueix una descripció';
+
+  @override
+  String get reviewFields => 'Revisa els camps';
+
+  @override
+  String get validatedCorrectly => 'Validat correctament';
+
+  @override
+  String get leftAlignedSmallLink => 'Enllaç a l\'esquerra petit';
+
+  @override
+  String get centeredMediumLink => 'Enllaç centrat mitjà';
+
+  @override
+  String get rightAlignedLargeLink => 'Enllaç a la dreta gran';
+
+  @override
+  String get welcomeCard => 'Targeta de benvinguda';
+
+  @override
+  String get scheduleCard => 'Targeta d\'horari';
+
+  @override
+  String get notificationCard => 'Targeta de notificació';
+
+  @override
+  String get selectorOf5Filters => 'Selector de 5 filtres';
+
+  @override
+  String get selectorOf2Filters => 'Selector de 2 filtres';
 }

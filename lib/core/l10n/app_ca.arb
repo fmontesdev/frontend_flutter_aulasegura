@@ -320,6 +320,14 @@
   "@darkTheme": {
     "description": "Static message (dark theme)"
   },
+  "lightTheme": "Tema clar",
+  "@lightTheme": {
+    "description": "Static message (light theme)"
+  },
+  "home": "Inici",
+  "@home": {
+    "description": "Static message (home)"
+  },
   "onOff": "{boolean, select, true{Activat} false{Desactivat} other{Desconegut}}",
   "@onOff": {
     "description": "Localized action by boolean",
@@ -354,5 +362,257 @@
         "type": "String"
       }
     }
+  },
+  "development": "Desenvolupament",
+  "@development": {
+    "description": "Static message (development)"
+  },
+  "widgetCatalog": "Catàleg de Widgets",
+  "@widgetCatalog": {
+    "description": "Static message (widget catalog)"
+  },
+  "exploreComponents": "Explora els components de l'app",
+  "@exploreComponents": {
+    "description": "Static message (explore components)"
+  },
+  "listsAndTiles": "Llistes i Tiles",
+  "@listsAndTiles": {
+    "description": "Static message (lists and tiles)"
+  },
+  "selectableTilesWithSwitch": "Tiles seleccionables i amb switch",
+  "@selectableTilesWithSwitch": {
+    "description": "Static message (selectable tiles with switch)"
+  },
+  "selectors": "Selectors",
+  "@selectors": {
+    "description": "Static message (selectors)"
+  },
+  "horizontalSlideSelectors": "Selectors lliscants horitzontals",
+  "@horizontalSlideSelectors": {
+    "description": "Static message (horizontal slide selectors)"
+  },
+  "calendars": "Calendaris",
+  "@calendars": {
+    "description": "Static message (calendars)"
+  },
+  "monthlyCalendarWithSelection": "Calendari mensual amb selecció",
+  "@monthlyCalendarWithSelection": {
+    "description": "Static message (monthly calendar with selection)"
+  },
+  "iconOptionTile": "Llista amb icones",
+  "@iconOptionTile": {
+    "description": "Static message (IconOptionTile)"
+  },
+  "selectableTile": "Llista seleccionable",
+  "@selectableTile": {
+    "description": "Static message (SelectableTile)"
+  },
+  "activated": "Activat",
+  "@activated": {
+    "description": "Static message (activated - masculine)"
+  },
+  "deactivated": "Desactivat",
+  "@deactivated": {
+    "description": "Static message (deactivated - masculine)"
+  },
+  "activatedFeminine": "Activades",
+  "@activatedFeminine": {
+    "description": "Static message (activated - feminine plural)"
+  },
+  "deactivatedFeminine": "Desactivades",
+  "@deactivatedFeminine": {
+    "description": "Static message (deactivated - feminine plural)"
+  },
+  "simpleSelector": "Selector Simple",
+  "@simpleSelector": {
+    "description": "Static message (simple selector)"
+  },
+  "singleElementSelection": "Selecció única d'elements",
+  "@singleElementSelection": {
+    "description": "Static message (single element selection)"
+  },
+  "multipleSelector": "Selector Múltiple",
+  "@multipleSelector": {
+    "description": "Static message (multiple selector)"
+  },
+  "multipleElementSelection": "Selecció múltiple d'elements",
+  "@multipleElementSelection": {
+    "description": "Static message (multiple element selection)"
+  },
+  "selected": "Seleccionat",
+  "@selected": {
+    "description": "Static message (selected - singular)"
+  },
+  "selectedPlural": "Seleccionats",
+  "@selectedPlural": {
+    "description": "Static message (selected - plural)"
+  },
+  "tableCalendar": "Calendari en format taula",
+  "@tableCalendar": {
+    "description": "Static message (table calendar)"
+  },
+  "monthlyCalendarWithDaySelection": "Calendari mensual amb selecció de dies",
+  "@monthlyCalendarWithDaySelection": {
+    "description": "Static message (monthly calendar with day selection)"
+  },
+  "selectedDate": "Data seleccionada",
+  "@selectedDate": {
+    "description": "Static message (selected date)"
+  },
+  "componentCatalog": "Catàleg de Components",
+  "@componentCatalog": {
+    "description": "Static message (component catalog)"
+  },
+  "components": "Components",
+  "@components": {
+    "description": "Static message (components)"
+  },
+  "buttons": "Botons",
+  "@buttons": {
+    "description": "Static message (buttons)"
+  },
+  "variantsStatesAndSizes": "Variants, estats i mides",
+  "@variantsStatesAndSizes": {
+    "description": "Static message (variants, states and sizes)"
+  },
+  "textInputs": "Inputs de Text",
+  "@textInputs": {
+    "description": "Static message (text inputs)"
+  },
+  "variantsAndValidations": "Variants i validacions",
+  "@variantsAndValidations": {
+    "description": "Static message (variants and validations)"
+  },
+  "links": "Enllaços",
+  "@links": {
+    "description": "Static message (links)"
+  },
+  "secondaryActionLinks": "Enllaços d'acció secundaris",
+  "@secondaryActionLinks": {
+    "description": "Static message (secondary action links)"
+  },
+  "cards": "Targetes",
+  "@cards": {
+    "description": "Static message (cards)"
+  },
+  "differentCardsWithContent": "Diferents targetes amb contingut",
+  "@differentCardsWithContent": {
+    "description": "Static message (different cards with content)"
+  },
+  "filters": "Filtres",
+  "@filters": {
+    "description": "Static message (filters)"
+  },
+  "differentTypesOfFilters": "Diferents tipus de filtres",
+  "@differentTypesOfFilters": {
+    "description": "Static message (different types of filters)"
+  },
+  "primaryColorButton": "Botó color primari",
+  "@primaryColorButton": {
+    "description": "Static message (primary color button)"
+  },
+  "secondaryColorButton": "Botó color secundari",
+  "@secondaryColorButton": {
+    "description": "Static message (secondary color button)"
+  },
+  "dangerColorButton": "Botó color perill",
+  "@dangerColorButton": {
+    "description": "Static message (danger color button)"
+  },
+  "homePageButtons": "Botons de la pàgina d'inici",
+  "@homePageButtons": {
+    "description": "Static message (home page buttons)"
+  },
+  "floatingActionButton": "Botó d'acció flotant (FAB)",
+  "@floatingActionButton": {
+    "description": "Static message (floating action button FAB)"
+  },
+  "small": "Petit",
+  "@small": {
+    "description": "Static message (small)"
+  },
+  "medium": "Mitjà",
+  "@medium": {
+    "description": "Static message (medium)"
+  },
+  "large": "Gran",
+  "@large": {
+    "description": "Static message (large)"
+  },
+  "email": "Email",
+  "@email": {
+    "description": "Static message (email)"
+  },
+  "passwordToggleShowHide": "Contrasenya (canviar mostrar/ocultar)",
+  "@passwordToggleShowHide": {
+    "description": "Static message (password toggle show/hide)"
+  },
+  "multiline": "Multilínia",
+  "@multiline": {
+    "description": "Static message (multiline)"
+  },
+  "validateInputs": "Validar inputs",
+  "@validateInputs": {
+    "description": "Static message (validate inputs)"
+  },
+  "enterYourEmail": "Introdueix el teu email",
+  "@enterYourEmail": {
+    "description": "Static message (enter your email)"
+  },
+  "invalidEmail": "Email no vàlid",
+  "@invalidEmail": {
+    "description": "Static message (invalid email)"
+  },
+  "enterYourPassword": "Introdueix la teva contrasenya",
+  "@enterYourPassword": {
+    "description": "Static message (enter your password)"
+  },
+  "minimum8Characters": "Mínim 8 caràcters",
+  "@minimum8Characters": {
+    "description": "Static message (minimum 8 characters)"
+  },
+  "enterDescription": "Introdueix una descripció",
+  "@enterDescription": {
+    "description": "Static message (enter description)"
+  },
+  "reviewFields": "Revisa els camps",
+  "@reviewFields": {
+    "description": "Static message (review fields)"
+  },
+  "validatedCorrectly": "Validat correctament",
+  "@validatedCorrectly": {
+    "description": "Static message (validated correctly)"
+  },
+  "leftAlignedSmallLink": "Enllaç a l'esquerra petit",
+  "@leftAlignedSmallLink": {
+    "description": "Static message (left aligned small link)"
+  },
+  "centeredMediumLink": "Enllaç centrat mitjà",
+  "@centeredMediumLink": {
+    "description": "Static message (centered medium link)"
+  },
+  "rightAlignedLargeLink": "Enllaç a la dreta gran",
+  "@rightAlignedLargeLink": {
+    "description": "Static message (right aligned large link)"
+  },
+  "welcomeCard": "Targeta de benvinguda",
+  "@welcomeCard": {
+    "description": "Static message (welcome card)"
+  },
+  "scheduleCard": "Targeta d'horari",
+  "@scheduleCard": {
+    "description": "Static message (schedule card)"
+  },
+  "notificationCard": "Targeta de notificació",
+  "@notificationCard": {
+    "description": "Static message (notification card)"
+  },
+  "selectorOf5Filters": "Selector de 5 filtres",
+  "@selectorOf5Filters": {
+    "description": "Static message (selector of 5 filters)"
+  },
+  "selectorOf2Filters": "Selector de 2 filtres",
+  "@selectorOf2Filters": {
+    "description": "Static message (selector of 2 filters)"
   }
 }

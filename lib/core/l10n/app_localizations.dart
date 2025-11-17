@@ -460,6 +460,18 @@ abstract class AppLocalizations {
   /// **'Tema oscuro'**
   String get darkTheme;
 
+  /// Static message (light theme)
+  ///
+  /// In es, this message translates to:
+  /// **'Tema claro'**
+  String get lightTheme;
+
+  /// Static message (home)
+  ///
+  /// In es, this message translates to:
+  /// **'Inicio'**
+  String get home;
+
   /// Localized action by boolean
   ///
   /// In es, this message translates to:
@@ -489,6 +501,384 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'{boolean, select, true{Activadas} false{Desactivadas} other{Desconocido}}'**
   String onOffFemeninPlural(String boolean);
+
+  /// Static message (development)
+  ///
+  /// In es, this message translates to:
+  /// **'Desarrollo'**
+  String get development;
+
+  /// Static message (widget catalog)
+  ///
+  /// In es, this message translates to:
+  /// **'Catálogo de Widgets'**
+  String get widgetCatalog;
+
+  /// Static message (explore components)
+  ///
+  /// In es, this message translates to:
+  /// **'Explora los componentes de la app'**
+  String get exploreComponents;
+
+  /// Static message (lists and tiles)
+  ///
+  /// In es, this message translates to:
+  /// **'Listas y Tiles'**
+  String get listsAndTiles;
+
+  /// Static message (selectable tiles with switch)
+  ///
+  /// In es, this message translates to:
+  /// **'Tiles seleccionables y con switch'**
+  String get selectableTilesWithSwitch;
+
+  /// Static message (selectors)
+  ///
+  /// In es, this message translates to:
+  /// **'Selectores'**
+  String get selectors;
+
+  /// Static message (horizontal slide selectors)
+  ///
+  /// In es, this message translates to:
+  /// **'Selectores deslizables horizontales'**
+  String get horizontalSlideSelectors;
+
+  /// Static message (calendars)
+  ///
+  /// In es, this message translates to:
+  /// **'Calendarios'**
+  String get calendars;
+
+  /// Static message (monthly calendar with selection)
+  ///
+  /// In es, this message translates to:
+  /// **'Calendario mensual con selección'**
+  String get monthlyCalendarWithSelection;
+
+  /// Static message (IconOptionTile)
+  ///
+  /// In es, this message translates to:
+  /// **'Lista con iconos'**
+  String get iconOptionTile;
+
+  /// Static message (SelectableTile)
+  ///
+  /// In es, this message translates to:
+  /// **'Lista seleccionable'**
+  String get selectableTile;
+
+  /// Static message (activated - masculine)
+  ///
+  /// In es, this message translates to:
+  /// **'Activado'**
+  String get activated;
+
+  /// Static message (deactivated - masculine)
+  ///
+  /// In es, this message translates to:
+  /// **'Desactivado'**
+  String get deactivated;
+
+  /// Static message (activated - feminine plural)
+  ///
+  /// In es, this message translates to:
+  /// **'Activadas'**
+  String get activatedFeminine;
+
+  /// Static message (deactivated - feminine plural)
+  ///
+  /// In es, this message translates to:
+  /// **'Desactivadas'**
+  String get deactivatedFeminine;
+
+  /// Static message (simple selector)
+  ///
+  /// In es, this message translates to:
+  /// **'Selector Simple'**
+  String get simpleSelector;
+
+  /// Static message (single element selection)
+  ///
+  /// In es, this message translates to:
+  /// **'Selección única de elementos'**
+  String get singleElementSelection;
+
+  /// Static message (multiple selector)
+  ///
+  /// In es, this message translates to:
+  /// **'Selector Múltiple'**
+  String get multipleSelector;
+
+  /// Static message (multiple element selection)
+  ///
+  /// In es, this message translates to:
+  /// **'Selección múltiple de elementos'**
+  String get multipleElementSelection;
+
+  /// Static message (selected - singular)
+  ///
+  /// In es, this message translates to:
+  /// **'Seleccionado'**
+  String get selected;
+
+  /// Static message (selected - plural)
+  ///
+  /// In es, this message translates to:
+  /// **'Seleccionados'**
+  String get selectedPlural;
+
+  /// Static message (table calendar)
+  ///
+  /// In es, this message translates to:
+  /// **'Calendario en formato tabla'**
+  String get tableCalendar;
+
+  /// Static message (monthly calendar with day selection)
+  ///
+  /// In es, this message translates to:
+  /// **'Calendario mensual con selección de días'**
+  String get monthlyCalendarWithDaySelection;
+
+  /// Static message (selected date)
+  ///
+  /// In es, this message translates to:
+  /// **'Fecha seleccionada'**
+  String get selectedDate;
+
+  /// Static message (component catalog)
+  ///
+  /// In es, this message translates to:
+  /// **'Catálogo de Componentes'**
+  String get componentCatalog;
+
+  /// Static message (components)
+  ///
+  /// In es, this message translates to:
+  /// **'Componentes'**
+  String get components;
+
+  /// Static message (buttons)
+  ///
+  /// In es, this message translates to:
+  /// **'Botones'**
+  String get buttons;
+
+  /// Static message (variants, states and sizes)
+  ///
+  /// In es, this message translates to:
+  /// **'Variantes, estados y tamaños'**
+  String get variantsStatesAndSizes;
+
+  /// Static message (text inputs)
+  ///
+  /// In es, this message translates to:
+  /// **'Inputs de Texto'**
+  String get textInputs;
+
+  /// Static message (variants and validations)
+  ///
+  /// In es, this message translates to:
+  /// **'Variantes y validaciones'**
+  String get variantsAndValidations;
+
+  /// Static message (links)
+  ///
+  /// In es, this message translates to:
+  /// **'Links'**
+  String get links;
+
+  /// Static message (secondary action links)
+  ///
+  /// In es, this message translates to:
+  /// **'Enlaces de acción secundarios'**
+  String get secondaryActionLinks;
+
+  /// Static message (cards)
+  ///
+  /// In es, this message translates to:
+  /// **'Cards'**
+  String get cards;
+
+  /// Static message (different cards with content)
+  ///
+  /// In es, this message translates to:
+  /// **'Diferentes tarjetas con contenido'**
+  String get differentCardsWithContent;
+
+  /// Static message (filters)
+  ///
+  /// In es, this message translates to:
+  /// **'Filtros'**
+  String get filters;
+
+  /// Static message (different types of filters)
+  ///
+  /// In es, this message translates to:
+  /// **'Diferentes tipos de filtros'**
+  String get differentTypesOfFilters;
+
+  /// Static message (primary color button)
+  ///
+  /// In es, this message translates to:
+  /// **'Botón color primario'**
+  String get primaryColorButton;
+
+  /// Static message (secondary color button)
+  ///
+  /// In es, this message translates to:
+  /// **'Botón color secundario'**
+  String get secondaryColorButton;
+
+  /// Static message (danger color button)
+  ///
+  /// In es, this message translates to:
+  /// **'Botón color peligro'**
+  String get dangerColorButton;
+
+  /// Static message (home page buttons)
+  ///
+  /// In es, this message translates to:
+  /// **'Botones de la página de inicio'**
+  String get homePageButtons;
+
+  /// Static message (floating action button FAB)
+  ///
+  /// In es, this message translates to:
+  /// **'Botón de acción flotante (FAB)'**
+  String get floatingActionButton;
+
+  /// Static message (small)
+  ///
+  /// In es, this message translates to:
+  /// **'Pequeño'**
+  String get small;
+
+  /// Static message (medium)
+  ///
+  /// In es, this message translates to:
+  /// **'Mediano'**
+  String get medium;
+
+  /// Static message (large)
+  ///
+  /// In es, this message translates to:
+  /// **'Grande'**
+  String get large;
+
+  /// Static message (email)
+  ///
+  /// In es, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// Static message (password toggle show/hide)
+  ///
+  /// In es, this message translates to:
+  /// **'Contraseña (toggle mostrar/ocultar)'**
+  String get passwordToggleShowHide;
+
+  /// Static message (multiline)
+  ///
+  /// In es, this message translates to:
+  /// **'Multilínea'**
+  String get multiline;
+
+  /// Static message (validate inputs)
+  ///
+  /// In es, this message translates to:
+  /// **'Validar inputs'**
+  String get validateInputs;
+
+  /// Static message (enter your email)
+  ///
+  /// In es, this message translates to:
+  /// **'Introduce tu email'**
+  String get enterYourEmail;
+
+  /// Static message (invalid email)
+  ///
+  /// In es, this message translates to:
+  /// **'Email no válido'**
+  String get invalidEmail;
+
+  /// Static message (enter your password)
+  ///
+  /// In es, this message translates to:
+  /// **'Introduce tu contraseña'**
+  String get enterYourPassword;
+
+  /// Static message (minimum 8 characters)
+  ///
+  /// In es, this message translates to:
+  /// **'Mínimo 8 caracteres'**
+  String get minimum8Characters;
+
+  /// Static message (enter description)
+  ///
+  /// In es, this message translates to:
+  /// **'Introduce una descripción'**
+  String get enterDescription;
+
+  /// Static message (review fields)
+  ///
+  /// In es, this message translates to:
+  /// **'Revisa los campos'**
+  String get reviewFields;
+
+  /// Static message (validated correctly)
+  ///
+  /// In es, this message translates to:
+  /// **'Validado correctamente'**
+  String get validatedCorrectly;
+
+  /// Static message (left aligned small link)
+  ///
+  /// In es, this message translates to:
+  /// **'Enlace a la izquierda pequeño'**
+  String get leftAlignedSmallLink;
+
+  /// Static message (centered medium link)
+  ///
+  /// In es, this message translates to:
+  /// **'Enlace centrado mediano'**
+  String get centeredMediumLink;
+
+  /// Static message (right aligned large link)
+  ///
+  /// In es, this message translates to:
+  /// **'Enlace a la derecha grande'**
+  String get rightAlignedLargeLink;
+
+  /// Static message (welcome card)
+  ///
+  /// In es, this message translates to:
+  /// **'Card de bienvenida'**
+  String get welcomeCard;
+
+  /// Static message (schedule card)
+  ///
+  /// In es, this message translates to:
+  /// **'Card de horario'**
+  String get scheduleCard;
+
+  /// Static message (notification card)
+  ///
+  /// In es, this message translates to:
+  /// **'Card de notificación'**
+  String get notificationCard;
+
+  /// Static message (selector of 5 filters)
+  ///
+  /// In es, this message translates to:
+  /// **'Selector de 5 filtros'**
+  String get selectorOf5Filters;
+
+  /// Static message (selector of 2 filters)
+  ///
+  /// In es, this message translates to:
+  /// **'Selector de 2 filtros'**
+  String get selectorOf2Filters;
 }
 
 class _AppLocalizationsDelegate

@@ -320,6 +320,14 @@
   "@darkTheme": {
     "description": "Static message (dark theme)"
   },
+  "lightTheme": "Light theme",
+  "@lightTheme": {
+    "description": "Static message (light theme)"
+  },
+  "home": "Home",
+  "@home": {
+    "description": "Static message (home)"
+  },
   "onOff": "{boolean, select, true{On} false{Off} other{Unknown}}",
   "@onOff": {
     "description": "Localized action by boolean",
@@ -354,5 +362,257 @@
         "type": "String"
       }
     }
+  },
+  "development": "Development",
+  "@development": {
+    "description": "Static message (development)"
+  },
+  "widgetCatalog": "Widget Catalog",
+  "@widgetCatalog": {
+    "description": "Static message (widget catalog)"
+  },
+  "exploreComponents": "Explore the app components",
+  "@exploreComponents": {
+    "description": "Static message (explore components)"
+  },
+  "listsAndTiles": "Lists and Tiles",
+  "@listsAndTiles": {
+    "description": "Static message (lists and tiles)"
+  },
+  "selectableTilesWithSwitch": "Selectable tiles with switch",
+  "@selectableTilesWithSwitch": {
+    "description": "Static message (selectable tiles with switch)"
+  },
+  "selectors": "Selectors",
+  "@selectors": {
+    "description": "Static message (selectors)"
+  },
+  "horizontalSlideSelectors": "Horizontal slide selectors",
+  "@horizontalSlideSelectors": {
+    "description": "Static message (horizontal slide selectors)"
+  },
+  "calendars": "Calendars",
+  "@calendars": {
+    "description": "Static message (calendars)"
+  },
+  "monthlyCalendarWithSelection": "Monthly calendar with selection",
+  "@monthlyCalendarWithSelection": {
+    "description": "Static message (monthly calendar with selection)"
+  },
+  "iconOptionTile": "List with icons",
+  "@iconOptionTile": {
+    "description": "Static message (IconOptionTile)"
+  },
+  "selectableTile": "Selectable list",
+  "@selectableTile": {
+    "description": "Static message (SelectableTile)"
+  },
+  "activated": "On",
+  "@activated": {
+    "description": "Static message (activated)"
+  },
+  "deactivated": "Off",
+  "@deactivated": {
+    "description": "Static message (deactivated)"
+  },
+  "activatedFeminine": "On",
+  "@activatedFeminine": {
+    "description": "Static message (activated - feminine plural)"
+  },
+  "deactivatedFeminine": "Off",
+  "@deactivatedFeminine": {
+    "description": "Static message (deactivated - feminine plural)"
+  },
+  "simpleSelector": "Simple Selector",
+  "@simpleSelector": {
+    "description": "Static message (simple selector)"
+  },
+  "singleElementSelection": "Single element selection",
+  "@singleElementSelection": {
+    "description": "Static message (single element selection)"
+  },
+  "multipleSelector": "Multiple Selector",
+  "@multipleSelector": {
+    "description": "Static message (multiple selector)"
+  },
+  "multipleElementSelection": "Multiple element selection",
+  "@multipleElementSelection": {
+    "description": "Static message (multiple element selection)"
+  },
+  "selected": "Selected",
+  "@selected": {
+    "description": "Static message (selected - singular)"
+  },
+  "selectedPlural": "Selected",
+  "@selectedPlural": {
+    "description": "Static message (selected - plural)"
+  },
+  "tableCalendar": "Table Calendar",
+  "@tableCalendar": {
+    "description": "Static message (table calendar)"
+  },
+  "monthlyCalendarWithDaySelection": "Monthly calendar with day selection",
+  "@monthlyCalendarWithDaySelection": {
+    "description": "Static message (monthly calendar with day selection)"
+  },
+  "selectedDate": "Selected date",
+  "@selectedDate": {
+    "description": "Static message (selected date)"
+  },
+  "componentCatalog": "Component Catalog",
+  "@componentCatalog": {
+    "description": "Static message (component catalog)"
+  },
+  "components": "Components",
+  "@components": {
+    "description": "Static message (components)"
+  },
+  "buttons": "Buttons",
+  "@buttons": {
+    "description": "Static message (buttons)"
+  },
+  "variantsStatesAndSizes": "Variants, states and sizes",
+  "@variantsStatesAndSizes": {
+    "description": "Static message (variants, states and sizes)"
+  },
+  "textInputs": "Text Inputs",
+  "@textInputs": {
+    "description": "Static message (text inputs)"
+  },
+  "variantsAndValidations": "Variants and validations",
+  "@variantsAndValidations": {
+    "description": "Static message (variants and validations)"
+  },
+  "links": "Links",
+  "@links": {
+    "description": "Static message (links)"
+  },
+  "secondaryActionLinks": "Secondary action links",
+  "@secondaryActionLinks": {
+    "description": "Static message (secondary action links)"
+  },
+  "cards": "Cards",
+  "@cards": {
+    "description": "Static message (cards)"
+  },
+  "differentCardsWithContent": "Different cards with content",
+  "@differentCardsWithContent": {
+    "description": "Static message (different cards with content)"
+  },
+  "filters": "Filters",
+  "@filters": {
+    "description": "Static message (filters)"
+  },
+  "differentTypesOfFilters": "Different types of filters",
+  "@differentTypesOfFilters": {
+    "description": "Static message (different types of filters)"
+  },
+  "primaryColorButton": "Primary color button",
+  "@primaryColorButton": {
+    "description": "Static message (primary color button)"
+  },
+  "secondaryColorButton": "Secondary color button",
+  "@secondaryColorButton": {
+    "description": "Static message (secondary color button)"
+  },
+  "dangerColorButton": "Danger color button",
+  "@dangerColorButton": {
+    "description": "Static message (danger color button)"
+  },
+  "homePageButtons": "Home page buttons",
+  "@homePageButtons": {
+    "description": "Static message (home page buttons)"
+  },
+  "floatingActionButton": "Floating Action Button (FAB)",
+  "@floatingActionButton": {
+    "description": "Static message (floating action button FAB)"
+  },
+  "small": "Small",
+  "@small": {
+    "description": "Static message (small)"
+  },
+  "medium": "Medium",
+  "@medium": {
+    "description": "Static message (medium)"
+  },
+  "large": "Large",
+  "@large": {
+    "description": "Static message (large)"
+  },
+  "email": "Email",
+  "@email": {
+    "description": "Static message (email)"
+  },
+  "passwordToggleShowHide": "Password (toggle show/hide)",
+  "@passwordToggleShowHide": {
+    "description": "Static message (password toggle show/hide)"
+  },
+  "multiline": "Multiline",
+  "@multiline": {
+    "description": "Static message (multiline)"
+  },
+  "validateInputs": "Validate inputs",
+  "@validateInputs": {
+    "description": "Static message (validate inputs)"
+  },
+  "enterYourEmail": "Enter your email",
+  "@enterYourEmail": {
+    "description": "Static message (enter your email)"
+  },
+  "invalidEmail": "Invalid email",
+  "@invalidEmail": {
+    "description": "Static message (invalid email)"
+  },
+  "enterYourPassword": "Enter your password",
+  "@enterYourPassword": {
+    "description": "Static message (enter your password)"
+  },
+  "minimum8Characters": "Minimum 8 characters",
+  "@minimum8Characters": {
+    "description": "Static message (minimum 8 characters)"
+  },
+  "enterDescription": "Enter a description",
+  "@enterDescription": {
+    "description": "Static message (enter description)"
+  },
+  "reviewFields": "Review fields",
+  "@reviewFields": {
+    "description": "Static message (review fields)"
+  },
+  "validatedCorrectly": "Validated correctly",
+  "@validatedCorrectly": {
+    "description": "Static message (validated correctly)"
+  },
+  "leftAlignedSmallLink": "Left aligned small link",
+  "@leftAlignedSmallLink": {
+    "description": "Static message (left aligned small link)"
+  },
+  "centeredMediumLink": "Centered medium link",
+  "@centeredMediumLink": {
+    "description": "Static message (centered medium link)"
+  },
+  "rightAlignedLargeLink": "Right aligned large link",
+  "@rightAlignedLargeLink": {
+    "description": "Static message (right aligned large link)"
+  },
+  "welcomeCard": "Welcome card",
+  "@welcomeCard": {
+    "description": "Static message (welcome card)"
+  },
+  "scheduleCard": "Schedule card",
+  "@scheduleCard": {
+    "description": "Static message (schedule card)"
+  },
+  "notificationCard": "Notification card",
+  "@notificationCard": {
+    "description": "Static message (notification card)"
+  },
+  "selectorOf5Filters": "Selector of 5 filters",
+  "@selectorOf5Filters": {
+    "description": "Static message (selector of 5 filters)"
+  },
+  "selectorOf2Filters": "Selector of 2 filters",
+  "@selectorOf2Filters": {
+    "description": "Static message (selector of 2 filters)"
   }
 }

@@ -304,6 +304,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get darkTheme => 'Tema oscuro';
 
   @override
+  String get lightTheme => 'Tema claro';
+
+  @override
+  String get home => 'Inicio';
+
+  @override
   String onOff(String boolean) {
     String _temp0 = intl.Intl.selectLogic(boolean, {
       'true': 'Activado',
@@ -339,4 +345,194 @@ class AppLocalizationsEs extends AppLocalizations {
     });
     return '$_temp0';
   }
+
+  @override
+  String get development => 'Desarrollo';
+
+  @override
+  String get widgetCatalog => 'Catálogo de Widgets';
+
+  @override
+  String get exploreComponents => 'Explora los componentes de la app';
+
+  @override
+  String get listsAndTiles => 'Listas y Tiles';
+
+  @override
+  String get selectableTilesWithSwitch => 'Tiles seleccionables y con switch';
+
+  @override
+  String get selectors => 'Selectores';
+
+  @override
+  String get horizontalSlideSelectors => 'Selectores deslizables horizontales';
+
+  @override
+  String get calendars => 'Calendarios';
+
+  @override
+  String get monthlyCalendarWithSelection => 'Calendario mensual con selección';
+
+  @override
+  String get iconOptionTile => 'Lista con iconos';
+
+  @override
+  String get selectableTile => 'Lista seleccionable';
+
+  @override
+  String get activated => 'Activado';
+
+  @override
+  String get deactivated => 'Desactivado';
+
+  @override
+  String get activatedFeminine => 'Activadas';
+
+  @override
+  String get deactivatedFeminine => 'Desactivadas';
+
+  @override
+  String get simpleSelector => 'Selector Simple';
+
+  @override
+  String get singleElementSelection => 'Selección única de elementos';
+
+  @override
+  String get multipleSelector => 'Selector Múltiple';
+
+  @override
+  String get multipleElementSelection => 'Selección múltiple de elementos';
+
+  @override
+  String get selected => 'Seleccionado';
+
+  @override
+  String get selectedPlural => 'Seleccionados';
+
+  @override
+  String get tableCalendar => 'Calendario en formato tabla';
+
+  @override
+  String get monthlyCalendarWithDaySelection =>
+      'Calendario mensual con selección de días';
+
+  @override
+  String get selectedDate => 'Fecha seleccionada';
+
+  @override
+  String get componentCatalog => 'Catálogo de Componentes';
+
+  @override
+  String get components => 'Componentes';
+
+  @override
+  String get buttons => 'Botones';
+
+  @override
+  String get variantsStatesAndSizes => 'Variantes, estados y tamaños';
+
+  @override
+  String get textInputs => 'Inputs de Texto';
+
+  @override
+  String get variantsAndValidations => 'Variantes y validaciones';
+
+  @override
+  String get links => 'Links';
+
+  @override
+  String get secondaryActionLinks => 'Enlaces de acción secundarios';
+
+  @override
+  String get cards => 'Cards';
+
+  @override
+  String get differentCardsWithContent => 'Diferentes tarjetas con contenido';
+
+  @override
+  String get filters => 'Filtros';
+
+  @override
+  String get differentTypesOfFilters => 'Diferentes tipos de filtros';
+
+  @override
+  String get primaryColorButton => 'Botón color primario';
+
+  @override
+  String get secondaryColorButton => 'Botón color secundario';
+
+  @override
+  String get dangerColorButton => 'Botón color peligro';
+
+  @override
+  String get homePageButtons => 'Botones de la página de inicio';
+
+  @override
+  String get floatingActionButton => 'Botón de acción flotante (FAB)';
+
+  @override
+  String get small => 'Pequeño';
+
+  @override
+  String get medium => 'Mediano';
+
+  @override
+  String get large => 'Grande';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get passwordToggleShowHide => 'Contraseña (toggle mostrar/ocultar)';
+
+  @override
+  String get multiline => 'Multilínea';
+
+  @override
+  String get validateInputs => 'Validar inputs';
+
+  @override
+  String get enterYourEmail => 'Introduce tu email';
+
+  @override
+  String get invalidEmail => 'Email no válido';
+
+  @override
+  String get enterYourPassword => 'Introduce tu contraseña';
+
+  @override
+  String get minimum8Characters => 'Mínimo 8 caracteres';
+
+  @override
+  String get enterDescription => 'Introduce una descripción';
+
+  @override
+  String get reviewFields => 'Revisa los campos';
+
+  @override
+  String get validatedCorrectly => 'Validado correctamente';
+
+  @override
+  String get leftAlignedSmallLink => 'Enlace a la izquierda pequeño';
+
+  @override
+  String get centeredMediumLink => 'Enlace centrado mediano';
+
+  @override
+  String get rightAlignedLargeLink => 'Enlace a la derecha grande';
+
+  @override
+  String get welcomeCard => 'Card de bienvenida';
+
+  @override
+  String get scheduleCard => 'Card de horario';
+
+  @override
+  String get notificationCard => 'Card de notificación';
+
+  @override
+  String get selectorOf5Filters => 'Selector de 5 filtros';
+
+  @override
+  String get selectorOf2Filters => 'Selector de 2 filtros';
 }

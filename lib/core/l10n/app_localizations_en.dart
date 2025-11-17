@@ -304,6 +304,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get darkTheme => 'Dark theme';
 
   @override
+  String get lightTheme => 'Light theme';
+
+  @override
+  String get home => 'Home';
+
+  @override
   String onOff(String boolean) {
     String _temp0 = intl.Intl.selectLogic(boolean, {
       'true': 'On',
@@ -339,4 +345,194 @@ class AppLocalizationsEn extends AppLocalizations {
     });
     return '$_temp0';
   }
+
+  @override
+  String get development => 'Development';
+
+  @override
+  String get widgetCatalog => 'Widget Catalog';
+
+  @override
+  String get exploreComponents => 'Explore the app components';
+
+  @override
+  String get listsAndTiles => 'Lists and Tiles';
+
+  @override
+  String get selectableTilesWithSwitch => 'Selectable tiles with switch';
+
+  @override
+  String get selectors => 'Selectors';
+
+  @override
+  String get horizontalSlideSelectors => 'Horizontal slide selectors';
+
+  @override
+  String get calendars => 'Calendars';
+
+  @override
+  String get monthlyCalendarWithSelection => 'Monthly calendar with selection';
+
+  @override
+  String get iconOptionTile => 'List with icons';
+
+  @override
+  String get selectableTile => 'Selectable list';
+
+  @override
+  String get activated => 'On';
+
+  @override
+  String get deactivated => 'Off';
+
+  @override
+  String get activatedFeminine => 'On';
+
+  @override
+  String get deactivatedFeminine => 'Off';
+
+  @override
+  String get simpleSelector => 'Simple Selector';
+
+  @override
+  String get singleElementSelection => 'Single element selection';
+
+  @override
+  String get multipleSelector => 'Multiple Selector';
+
+  @override
+  String get multipleElementSelection => 'Multiple element selection';
+
+  @override
+  String get selected => 'Selected';
+
+  @override
+  String get selectedPlural => 'Selected';
+
+  @override
+  String get tableCalendar => 'Table Calendar';
+
+  @override
+  String get monthlyCalendarWithDaySelection =>
+      'Monthly calendar with day selection';
+
+  @override
+  String get selectedDate => 'Selected date';
+
+  @override
+  String get componentCatalog => 'Component Catalog';
+
+  @override
+  String get components => 'Components';
+
+  @override
+  String get buttons => 'Buttons';
+
+  @override
+  String get variantsStatesAndSizes => 'Variants, states and sizes';
+
+  @override
+  String get textInputs => 'Text Inputs';
+
+  @override
+  String get variantsAndValidations => 'Variants and validations';
+
+  @override
+  String get links => 'Links';
+
+  @override
+  String get secondaryActionLinks => 'Secondary action links';
+
+  @override
+  String get cards => 'Cards';
+
+  @override
+  String get differentCardsWithContent => 'Different cards with content';
+
+  @override
+  String get filters => 'Filters';
+
+  @override
+  String get differentTypesOfFilters => 'Different types of filters';
+
+  @override
+  String get primaryColorButton => 'Primary color button';
+
+  @override
+  String get secondaryColorButton => 'Secondary color button';
+
+  @override
+  String get dangerColorButton => 'Danger color button';
+
+  @override
+  String get homePageButtons => 'Home page buttons';
+
+  @override
+  String get floatingActionButton => 'Floating Action Button (FAB)';
+
+  @override
+  String get small => 'Small';
+
+  @override
+  String get medium => 'Medium';
+
+  @override
+  String get large => 'Large';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get passwordToggleShowHide => 'Password (toggle show/hide)';
+
+  @override
+  String get multiline => 'Multiline';
+
+  @override
+  String get validateInputs => 'Validate inputs';
+
+  @override
+  String get enterYourEmail => 'Enter your email';
+
+  @override
+  String get invalidEmail => 'Invalid email';
+
+  @override
+  String get enterYourPassword => 'Enter your password';
+
+  @override
+  String get minimum8Characters => 'Minimum 8 characters';
+
+  @override
+  String get enterDescription => 'Enter a description';
+
+  @override
+  String get reviewFields => 'Review fields';
+
+  @override
+  String get validatedCorrectly => 'Validated correctly';
+
+  @override
+  String get leftAlignedSmallLink => 'Left aligned small link';
+
+  @override
+  String get centeredMediumLink => 'Centered medium link';
+
+  @override
+  String get rightAlignedLargeLink => 'Right aligned large link';
+
+  @override
+  String get welcomeCard => 'Welcome card';
+
+  @override
+  String get scheduleCard => 'Schedule card';
+
+  @override
+  String get notificationCard => 'Notification card';
+
+  @override
+  String get selectorOf5Filters => 'Selector of 5 filters';
+
+  @override
+  String get selectorOf2Filters => 'Selector of 2 filters';
 }

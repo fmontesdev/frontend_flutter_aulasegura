@@ -84,6 +84,16 @@ class AuthNotifier extends AsyncNotifier<User?> {
     final authUseCases = ref.read(authUseCasesProvider);
     return await authUseCases.getCurrentUser();
   }
+
+  /// Cambiar la contraseña
+  Future<void> changePassword(String oldPassword, String newPassword) async {
+    try {
+      final authUseCases = ref.read(authUseCasesProvider);
+      await authUseCases.changePassword(oldPassword, newPassword);
+    } catch (error) {
+      rethrow; // Relanza el error para que sea capturado en la UI
+    }
+  }
 }
 
 final authProvider = AsyncNotifierProvider<AuthNotifier, User?>(() {

@@ -6,10 +6,12 @@ class AuthUseCases {
   final Future<User> Function() refreshToken;
   final Future<void> Function() logout;
   final Future<User?> Function() getCurrentUser;
+  final Future<void> Function(String oldPassword, String newPassword) changePassword;
 
   AuthUseCases(AuthRepository repo)
       : login = repo.login,
       refreshToken = repo.refreshToken,
       logout = repo.logout,
-      getCurrentUser = repo.getCurrentUser;
+      getCurrentUser = repo.getCurrentUser,
+      changePassword = repo.changePassword;
 }

@@ -47,10 +47,11 @@ class AppServices {
         onError: (error, handler) async {
           final requestPath = error.requestOptions.path;
           
-          // Solo intentar refresh si es 401 y no es la ruta de refresh/login
+          // Solo intentar refresh si es 401 y no es la ruta de refresh/login/change-password
           if (error.response?.statusCode == 401 && 
               !requestPath.contains('/auth/refresh') &&
-              !requestPath.contains('/auth/login')) {
+              !requestPath.contains('/auth/login') &&
+              !requestPath.contains('/auth/change-password')) {
             
             try {
               // Llama al AuthProvider para refrescar el token

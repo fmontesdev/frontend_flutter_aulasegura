@@ -35,7 +35,7 @@
   "@checkFields": {
     "description": "Static message (check the fields)"
   },
-  "loginError": "No s'ha pogut iniciar sessió: {error, select, User_not_found{Usuari no trobat} other{error}}",
+  "loginError": "No s'ha pogut iniciar sessió: {error, select, User_not_found{Usuari no trobat} Incorrect_password{Contrasenya incorrecta} other{error}}",
   "@loginError": {
     "description": "Error message (login) with dynamic parameter (error)",
     "placeholders": {
@@ -241,6 +241,76 @@
   "updatePassword": "Actualitza la teva contrasenya",
   "@updatePassword": {
     "description": "Static message (update password)"
+  },
+  "currentPassword": "Contrasenya actual",
+  "@currentPassword": {
+    "description": "Static message (current password)"
+  },
+  "newPassword": "Nova contrasenya",
+  "@newPassword": {
+    "description": "Static message (new password)"
+  },
+  "confirmPassword": "Confirmar contrasenya",
+  "@confirmPassword": {
+    "description": "Static message (confirm password)"
+  },
+  "passwordsDoNotMatch": "Les contrasenyes no coincideixen",
+  "@passwordsDoNotMatch": {
+    "description": "Error message (passwords do not match)"
+  },
+  "newPasswordMustBeDifferent": "La nova contrasenya ha de ser diferent de l'actual",
+  "@newPasswordMustBeDifferent": {
+    "description": "Error message (new password must be different from current)"
+  },
+  "passwordStrength": "{strength, select, weak{Feble} medium{Mitjana} strong{Forta} other{Desconeguda}}",
+  "@passwordStrength": {
+    "description": "Localized password strength",
+    "placeholders": {
+      "strength": {
+        "type": "String"
+      }
+    }
+  },
+  "saveChanges": "Desar canvis",
+  "@saveChanges": {
+    "description": "Static message (save changes)"
+  },
+  "saving": "Guardant...",
+  "@saving": {
+    "description": "Static message (saving)"
+  },
+  "passwordChangedSuccessfully": "Contrasenya canviada correctament",
+  "@passwordChangedSuccessfully": {
+    "description": "Success message (password changed)"
+  },
+  "changePasswordError": "No s'ha pogut canviar la contrasenya: {error, select, Incorrect_current_password{Contrasenya actual incorrecta} other{error}}",
+  "@changePasswordError": {
+    "description": "Error message (change password) with dynamic parameter (error)",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "requirements": "Requisits",
+  "@requirements": {
+    "description": "Static message (requirements)"
+  },
+  "minimumCharacters": "Mínim 8 caràcters",
+  "@minimumCharacters": {
+    "description": "Static message (minimum 8 characters)"
+  },
+  "oneUppercaseLetter": "Una lletra majúscula",
+  "@oneUppercaseLetter": {
+    "description": "Static message (one uppercase letter)"
+  },
+  "oneLowercaseLetter": "Una lletra minúscula",
+  "@oneLowercaseLetter": {
+    "description": "Static message (one lowercase letter)"
+  },
+  "oneNumber": "Un número",
+  "@oneNumber": {
+    "description": "Static message (one number)"
   },
   "preferences": "Preferències",
   "@preferences": {

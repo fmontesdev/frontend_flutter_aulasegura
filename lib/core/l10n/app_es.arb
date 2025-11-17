@@ -35,7 +35,7 @@
   "@checkFields": {
     "description": "Static message (check the fields)"
   },
-  "loginError": "No se pudo iniciar sesión: {error, select, User_not_found{Usuario no encontrado} other{error}}",
+  "loginError": "No se pudo iniciar sesión: {error, select, User_not_found{Usuario no encontrado} Incorrect_password{Contraseña incorrecta} other{error}}",
   "@loginError": {
     "description": "Error message (login) with dynamic parameter (error)",
     "placeholders": {
@@ -241,6 +241,76 @@
   "updatePassword": "Actualiza tu contraseña",
   "@updatePassword": {
     "description": "Static message (update password)"
+  },
+  "currentPassword": "Contraseña actual",
+  "@currentPassword": {
+    "description": "Static message (current password)"
+  },
+  "newPassword": "Nueva contraseña",
+  "@newPassword": {
+    "description": "Static message (new password)"
+  },
+  "confirmPassword": "Confirmar contraseña",
+  "@confirmPassword": {
+    "description": "Static message (confirm password)"
+  },
+  "passwordsDoNotMatch": "Las contraseñas no coinciden",
+  "@passwordsDoNotMatch": {
+    "description": "Error message (passwords do not match)"
+  },
+  "newPasswordMustBeDifferent": "La nueva contraseña debe ser diferente a la actual",
+  "@newPasswordMustBeDifferent": {
+    "description": "Error message (new password must be different from current)"
+  },
+  "passwordStrength": "{strength, select, weak{Débil} medium{Media} strong{Fuerte} other{Desconocida}}",
+  "@passwordStrength": {
+    "description": "Localized password strength",
+    "placeholders": {
+      "strength": {
+        "type": "String"
+      }
+    }
+  },
+  "saveChanges": "Guardar cambios",
+  "@saveChanges": {
+    "description": "Static message (save changes)"
+  },
+  "saving": "Guardando...",
+  "@saving": {
+    "description": "Static message (saving)"
+  },
+  "passwordChangedSuccessfully": "Contraseña cambiada correctamente",
+  "@passwordChangedSuccessfully": {
+    "description": "Success message (password changed)"
+  },
+  "changePasswordError": "No se pudo cambiar la contraseña: {error, select, Incorrect_current_password{Contraseña actual incorrecta} other{error}}",
+  "@changePasswordError": {
+    "description": "Error message (change password) with dynamic parameter (error)",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "requirements": "Requisitos",
+  "@requirements": {
+    "description": "Static message (requirements)"
+  },
+  "minimumCharacters": "Mínimo 8 caracteres",
+  "@minimumCharacters": {
+    "description": "Static message (minimum 8 characters)"
+  },
+  "oneUppercaseLetter": "Una letra mayúscula",
+  "@oneUppercaseLetter": {
+    "description": "Static message (one uppercase letter)"
+  },
+  "oneLowercaseLetter": "Una letra minúscula",
+  "@oneLowercaseLetter": {
+    "description": "Static message (one lowercase letter)"
+  },
+  "oneNumber": "Un número",
+  "@oneNumber": {
+    "description": "Static message (one number)"
   },
   "preferences": "Preferencias",
   "@preferences": {

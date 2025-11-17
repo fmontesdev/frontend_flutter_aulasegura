@@ -40,6 +40,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String loginError(String error) {
     String _temp0 = intl.Intl.selectLogic(error, {
       'User_not_found': 'Usuario no encontrado',
+      'Incorrect_password': 'Contraseña incorrecta',
       'other': 'error',
     });
     return 'No se pudo iniciar sesión: $_temp0';
@@ -235,6 +236,66 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get updatePassword => 'Actualiza tu contraseña';
+
+  @override
+  String get currentPassword => 'Contraseña actual';
+
+  @override
+  String get newPassword => 'Nueva contraseña';
+
+  @override
+  String get confirmPassword => 'Confirmar contraseña';
+
+  @override
+  String get passwordsDoNotMatch => 'Las contraseñas no coinciden';
+
+  @override
+  String get newPasswordMustBeDifferent =>
+      'La nueva contraseña debe ser diferente a la actual';
+
+  @override
+  String passwordStrength(String strength) {
+    String _temp0 = intl.Intl.selectLogic(strength, {
+      'weak': 'Débil',
+      'medium': 'Media',
+      'strong': 'Fuerte',
+      'other': 'Desconocida',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get saveChanges => 'Guardar cambios';
+
+  @override
+  String get saving => 'Guardando...';
+
+  @override
+  String get passwordChangedSuccessfully => 'Contraseña cambiada correctamente';
+
+  @override
+  String changePasswordError(String error) {
+    String _temp0 = intl.Intl.selectLogic(error, {
+      'Incorrect_current_password': 'Contraseña actual incorrecta',
+      'other': 'error',
+    });
+    return 'No se pudo cambiar la contraseña: $_temp0';
+  }
+
+  @override
+  String get requirements => 'Requisitos';
+
+  @override
+  String get minimumCharacters => 'Mínimo 8 caracteres';
+
+  @override
+  String get oneUppercaseLetter => 'Una letra mayúscula';
+
+  @override
+  String get oneLowercaseLetter => 'Una letra minúscula';
+
+  @override
+  String get oneNumber => 'Un número';
 
   @override
   String get preferences => 'Preferencias';

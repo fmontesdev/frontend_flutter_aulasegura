@@ -40,6 +40,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String loginError(String error) {
     String _temp0 = intl.Intl.selectLogic(error, {
       'User_not_found': 'Usuari no trobat',
+      'Incorrect_password': 'Contrasenya incorrecta',
       'other': 'error',
     });
     return 'No s\'ha pogut iniciar sessió: $_temp0';
@@ -236,6 +237,66 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get updatePassword => 'Actualitza la teva contrasenya';
+
+  @override
+  String get currentPassword => 'Contrasenya actual';
+
+  @override
+  String get newPassword => 'Nova contrasenya';
+
+  @override
+  String get confirmPassword => 'Confirmar contrasenya';
+
+  @override
+  String get passwordsDoNotMatch => 'Les contrasenyes no coincideixen';
+
+  @override
+  String get newPasswordMustBeDifferent =>
+      'La nova contrasenya ha de ser diferent de l\'actual';
+
+  @override
+  String passwordStrength(String strength) {
+    String _temp0 = intl.Intl.selectLogic(strength, {
+      'weak': 'Feble',
+      'medium': 'Mitjana',
+      'strong': 'Forta',
+      'other': 'Desconeguda',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get saveChanges => 'Desar canvis';
+
+  @override
+  String get saving => 'Guardant...';
+
+  @override
+  String get passwordChangedSuccessfully => 'Contrasenya canviada correctament';
+
+  @override
+  String changePasswordError(String error) {
+    String _temp0 = intl.Intl.selectLogic(error, {
+      'Incorrect_current_password': 'Contrasenya actual incorrecta',
+      'other': 'error',
+    });
+    return 'No s\'ha pogut canviar la contrasenya: $_temp0';
+  }
+
+  @override
+  String get requirements => 'Requisits';
+
+  @override
+  String get minimumCharacters => 'Mínim 8 caràcters';
+
+  @override
+  String get oneUppercaseLetter => 'Una lletra majúscula';
+
+  @override
+  String get oneLowercaseLetter => 'Una lletra minúscula';
+
+  @override
+  String get oneNumber => 'Un número';
 
   @override
   String get preferences => 'Preferències';

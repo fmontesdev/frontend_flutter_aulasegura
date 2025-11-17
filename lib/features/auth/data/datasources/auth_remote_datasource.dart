@@ -35,4 +35,15 @@ class AuthRemoteDataSource {
     );
     return UserModel.fromJson(response.data);
   }
+
+  /// Llama a la API para cambiar la contraseña
+  Future<void> changePassword(String oldPassword, String newPassword) async {
+    await AppServices.dio.post(
+      '/auth/change-password',
+      data: {
+        'oldPassword': oldPassword,
+        'newPassword': newPassword,
+      },
+    );
+  }
 }

@@ -35,7 +35,7 @@
   "@checkFields": {
     "description": "Static message (check the fields)"
   },
-  "loginError": "We couldn't log in: {error, select, User_not_found{User not found} other{error}}",
+  "loginError": "We couldn't log in: {error, select, User_not_found{User not found} Incorrect_password{Incorrect password} other{error}}",
   "@loginError": {
     "description": "Error message (login) with dynamic parameter (error)",
     "placeholders": {
@@ -241,6 +241,76 @@
   "updatePassword": "Update your password",
   "@updatePassword": {
     "description": "Static message (update password)"
+  },
+  "currentPassword": "Current password",
+  "@currentPassword": {
+    "description": "Static message (current password)"
+  },
+  "newPassword": "New password",
+  "@newPassword": {
+    "description": "Static message (new password)"
+  },
+  "confirmPassword": "Confirm password",
+  "@confirmPassword": {
+    "description": "Static message (confirm password)"
+  },
+  "passwordsDoNotMatch": "Passwords do not match",
+  "@passwordsDoNotMatch": {
+    "description": "Error message (passwords do not match)"
+  },
+  "newPasswordMustBeDifferent": "New password must be different from current password",
+  "@newPasswordMustBeDifferent": {
+    "description": "Error message (new password must be different from current)"
+  },
+  "passwordStrength": "{strength, select, weak{Weak} medium{Medium} strong{Strong} other{Unknown}}",
+  "@passwordStrength": {
+    "description": "Localized password strength",
+    "placeholders": {
+      "strength": {
+        "type": "String"
+      }
+    }
+  },
+  "saveChanges": "Save changes",
+  "@saveChanges": {
+    "description": "Static message (save changes)"
+  },
+  "saving": "Saving...",
+  "@saving": {
+    "description": "Static message (saving)"
+  },
+  "passwordChangedSuccessfully": "Password changed successfully",
+  "@passwordChangedSuccessfully": {
+    "description": "Success message (password changed)"
+  },
+  "changePasswordError": "Could not change password: {error, select, Incorrect_current_password{Incorrect current password} other{error}}",
+  "@changePasswordError": {
+    "description": "Error message (change password) with dynamic parameter (error)",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "requirements": "Requirements",
+  "@requirements": {
+    "description": "Static message (requirements)"
+  },
+  "minimumCharacters": "Minimum 8 characters",
+  "@minimumCharacters": {
+    "description": "Static message (minimum 8 characters)"
+  },
+  "oneUppercaseLetter": "One uppercase letter",
+  "@oneUppercaseLetter": {
+    "description": "Static message (one uppercase letter)"
+  },
+  "oneLowercaseLetter": "One lowercase letter",
+  "@oneLowercaseLetter": {
+    "description": "Static message (one lowercase letter)"
+  },
+  "oneNumber": "One number",
+  "@oneNumber": {
+    "description": "Static message (one number)"
   },
   "preferences": "Preferences",
   "@preferences": {

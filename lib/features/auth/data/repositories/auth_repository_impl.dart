@@ -104,6 +104,16 @@ class AuthRepositoryImpl implements AuthRepository {
     }
   }
 
+  /// Cambia la contraseña del usuario autenticado
+  @override
+  Future<void> changePassword(String oldPassword, String newPassword) async {
+    try {
+      await remoteDataSource.changePassword(oldPassword, newPassword);
+    } catch (e) {
+      handleAuthError(e);
+    }
+  }
+
   /// Maneja errores y los transforma en excepciones de dominio
   Never handleAuthError(Object e) {
     if (e is AuthException) throw e;

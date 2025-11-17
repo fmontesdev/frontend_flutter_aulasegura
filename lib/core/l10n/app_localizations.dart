@@ -157,7 +157,7 @@ abstract class AppLocalizations {
   /// Error message (login) with dynamic parameter (error)
   ///
   /// In es, this message translates to:
-  /// **'No se pudo iniciar sesión: {error, select, User_not_found{Usuario no encontrado} other{error}}'**
+  /// **'No se pudo iniciar sesión: {error, select, User_not_found{Usuario no encontrado} Incorrect_password{Contraseña incorrecta} other{error}}'**
   String loginError(String error);
 
   /// Static message (Did you forget your password?)
@@ -357,6 +357,96 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Actualiza tu contraseña'**
   String get updatePassword;
+
+  /// Static message (current password)
+  ///
+  /// In es, this message translates to:
+  /// **'Contraseña actual'**
+  String get currentPassword;
+
+  /// Static message (new password)
+  ///
+  /// In es, this message translates to:
+  /// **'Nueva contraseña'**
+  String get newPassword;
+
+  /// Static message (confirm password)
+  ///
+  /// In es, this message translates to:
+  /// **'Confirmar contraseña'**
+  String get confirmPassword;
+
+  /// Error message (passwords do not match)
+  ///
+  /// In es, this message translates to:
+  /// **'Las contraseñas no coinciden'**
+  String get passwordsDoNotMatch;
+
+  /// Error message (new password must be different from current)
+  ///
+  /// In es, this message translates to:
+  /// **'La nueva contraseña debe ser diferente a la actual'**
+  String get newPasswordMustBeDifferent;
+
+  /// Localized password strength
+  ///
+  /// In es, this message translates to:
+  /// **'{strength, select, weak{Débil} medium{Media} strong{Fuerte} other{Desconocida}}'**
+  String passwordStrength(String strength);
+
+  /// Static message (save changes)
+  ///
+  /// In es, this message translates to:
+  /// **'Guardar cambios'**
+  String get saveChanges;
+
+  /// Static message (saving)
+  ///
+  /// In es, this message translates to:
+  /// **'Guardando...'**
+  String get saving;
+
+  /// Success message (password changed)
+  ///
+  /// In es, this message translates to:
+  /// **'Contraseña cambiada correctamente'**
+  String get passwordChangedSuccessfully;
+
+  /// Error message (change password) with dynamic parameter (error)
+  ///
+  /// In es, this message translates to:
+  /// **'No se pudo cambiar la contraseña: {error, select, Incorrect_current_password{Contraseña actual incorrecta} other{error}}'**
+  String changePasswordError(String error);
+
+  /// Static message (requirements)
+  ///
+  /// In es, this message translates to:
+  /// **'Requisitos'**
+  String get requirements;
+
+  /// Static message (minimum 8 characters)
+  ///
+  /// In es, this message translates to:
+  /// **'Mínimo 8 caracteres'**
+  String get minimumCharacters;
+
+  /// Static message (one uppercase letter)
+  ///
+  /// In es, this message translates to:
+  /// **'Una letra mayúscula'**
+  String get oneUppercaseLetter;
+
+  /// Static message (one lowercase letter)
+  ///
+  /// In es, this message translates to:
+  /// **'Una letra minúscula'**
+  String get oneLowercaseLetter;
+
+  /// Static message (one number)
+  ///
+  /// In es, this message translates to:
+  /// **'Un número'**
+  String get oneNumber;
 
   /// Static message (preferences)
   ///

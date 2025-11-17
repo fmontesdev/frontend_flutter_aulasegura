@@ -40,6 +40,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String loginError(String error) {
     String _temp0 = intl.Intl.selectLogic(error, {
       'User_not_found': 'User not found',
+      'Incorrect_password': 'Incorrect password',
       'other': 'error',
     });
     return 'We couldn\'t log in: $_temp0';
@@ -235,6 +236,66 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get updatePassword => 'Update your password';
+
+  @override
+  String get currentPassword => 'Current password';
+
+  @override
+  String get newPassword => 'New password';
+
+  @override
+  String get confirmPassword => 'Confirm password';
+
+  @override
+  String get passwordsDoNotMatch => 'Passwords do not match';
+
+  @override
+  String get newPasswordMustBeDifferent =>
+      'New password must be different from current password';
+
+  @override
+  String passwordStrength(String strength) {
+    String _temp0 = intl.Intl.selectLogic(strength, {
+      'weak': 'Weak',
+      'medium': 'Medium',
+      'strong': 'Strong',
+      'other': 'Unknown',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get saveChanges => 'Save changes';
+
+  @override
+  String get saving => 'Saving...';
+
+  @override
+  String get passwordChangedSuccessfully => 'Password changed successfully';
+
+  @override
+  String changePasswordError(String error) {
+    String _temp0 = intl.Intl.selectLogic(error, {
+      'Incorrect_current_password': 'Incorrect current password',
+      'other': 'error',
+    });
+    return 'Could not change password: $_temp0';
+  }
+
+  @override
+  String get requirements => 'Requirements';
+
+  @override
+  String get minimumCharacters => 'Minimum 8 characters';
+
+  @override
+  String get oneUppercaseLetter => 'One uppercase letter';
+
+  @override
+  String get oneLowercaseLetter => 'One lowercase letter';
+
+  @override
+  String get oneNumber => 'One number';
 
   @override
   String get preferences => 'Preferences';

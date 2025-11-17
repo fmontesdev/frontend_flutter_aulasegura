@@ -10,6 +10,7 @@ import 'package:frontend_flutter_aulasegura/features/reservations/presentation/p
 import 'package:frontend_flutter_aulasegura/features/schedules/presentation/pages/schedules_page.dart';
 import 'package:frontend_flutter_aulasegura/features/notifications/presentation/pages/notifications_page.dart';
 import 'package:frontend_flutter_aulasegura/features/profile/presentation/pages/profile_page.dart';
+import 'package:frontend_flutter_aulasegura/features/profile/presentation/pages/change_password_page.dart';
 import 'package:frontend_flutter_aulasegura/core/utils/slide_from_right_page.dart';
 
 // GlobalKeys para estados de navegación
@@ -42,6 +43,12 @@ final router = GoRouter (
       path: '/profile',
       parentNavigatorKey: _rootNavigatorKey, // Usamos el root navigator
       pageBuilder: (context, state) => slideFromRightPage(const ProfilePage(), state),
+    ),
+    GoRoute(
+      name: 'change_password',
+      path: '/change-password',
+      parentNavigatorKey: _rootNavigatorKey, // Usamos el root navigator
+      pageBuilder: (context, state) => slideFromRightPage(const ChangePasswordPage(), state),
     ),
     GoRoute(
       name: 'reservation_create',

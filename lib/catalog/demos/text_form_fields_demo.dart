@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_flutter_aulasegura/core/l10n/app_localizations.dart';
 import 'package:frontend_flutter_aulasegura/catalog/widgets/showcase_scaffold.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_text_form_field.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_button.dart';
 
 class TextFieldsDemo extends StatefulWidget {
-  final bool modoOscuro;
-  final ValueChanged<bool> onCambioModoOscuro;
+  final bool darkMode;
+  final ValueChanged<bool> onToggleDarkMode;
 
   const TextFieldsDemo({
     super.key,
-    required this.modoOscuro,
-    required this.onCambioModoOscuro,
+    required this.darkMode,
+    required this.onToggleDarkMode,
   });
 
   @override
@@ -36,21 +37,24 @@ class _TextFieldsDemoState extends State<TextFieldsDemo> {
 
   String? _validateEmail(String? v) {
     final value = (v ?? '').trim();
-    if (value.isEmpty) return 'Introduce tu email';
-    if (!value.contains('@') || !value.contains('.')) return 'Email no válido';
+    final l10n = AppLocalizations.of(context)!;
+    if (value.isEmpty) return l10n.enterYourEmail;
+    if (!value.contains('@') || !value.contains('.')) return l10n.invalidEmail;
     return null;
   }
 
   String? _validatePassword(String? v) {
     final value = v ?? '';
-    if (value.isEmpty) return 'Introduce tu contraseña';
-    if (value.length < 8) return 'Mínimo 8 caracteres';
+    final l10n = AppLocalizations.of(context)!;
+    if (value.isEmpty) return l10n.enterYourPassword;
+    if (value.length < 8) return l10n.minimum8Characters;
     return null;
   }
 
   String? _validateDescription(String? v) {
     final value = (v ?? '').trim();
-    if (value.isEmpty) return 'Introduce una descripción';
+    final l10n = AppLocalizations.of(context)!;
+    if (value.isEmpty) return l10n.enterDescription;
     return null;
   }
 
@@ -59,16 +63,17 @@ class _TextFieldsDemoState extends State<TextFieldsDemo> {
   void _toggleObscure() => setState(() => _obscured = !_obscured);
 
   void _submit() {
+    final l10n = AppLocalizations.of(context)!;
     final ok = _formKey.currentState?.validate() ?? false;
     if (!ok) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Revisa los campos')),
+        SnackBar(content: Text(l10n.reviewFields)),
       );
       return;
     }
     /// Lógica real de login
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Validado correctamente')),
+      SnackBar(content: Text(l10n.validatedCorrectly)),
     );
   }
 
@@ -76,27 +81,28 @@ class _TextFieldsDemoState extends State<TextFieldsDemo> {
   Widget build(BuildContext context) {
     final t = Theme.of(context).textTheme;
     final scheme = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context)!;
 
     return ShowcaseScaffold(
-      title: 'Inputs de Texto',
+      title: l10n.textInputs,
       backgroundColor: scheme.primaryContainer,
-      modoOscuro: widget.modoOscuro,
-      onCambioModoOscuro: widget.onCambioModoOscuro,
+      darkMode: widget.darkMode,
+      onToggleDarkMode: widget.onToggleDarkMode,
       body: Form( // Gestión de validación y estado de los campos (TextFormField)
         key: _formKey,
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            Text('Email', style: t.titleSmall),
+            Text(l10n.email, style: t.titleSmall),
             const SizedBox(height: 12),
             AppTextFormField(
               variant: AppTextFieldVariant.email,
               controller: _emailCtrl,
               validator: _validateEmail,
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 20),
 
-            Text('Contraseña (toggle mostrar/ocultar)', style: t.titleSmall),
+            Text(l10n.passwordToggleShowHide, style: t.titleSmall),
             const SizedBox(height: 12),
             AppTextFormField(
               variant: AppTextFieldVariant.password,
@@ -105,9 +111,9 @@ class _TextFieldsDemoState extends State<TextFieldsDemo> {
               onToggleObscure: _toggleObscure,
               validator: _validatePassword,
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 20),
 
-            Text('Multilínea', style: t.titleSmall),
+            Text(l10n.multiline, style: t.titleSmall),
             const SizedBox(height: 12),
             AppTextFormField(
               variant: AppTextFieldVariant.multiline,
@@ -117,7 +123,7 @@ class _TextFieldsDemoState extends State<TextFieldsDemo> {
             const SizedBox(height: 34),
 
             AppButton(
-              label: 'Validar inputs',
+              label: l10n.validateInputs,
               onPressed: _submit,
               size: AppButtonSize.lg,
               variant: AppButtonVariant.secondary,

@@ -57,7 +57,7 @@ class AppSelectablePill extends StatelessWidget {
         16.0,
       ),
       AppPillSelectableSize.lg => (
-        const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         theme.textTheme.labelLarge?.copyWith(fontWeight: fontWeight, color: foreground),
         18.0,
       ),

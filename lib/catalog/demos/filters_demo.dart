@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_flutter_aulasegura/core/l10n/app_localizations.dart';
 import 'package:frontend_flutter_aulasegura/catalog/widgets/showcase_scaffold.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_filter_selector.dart';
 
 class FiltersDemo extends StatefulWidget {
-  final bool modoOscuro;
-  final ValueChanged<bool> onCambioModoOscuro;
+  final bool darkMode;
+  final ValueChanged<bool> onToggleDarkMode;
 
   const FiltersDemo({
     super.key,
-    required this.modoOscuro,
-    required this.onCambioModoOscuro,
+    required this.darkMode,
+    required this.onToggleDarkMode,
   });
 
   @override
@@ -25,25 +26,26 @@ class _FiltersDemoState extends State<FiltersDemo> {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
     final text = theme.textTheme;
+    final l10n = AppLocalizations.of(context)!;
 
     return ShowcaseScaffold(
-      title: 'Filtros',
+      title: l10n.filters,
       backgroundColor: scheme.primaryContainer,
-      modoOscuro: widget.modoOscuro,
-      onCambioModoOscuro: widget.onCambioModoOscuro,
+      darkMode: widget.darkMode,
+      onToggleDarkMode: widget.onToggleDarkMode,
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          Text('Selector de 5 filtros', style: text.titleSmall),
+          Text(l10n.selectorOf5Filters, style: text.titleSmall),
           const SizedBox(height: 12),
           AppFilterSelector(
             options: const ['Todas', 'Accesos', 'Avisos', 'Alertas', 'Vistas'],
             selectedIndex: index1,
             onChanged: (i) => setState(() => index1 = i),
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 20),
 
-          Text('Selector de 2 filtros', style: text.titleSmall),
+          Text(l10n.selectorOf2Filters, style: text.titleSmall),
           const SizedBox(height: 12),
           AppFilterSelector(
             options: const ['Horario semanal', 'Reservas de aulas'],

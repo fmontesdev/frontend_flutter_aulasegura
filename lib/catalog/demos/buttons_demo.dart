@@ -1,26 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_flutter_aulasegura/core/l10n/app_localizations.dart';
 import 'package:frontend_flutter_aulasegura/catalog/widgets/showcase_scaffold.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_button.dart';
+import 'package:frontend_flutter_aulasegura/core/widgets/app_fab.dart';
 
 class ButtonsDemo extends StatelessWidget {
-  final bool modoOscuro;
-  final ValueChanged<bool> onCambioModoOscuro;
+  final bool darkMode;
+  final ValueChanged<bool> onToggleDarkMode;
 
   const ButtonsDemo({
     super.key,
-    required this.modoOscuro,
-    required this.onCambioModoOscuro,
+    required this.darkMode,
+    required this.onToggleDarkMode,
   });
 
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context)!;
 
     return ShowcaseScaffold(
-      title: 'Botones',
+      title: l10n.buttons,
       backgroundColor: scheme.primaryContainer,
-      modoOscuro: modoOscuro,
-      onCambioModoOscuro: onCambioModoOscuro,
+      darkMode: darkMode,
+      onToggleDarkMode: onToggleDarkMode,
       body: Builder(
         builder: (innerCtx) {
           final theme = Theme.of(innerCtx).textTheme;
@@ -28,9 +31,9 @@ class ButtonsDemo extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             children: [
 
-              /// Primary Buttons
+              /// Botones color primario
               Text(
-                'Botón primario',
+                l10n.primaryColorButton,
                 style: theme.titleSmall,
               ),
               const SizedBox(height: 4),
@@ -38,7 +41,7 @@ class ButtonsDemo extends StatelessWidget {
                 children: [
                   Expanded(
                     child: AppButton(
-                      label: 'Pequeño',
+                      label: l10n.small,
                       onPressed: () {},
                       size: AppButtonSize.sm,
                       variant: AppButtonVariant.primary,
@@ -47,7 +50,7 @@ class ButtonsDemo extends StatelessWidget {
                   const SizedBox(width: 12),
                   Expanded(
                     child: AppButton(
-                      label: 'Mediano',
+                      label: l10n.medium,
                       onPressed: () {},
                       size: AppButtonSize.md,
                       variant: AppButtonVariant.primary,
@@ -56,7 +59,7 @@ class ButtonsDemo extends StatelessWidget {
                   const SizedBox(width: 12),
                   Expanded(
                     child: AppButton(
-                      label: 'Grande',
+                      label: l10n.large,
                       onPressed: () {},
                       size: AppButtonSize.lg,
                       variant: AppButtonVariant.primary,
@@ -64,11 +67,11 @@ class ButtonsDemo extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 16),
 
-              /// Secondary Buttons
+              /// Botones color secundario
               Text(
-                'Botón secundario',
+                l10n.secondaryColorButton,
                 style: theme.titleSmall,
               ),
               const SizedBox(height: 4),
@@ -76,7 +79,7 @@ class ButtonsDemo extends StatelessWidget {
                 children: [
                   Expanded(
                     child: AppButton(
-                      label: 'Pequeño',
+                      label: l10n.small,
                       onPressed: () {},
                       size: AppButtonSize.sm,
                       variant: AppButtonVariant.secondary,
@@ -85,7 +88,7 @@ class ButtonsDemo extends StatelessWidget {
                   const SizedBox(width: 12),
                   Expanded(
                     child: AppButton(
-                      label: 'Mediano',
+                      label: l10n.medium,
                       onPressed: () {},
                       size: AppButtonSize.md,
                       variant: AppButtonVariant.secondary,
@@ -94,7 +97,7 @@ class ButtonsDemo extends StatelessWidget {
                   const SizedBox(width: 12),
                   Expanded(
                     child: AppButton(
-                      label: 'Grande',
+                      label: l10n.large,
                       onPressed: () {},
                       size: AppButtonSize.lg,
                       variant: AppButtonVariant.secondary,
@@ -102,11 +105,11 @@ class ButtonsDemo extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 16),
 
-              /// Danger Buttons
+              /// Botones color peligro
               Text(
-                'Botón peligro',
+                l10n.dangerColorButton,
                 style: theme.titleSmall,
               ),
               const SizedBox(height: 4),
@@ -114,7 +117,7 @@ class ButtonsDemo extends StatelessWidget {
                 children: [
                   Expanded(
                     child: AppButton(
-                      label: 'Pequeño',
+                      label: l10n.small,
                       onPressed: () {},
                       size: AppButtonSize.sm,
                       variant: AppButtonVariant.danger,
@@ -123,7 +126,7 @@ class ButtonsDemo extends StatelessWidget {
                   const SizedBox(width: 12),
                   Expanded(
                     child: AppButton(
-                      label: 'Mediano',
+                      label: l10n.medium,
                       onPressed: () {},
                       size: AppButtonSize.md,
                       variant: AppButtonVariant.danger,
@@ -132,7 +135,7 @@ class ButtonsDemo extends StatelessWidget {
                   const SizedBox(width: 12),
                   Expanded(
                     child: AppButton(
-                      label: 'Grande',
+                      label: l10n.large,
                       onPressed: () {},
                       size: AppButtonSize.lg,
                       variant: AppButtonVariant.danger,
@@ -140,11 +143,11 @@ class ButtonsDemo extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 16),
 
-              /// Primary Buttons
+              /// Botones de la página de inicio
               Text(
-                'Botones de la página de inicio',
+                l10n.homePageButtons,
                 style: theme.titleSmall,
               ),
               const SizedBox(height: 13),
@@ -159,7 +162,6 @@ class ButtonsDemo extends StatelessWidget {
                       isCircular: true,
                     ),
                   ),
-                  const SizedBox(width: 12),
                   Expanded(
                     child: AppButton(
                       icon: Icons.qr_code,
@@ -171,7 +173,65 @@ class ButtonsDemo extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 20),
+
+              /// Botones de acción flotante (FAB)
+              Text(
+                l10n.floatingActionButton,
+                style: theme.titleSmall,
+              ),
+              const SizedBox(height: 12),
+              Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      children: [
+                        AppFab(
+                          icon: Icons.add,
+                          size: AppFabSize.sm,
+                          variant: AppFabVariant.primary,
+                          onPressed: () {},
+                          heroTag: 'fab_sm_primary',
+                        ),
+                        const SizedBox(height: 4),
+                        Text(l10n.small, style: theme.bodySmall),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        AppFab(
+                          icon: Icons.edit,
+                          size: AppFabSize.md,
+                          variant: AppFabVariant.secondary,
+                          onPressed: () {},
+                          heroTag: 'fab_md_primary',
+                        ),
+                        const SizedBox(height: 4),
+                        Text(l10n.medium, style: theme.bodySmall),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        AppFab(
+                          icon: Icons.check,
+                          size: AppFabSize.lg,
+                          variant: AppFabVariant.danger,
+                          onPressed: () {},
+                          heroTag: 'fab_lg_primary',
+                        ),
+                        const SizedBox(height: 4),
+                        Text(l10n.large, style: theme.bodySmall),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ],
           );
         },

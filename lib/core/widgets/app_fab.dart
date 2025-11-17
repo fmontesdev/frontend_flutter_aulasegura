@@ -48,7 +48,7 @@ class AppFab extends StatelessWidget {
     // Icono, Texto y Padding según tamaño
     final (iconSize, textStyle, horizontalPadding) = switch (size) {
       AppFabSize.sm => (
-        28.0,
+        24.0,
         text.titleSmall?.copyWith(
           color: resolvedFg,
         ),
@@ -62,7 +62,7 @@ class AppFab extends StatelessWidget {
         const EdgeInsets.only(left: 15, right: 24), // El padding vertical viene fijo en FloatingActionButton
       ),
       AppFabSize.lg => (
-        36.0,
+        40.0,
         text.titleLarge?.copyWith(
           color: resolvedFg,
         ),

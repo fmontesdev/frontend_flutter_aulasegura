@@ -26,8 +26,6 @@ final notificationUseCasesProvider = Provider<NotificationUseCases>((ref) {
 
 /// Notifier para manejar el estado de autenticación
 class NotificationNotifier extends AsyncNotifier<List<Notification>> {
-  late final NotificationUseCases notificationUseCases;
-
   /// Inicializa el Notifier
   @override
   Future<List<Notification>> build() async {
@@ -40,7 +38,7 @@ class NotificationNotifier extends AsyncNotifier<List<Notification>> {
     }
 
     // Carga inicial de notificaciones del usuario autenticado
-    notificationUseCases = ref.watch(notificationUseCasesProvider);
+    final notificationUseCases = ref.watch(notificationUseCasesProvider);
     return notificationUseCases.getNotificationsByUserId(user.id);
   }
 
@@ -51,6 +49,7 @@ class NotificationNotifier extends AsyncNotifier<List<Notification>> {
         list.map((n) => n.id == id ? n.copyWith(isRead: true) : n).toList());
 
     try {
+      final notificationUseCases = ref.read(notificationUseCasesProvider);
       await notificationUseCases.markAsRead(id);
     } catch (_) {
       state = prev; // rollback si fallara
@@ -64,6 +63,7 @@ class NotificationNotifier extends AsyncNotifier<List<Notification>> {
         list.map((n) => n.id == id ? n.copyWith(isRead: false) : n).toList());
 
     try {
+      final notificationUseCases = ref.read(notificationUseCasesProvider);
       await notificationUseCases.markAsUnread(id);
     } catch (_) {
       state = prev; // rollback si fallara
@@ -85,6 +85,7 @@ class NotificationNotifier extends AsyncNotifier<List<Notification>> {
         (list) => list.map((n) => n.copyWith(isRead: true)).toList());
 
     try {
+      final notificationUseCases = ref.read(notificationUseCasesProvider);
       await notificationUseCases.markAllAsRead(user.id);
     } catch (_) {
       state = prev; // rollback si fallara

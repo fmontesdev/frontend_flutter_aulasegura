@@ -27,15 +27,13 @@ final wScheduleUseCasesProvider = Provider<WeeklyScheduleUseCases>((ref) {
 
 // Notifier para manejar el estado de autenticación
 class WeeklyScheduleNotifier extends AsyncNotifier<List<WeeklySchedule>> {
-  late final WeeklyScheduleUseCases wScheduleUseCases;
-
   @override
   Future<List<WeeklySchedule>> build() async {
-    wScheduleUseCases = ref.watch(wScheduleUseCasesProvider);
+    final wScheduleUseCases = ref.watch(wScheduleUseCasesProvider);
     // Obtiene el usuario autenticado
     final user = await ref.watch(authProvider.future);
     if (user == null) {
-      // Sin sesión → no hay horarios
+      // Sin sesión, no hay horarios
       return <WeeklySchedule>[];
     }
     // Carga inicial de horarios semanales del usuario autenticado

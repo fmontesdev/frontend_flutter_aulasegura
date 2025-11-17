@@ -25,12 +25,10 @@ final timeSlotUseCasesProvider = Provider<TimeSlotUseCases>((ref) {
 
 /// Notifier para manejar el estado de las reservas
 class TimeSlotNotifier extends AsyncNotifier<List<TimeSlot>> {
-  late final TimeSlotUseCases timeSlotUseCases;
-
   /// Inicializa el Notifier
   @override
   Future<List<TimeSlot>> build() async {
-    timeSlotUseCases = ref.watch(timeSlotUseCasesProvider);
+    final timeSlotUseCases = ref.watch(timeSlotUseCasesProvider);
     // Carga inicial de franjas horarias
     return await timeSlotUseCases.getTimeSlots();
   }

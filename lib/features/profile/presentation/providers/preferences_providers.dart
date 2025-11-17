@@ -26,20 +26,10 @@ final preferencesUseCasesProvider = Provider<PreferencesUseCases>((ref) {
 
 /// Notifier para manejar el estado de las reservas
 class PreferencesNotifier extends AsyncNotifier<Preferences> {
-  late final PreferencesUseCases preferencesUseCases;
-
   /// Inicializa el Notifier
   @override
   Future<Preferences> build() async {
-    preferencesUseCases = ref.watch(preferencesUseCasesProvider);
-
-    // // Obtiene el usuario autenticado
-    // final user = await ref.watch(authProvider.future);
-    // if (user == null) {
-    //   // Sin sesión no hay reservas
-    //   return <EventSchedule>[];
-    // }
-    
+    final preferencesUseCases = ref.watch(preferencesUseCasesProvider);
     // Carga inicial de preferencias desde SharedPreferences del usuario autenticado
     return await preferencesUseCases.getPreferences();
   }
@@ -75,6 +65,7 @@ class PreferencesNotifier extends AsyncNotifier<Preferences> {
     state = AsyncValue.data(newPreference); // Actualiza el estado
 
     try {
+      final preferencesUseCases = ref.read(preferencesUseCasesProvider);
       await preferencesUseCases.setPreferences(newPreference, key); // Guarda en SharedPreferences
       state = await AsyncValue.guard(() => preferencesUseCases.getPreferences()); // Recarga desde SharedPreferences
     } catch (error, stack) {

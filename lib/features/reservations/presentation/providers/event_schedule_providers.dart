@@ -27,12 +27,10 @@ final eventScheduleUseCasesProvider = Provider<EventScheduleUseCases>((ref) {
 
 /// Notifier para manejar el estado de las reservas
 class EventScheduleNotifier extends AsyncNotifier<List<EventSchedule>> {
-  late final EventScheduleUseCases eventScheduleUseCases;
-
   /// Inicializa el Notifier
   @override
   Future<List<EventSchedule>> build() async {
-    eventScheduleUseCases = ref.watch(eventScheduleUseCasesProvider);
+    final eventScheduleUseCases = ref.watch(eventScheduleUseCasesProvider);
     // Obtiene el usuario autenticado
     final user = await ref.watch(authProvider.future);
     if (user == null) {
@@ -53,6 +51,7 @@ class EventScheduleNotifier extends AsyncNotifier<List<EventSchedule>> {
     });
 
     try {
+      final eventScheduleUseCases = ref.read(eventScheduleUseCasesProvider);
       await eventScheduleUseCases.deleteEventScheduleById(id);
     } catch (_) {
       state = prev; // rollback si fallara

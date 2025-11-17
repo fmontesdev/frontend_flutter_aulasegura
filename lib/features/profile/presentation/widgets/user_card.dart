@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
+import 'package:frontend_flutter_aulasegura/features/auth/presentation/providers/auth_providers.dart';
+import 'package:frontend_flutter_aulasegura/core/l10n/app_localizations.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 import 'package:frontend_flutter_aulasegura/features/auth/domain/entities/user.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_card.dart';
@@ -10,7 +11,7 @@ import 'package:frontend_flutter_aulasegura/core/widgets/app_pill.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_button.dart';
 import 'package:frontend_flutter_aulasegura/core/utils/normalize_string.dart';
 
-class UserCard extends StatelessWidget {
+class UserCard extends ConsumerWidget {
   final User user;
 
   const UserCard({
@@ -19,7 +20,7 @@ class UserCard extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
     final text = theme.textTheme;
@@ -75,9 +76,9 @@ class UserCard extends StatelessWidget {
               variant: AppPillVariant.quatertiary,
               size: AppPillSize.sm,
               icon: Icons.work_outline,
-              label: l10n.role(user.role.name)
+              label: l10n.role(user.roles.isNotEmpty ? user.roles.first.name : ''),
             ),
-            if (user.role.name == 'admin' || user.role.name == 'teacher') ...[ // Solo muestra el departamento si es admin o profesor
+            if (user.roles.isNotEmpty && (user.roles.first.name == 'admin' || user.roles.first.name == 'teacher')) ...[ // Solo muestra el departamento si es admin o profesor //! Revisar
               AppPill(
                 variant: AppPillVariant.quatertiary,
                 size: AppPillSize.sm,
@@ -100,7 +101,7 @@ class UserCard extends StatelessWidget {
             icon: Icons.logout,
             border: true,
             overlayColor: true,
-            onPressed: () => GoRouter.of(context).go('/login'),
+            onPressed: () => ref.read(authProvider.notifier).signOut(),
           ),
         ),
       ],

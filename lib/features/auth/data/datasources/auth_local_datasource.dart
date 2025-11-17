@@ -1,15 +1,30 @@
-// ignore_for_file: prefer_final_fields
-
-import 'package:frontend_flutter_aulasegura/features/auth/data/models/user_model.dart';
+import 'package:frontend_flutter_aulasegura/core/utils/app_services.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class AuthLocalDataSource {
-  List<UserModel> _userList = [];
+  /// Obtiene accessToken guardado en secure storage
+  Future<String?> getAccessToken() async {
+    return AppServices.storage.read(key: dotenv.env['ACCESS_KEY']!);
+  }
 
-  // Constructor que recibe datos de usuario simulados
-  AuthLocalDataSource({required List<Map<String, dynamic>> seed})
-    : _userList = seed.map(UserModel.fromJson).toList();
+  /// Obtiene refreshToken guardado en secure storage
+  Future<String?> getRefreshToken() async {
+    return AppServices.storage.read(key: dotenv.env['REFRESH_KEY']!);
+  }
 
-  Future<UserModel> fetchByEmail(String email) async {
-    return _userList.firstWhere((user) => user.email == email);
+  /// Guarda accessToken en secure storage
+  Future<void> saveAccessToken(String token) async {
+    await AppServices.storage.write(key: dotenv.env['ACCESS_KEY']!, value: token);
+  }
+
+  /// Guarda refreshToken en secure storage
+  Future<void> saveRefreshToken(String token) async {
+    await AppServices.storage.write(key: dotenv.env['REFRESH_KEY']!, value: token);
+  }
+
+  /// Elimina tokens desde secure storage
+  Future<void> clearTokens() async {
+    await AppServices.storage.delete(key: dotenv.env['ACCESS_KEY']!);
+    await AppServices.storage.delete(key: dotenv.env['REFRESH_KEY']!);
   }
 }

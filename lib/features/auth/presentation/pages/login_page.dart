@@ -31,23 +31,55 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     super.dispose();
   }
 
-  // Validadores
+  //* Validadores
 
   String? validateEmail(String? v, AppLocalizations l10n) {
     final value = (v ?? '').trim();
-    if (value.isEmpty) return l10n.enterEmail; //? Mensaje de email vacío con internacionalización
-    if (!value.contains('@') || !value.contains('.')) return l10n.emailValidation; //? Mensaje de email no válido con internacionalización
+    
+    // Verifica si está vacío
+    if (value.isEmpty) {
+      return l10n.enterEmail; //? Mensaje de ingresar email con internacionalización
+    }
+    
+    // Regex para validar formato de email
+    final emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
+    
+    if (!emailRegex.hasMatch(value)) {
+      return l10n.emailValidation; //? Mensaje de validación de email con internacionalización
+    }
+    
+    // Verifica que no empiece o termine con punto
+    if (value.startsWith('.') || value.endsWith('.')) {
+      return l10n.emailValidation;
+    }
+    
+    // Verifica puntos consecutivos
+    if (value.contains('..')) {
+      return l10n.emailValidation;
+    }
+    
     return null;
   }
 
   String? validatePassword(String? v, AppLocalizations l10n) {
     final value = v ?? '';
-    if (value.isEmpty) return l10n.enterPassword; //? Mensaje de contraseña vacía con internacionalización
-    if (value.length < 8) return l10n.passwordValidation; //? Mensaje de contraseña demasiado corta con internacionalización
+    
+    // Verifica si está vacío
+    if (value.isEmpty) {
+      return l10n.enterPassword; //? Mensaje de ingresar contraseña con internacionalización
+    }
+    
+    // Regex que verifica que contenga al menos una mayúscula, una minúscula, un número y min. 8 caracteres
+    final passwordRegex = RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$');
+    
+    if (!passwordRegex.hasMatch(value)) {
+      return l10n.passwordValidation; //? Mensaje de validación de contraseña con internacionalización
+    }
+    
     return null;
   }
 
-  // Funciones
+  //* Funciones
 
   void toggleObscure() => setState(() => _obscured = !_obscured);
 
@@ -68,7 +100,9 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     }
 
     try {
-      await ref.read(authProvider.notifier).signIn(_emailCtrl.text, _passCtrl.text);
+      await ref
+        .read(authProvider.notifier)
+        .signIn(_emailCtrl.text.trim(), _passCtrl.text);
 
       if (!mounted) return;
 
@@ -78,15 +112,17 @@ class _LoginPageState extends ConsumerState<LoginPage> {
         final base = dotenv.env['IMAGE_SERVER_URL'] ?? 'http://localhost:8090';
         final url  = '$base/${user.avatar}';
         final provider = CachedNetworkImageProvider(url);
-        // Descarga y decodifica en caché de imagen
+        // Descarga y decodifica en caché la imagen
         await precacheImage(provider, context);
+
+        if (!mounted) return;
       }
 
       GoRouter.of(context).go('/home');
     } catch (error) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(l10n.loginError(error))), //? Mensaje de error al iniciar sesión con internacionalización
+        SnackBar(content: Text(l10n.loginError(error.toString()))), //? Mensaje de error al iniciar sesión con internacionalización
       );
     }
   }

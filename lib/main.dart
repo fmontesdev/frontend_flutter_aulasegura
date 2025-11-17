@@ -10,7 +10,7 @@ import 'package:frontend_flutter_aulasegura/features/profile/presentation/provid
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized(); // Asegura que los widgets estén inicializados
   await dotenv.load(fileName: '.env'); // Carga las variables de entorno desde el archivo .env
-  runApp(const ProviderScope(child: MyApp()),);
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends ConsumerWidget {

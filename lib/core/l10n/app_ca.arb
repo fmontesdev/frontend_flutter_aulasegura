@@ -1,66 +1,66 @@
 {
-  "enterEmail": "Enter your email",
+  "enterEmail": "Introdueix el teu email",
   "@enterEmail": {
     "description": "Static message (enter your email)"
   },
-  "emailValidation": "Invalid email",
+  "emailValidation": "Email no vàlid",
   "@emailValidation": {
     "description": "Static message (invalid email)"
   },
-  "emailHintText": "example@domain.com",
+  "emailHintText": "exemple@domini.com",
   "@emailHintText": {
     "description": "Static message (example@domain.com)"
   },
-  "enterPassword": "Enter your password",
+  "enterPassword": "Introdueix la teva contrasenya",
   "@enterPassword": {
     "description": "Static message (enter your password)"
   },
-  "passwordValidation": "Minimum 8 characters",
+  "passwordValidation": "Mínim 8 caràcters, amb majúscula, minúscula, i número",
   "@passwordValidation": {
-    "description": "Static message (minimum 8 characters)"
+    "description": "Static message (password validation)"
   },
-  "recoverPassword": "Recover password",
+  "recoverPassword": "Recuperar contrasenya",
   "@recoverPassword": {
     "description": "Static message (recover password)"
   },
-  "descriptionLabel": "Description",
+  "descriptionLabel": "Descripció",
   "@descriptionLabel": {
     "description": "Static message (description)"
   },
-  "descriptionHintText": "Add a description...",
+  "descriptionHintText": "Afegeix una descripció...",
   "@descriptionHintText": {
     "description": "Static message (add a description)"
   },
-  "checkFields": "Check the fields",
+  "checkFields": "Revisa els camps",
   "@checkFields": {
     "description": "Static message (check the fields)"
   },
-  "loginError": "We could not log in: {error}",
+  "loginError": "No s'ha pogut iniciar sessió: {error, select, User_not_found{Usuari no trobat} other{error}}",
   "@loginError": {
     "description": "Error message (login) with dynamic parameter (error)",
     "placeholders": {
       "error": {
-        "type": "Object"
+        "type": "String"
       }
     }
   },
-  "forgotPassword": "Did you forget your password?",
+  "forgotPassword": "Has oblidat la contrasenya?",
   "@forgotPassword": {
     "description": "Static message (Did you forget your password?)"
   },
-  "login": "Log in",
+  "login": "Inicia sessió",
   "@login": {
     "description": "Static message (login)"
   },
-  "show": "Show",
+  "show": "Mostrar",
   "@show": {
     "description": "Static message (show)"
   },
-  "hide": "Hide",
+  "hide": "Amagar",
   "@hide": {
     "description": "Static message (hide)"
   },
-  "page": "{pageName, select, home{Home} map{Map} reservations{Reservations} schedules{Schedules} notifications{Notifications} other{Unknown}}",
+  "page": "{pageName, select, home{Inici} map{Mapa} reservations{Reserves} schedules{Horaris} notifications{Notificacions} other{Desconegut}}",
   "@page": {
     "description": "Localized page by pageName",
     "placeholders": {
@@ -69,20 +69,20 @@
       }
     }
   },
-  "profile": "Profile",
+  "profile": "Perfil",
   "@profile": {
     "description": "Static message (profile)"
   },
-  "sessionError": "Session error: {error}",
+  "sessionError": "Error de sessió: {error}",
   "@sessionError": {
     "description": "Error message (loading session) with dynamic parameter (error)",
     "placeholders": {
       "error": {
-        "type": "Object"
+        "type": "String"
       }
     }
   },
-  "salute": "Hello {userName}!",
+  "salute": "Hola {userName}!",
   "@saludo": {
     "description": "Message (salute) with dynamic parameter (username)",
     "placeholders": {
@@ -92,7 +92,7 @@
       }
     }
   },
-  "role": "{rolName, select, admin{Administrator} teacher{Teacher} janitor{Janitor} support_staff{Support staff} other{Unknown}}",
+  "role": "{rolName, select, admin{Administrador} teacher{Professor} janitor{Conserge} support_staff{Personal auxiliar} other{Desconegut}}",
   "@role": {
     "description": "Localized role by roleName",
     "placeholders": {
@@ -101,19 +101,19 @@
       }
     }
   },
-  "nfcAccess": "NFC access",
+  "nfcAccess": "Accés per NFC",
   "@nfcAccess": {
     "description": "Static message (access type)"
   },
-  "qrAccess": "QR access",
+  "qrAccess": "Accés per QR",
   "@qrAccess": {
     "description": "Static message (access type)"
   },
-  "today": "Today",
+  "today": "Hui",
   "@today": {
     "description": "Static message (today)"
   },
-  "reservationSelectorOption": "{nameOption, select, approved{Approved} pending{Pending} revoked{Revoked} other{Unknown}}",
+  "reservationSelectorOption": "{nameOption, select, approved{Aprobades} pending{Pendents} revoked{Cancel·lades} other{Desconegut}}",
   "@reservationSelectorOptions": {
     "description": "Localized reservation selector option by nameOption",
     "placeholders": {
@@ -122,27 +122,27 @@
       }
     }
   },
-  "requestReservation": "Request reservation",
+  "requestReservation": "Sol·licitar reserva",
   "@requestReservation": {
     "description": "Static message (request reservation)"
   },
-  "delete": "Delete",
+  "delete": "Eliminar",
   "@delete": {
     "description": "Static message (delete)"
   },
-  "schedule": "Schedule",
+  "schedule": "Horari",
   "@schedule": {
     "description": "Static message (schedule)"
   },
-  "slideToSeeMoreSchedules": "Slide to see more schedules",
+  "slideToSeeMoreSchedules": "Llisca per veure més horaris",
   "@slideToSeeMoreSchedules": {
     "description": "Static message (slide to see more schedules)"
   },
-  "searchForAvailableClassrooms": "Search for available classrooms",
+  "searchForAvailableClassrooms": "Buscar aules disponibles",
   "@searchForAvailableClassrooms": {
     "description": "Static message (search for available classrooms)"
   },
-  "dayOfWeek": "{dayName, select, monday{Mon.} tuesday{Tues.} wednesday{Wed.} thursday{Thurs.} friday{Fri.} other{Unknown}}",
+  "dayOfWeek": "{dayName, select, monday{Dilluns} tuesday{Dimarts} wednesday{Dimec.} thursday{Dijous} friday{Divend.} other{Desconegut}}",
   "@dayOfWeek": {
     "description": "Localized day of week by dayName",
     "placeholders": {
@@ -151,16 +151,16 @@
       }
     }
   },
-  "loadingSchedulesError": "Loading schedules error: {error}",
+  "loadingSchedulesError": "Error carregant horaris: {error}",
   "@loadingSchedulesError": {
     "description": "Error message (loading schedules) with dynamic parameter (error)",
     "placeholders": {
       "error": {
-        "type": "Object"
+        "type": "String"
       }
     }
   },
-  "notificationSelectorOption": "{nameOption, select, pending{Pend.} access{Access} notice{Notice} warning{Warning} all{All} other{Unknown}}",
+  "notificationSelectorOption": "{nameOption, select, pending{Pend.} access{Accessos} notice{Avisos} warning{Alertes} all{Totes} other{Desconegut}}",
   "@notificationSelectorOption": {
     "description": "Localized notification selector option by nameOption",
     "placeholders": {
@@ -169,7 +169,7 @@
       }
     }
   },
-  "markAllAsRead": "Mark all as read ({pendingCount})",
+  "markAllAsRead": "Marcar totes com a llegides ({pendingCount})",
   "@markAllAsRead": {
     "description": "Botton message (mark all as read) with dynamic parameter (pendingCount)",
     "placeholders": {
@@ -179,11 +179,11 @@
       }
     }
   },
-  "allMarkedAsRead": "All notifications marked as read",
+  "allMarkedAsRead": "Totes les notificacions marcades com a llegides",
   "@allMarkedAsRead": {
     "description": "Snackbar message when marking all as read"
   },
-  "loadingNotificationsError": "Loading notifications error: {error}",
+  "loadingNotificationsError": "Error carregant notificacions: {error}",
   "@loadingNotificationsError": {
     "description": "Error message (loading notifications) with dynamic parameter (error)",
     "placeholders": {
@@ -192,15 +192,15 @@
       }
     }
   },
-  "notiMarkedAsRead": "Notification marked as read",
+  "notiMarkedAsRead": "Notificació marcada com a llegida",
   "@notiMarkedAsRead": {
     "description": "Static message (Notification marked as read)"
   },
-  "undo": "Undo",
+  "undo": "Desfer",
   "@undo": {
     "description": "Static message (undo)"
   },
-  "notificationTitle": "{nameTitle, select, approved{Access approved} denied{Access denied} notice{General notice} warning{Warning} other{Unknown}}",
+  "notificationTitle": "{nameTitle, select, approved{Accés aprovat} denied{Accés denegat} notice{Avís general} warning{Alerta} other{Desconegut}}",
   "@notificationTitle": {
     "description": "Localized notification title option by nameTitle",
     "placeholders": {
@@ -209,15 +209,15 @@
       }
     }
   },
-  "markAsRead": "Mark as read",
+  "markAsRead": "Marcar com a llegida",
   "@markAsRead": {
     "description": "Static message (Mark as read)"
   },
-  "profile": "My profile",
+  "profile": "El meu perfil",
   "@profile": {
     "description": "Static message (my profile)"
   },
-  "department": "{departmentName, select, artes_plasticas{Visual Arts} biologia_y_geologia{Biology and Geology} economia{Economics} educacion_fisica{Physical Education} administracion{Business Administration} comercio{Commerce} informatica{Computer Science} filosofia{Philosophy} fisica_y_quimica{Physics and Chemistry} fol{Fol} frances{French} geografia_e_historia{Geography and History} ingles{English} latin{Latin} castellano{Spanish} valenciano{Valencian} matematicas{Mathematics} musica{Music} orientacion{Guidance} religion{Religion} tecnologia{Technology} other{Unknown}}",
+  "department": "{departmentName, select, artes_plasticas{Arts Plàstiques} biologia_y_geologia{Biologia i Geologia} economia{Economia} educacion_fisica{Educació Física} administracion{Administració} comercio{Comerç} informatica{Informàtica} filosofia{Filosofia} fisica_y_quimica{Física i Química} fol{Fol} frances{Francés} geografia_e_historia{Geografia i Història} ingles{Anglés} latin{Llatí} castellano{Castellà} valenciano{Valencià} matematicas{Matemàtiques} musica{Música} orientacion{Orientació} religion{Religió} tecnologia{Tecnologia} other{Desconegut}}",
   "@department": {
     "description": "Localized department by departmentName",
     "placeholders": {
@@ -226,31 +226,31 @@
       }
     }
   },
-  "logout": "Log out",
+  "logout": "Tancar sessió",
   "@logout": {
     "description": "Static message (logout)"
   },
-  "security": "Security",
+  "security": "Seguretat",
   "@security": {
     "description": "Static message (security)"
   },
-  "changePassword": "Change password",
+  "changePassword": "Canviar contrasenya",
   "@changePassword": {
     "description": "Static message (change password)"
   },
-  "updatePassword": "Update your password",
+  "updatePassword": "Actualitza la teva contrasenya",
   "@updatePassword": {
     "description": "Static message (update password)"
   },
-  "preferences": "Preferences",
+  "preferences": "Preferències",
   "@preferences": {
     "description": "Static message (preferences)"
   },
-  "darkTheme": "Dark theme",
+  "darkTheme": "Tema fosc",
   "@darkTheme": {
     "description": "Static message (dark theme)"
   },
-  "onOff": "{boolean, select, true{On} false{Off} other{Unknown}}",
+  "onOff": "{boolean, select, true{Activat} false{Desactivat} other{Desconegut}}",
   "@onOff": {
     "description": "Localized action by boolean",
     "placeholders": {
@@ -259,11 +259,11 @@
       }
     }
   },
-  "language": "Language",
+  "language": "Idioma",
   "@language": {
     "description": "Static message (language)"
   },
-  "languageName": "{languageTag, select, es{Spanish} ca{Valencian} en{English} other{Unknown}}",
+  "languageName": "{languageTag, select, es{Castellà} ca{Valencià} en{Anglés} other{Desconegut}}",
   "@languageName": {
     "description": "Localized language by languageTag",
     "placeholders": {
@@ -272,11 +272,11 @@
       }
     }
   },
-  "notifications": "Notifications",
+  "notifications": "Notificacions",
   "@notifications": {
     "description": "Static message (notifications)"
   },
-  "onOffFemeninPlural": "{boolean, select, true{On} false{Off} other{Unknown}}",
+  "onOffFemeninPlural": "{boolean, select, true{Activades} false{Desactivades} other{Desconegut}}",
   "@onOffPlural": {
     "description": "Localized action by boolean",
     "placeholders": {

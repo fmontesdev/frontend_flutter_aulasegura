@@ -124,10 +124,10 @@ abstract class AppLocalizations {
   /// **'Introduce tu contraseña'**
   String get enterPassword;
 
-  /// Static message (minimum 8 characters)
+  /// Static message (password validation)
   ///
   /// In es, this message translates to:
-  /// **'Mínimo 8 caracteres'**
+  /// **'Mínimo 8 caracteres, con mayúscula, minúscula, y número'**
   String get passwordValidation;
 
   /// Static message (recover password)
@@ -157,8 +157,8 @@ abstract class AppLocalizations {
   /// Error message (login) with dynamic parameter (error)
   ///
   /// In es, this message translates to:
-  /// **'No se pudo iniciar sesión: {error}'**
-  String loginError(Object error);
+  /// **'No se pudo iniciar sesión: {error, select, User_not_found{Usuario no encontrado} other{error}}'**
+  String loginError(String error);
 
   /// Static message (Did you forget your password?)
   ///
@@ -200,7 +200,7 @@ abstract class AppLocalizations {
   ///
   /// In es, this message translates to:
   /// **'Error de sesión: {error}'**
-  String sessionError(Object error);
+  String sessionError(String error);
 
   /// Message (salute) with dynamic parameter (username)
   ///
@@ -278,7 +278,7 @@ abstract class AppLocalizations {
   ///
   /// In es, this message translates to:
   /// **'Error cargando horarios: {error}'**
-  String loadingSchedulesError(Object error);
+  String loadingSchedulesError(String error);
 
   /// Localized notification selector option by nameOption
   ///

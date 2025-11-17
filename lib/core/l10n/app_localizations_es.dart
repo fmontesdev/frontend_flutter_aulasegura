@@ -21,7 +21,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get enterPassword => 'Introduce tu contraseña';
 
   @override
-  String get passwordValidation => 'Mínimo 8 caracteres';
+  String get passwordValidation =>
+      'Mínimo 8 caracteres, con mayúscula, minúscula, y número';
 
   @override
   String get recoverPassword => 'Recuperar contraseña';
@@ -36,8 +37,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get checkFields => 'Revisa los campos';
 
   @override
-  String loginError(Object error) {
-    return 'No se pudo iniciar sesión: $error';
+  String loginError(String error) {
+    String _temp0 = intl.Intl.selectLogic(error, {
+      'User_not_found': 'Usuario no encontrado',
+      'other': 'error',
+    });
+    return 'No se pudo iniciar sesión: $_temp0';
   }
 
   @override
@@ -69,7 +74,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get profile => 'Mi perfil';
 
   @override
-  String sessionError(Object error) {
+  String sessionError(String error) {
     return 'Error de sesión: $error';
   }
 
@@ -139,7 +144,7 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
-  String loadingSchedulesError(Object error) {
+  String loadingSchedulesError(String error) {
     return 'Error cargando horarios: $error';
   }
 

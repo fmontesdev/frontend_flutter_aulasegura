@@ -15,9 +15,9 @@
   "@enterPassword": {
     "description": "Static message (enter your password)"
   },
-  "passwordValidation": "Mínimo 8 caracteres",
+  "passwordValidation": "Mínimo 8 caracteres, con mayúscula, minúscula, y número",
   "@passwordValidation": {
-    "description": "Static message (minimum 8 characters)"
+    "description": "Static message (password validation)"
   },
   "recoverPassword": "Recuperar contraseña",
   "@recoverPassword": {
@@ -35,12 +35,12 @@
   "@checkFields": {
     "description": "Static message (check the fields)"
   },
-  "loginError": "No se pudo iniciar sesión: {error}",
+  "loginError": "No se pudo iniciar sesión: {error, select, User_not_found{Usuario no encontrado} other{error}}",
   "@loginError": {
     "description": "Error message (login) with dynamic parameter (error)",
     "placeholders": {
       "error": {
-        "type": "Object"
+        "type": "String"
       }
     }
   },
@@ -78,7 +78,7 @@
     "description": "Error message (loading session) with dynamic parameter (error)",
     "placeholders": {
       "error": {
-        "type": "Object"
+        "type": "String"
       }
     }
   },
@@ -156,7 +156,7 @@
     "description": "Error message (loading schedules) with dynamic parameter (error)",
     "placeholders": {
       "error": {
-        "type": "Object"
+        "type": "String"
       }
     }
   },

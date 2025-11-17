@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 
 enum AppButtonVariant { primary, secondary, danger, lightRed }
 enum AppButtonSize { sm, md, lg, xl }

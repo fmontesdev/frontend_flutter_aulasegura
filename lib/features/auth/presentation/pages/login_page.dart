@@ -1,5 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -9,7 +7,7 @@ import 'package:frontend_flutter_aulasegura/core/widgets/app_text_form_field.dar
 import 'package:frontend_flutter_aulasegura/core/widgets/app_link.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_button.dart';
 import 'package:frontend_flutter_aulasegura/features/auth/presentation/providers/auth_providers.dart';
-import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
+import 'package:frontend_flutter_aulasegura/core/l10n/app_localizations.dart';
 
 class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});

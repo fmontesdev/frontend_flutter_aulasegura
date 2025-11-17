@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 import 'package:frontend_flutter_aulasegura/core/utils/date_formatter.dart';
-import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
+import 'package:frontend_flutter_aulasegura/core/l10n/app_localizations.dart';
 
 class NotificationCard extends ConsumerStatefulWidget {
   final int id;

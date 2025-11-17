@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:frontend_flutter_aulasegura/features/auth/presentation/providers/auth_providers.dart';
-import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
+import 'package:frontend_flutter_aulasegura/core/l10n/app_localizations.dart';
 
 class AuthGate extends ConsumerWidget {
   const AuthGate({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
-import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
+import 'package:frontend_flutter_aulasegura/core/l10n/app_localizations.dart';
 
 enum AppTextFieldVariant { email, password, text, number, multiline }
 
@@ -212,6 +212,7 @@ class AppTextFormField extends StatelessWidget {
               fontSize: 14.5,
               fontWeight: FontWeight.w600,
             ),
+            errorMaxLines: 2, // Permite hasta 2 líneas para mensajes de error
             filled: true,
             fillColor: tone.fill,
             hoverColor: scheme.highlight.withValues(alpha: 0.025),

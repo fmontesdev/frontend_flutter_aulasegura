@@ -8,7 +8,7 @@ import 'package:frontend_flutter_aulasegura/core/widgets/app_table_calendar.dart
 import 'package:frontend_flutter_aulasegura/core/widgets/app_timeslot_pill.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_slider_selector.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_button.dart';
-import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
+import 'package:frontend_flutter_aulasegura/core/l10n/app_localizations.dart';
 
 class CreateReservationPage extends ConsumerWidget {
   const CreateReservationPage({super.key});

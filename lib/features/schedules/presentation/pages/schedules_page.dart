@@ -4,7 +4,7 @@ import 'package:frontend_flutter_aulasegura/features/schedules/presentation/prov
 import 'package:frontend_flutter_aulasegura/core/widgets/app_filter_selector.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_list.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_schedule_card.dart';
-import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
+import 'package:frontend_flutter_aulasegura/core/l10n/app_localizations.dart';
 
 class SchedulesPage extends ConsumerStatefulWidget {
   const SchedulesPage({super.key});
@@ -47,7 +47,7 @@ class _SchedulesPageState extends ConsumerState<SchedulesPage> {
             Expanded(
               child: weeklySchedulesAsync.when(
                 loading: () => const Center(child: CircularProgressIndicator()),
-                error: (error, stack) => Center(child: Text(l10n.loadingSchedulesError(error))), //? Mensaje de error cargando horarios con internacionalización
+                error: (error, stack) => Center(child: Text(l10n.loadingSchedulesError(error.toString()))), //? Mensaje de error cargando horarios con internacionalización
                 data: (weeklySchedules) {
                   return AppList(
                     type: 'schedules',

@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:frontend_flutter_aulasegura/app/router.dart';
-import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
+import 'package:frontend_flutter_aulasegura/core/l10n/app_localizations.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 import 'package:frontend_flutter_aulasegura/features/profile/presentation/providers/preferences_providers.dart';
 

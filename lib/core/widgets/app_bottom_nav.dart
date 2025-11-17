@@ -4,7 +4,7 @@ import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 import 'package:go_router/go_router.dart';
 import 'package:frontend_flutter_aulasegura/features/reservations/presentation/providers/event_schedule_providers.dart';
 import 'package:frontend_flutter_aulasegura/features/notifications/presentation/providers/notification_providers.dart';
-import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
+import 'package:frontend_flutter_aulasegura/core/l10n/app_localizations.dart';
 
 class AppBottomNav extends ConsumerStatefulWidget {
   final StatefulNavigationShell navigationShell;

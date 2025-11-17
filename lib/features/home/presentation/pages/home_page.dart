@@ -11,7 +11,7 @@ import 'package:frontend_flutter_aulasegura/core/widgets/app_list.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_schedule_card.dart';
 import 'package:frontend_flutter_aulasegura/core/utils/date_formatter.dart';
 import 'package:frontend_flutter_aulasegura/core/utils/day_of_the_week.dart';
-import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
+import 'package:frontend_flutter_aulasegura/core/l10n/app_localizations.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -33,7 +33,7 @@ class HomePage extends ConsumerWidget {
         padding: const EdgeInsets.only(top: 18, left: 18, right: 18),
         child: userAsync.when(
           loading: () => const Center(child: CircularProgressIndicator()),
-          error: (error, stack) => Center(child: Text(l10n.sessionError(error))), //? Mensaje de error de sesión con internacionalización
+          error: (error, stack) => Center(child: Text(l10n.sessionError(error.toString()))), //? Mensaje de error de sesión con internacionalización
           data: (authUser) {
             if (authUser == null) {
               // Si no hay sesión, vuelve al login
@@ -50,7 +50,7 @@ class HomePage extends ConsumerWidget {
                 WelcomeCard(
                   date: dateFormatter(context, DateTime.now()),
                   name: authUser.name,
-                  role: authUser.role.name,
+                  role: authUser.roles.isNotEmpty ? authUser.roles.first.name : '',
                   avatarUrl: '$imageServerUrl/${authUser.avatar}',
                 ),
                 const SizedBox(height: 18),
@@ -138,7 +138,7 @@ class HomePage extends ConsumerWidget {
                 Expanded(
                   child: weeklySchedulesAsync.when(
                     loading: () => const Center(child: CircularProgressIndicator()),
-                    error: (error, stack) => Center(child: Text(l10n.loadingSchedulesError(error))), //? Mensaje de error cargando horarios con internacionalización
+                    error: (error, stack) => Center(child: Text(l10n.loadingSchedulesError(error.toString()))), //? Mensaje de error cargando horarios con internacionalización
                     data: (weeklySchedules) {
                       return AppList(
                         type: 'schedules',

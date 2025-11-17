@@ -7,7 +7,7 @@ import 'package:frontend_flutter_aulasegura/core/widgets/app_list.dart';
 import 'package:frontend_flutter_aulasegura/features/reservations/presentation/widgets/reservation_card.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_fab.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_fab_hide_on_scroll.dart';
-import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
+import 'package:frontend_flutter_aulasegura/core/l10n/app_localizations.dart';
 
 class ReservationsPage extends ConsumerStatefulWidget {
   const ReservationsPage({super.key});

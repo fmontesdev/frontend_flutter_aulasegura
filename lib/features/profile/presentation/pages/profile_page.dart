@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:frontend_flutter_aulasegura/features/auth/presentation/providers/auth_providers.dart';
 import 'package:frontend_flutter_aulasegura/features/profile/presentation/providers/preferences_providers.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_overlay_scaffold.dart';
-import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
+import 'package:frontend_flutter_aulasegura/core/l10n/app_localizations.dart';
 import 'package:frontend_flutter_aulasegura/features/profile/presentation/widgets/user_card.dart';
 import 'package:frontend_flutter_aulasegura/features/profile/presentation/widgets/security_card.dart';
 import 'package:frontend_flutter_aulasegura/features/profile/presentation/widgets/preferences_card.dart';
@@ -46,7 +46,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
           children: [
             userAsync.when(
               loading: () => const Center(child: CircularProgressIndicator()),
-              error: (error, stack) => Center(child: Text(l10n.sessionError(error))), //? Mensaje de error de sesión con internacionalización
+              error: (error, stack) => Center(child: Text(l10n.sessionError(error.toString()))), //? Mensaje de error de sesión con internacionalización
               data: (authUser) {
                 if (authUser == null) {
                   // Si no hay sesión, vuelve al login

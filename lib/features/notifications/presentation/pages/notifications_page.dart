@@ -5,7 +5,7 @@ import 'package:frontend_flutter_aulasegura/core/widgets/app_filter_selector.dar
 import 'package:frontend_flutter_aulasegura/core/widgets/app_list.dart';
 import 'package:frontend_flutter_aulasegura/features/notifications/presentation/widgets/notification_card.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_snackbar_button.dart';
-import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
+import 'package:frontend_flutter_aulasegura/core/l10n/app_localizations.dart';
 
 class NotificationsPage extends ConsumerStatefulWidget {
   const NotificationsPage({super.key});

@@ -5,7 +5,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:frontend_flutter_aulasegura/features/auth/presentation/providers/auth_providers.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_bottom_nav.dart';
-import 'package:frontend_flutter_aulasegura/l10n/app_localizations.dart';
+import 'package:frontend_flutter_aulasegura/core/l10n/app_localizations.dart';
 
 class AppMainScaffold extends ConsumerStatefulWidget {
   final List<Widget>? pages;
@@ -65,7 +65,7 @@ class _AppMainScaffoldState extends ConsumerState<AppMainScaffold> {
 
                 userAsync.when(
                   loading: () => const Center(child: CircularProgressIndicator()),
-                  error: (error, stack) => Center(child: Text(l10n.sessionError(error))), //? Mensaje de error de sesión con internacionalización
+                  error: (error, stack) => Center(child: Text(l10n.sessionError(error.toString()))), //? Mensaje de error de sesión con internacionalización
                   data: (authUser) {
                     return Align(
                       alignment: Alignment.centerRight,

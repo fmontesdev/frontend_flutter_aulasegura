@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:frontend_flutter_aulasegura/features/auth/presentation/providers/auth_providers.dart';
 import 'package:frontend_flutter_aulasegura/core/l10n/app_localizations.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 import 'package:frontend_flutter_aulasegura/features/auth/domain/entities/user.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_card.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_pill.dart';
-import 'package:frontend_flutter_aulasegura/core/widgets/app_button.dart';
 import 'package:frontend_flutter_aulasegura/core/utils/normalize_string.dart';
 
 class UserCard extends ConsumerWidget {
@@ -29,15 +27,15 @@ class UserCard extends ConsumerWidget {
 
     return AppCard(
       alignment: CrossAxisAlignment.center,
+      padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
       children: [
-
         /// Avatar
         CircleAvatar(
           radius: 65,
           backgroundImage: CachedNetworkImageProvider('$imageServerUrl/${user.avatar}'),
         ),
 
-        const SizedBox(height: 12), // espaciado
+        const SizedBox(height: 8), // espaciado
 
         /// Nombre completo
         Text(
@@ -87,22 +85,6 @@ class UserCard extends ConsumerWidget {
               ),
             ],
           ],
-        ),
-
-        const SizedBox(height: 22), // espaciado
-
-        /// Botón logout
-        FractionallySizedBox(
-          widthFactor: 0.65,
-          child: AppButton(
-            variant: AppButtonVariant.lightRed,
-            size: AppButtonSize.sm,
-            label: l10n.logout,
-            icon: Icons.logout,
-            border: true,
-            overlayColor: true,
-            onPressed: () => ref.read(authProvider.notifier).signOut(),
-          ),
         ),
       ],
     );

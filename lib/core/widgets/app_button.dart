@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 
 enum AppButtonVariant { primary, secondary, danger, lightRed }
 enum AppButtonSize { sm, md, lg, xl }
@@ -41,7 +42,7 @@ class AppButton extends StatelessWidget {
       AppButtonVariant.primary => (scheme.primary, scheme.onPrimary),
       AppButtonVariant.secondary => (scheme.tertiary, scheme.onTertiary),
       AppButtonVariant.danger => (scheme.error, scheme.onError),
-      AppButtonVariant.lightRed => (scheme.onPrimary, scheme.error.withValues(alpha: 0.6)),
+      AppButtonVariant.lightRed => (scheme.lightRed, scheme.error.withValues(alpha: 0.6)),
     };
 
     /// Padding y texto por tamaño
@@ -51,8 +52,8 @@ class AppButton extends StatelessWidget {
         theme.textTheme.titleSmall,
       ),
       AppButtonSize.md => (
-        const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-        theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w500),
+        const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+        theme.textTheme.titleMedium,
       ),
       AppButtonSize.lg => (
         const EdgeInsets.symmetric(horizontal: 18, vertical: 17),

@@ -310,4 +310,8 @@ extension AppColorScheme on ColorScheme {
   Color get card => brightness == Brightness.dark
     ? appPaletteDark.card
     : appPaletteLight.card;
+
+  Color get lightRed => brightness == Brightness.dark
+      ? appPaletteDark.lightRed
+      : appPaletteLight.lightRed;
 }

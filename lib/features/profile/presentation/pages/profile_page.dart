@@ -6,8 +6,10 @@ import 'package:frontend_flutter_aulasegura/features/profile/presentation/provid
 import 'package:frontend_flutter_aulasegura/core/widgets/app_overlay_scaffold.dart';
 import 'package:frontend_flutter_aulasegura/core/l10n/app_localizations.dart';
 import 'package:frontend_flutter_aulasegura/features/profile/presentation/widgets/user_card.dart';
+import 'package:frontend_flutter_aulasegura/core/widgets/app_button.dart';
 import 'package:frontend_flutter_aulasegura/features/profile/presentation/widgets/security_card.dart';
 import 'package:frontend_flutter_aulasegura/features/profile/presentation/widgets/preferences_card.dart';
+import 'package:frontend_flutter_aulasegura/features/profile/presentation/widgets/catalog_card.dart';
 
 class ProfilePage extends ConsumerStatefulWidget {
   const ProfilePage({super.key,});
@@ -62,6 +64,20 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
             ),
             const SizedBox(height: 18), // Espaciado
 
+            /// Botón logout
+            Expanded(
+              child: AppButton(
+                variant: AppButtonVariant.lightRed,
+                size: AppButtonSize.md,
+                label: l10n.logout,
+                icon: Icons.logout,
+                border: true,
+                overlayColor: true,
+                onPressed: () => ref.read(authProvider.notifier).signOut(),
+              ),
+            ),
+            const SizedBox(height: 18), // Espaciado
+
             /// Card de Seguridad
             const SecurityCard(),
 
@@ -76,6 +92,12 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
               onChangeLanguage: (l) => notifier.updateLanguage(l),
               onToggleNotifications: (n) => notifier.updateNotifications(n),
             ),
+
+            const SizedBox(height: 18), // Espaciado
+
+            /// Card de Catálogo
+            const CatalogCard(),
+            const SizedBox(height: 2), // Espaciado
           ],
         ),
       ),

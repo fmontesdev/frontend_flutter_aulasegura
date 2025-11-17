@@ -26,6 +26,7 @@ class AppPalette {
   final Color highlight;
   final Color titles;
   final Color card;
+  final Color lightRed;
 
   const AppPalette({
     required this.primary,
@@ -53,6 +54,7 @@ class AppPalette {
     required this.highlight,
     required this.titles,
     required this.card,
+    required this.lightRed,
   });
 }
 
@@ -84,6 +86,7 @@ const appPaletteLight = AppPalette(
   titles: Color.fromARGB(255, 127, 172, 245),
   // titles2: Color(0xFF99BCE6),
   card: Color(0xFFFFFFFF),
+  lightRed: Color(0xFFFFEAEA),
 );
 
 /// Paleta para tema oscuro (ajusta los contrastes)
@@ -113,6 +116,7 @@ const appPaletteDark = AppPalette(
   highlight: Colors.white,
   titles: Color(0xFF535353),
   card: Color(0xFF1E1E1E),
+  lightRed: Color(0xFFFFEAEA),
 );
 
 /// Devuelve la paleta adecuada según el brillo del tema activo.

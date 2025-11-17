@@ -74,26 +74,31 @@ class _ChangePasswordPageState extends ConsumerState<ChangePasswordPage> {
 
   //* Funciones
 
+  /// Muestra un SnackBar con el mensaje especificado
+  void _showSnackBar(String message) {
+    final scheme = Theme.of(context).colorScheme;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+          child: Text(message),
+        ),
+        backgroundColor: scheme.primary,
+        behavior: SnackBarBehavior.floating,
+        duration: const Duration(seconds: 3),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
+        ),
+        margin: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+      ),
+    );
+  }
+
   /// Envía el formulario
   Future<void> _submit(AppLocalizations l10n) async {
-    final scheme = Theme.of(context).colorScheme;
     final ok = _formKey.currentState?.validate() ?? false;
     if (!ok) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-            child: Text(l10n.checkFields),
-          ),
-          backgroundColor: scheme.primary,
-          behavior: SnackBarBehavior.floating, // Evita el solapamiento con otros elementos
-          duration: const Duration(seconds: 3),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(50),
-          ),
-          margin: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
-        ),
-      );
+      _showSnackBar(l10n.checkFields);
       return;
     }
 
@@ -107,44 +112,15 @@ class _ChangePasswordPageState extends ConsumerState<ChangePasswordPage> {
       );
 
       if (!mounted) return;
+
       setState(() => _isLoading = false);
-
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-            child: Text(l10n.passwordChangedSuccessfully),
-          ),
-          backgroundColor: scheme.primary,
-          behavior: SnackBarBehavior.floating, // Evita el solapamiento con otros elementos
-          duration: const Duration(seconds: 3),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(50),
-          ),
-          margin: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
-        ),
-      );
-
+      _showSnackBar(l10n.passwordChangedSuccessfully);
       context.pop(); // Volver a la página anterior
     } catch (error) {
       if (!mounted) return;
-      setState(() => _isLoading = false);
       
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-            child: Text(l10n.changePasswordError(error.toString())),
-          ),
-          backgroundColor: scheme.primary,
-          behavior: SnackBarBehavior.floating, // Evita el solapamiento con otros elementos
-          duration: const Duration(seconds: 3),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(50),
-          ),
-          margin: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
-        ),
-      );
+      setState(() => _isLoading = false);
+      _showSnackBar(l10n.changePasswordError(error.toString()));
     }
   }
 

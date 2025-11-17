@@ -9,31 +9,41 @@ class UserModel extends User {
     required super.lastName,
     required super.email,
     required super.avatar,
-    required super.role,
+    required super.roles,
     super.department,
+    super.accessToken,
+    super.refreshToken,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
-    id: json['user_id'] as String,
+    id: json['userId'] as String,
     name: json['name'] as String,
-    lastName: json['last_name'] as String,
+    lastName: json['lastname'] as String,
     email: json['email'] as String,
-    avatar: json['user_img'] as String,
-    role: RoleModel.fromJson(json['role'] as Map<String, dynamic>),
+    avatar: json['avatar'] as String,
+    roles: (json['roles'] as List).map((role) =>
+      role is String
+          ? RoleModel(name: role)
+          : RoleModel.fromJson(role as Map<String, dynamic>)
+    ).toList(),
     department: json['department'] == null
         ? null
         : DepartmentModel.fromJson(json['department'] as Map<String, dynamic>),
+    accessToken: json['accessToken'] as String?,
+    refreshToken: json['refreshToken'] as String?,
   );
 
   Map<String, dynamic> toJson() => {
-    'user_id': id,
+    'userId': id,
     'name': name,
-    'last_name': lastName,
+    'lastname': lastName,
     'email': email,
-    'user_img': avatar,
-    'role': (role as RoleModel).toJson(),
+    'avatar': avatar,
+    'roles': roles.map((role) => (role as RoleModel).toJson()).toList(),
     'department': department == null
       ? null
       : (department as DepartmentModel).toJson(),
+    'accessToken': accessToken,
+    'refreshToken': refreshToken,
   };
 }

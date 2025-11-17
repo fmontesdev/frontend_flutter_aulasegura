@@ -2,13 +2,13 @@ const List<Map<String, dynamic>> eventSchedules = [
   {
     'schedule_id': 31,
     'type': 'reservation',
-    'start_at': '2025-11-10T15:10:00',
-    'end_at': '2025-11-10T19:10:00',
+    'start_at': '2025-12-02T15:10:00',
+    'end_at': '2025-12-02T19:10:00',
     'status': 'approved',
     'reason': 'Reserva de aula para examen de Frontend de 2º DAW',
     'created_at': '2025-10-15T09:10:00',
     'room': { 'room_id': 80, 'room_code': '80', 'name': 'Aula', 'course': { 'course_id': 1, 'name': '1º DAM' } },
-    'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
+    'user_id': '6b86f7e7-bf19-4117-b262-a1221c4ced55'
   },
   {
     'schedule_id': 32,
@@ -35,13 +35,13 @@ const List<Map<String, dynamic>> eventSchedules = [
   {
     'schedule_id': 34,
     'type': 'reservation',
-    'start_at': '2025-11-15T09:00:00',
-    'end_at': '2025-11-15T11:00:00',
+    'start_at': '2025-12-05T09:00:00',
+    'end_at': '2025-12-05T11:00:00',
     'status': 'pending',
     'reason': 'Reserva de aula para clase de refuerzo',
     'created_at': '2025-10-22T08:00:00',
     'room': { 'room_id': 79, 'room_code': '79', 'name': 'Aula', 'course': { 'course_id': 3, 'name': '1º DAW' } },
-    'user_id': '1a1fcf19-6cbc-4d30-be9f-59f337c633a5'
+    'user_id': '6b86f7e7-bf19-4117-b262-a1221c4ced55'
   },
   {
     'schedule_id': 35,

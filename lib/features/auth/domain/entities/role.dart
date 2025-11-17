@@ -1,11 +1,11 @@
 import 'package:equatable/equatable.dart';
 
 class Role extends Equatable {
-  final int id;
+  final int? id;
   final String name;
 
   const Role({
-    required this.id,
+    this.id,
     required this.name,
   });
 

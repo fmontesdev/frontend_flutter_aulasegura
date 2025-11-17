@@ -7,12 +7,12 @@ class DepartmentModel extends Department {
   });
 
   factory DepartmentModel.fromJson(Map<String, dynamic> json) => DepartmentModel(
-    id: json['department_id'] as int,
+    id: json['departmentId'] as int,
     name: json['name'] as String,
   );
 
   Map<String, dynamic> toJson() => {
-    'department_id': id,
+    'departmentId': id,
     'name': name,
   };
 }

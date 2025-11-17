@@ -8,11 +8,10 @@ class User extends Equatable {
   final String lastName;
   final String email;
   final String avatar;
-  final DateTime? validFrom;
-  final DateTime? validTo;
-  final DateTime? createdAt;
-  final Role role;
+  final List<Role> roles;
   final Department? department;
+  final String? accessToken;
+  final String? refreshToken;
 
   const User({
     required this.id,
@@ -20,11 +19,10 @@ class User extends Equatable {
     required this.lastName,
     required this.email,
     required this.avatar,
-    this.validFrom,
-    this.validTo,
-    this.createdAt,
-    required this.role,
+    required this.roles,
     this.department,
+    this.accessToken,
+    this.refreshToken,
   });
 
   User copyWith({
@@ -33,22 +31,20 @@ class User extends Equatable {
     String? lastName,
     String? email,
     String? avatar,
-    DateTime? validFrom,
-    DateTime? validTo,
-    DateTime? createdAt,
-    Role? role,
+    List<Role>? roles,
     Department? department,
+    String? accessToken,
+    String? refreshToken,
   }) => User(
     id: id ?? this.id,
     name: name ?? this.name,
     lastName: lastName ?? this.lastName,
     email: email ?? this.email,
     avatar: avatar ?? this.avatar,
-    validFrom: validFrom ?? this.validFrom,
-    validTo: validTo ?? this.validTo,
-    createdAt: createdAt ?? this.createdAt,
-    role: role ?? this.role,
+    roles: roles ?? this.roles,
     department: department ?? this.department,
+    accessToken: accessToken ?? this.accessToken,
+    refreshToken: refreshToken ?? this.refreshToken,
   );
 
   @override
@@ -58,10 +54,9 @@ class User extends Equatable {
     lastName,
     email,
     avatar,
-    validFrom,
-    validTo,
-    createdAt,
-    role,
-    department
+    roles,
+    department,
+    accessToken,
+    refreshToken,
   ];
 }

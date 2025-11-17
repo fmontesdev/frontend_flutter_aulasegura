@@ -2,17 +2,17 @@ import 'package:frontend_flutter_aulasegura/features/auth/domain/entities/role.d
 
 class RoleModel extends Role {
   const RoleModel({
-    required super.id,
+    super.id,
     required super.name,
   });
 
   factory RoleModel.fromJson(Map<String, dynamic> json) => RoleModel(
-    id: json['role_id'] as int,
+    id: json['roleId'] as int,
     name: json['name'] as String,
   );
 
   Map<String, dynamic> toJson() => {
-    'role_id': id,
+    'roleId': id,
     'name': name,
   };
 }

@@ -11,7 +11,7 @@ const List<Map<String, dynamic>> rooms = [
   {
     'room_id': 2,
     'room_code': '2',
-    'name': 'Aula Tecnología 1',
+    'name': 'Tecnología 1 - Aula',
     'course': null,
     'capacity': 25,
     'building': 1,
@@ -101,7 +101,7 @@ const List<Map<String, dynamic>> rooms = [
   {
     'room_id': 12,
     'room_code': '13',
-    'name': 'Aula Tecnología 2',
+    'name': 'Tecnología 2 - Aula',
     'course': null,
     'capacity': 20,
     'building': 1,
@@ -164,7 +164,7 @@ const List<Map<String, dynamic>> rooms = [
   {
     'room_id': 19,
     'room_code': '20A',
-    'name': 'Vestuario 2',
+    'name': 'Vestuario2',
     'course': null,
     'capacity': 15,
     'building': 2,
@@ -173,7 +173,7 @@ const List<Map<String, dynamic>> rooms = [
   {
     'room_id': 20,
     'room_code': '21',
-    'name': 'Vestuario 1',
+    'name': 'Vestuario1',
     'course': null,
     'capacity': 15,
     'building': 2,
@@ -299,7 +299,7 @@ const List<Map<String, dynamic>> rooms = [
   {
     'room_id': 34,
     'room_code': '36',
-    'name': 'Aula Música 1',
+    'name': 'Música 1 - Aula',
     'course': null,
     'capacity': 20,
     'building': 2,
@@ -380,7 +380,7 @@ const List<Map<String, dynamic>> rooms = [
   {
     'room_id': 43,
     'room_code': '48',
-    'name': 'Aula Música 2 - Lenguaje Musical',
+    'name': 'Música 2 - Lenguaje Musical - Aula',
     'course': null,
     'capacity': 15,
     'building': 2,
@@ -389,7 +389,7 @@ const List<Map<String, dynamic>> rooms = [
   {
     'room_id': 44,
     'room_code': '49',
-    'name': 'Aula Música - D2 Piano',
+    'name': 'Música - D2 Piano - Aula',
     'course': null,
     'capacity': 7,
     'building': 2,
@@ -398,7 +398,7 @@ const List<Map<String, dynamic>> rooms = [
   {
     'room_id': 45,
     'room_code': '50',
-    'name': 'Aula Música - D3',
+    'name': 'Música - D3 - Aula',
     'course': null,
     'capacity': 7,
     'building': 2,
@@ -407,7 +407,7 @@ const List<Map<String, dynamic>> rooms = [
   {
     'room_id': 46,
     'room_code': '51',
-    'name': 'Aula Música - D4',
+    'name': 'Música - D4 - Aula',
     'course': null,
     'capacity': 7,
     'building': 2,

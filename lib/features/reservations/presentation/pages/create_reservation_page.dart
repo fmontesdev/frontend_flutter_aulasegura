@@ -173,7 +173,7 @@ class CreateReservationPage extends ConsumerWidget {
             child: AppButton(
               label: l10n.searchForAvailableClassrooms, //? Mensaje del botón "Buscar aulas disponibles" con internacionalización
               onPressed: () {},
-              size: AppButtonSize.lg,
+              size: AppButtonSize.md,
               variant: AppButtonVariant.secondary,
             ),
           ),

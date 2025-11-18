@@ -52,7 +52,7 @@ class AppButton extends StatelessWidget {
         theme.textTheme.titleSmall,
       ),
       AppButtonSize.md => (
-        const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+        const EdgeInsets.symmetric(horizontal: 12, vertical: 11),
         theme.textTheme.titleMedium,
       ),
       AppButtonSize.lg => (

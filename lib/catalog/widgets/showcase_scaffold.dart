@@ -57,7 +57,7 @@ class _ShowcaseScaffoldState extends State<ShowcaseScaffold> {
       child: Scaffold(
         backgroundColor: widget.backgroundColor ?? scheme.primaryContainer,
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(76),
+          preferredSize: const Size.fromHeight(66),
           child: AppBar(
             backgroundColor: scheme.primary,
             elevation: 0.5,

@@ -147,7 +147,7 @@ class _ChangePasswordPageState extends ConsumerState<ChangePasswordPage> {
                 validator: (value) => validateCurrentPassword(value, l10n),
               ),
 
-              const SizedBox(height: 16),
+              const SizedBox(height: 18),
 
               /// Nueva contraseña
               AppTextFormField(
@@ -161,7 +161,7 @@ class _ChangePasswordPageState extends ConsumerState<ChangePasswordPage> {
                 onChanged: (value) => setState(() {}), // Actualiza el widget para reflejar cambios
               ),
 
-              const SizedBox(height: 16),
+              const SizedBox(height: 18),
 
               /// Indicador de fortaleza de contraseña
               PasswordStrengthIndicator(
@@ -189,6 +189,8 @@ class _ChangePasswordPageState extends ConsumerState<ChangePasswordPage> {
           ),
         ),
       ),
+
+      /// Botón de guardar cambios
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(18),
@@ -196,7 +198,7 @@ class _ChangePasswordPageState extends ConsumerState<ChangePasswordPage> {
             width: double.infinity,
             child: AppButton(
               variant: AppButtonVariant.secondary,
-              size: AppButtonSize.lg,
+              size: AppButtonSize.md,
               label: _isLoading ? l10n.saving : l10n.saveChanges,
               onPressed: _isLoading ? () {} : () => _submit(l10n),
             ),

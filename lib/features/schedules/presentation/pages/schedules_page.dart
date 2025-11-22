@@ -53,8 +53,8 @@ class _SchedulesPageState extends ConsumerState<SchedulesPage> {
                     type: 'schedules',
                     items: weeklySchedules.where((s) => s.dayOfWeek == _selectedDayIndex+1).toList(),
                     itemBuilder: (item) => AppScheduleCard(
-                      classroom: '${item.room.name} ${item.room.roomCode}',
-                      group: item.room.course?.name ?? 'Sin grupo',
+                      classroom: '${item.room!.name} ${item.room!.roomCode}',
+                      group: item.room!.courseName ?? 'Sin grupo',
                       timeRange: '${item.startTime} - ${item.endTime}',
                       subject: item.subject?.name ?? 'Sin asignatura',
                     ),

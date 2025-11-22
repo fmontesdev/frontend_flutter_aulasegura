@@ -17,14 +17,14 @@ class EventScheduleRepositoryImpl implements EventScheduleRepository {
   Future<EventSchedule> createEventScheduleByUserId(
     String startAt,
     String endAt,
-    String reason,
+    String reservationStatusReason,
     Room room,
     String userId
   ) async {
     final eventScheduleModel = await localDataSource.createByUserId(
       startAt: startAt,
       endAt: endAt,
-      reason: reason,
+      reservationStatusReason: reservationStatusReason,
       room: room,
       userId: userId,
     );
@@ -37,7 +37,7 @@ class EventScheduleRepositoryImpl implements EventScheduleRepository {
     String startAt,
     String endAt,
     String status,
-    String reason,
+    String reservationStatusReason,
     bool isActive,
     Room room,
   ) async {
@@ -46,7 +46,7 @@ class EventScheduleRepositoryImpl implements EventScheduleRepository {
       startAt: startAt,
       endAt: endAt,
       status: status,
-      reason: reason,
+      reservationStatusReason: reservationStatusReason,
       isActive: isActive,
       room: room,
     );

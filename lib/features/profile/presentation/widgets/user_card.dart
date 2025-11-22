@@ -74,9 +74,9 @@ class UserCard extends ConsumerWidget {
               variant: AppPillVariant.quatertiary,
               size: AppPillSize.sm,
               icon: Icons.work_outline,
-              label: l10n.role(user.roles.isNotEmpty ? user.roles.first.name : ''),
+              label: l10n.role((user.roles != null && user.roles!.isNotEmpty) ? user.roles!.first.name : ''),
             ),
-            if (user.roles.isNotEmpty && (user.roles.first.name == 'admin' || user.roles.first.name == 'teacher')) ...[ // Solo muestra el departamento si es admin o profesor //! Revisar
+            if (user.roles != null && user.roles!.isNotEmpty && (user.roles!.first.name == 'admin' || user.roles!.first.name == 'teacher')) ...[ // Solo muestra el departamento si es admin o profesor //! Revisar
               AppPill(
                 variant: AppPillVariant.quatertiary,
                 size: AppPillSize.sm,

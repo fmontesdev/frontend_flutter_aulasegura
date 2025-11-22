@@ -120,15 +120,15 @@ class _ReservationsPageState extends ConsumerState<ReservationsPage> {
                           type: 'reservations',
                           items: filtered,
                           itemBuilder: (item) => ReservationCard(
-                            id: item.id,
-                            type: item.type,
+                            id: item.id!,
+                            type: item.eventType,
                             startAt: item.startAt,
                             endAt: item.endAt,
                             status: item.status,
-                            reason: item.reason,
-                            createdAt: item.createdAt,
-                            room: item.room,
-                            onDelete: () => _handleDelete(context, item.id, scheme), // Maneja eliminar reserva
+                            reason: item.reservationStatusReason != null ? item.reservationStatusReason! : '',
+                            createdAt: item.createdAt!,
+                            room: item.room!,
+                            onDelete: () => _handleDelete(context, item.id!, scheme), // Maneja eliminar reserva
                           ),
                         ),
                       ),

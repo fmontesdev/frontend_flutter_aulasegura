@@ -17,17 +17,17 @@ class EventScheduleLocalDataSource {
   Future<EventScheduleModel> createByUserId({
     required String startAt,
     required String endAt,
-    required String reason,
+    required String reservationStatusReason,
     required Room room,
     required String userId,
   }) async {
     final newEventSchedule = EventScheduleModel(
       id: _eventScheduleList.length + 1,
-      type: 'reservation',
+      eventType: 'reservation',
       startAt: startAt,
       endAt: endAt,
       status: 'pending',
-      reason: reason,
+      reservationStatusReason: reservationStatusReason,
       isActive: true,
       createdAt: DateTime.now().toIso8601String(),
       updatedAt: null,
@@ -43,7 +43,7 @@ class EventScheduleLocalDataSource {
     String? startAt,
     String? endAt,
     String? status,
-    String? reason,
+    String? reservationStatusReason,
     bool? isActive,
     Room? room,
   }) async {
@@ -55,7 +55,7 @@ class EventScheduleLocalDataSource {
       startAt: startAt ?? _eventScheduleList[index].startAt,
       endAt: endAt ?? _eventScheduleList[index].endAt,
       status: status ?? _eventScheduleList[index].status,
-      reason: reason ?? _eventScheduleList[index].reason,
+      reservationStatusReason: reservationStatusReason ?? _eventScheduleList[index].reservationStatusReason,
       isActive: isActive ?? _eventScheduleList[index].isActive,
       updatedAt: DateTime.now().toIso8601String(),
       room: room ?? _eventScheduleList[index].room,

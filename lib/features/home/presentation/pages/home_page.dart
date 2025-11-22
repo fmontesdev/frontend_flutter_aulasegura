@@ -50,7 +50,7 @@ class HomePage extends ConsumerWidget {
                 WelcomeCard(
                   date: dateFormatter(context, DateTime.now()),
                   name: authUser.name,
-                  role: authUser.roles.isNotEmpty ? authUser.roles.first.name : '',
+                  role: (authUser.roles != null && authUser.roles!.isNotEmpty) ? authUser.roles!.first.name : '',
                   avatarUrl: '$imageServerUrl/${authUser.avatar}',
                 ),
                 const SizedBox(height: 18),
@@ -104,8 +104,10 @@ class HomePage extends ConsumerWidget {
                             ),
                             const SizedBox(height: 5),
                             AppButton(
-                              icon: Icons.qr_code,
-                              onPressed: () {},
+                              icon: Icons.qr_code_scanner,
+                              onPressed: () {
+                                context.push('/qr-scanner');
+                              },
                               size: AppButtonSize.xl,
                               variant: AppButtonVariant.secondary,
                               isCircular: true,
@@ -144,8 +146,8 @@ class HomePage extends ConsumerWidget {
                         type: 'schedules',
                         items: weeklySchedules.where((s) => s.dayOfWeek == dayOfTheWeek()).toList(),
                         itemBuilder: (item) => AppScheduleCard(
-                          classroom: '${item.room.name} ${item.room.roomCode}',
-                          group: item.room.course?.name ?? 'Sin grupo',
+                          classroom: '${item.room!.name} ${item.room!.roomCode}',
+                          group: item.room!.courseName ?? 'Sin grupo',
                           timeRange: '${item.startTime} - ${item.endTime}',
                           subject: item.subject?.name ?? 'Sin asignatura',
                         ),

@@ -16,7 +16,7 @@ final authLocalDSProvider = Provider<AuthLocalDataSource>((ref) {
   return AuthLocalDataSource();
 });
 
-// Repository
+// Repositorio
 final authRepositoryProvider = Provider<AuthRepository>((ref) {
   final remote = ref.watch(authRemoteDSProvider);
   final local = ref.watch(authLocalDSProvider);

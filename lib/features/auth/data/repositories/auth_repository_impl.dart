@@ -35,12 +35,6 @@ class AuthRepositoryImpl implements AuthRepository {
     }
   }
 
-  /// Extrae el mensaje de error del backend
-  String? _extractErrorMessage(DioException e) {
-    final data = e.response?.data;
-    return data is Map<String, dynamic> ? data['message'] as String? : null;
-  }
-
   /// Intenta refrescar el accessToken usando el refreshToken guardado
   @override
   Future<User> refreshToken() async {
@@ -130,5 +124,11 @@ class AuthRepositoryImpl implements AuthRepository {
     }
     
     throw UnexpectedException('Error inesperado: $e');
+  }
+
+  /// Extrae el mensaje de error del backend
+  String? _extractErrorMessage(DioException e) {
+    final data = e.response?.data;
+    return data is Map<String, dynamic> ? data['message'] as String? : null;
   }
 }

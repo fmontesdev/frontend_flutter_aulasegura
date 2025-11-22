@@ -8,7 +8,7 @@ class User extends Equatable {
   final String lastName;
   final String email;
   final String avatar;
-  final List<Role> roles;
+  final List<Role>? roles;
   final Department? department;
   final String? accessToken;
   final String? refreshToken;
@@ -19,7 +19,7 @@ class User extends Equatable {
     required this.lastName,
     required this.email,
     required this.avatar,
-    required this.roles,
+    this.roles,
     this.department,
     this.accessToken,
     this.refreshToken,

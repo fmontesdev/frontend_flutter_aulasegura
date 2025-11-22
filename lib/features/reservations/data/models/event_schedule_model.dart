@@ -1,32 +1,32 @@
-// ignore_for_file: prefer_if_null_operators
-
 import 'package:frontend_flutter_aulasegura/features/reservations/domain/entities/event_schedule.dart';
 import 'package:frontend_flutter_aulasegura/features/schedules/data/models/room_model.dart';
 import 'package:frontend_flutter_aulasegura/features/schedules/domain/entities/room.dart';
 
 class EventScheduleModel extends EventSchedule {
   const EventScheduleModel({
-    required super.id,
-    required super.type,
+    super.id,
+    required super.eventType,
+    super.description,
     required super.startAt,
     required super.endAt,
     required super.status,
-    required super.reason,
+    super.reservationStatusReason,
     super.isActive,
-    required super.createdAt,
+    super.createdAt,
     super.updatedAt,
-    required super.room,
-    required super.userId,
+    super.room,
+    super.userId,
   });
 
   @override
   EventScheduleModel copyWith({
     int? id,
-    String? type,
+    String? eventType,
+    String? description,
     String? startAt,
     String? endAt,
     String? status,
-    String? reason,
+    String? reservationStatusReason,
     bool? isActive,
     String? createdAt,
     String? updatedAt,
@@ -34,11 +34,12 @@ class EventScheduleModel extends EventSchedule {
     String? userId,
   }) => EventScheduleModel(
     id: id ?? this.id,
-    type: type ?? this.type,
+    eventType: eventType ?? this.eventType,
+    description: description ?? this.description,
     startAt: startAt ?? this.startAt,
     endAt: endAt ?? this.endAt,
     status: status ?? this.status,
-    reason: reason ?? this.reason,
+    reservationStatusReason: reservationStatusReason ?? this.reservationStatusReason,
     isActive: isActive ?? this.isActive,
     createdAt: createdAt ?? this.createdAt,
     updatedAt: updatedAt ?? this.updatedAt,
@@ -47,39 +48,45 @@ class EventScheduleModel extends EventSchedule {
   );
 
   factory EventScheduleModel.fromJson(Map<String, dynamic> json) => EventScheduleModel(
-    id: json['schedule_id'] as int,
-    type: json['type'] as String,
-    startAt: json['start_at'] as String,
-    endAt: json['end_at'] as String,
+    id: json['schedule_id'] == null
+        ? null
+        :json['schedule_id'] as int?,
+    eventType: json['eventType'] as String,
+    description: json['description'] == null
+        ? null
+        : json['description'] as String,
+    startAt: json['startAt'] as String,
+    endAt: json['endAt'] as String,
     status: json['status'] as String,
-    reason: json['reason'] as String,
-    // isActive: json['is_active'] as bool,
+    reservationStatusReason: json['reservationStatusReason'] == null
+        ? null
+        : json['reservationStatusReason'] as String,
     isActive: json['is_active'] == null
         ? true
         : json['is_active'] as bool,
-    createdAt: json['created_at'] as String,
+    createdAt: json['created_at'] == null
+        ? null
+        : json['created_at'] as String,
     updatedAt: json['updated_at'] == null
         ? null
         : json['updated_at'] as String,
-    room: RoomModel.fromJson(json['room']),
-    userId: json['user_id'] as String,
+    room: json['room'] != null ? RoomModel.fromJson(json['room']) : null,
+    userId: json['user_id'] == null
+        ? null
+        : json['user_id'] as String,
   );
 
   Map<String, dynamic> toJson() => {
   'schedule_id': id,
-  'type': type,
-  'start_at': startAt,
-  'end_at': endAt,
+  'eventType': eventType,
+  'description': description,
+  'startAt': startAt,
+  'endAt': endAt,
   'status': status,
-  'reason': reason,
-  // 'is_active': isActive,
-  'is_active': isActive == null
-    ? null
-    : isActive,
+  'reservationStatusReason': reservationStatusReason,
+  'is_active': isActive,
   'created_at': createdAt,
-  'updated_at': updatedAt == null
-    ? null
-    : updatedAt,
+  'updated_at': updatedAt,
   'room': (room as RoomModel).toJson(),
   'user_id': userId,
   };

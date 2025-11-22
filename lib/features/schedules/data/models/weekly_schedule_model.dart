@@ -2,36 +2,43 @@ import 'package:frontend_flutter_aulasegura/features/schedules/domain/entities/w
 import 'package:frontend_flutter_aulasegura/features/schedules/data/models/room_model.dart';
 import 'package:frontend_flutter_aulasegura/features/schedules/data/models/subject_model.dart';
 
-
 class WeeklyScheduleModel extends WeeklySchedule {
   const WeeklyScheduleModel({
-    required super.id,
+    super.id,
     required super.dayOfWeek,
     required super.startTime,
     required super.endTime,
-    required super.room,
+    super.room,
     super.subject,
-    required super.userId,
+    super.userId,
   });
 
   factory WeeklyScheduleModel.fromJson(Map<String, dynamic> json) => WeeklyScheduleModel(
-    id: json['schedule_id'] as int,
-    dayOfWeek: json['day_of_week'] as int,
-    startTime: json['start_time'] as String,
-    endTime: json['end_time'] as String,
-    room: RoomModel.fromJson(json['room'] as Map<String, dynamic>),
+    id: json['schedule_id'] == null
+        ? null
+        : json['schedule_id'] as int,
+    dayOfWeek: json['dayOfWeek'] as int,
+    startTime: json['startTime'] as String,
+    endTime: json['endTime'] as String,
+    room: json['room'] == null
+        ? null
+        : RoomModel.fromJson(json['room'] as Map<String, dynamic>),
     subject: json['subject'] == null
         ? null
         : SubjectModel.fromJson(json['subject'] as Map<String, dynamic>),
-    userId: json['user_id'] as String,
+    userId: json['user_id'] == null
+        ? null
+        : json['user_id'] as String,
   );
 
   Map<String, dynamic> toJson() => {
   'schedule_id': id,
-  'day_of_week': dayOfWeek,
-  'start_time': startTime,
-  'end_time': endTime,
-  'room': (room as RoomModel).toJson(),
+  'dayOfWeek': dayOfWeek,
+  'startTime': startTime,
+  'endTime': endTime,
+  'room': room == null
+    ? null
+    : (room as RoomModel).toJson(),
   'subject': subject == null
     ? null
     : (subject as SubjectModel).toJson(),

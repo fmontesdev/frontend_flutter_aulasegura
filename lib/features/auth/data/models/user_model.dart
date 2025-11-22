@@ -9,7 +9,7 @@ class UserModel extends User {
     required super.lastName,
     required super.email,
     required super.avatar,
-    required super.roles,
+    super.roles,
     super.department,
     super.accessToken,
     super.refreshToken,
@@ -21,16 +21,19 @@ class UserModel extends User {
     lastName: json['lastname'] as String,
     email: json['email'] as String,
     avatar: json['avatar'] as String,
-    roles: (json['roles'] as List).map((role) =>
-      role is String
-          ? RoleModel(name: role)
-          : RoleModel.fromJson(role as Map<String, dynamic>)
-    ).toList(),
+    roles: json['roles'] == null
+        ? null
+        : (json['roles'] as List).map((role) =>
+            role is String
+                ? RoleModel(name: role)
+                : RoleModel.fromJson(role as Map<String, dynamic>)
+          ).toList(),
     department: json['department'] == null
         ? null
         : DepartmentModel.fromJson(json['department'] as Map<String, dynamic>),
     accessToken: json['accessToken'] as String?,
     refreshToken: json['refreshToken'] as String?,
+    // Ignorar campos extra del backend (validFrom, validTo, createdAt)
   );
 
   Map<String, dynamic> toJson() => {
@@ -39,7 +42,7 @@ class UserModel extends User {
     'lastname': lastName,
     'email': email,
     'avatar': avatar,
-    'roles': roles.map((role) => (role as RoleModel).toJson()).toList(),
+    'roles': roles?.map((role) => (role as RoleModel).toJson()).toList(),
     'department': department == null
       ? null
       : (department as DepartmentModel).toJson(),

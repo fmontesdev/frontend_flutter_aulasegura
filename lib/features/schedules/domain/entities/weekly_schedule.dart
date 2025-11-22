@@ -3,7 +3,7 @@ import 'package:frontend_flutter_aulasegura/features/schedules/domain/entities/r
 import 'package:frontend_flutter_aulasegura/features/schedules/domain/entities/subject.dart';
 
 class WeeklySchedule extends Equatable {
-  final int id;
+  final int? id;
   final int dayOfWeek;
   final String startTime;
   final String endTime;
@@ -12,12 +12,12 @@ class WeeklySchedule extends Equatable {
   final bool? isActive;
   final DateTime? createdAt;
   final DateTime? updatedAt;
-  final Room room;
+  final Room? room;
   final Subject? subject;
-  final String userId;
+  final String? userId;
 
   const WeeklySchedule({
-    required this.id,
+    this.id,
     required this.dayOfWeek,
     required this.startTime,
     required this.endTime,
@@ -26,9 +26,9 @@ class WeeklySchedule extends Equatable {
     this.isActive,
     this.createdAt,
     this.updatedAt,
-    required this.room,
+    this.room,
     this.subject,
-    required this.userId,
+    this.userId,
   });
 
   WeeklySchedule copyWith({

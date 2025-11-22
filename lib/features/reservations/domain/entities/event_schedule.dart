@@ -2,39 +2,42 @@ import 'package:equatable/equatable.dart';
 import 'package:frontend_flutter_aulasegura/features/schedules/domain/entities/room.dart';
 
 class EventSchedule extends Equatable {
-  final int id;
-  final String type;
+  final int? id;
+  final String eventType;
+  final String? description;
   final String startAt;
   final String endAt;
   final String status;
-  final String reason;
+  final String? reservationStatusReason;
   final bool? isActive;
-  final String createdAt;
+  final String? createdAt;
   final String? updatedAt;
-  final Room room;
-  final String userId;
+  final Room? room;
+  final String? userId;
 
   const EventSchedule({
-    required this.id,
-    required this.type,
+    this.id,
+    required this.eventType,
+    this.description,
     required this.startAt,
     required this.endAt,
     required this.status,
-    required this.reason,
+    this.reservationStatusReason,
     this.isActive,
-    required this.createdAt,
+    this.createdAt,
     this.updatedAt,
-    required this.room,
-    required this.userId,
+    this.room,
+    this.userId,
   });
 
   EventSchedule copyWith({
     int? id,
-    String? type,
+    String? eventType,
+    String? description,
     String? startAt,
     String? endAt,
     String? status,
-    String? reason,
+    String? reservationStatusReason,
     bool? isActive,
     String? createdAt,
     String? updatedAt,
@@ -42,11 +45,12 @@ class EventSchedule extends Equatable {
     String? userId,
   }) => EventSchedule(
     id: id ?? this.id,
-    type: type ?? this.type,
+    eventType: eventType ?? this.eventType,
+    description: description ?? this.description,
     startAt: startAt ?? this.startAt,
     endAt: endAt ?? this.endAt,
     status: status ?? this.status,
-    reason: reason ?? this.reason,
+    reservationStatusReason: reservationStatusReason ?? this.reservationStatusReason,
     isActive: isActive ?? this.isActive,
     createdAt: createdAt ?? this.createdAt,
     updatedAt: updatedAt ?? this.updatedAt,
@@ -57,11 +61,12 @@ class EventSchedule extends Equatable {
   @override
   List<Object?> get props => [
     id,
-    type,
+    eventType,
+    description,
     startAt,
     endAt,
     status,
-    reason,
+    reservationStatusReason,
     isActive,
     createdAt,
     updatedAt,

@@ -1,26 +1,15 @@
-import 'package:frontend_flutter_aulasegura/features/reservations/domain/entities/event_schedule.dart';
-import 'package:frontend_flutter_aulasegura/features/schedules/domain/entities/room.dart';
+import 'package:frontend_flutter_aulasegura/features/access/domain/entities/permission.dart';
 
 abstract class EventScheduleRepository {
-  Future<List<EventSchedule>> getEventSchedulesByUserId(String userId);
+  Future<List<Permission>> getMyActiveReservations();
 
-  Future<EventSchedule> createEventScheduleByUserId(
-    String startAt,
-    String endAt,
-    String reason,
-    Room room,
-    String userId
+  Future<void> deleteReservation(String userId, int roomId, int scheduleId);
+
+  Future<Permission> createReservation(
+    String userId,
+    int roomId,
+    String description,
+    DateTime startAt,
+    DateTime endAt
   );
-
-  Future<EventSchedule> updateEventScheduleById(
-    int id,
-    String startAt,
-    String endAt,
-    String status,
-    String reason,
-    bool isActive,
-    Room room,
-  );
-
-  Future<EventSchedule> deleteEventScheduleById(int id);
 }

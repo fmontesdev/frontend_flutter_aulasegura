@@ -11,7 +11,7 @@ class ReservationCard extends ConsumerStatefulWidget {
   final String startAt;
   final String endAt;
   final String status;
-  final String reason;
+  final String description;
   final String createdAt;
   final Room room;
   final VoidCallback onDelete; // Callback cuando la reserva se elimina
@@ -23,7 +23,7 @@ class ReservationCard extends ConsumerStatefulWidget {
     required this.startAt,
     required this.endAt,
     required this.status,
-    required this.reason,
+    required this.description,
     required this.createdAt,
     required this.room,
     required this.onDelete,
@@ -192,7 +192,7 @@ class _ReservationCardState extends ConsumerState<ReservationCard> {
                             const SizedBox(width: 2),
                             Expanded(
                               child: Text(
-                                widget.reason,
+                                widget.description,
                                 style: theme.textTheme.bodyMedium?.copyWith(
                                   color: scheme.onSurface,
                                   height: 1.3,

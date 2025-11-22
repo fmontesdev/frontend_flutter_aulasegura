@@ -26,9 +26,9 @@ class _ReservationsPageState extends ConsumerState<ReservationsPage> {
     _notifier = ref.read(eventScheduleProvider.notifier); // Lee el notifier una vez y lo guarda en el estado
   }
 
-  void _handleDelete(BuildContext context, int id, ColorScheme scheme) {
+  void _handleDelete(BuildContext context, permission, ColorScheme scheme) {
     // Elimina la reserva
-    _notifier.deleteById(id);
+    _notifier.delete(permission.user.id, permission.room.id, permission.schedule.id);
 
     // Muestra SnackBar con mensaje de confirmación
     final messenger = ScaffoldMessenger.of(context);
@@ -72,9 +72,9 @@ class _ReservationsPageState extends ConsumerState<ReservationsPage> {
                 error: (error, stack) => Center(child: Text('Error cargando reservas: $error')),
                 data: (reservations) {
                   // Cálculos de disponibilidad por categoría
-                  final pendingCount = reservations.where((r) => r.status == 'pending').length; // Pendientes
-                  final approvedCount  = reservations.where((r) => r.status == 'approved').length; // Aprobadas
-                  final revokedCount  = reservations.where((r) => r.status == 'revoked').length; // Revocadas
+                  final pendingCount = reservations.where((r) => r.schedule.eventSchedule!.status == 'pending').length; // Pendientes
+                  final approvedCount  = reservations.where((r) => r.schedule.eventSchedule!.status == 'approved').length; // Aprobadas
+                  final revokedCount  = reservations.where((r) => r.schedule.eventSchedule!.status == 'revoked').length; // Revocadas
 
                   // Construcción de opciones y predicados dinámicos para los filtros
                   final options = <String>[];
@@ -82,15 +82,15 @@ class _ReservationsPageState extends ConsumerState<ReservationsPage> {
 
                   if (approvedCount > 0) {
                     options.add(l10n.reservationSelectorOption('approved'));
-                    predicates.add((r) => r.status == 'approved' && DateTime.parse(r.endAt).isAfter(DateTime.now()));
+                    predicates.add((r) => r.schedule.eventSchedule!.status == 'approved' && DateTime.parse(r.schedule.eventSchedule!.endAt).isAfter(DateTime.now()));
                   }
                   if (pendingCount > 0) {
                     options.add(l10n.reservationSelectorOption('pending'));
-                    predicates.add((r) => r.status == 'pending' && DateTime.parse(r.endAt).isAfter(DateTime.now()));
+                    predicates.add((r) => r.schedule.eventSchedule!.status == 'pending' && DateTime.parse(r.schedule.eventSchedule!.endAt).isAfter(DateTime.now()));
                   }
                   if (revokedCount > 0) {
                     options.add(l10n.reservationSelectorOption('revoked'));
-                    predicates.add((r) => r.status == 'revoked' && DateTime.parse(r.endAt).isAfter(DateTime.now()));
+                    predicates.add((r) => r.schedule.eventSchedule!.status == 'revoked' && DateTime.parse(r.schedule.eventSchedule!.endAt).isAfter(DateTime.now()));
                   }
 
                   // Asegura índice válido si cambia el nº de opciones
@@ -101,7 +101,7 @@ class _ReservationsPageState extends ConsumerState<ReservationsPage> {
                   // Lista filtrada con el predicado actual ordenada por fecha ascendente
                   final predicate = predicates.isNotEmpty ? predicates[safeSelected] : (_) => false;
                   final filtered = reservations.where(predicate).toList()
-                    ..sort((a, b) => DateTime.parse(a.endAt).compareTo(DateTime.parse(b.endAt)));
+                    ..sort((a, b) => DateTime.parse(a.schedule.eventSchedule!.endAt).compareTo(DateTime.parse(b.schedule.eventSchedule!.endAt)));
 
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -119,17 +119,20 @@ class _ReservationsPageState extends ConsumerState<ReservationsPage> {
                         child: AppList(
                           type: 'reservations',
                           items: filtered,
-                          itemBuilder: (item) => ReservationCard(
-                            id: item.id!,
-                            type: item.eventType,
-                            startAt: item.startAt,
-                            endAt: item.endAt,
-                            status: item.status,
-                            reason: item.reservationStatusReason != null ? item.reservationStatusReason! : '',
-                            createdAt: item.createdAt!,
-                            room: item.room!,
-                            onDelete: () => _handleDelete(context, item.id!, scheme), // Maneja eliminar reserva
-                          ),
+                          itemBuilder: (item) {
+                            final eventSchedule = item.schedule.eventSchedule!;
+                            return ReservationCard(
+                              id: item.schedule.id,
+                              type: eventSchedule.eventType,
+                              startAt: eventSchedule.startAt,
+                              endAt: eventSchedule.endAt,
+                              status: eventSchedule.status,
+                              description: eventSchedule.description ?? '',
+                              createdAt: item.createdAt.toIso8601String(),
+                              room: item.room,
+                              onDelete: () => _handleDelete(context, item, scheme), // Maneja eliminar reserva
+                            );
+                          },
                         ),
                       ),
                     ],

@@ -47,7 +47,7 @@ class _AppBottomNavState extends ConsumerState<AppBottomNav> {
     final reservationsAsync = ref.watch(eventScheduleProvider);
     final countReservations = reservationsAsync.maybeWhen(
       data: (reservations) => reservations
-        .where((r) => r.status == 'approved' && DateTime.parse(r.endAt).isAfter(DateTime.now()))
+        .where((r) => r.schedule.eventSchedule!.status == 'approved' && DateTime.parse(r.schedule.eventSchedule!.endAt).isAfter(DateTime.now()))
         .length,
       orElse: () => 0,
     );

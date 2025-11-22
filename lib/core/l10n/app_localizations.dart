@@ -220,10 +220,10 @@ abstract class AppLocalizations {
   /// **'Acceso por NFC'**
   String get nfcAccess;
 
-  /// Static message (access type)
+  /// Static message (qr access)
   ///
   /// In es, this message translates to:
-  /// **'Acceso por QR'**
+  /// **'Acceso QR'**
   String get qrAccess;
 
   /// Static message (today)
@@ -471,6 +471,66 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Inicio'**
   String get home;
+
+  /// Static message (NFC instruction)
+  ///
+  /// In es, this message translates to:
+  /// **'Acerca tu móvil al lector'**
+  String get bringPhoneCloser;
+
+  /// Static message (processing access)
+  ///
+  /// In es, this message translates to:
+  /// **'Validando acceso...'**
+  String get validatingAccess;
+
+  /// Static message (access granted)
+  ///
+  /// In es, this message translates to:
+  /// **'Acceso permitido'**
+  String get accessGranted;
+
+  /// Static message (access denied)
+  ///
+  /// In es, this message translates to:
+  /// **'Acceso denegado'**
+  String get accessDenied;
+
+  /// Access timestamp
+  ///
+  /// In es, this message translates to:
+  /// **'Acceso a las {time}'**
+  String accessAt(String time);
+
+  /// Static message (NFC disabled)
+  ///
+  /// In es, this message translates to:
+  /// **'NFC deshabilitado'**
+  String get nfcDisabled;
+
+  /// Static message (enable NFC message)
+  ///
+  /// In es, this message translates to:
+  /// **'Por favor, habilita NFC en la configuración de tu dispositivo'**
+  String get enableNfcMessage;
+
+  /// Static message (open settings button)
+  ///
+  /// In es, this message translates to:
+  /// **'Abrir configuración'**
+  String get openSettings;
+
+  /// Static message (timeout error)
+  ///
+  /// In es, this message translates to:
+  /// **'Tiempo de espera agotado'**
+  String get accessTimeout;
+
+  /// Static message (understood button)
+  ///
+  /// In es, this message translates to:
+  /// **'Entendido'**
+  String get understood;
 
   /// Localized action by boolean
   ///
@@ -879,6 +939,108 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Selector de 2 filtros'**
   String get selectorOf2Filters;
+
+  /// Static message (monday)
+  ///
+  /// In es, this message translates to:
+  /// **'Lunes'**
+  String get monday;
+
+  /// Static message (tuesday)
+  ///
+  /// In es, this message translates to:
+  /// **'Martes'**
+  String get tuesday;
+
+  /// Static message (wednesday)
+  ///
+  /// In es, this message translates to:
+  /// **'Miércoles'**
+  String get wednesday;
+
+  /// Static message (thursday)
+  ///
+  /// In es, this message translates to:
+  /// **'Jueves'**
+  String get thursday;
+
+  /// Static message (friday)
+  ///
+  /// In es, this message translates to:
+  /// **'Viernes'**
+  String get friday;
+
+  /// Static message (saturday)
+  ///
+  /// In es, this message translates to:
+  /// **'Sábado'**
+  String get saturday;
+
+  /// Static message (sunday)
+  ///
+  /// In es, this message translates to:
+  /// **'Domingo'**
+  String get sunday;
+
+  /// Static message (room)
+  ///
+  /// In es, this message translates to:
+  /// **'Aula'**
+  String get room;
+
+  /// Static message (no schedule for this time)
+  ///
+  /// In es, this message translates to:
+  /// **'No hay horario para esta hora'**
+  String get noScheduleForThisTime;
+
+  /// Static message (outside scheduled time)
+  ///
+  /// In es, this message translates to:
+  /// **'Fuera del horario programado'**
+  String get outsideScheduledTime;
+
+  /// Static message (inactive permission)
+  ///
+  /// In es, this message translates to:
+  /// **'Permiso inactivo'**
+  String get inactivePermission;
+
+  /// Static message (user not found)
+  ///
+  /// In es, this message translates to:
+  /// **'Usuario no encontrado'**
+  String get userNotFound;
+
+  /// Static message (reader not found)
+  ///
+  /// In es, this message translates to:
+  /// **'Lector no encontrado'**
+  String get readerNotFound;
+
+  /// Static message (error title)
+  ///
+  /// In es, this message translates to:
+  /// **'Error'**
+  String get errorTitle;
+
+  /// Static message (access time)
+  ///
+  /// In es, this message translates to:
+  /// **'Acceso a las'**
+  String get accessTime;
+
+  /// Static message (focus the reader's QR code)
+  ///
+  /// In es, this message translates to:
+  /// **'Enfoca el código QR del lector'**
+  String get focusQrCode;
+
+  /// Localized access denial reason by reason code
+  ///
+  /// In es, this message translates to:
+  /// **'{reason, select, Tag_not_found{Tarjeta no encontrada} Inactive_tag{Tarjeta inactiva} The_NFC_does_not_belong_to_the_authenticated_user{La tarjeta NFC no pertenece al usuario autenticado} Reader_not_found{Lector no encontrado} Inactive_reader{Lector inactivo} No_valid_permission_found{No se encontró un permiso válido} Internal_error_while_validating_access{Error interno al validar el acceso} other{Motivo desconocido}}'**
+  String accessDenialReason(String reason);
 }
 
 class _AppLocalizationsDelegate

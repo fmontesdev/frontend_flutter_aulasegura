@@ -271,7 +271,7 @@
       }
     }
   },
-  "saveChanges": "Desar canvis",
+  "saveChanges": "Guardar canvis",
   "@saveChanges": {
     "description": "Static message (save changes)"
   },
@@ -327,6 +327,51 @@
   "home": "Inici",
   "@home": {
     "description": "Static message (home)"
+  },
+  "bringPhoneCloser": "Apropa el teu mòbil al lector",
+  "@bringPhoneCloser": {
+    "description": "Static message (NFC instruction)"
+  },
+  "validatingAccess": "Validant accés...",
+  "@validatingAccess": {
+    "description": "Static message (processing access)"
+  },
+  "accessGranted": "Accés permès",
+  "@accessGranted": {
+    "description": "Static message (access granted)"
+  },
+  "accessDenied": "Accés denegat",
+  "@accessDenied": {
+    "description": "Static message (access denied)"
+  },
+  "accessAt": "Accés a les {time}",
+  "@accessAt": {
+    "description": "Access timestamp",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "nfcDisabled": "NFC deshabilitat",
+  "@nfcDisabled": {
+    "description": "Static message (NFC disabled)"
+  },
+  "enableNfcMessage": "Si us plau, habilita NFC a la configuració del teu dispositiu",
+  "@enableNfcMessage": {
+    "description": "Static message (enable NFC message)"
+  },
+  "openSettings": "Obrir configuració",
+  "@openSettings": {
+    "description": "Static message (open settings button)"
+  },
+  "accessTimeout": "Temps d'espera esgotat",
+  "@accessTimeout": {
+    "description": "Static message (timeout error)"
+  },
+  "understood": "Entès",
+  "@understood": {
+    "description": "Static message (understood button)"
   },
   "onOff": "{boolean, select, true{Activat} false{Desactivat} other{Desconegut}}",
   "@onOff": {
@@ -614,5 +659,82 @@
   "selectorOf2Filters": "Selector de 2 filtres",
   "@selectorOf2Filters": {
     "description": "Static message (selector of 2 filters)"
+  },
+  "qrAccess": "Accés QR",
+  "@qrAccess": {
+    "description": "Static message (qr access)"
+  },
+  "monday": "Dilluns",
+  "@monday": {
+    "description": "Static message (monday)"
+  },
+  "tuesday": "Dimarts",
+  "@tuesday": {
+    "description": "Static message (tuesday)"
+  },
+  "wednesday": "Dimecres",
+  "@wednesday": {
+    "description": "Static message (wednesday)"
+  },
+  "thursday": "Dijous",
+  "@thursday": {
+    "description": "Static message (thursday)"
+  },
+  "friday": "Divendres",
+  "@friday": {
+    "description": "Static message (friday)"
+  },
+  "saturday": "Dissabte",
+  "@saturday": {
+    "description": "Static message (saturday)"
+  },
+  "sunday": "Diumenge",
+  "@sunday": {
+    "description": "Static message (sunday)"
+  },
+  "room": "Aula",
+  "@room": {
+    "description": "Static message (room)"
+  },
+  "noScheduleForThisTime": "No hi ha horari per a aquesta hora",
+  "@noScheduleForThisTime": {
+    "description": "Static message (no schedule for this time)"
+  },
+  "outsideScheduledTime": "Fora de l'horari programat",
+  "@outsideScheduledTime": {
+    "description": "Static message (outside scheduled time)"
+  },
+  "inactivePermission": "Permís inactiu",
+  "@inactivePermission": {
+    "description": "Static message (inactive permission)"
+  },
+  "userNotFound": "Usuari no trobat",
+  "@userNotFound": {
+    "description": "Static message (user not found)"
+  },
+  "readerNotFound": "Lector no trobat",
+  "@readerNotFound": {
+    "description": "Static message (reader not found)"
+  },
+  "errorTitle": "Error",
+  "@errorTitle": {
+    "description": "Static message (error title)"
+  },
+  "accessTime": "Accés a les",
+  "@accessTime": {
+    "description": "Static message (access time)"
+  },
+  "focusQrCode": "Enfoca el codi QR del lector",
+  "@focusQrCode": {
+    "description": "Static message (focus the reader's QR code)"
+  },
+  "accessDenialReason": "{reason, select, Tag_not_found{Targeta no trobada} Inactive_tag{Targeta inactiva} The_NFC_does_not_belong_to_the_authenticated_user{La targeta NFC no pertany a l'usuari autenticat} Reader_not_found{Lector no trobat} Inactive_reader{Lector inactiu} No_valid_permission_found{No s'ha trobat un permís vàlid} Internal_error_while_validating_access{Error intern al validar l'accés} other{Motiu desconegut}}",
+  "@accessDenialReason": {
+    "description": "Localized access denial reason by reason code",
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
   }
 }

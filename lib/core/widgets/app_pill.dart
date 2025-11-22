@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 
-enum AppPillVariant { primary, secondary, tertiary, quatertiary }
-enum AppPillSize { sm, md, lg }
+enum AppPillVariant { primary, secondary, tertiary, quatertiary, success, error }
+enum AppPillSize { sm, md, lg, xl }
 
 class AppPill extends StatelessWidget {
   final AppPillVariant variant;
@@ -30,6 +30,8 @@ class AppPill extends StatelessWidget {
       AppPillVariant.secondary => (scheme.secondary, scheme.onSecondary),
       AppPillVariant.tertiary => (scheme.tertiary, scheme.onTertiary),
       AppPillVariant.quatertiary => (scheme.quatertiary.withValues(alpha: 0.4), scheme.secondary),
+      AppPillVariant.success => (scheme.success.withValues(alpha: 0.14), scheme.success),
+      AppPillVariant.error => (scheme.lightRed, scheme.error),
     };
 
     // Padding, tipo de texto y icono por tamaño
@@ -48,6 +50,11 @@ class AppPill extends StatelessWidget {
         const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         text.labelLarge?.copyWith(fontSize: 16, color: foreground),
         22.0,
+      ),
+      AppPillSize.xl => (
+        const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+        text.labelLarge?.copyWith(fontSize: 18, color: foreground, fontWeight: FontWeight.w600),
+        26.0,
       ),
     };
 

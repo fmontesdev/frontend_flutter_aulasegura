@@ -328,6 +328,51 @@
   "@home": {
     "description": "Static message (home)"
   },
+  "bringPhoneCloser": "Bring your phone closer to the reader",
+  "@bringPhoneCloser": {
+    "description": "Static message (NFC instruction)"
+  },
+  "validatingAccess": "Validating access...",
+  "@validatingAccess": {
+    "description": "Static message (processing access)"
+  },
+  "accessGranted": "Access granted",
+  "@accessGranted": {
+    "description": "Static message (access granted)"
+  },
+  "accessDenied": "Access denied",
+  "@accessDenied": {
+    "description": "Static message (access denied)"
+  },
+  "accessAt": "Access at {time}",
+  "@accessAt": {
+    "description": "Access timestamp",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "nfcDisabled": "NFC disabled",
+  "@nfcDisabled": {
+    "description": "Static message (NFC disabled)"
+  },
+  "enableNfcMessage": "Please enable NFC in your device settings",
+  "@enableNfcMessage": {
+    "description": "Static message (enable NFC message)"
+  },
+  "openSettings": "Open settings",
+  "@openSettings": {
+    "description": "Static message (open settings button)"
+  },
+  "accessTimeout": "Timeout exceeded",
+  "@accessTimeout": {
+    "description": "Static message (timeout error)"
+  },
+  "understood": "Understood",
+  "@understood": {
+    "description": "Static message (understood button)"
+  },
   "onOff": "{boolean, select, true{On} false{Off} other{Unknown}}",
   "@onOff": {
     "description": "Localized action by boolean",
@@ -614,5 +659,82 @@
   "selectorOf2Filters": "Selector of 2 filters",
   "@selectorOf2Filters": {
     "description": "Static message (selector of 2 filters)"
+  },
+  "qrAccess": "QR Access",
+  "@qrAccess": {
+    "description": "Static message (qr access)"
+  },
+  "monday": "Monday",
+  "@monday": {
+    "description": "Static message (monday)"
+  },
+  "tuesday": "Tuesday",
+  "@tuesday": {
+    "description": "Static message (tuesday)"
+  },
+  "wednesday": "Wednesday",
+  "@wednesday": {
+    "description": "Static message (wednesday)"
+  },
+  "thursday": "Thursday",
+  "@thursday": {
+    "description": "Static message (thursday)"
+  },
+  "friday": "Friday",
+  "@friday": {
+    "description": "Static message (friday)"
+  },
+  "saturday": "Saturday",
+  "@saturday": {
+    "description": "Static message (saturday)"
+  },
+  "sunday": "Sunday",
+  "@sunday": {
+    "description": "Static message (sunday)"
+  },
+  "room": "Room",
+  "@room": {
+    "description": "Static message (room)"
+  },
+  "noScheduleForThisTime": "No schedule for this time",
+  "@noScheduleForThisTime": {
+    "description": "Static message (no schedule for this time)"
+  },
+  "outsideScheduledTime": "Outside scheduled time",
+  "@outsideScheduledTime": {
+    "description": "Static message (outside scheduled time)"
+  },
+  "inactivePermission": "Inactive permission",
+  "@inactivePermission": {
+    "description": "Static message (inactive permission)"
+  },
+  "userNotFound": "User not found",
+  "@userNotFound": {
+    "description": "Static message (user not found)"
+  },
+  "readerNotFound": "Reader not found",
+  "@readerNotFound": {
+    "description": "Static message (reader not found)"
+  },
+  "errorTitle": "Error",
+  "@errorTitle": {
+    "description": "Static message (error title)"
+  },
+  "accessTime": "Access at",
+  "@accessTime": {
+    "description": "Static message (access time)"
+  },
+  "focusQrCode": "Focus the reader's QR code",
+  "@focusQrCode": {
+    "description": "Static message (focus the reader's QR code)"
+  },
+  "accessDenialReason": "{reason, select, Tag_not_found{Tag not found} Inactive_tag{Inactive tag} The_NFC_does_not_belong_to_the_authenticated_user{The NFC does not belong to the authenticated user} Reader_not_found{Reader not found} Inactive_reader{Inactive reader} No_valid_permission_found{No valid permission found} Internal_error_while_validating_access{Internal error while validating access} other{Unknown reason}}",
+  "@accessDenialReason": {
+    "description": "Localized access denial reason by reason code",
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
   }
 }

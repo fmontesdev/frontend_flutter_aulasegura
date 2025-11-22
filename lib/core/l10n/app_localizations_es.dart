@@ -100,7 +100,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get nfcAccess => 'Acceso por NFC';
 
   @override
-  String get qrAccess => 'Acceso por QR';
+  String get qrAccess => 'Acceso QR';
 
   @override
   String get today => 'Hoy';
@@ -308,6 +308,39 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get home => 'Inicio';
+
+  @override
+  String get bringPhoneCloser => 'Acerca tu móvil al lector';
+
+  @override
+  String get validatingAccess => 'Validando acceso...';
+
+  @override
+  String get accessGranted => 'Acceso permitido';
+
+  @override
+  String get accessDenied => 'Acceso denegado';
+
+  @override
+  String accessAt(String time) {
+    return 'Acceso a las $time';
+  }
+
+  @override
+  String get nfcDisabled => 'NFC deshabilitado';
+
+  @override
+  String get enableNfcMessage =>
+      'Por favor, habilita NFC en la configuración de tu dispositivo';
+
+  @override
+  String get openSettings => 'Abrir configuración';
+
+  @override
+  String get accessTimeout => 'Tiempo de espera agotado';
+
+  @override
+  String get understood => 'Entendido';
 
   @override
   String onOff(String boolean) {
@@ -535,4 +568,69 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get selectorOf2Filters => 'Selector de 2 filtros';
+
+  @override
+  String get monday => 'Lunes';
+
+  @override
+  String get tuesday => 'Martes';
+
+  @override
+  String get wednesday => 'Miércoles';
+
+  @override
+  String get thursday => 'Jueves';
+
+  @override
+  String get friday => 'Viernes';
+
+  @override
+  String get saturday => 'Sábado';
+
+  @override
+  String get sunday => 'Domingo';
+
+  @override
+  String get room => 'Aula';
+
+  @override
+  String get noScheduleForThisTime => 'No hay horario para esta hora';
+
+  @override
+  String get outsideScheduledTime => 'Fuera del horario programado';
+
+  @override
+  String get inactivePermission => 'Permiso inactivo';
+
+  @override
+  String get userNotFound => 'Usuario no encontrado';
+
+  @override
+  String get readerNotFound => 'Lector no encontrado';
+
+  @override
+  String get errorTitle => 'Error';
+
+  @override
+  String get accessTime => 'Acceso a las';
+
+  @override
+  String get focusQrCode => 'Enfoca el código QR del lector';
+
+  @override
+  String accessDenialReason(String reason) {
+    String _temp0 = intl.Intl.selectLogic(reason, {
+      'Tag_not_found': 'Tarjeta no encontrada',
+      'Inactive_tag': 'Tarjeta inactiva',
+      'The_NFC_does_not_belong_to_the_authenticated_user':
+          'La tarjeta NFC no pertenece al usuario autenticado',
+      'Reader_not_found': 'Lector no encontrado',
+      'Inactive_reader': 'Lector inactivo',
+      'No_valid_permission_found': 'No se encontró un permiso válido',
+      'Internal_error_while_validating_access':
+          'Error interno al validar el acceso',
+      'other': 'Motivo desconocido',
+    });
+    return '$_temp0';
+  }
 }

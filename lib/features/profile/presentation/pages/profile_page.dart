@@ -65,16 +65,14 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
             const SizedBox(height: 18), // Espaciado
 
             /// Botón logout
-            Expanded(
-              child: AppButton(
-                variant: AppButtonVariant.lightRed,
-                size: AppButtonSize.md,
-                label: l10n.logout,
-                icon: Icons.logout,
-                border: true,
-                overlayColor: true,
-                onPressed: () => ref.read(authProvider.notifier).signOut(),
-              ),
+            AppButton(
+              variant: AppButtonVariant.lightRed,
+              size: AppButtonSize.sm,
+              label: l10n.logout,
+              icon: Icons.logout,
+              border: true,
+              overlayColor: true,
+              onPressed: () => ref.read(authProvider.notifier).signOut(),
             ),
             const SizedBox(height: 18), // Espaciado
 

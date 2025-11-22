@@ -328,6 +328,51 @@
   "@home": {
     "description": "Static message (home)"
   },
+  "bringPhoneCloser": "Acerca tu móvil al lector",
+  "@bringPhoneCloser": {
+    "description": "Static message (NFC instruction)"
+  },
+  "validatingAccess": "Validando acceso...",
+  "@validatingAccess": {
+    "description": "Static message (processing access)"
+  },
+  "accessGranted": "Acceso permitido",
+  "@accessGranted": {
+    "description": "Static message (access granted)"
+  },
+  "accessDenied": "Acceso denegado",
+  "@accessDenied": {
+    "description": "Static message (access denied)"
+  },
+  "accessAt": "Acceso a las {time}",
+  "@accessAt": {
+    "description": "Access timestamp",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "nfcDisabled": "NFC deshabilitado",
+  "@nfcDisabled": {
+    "description": "Static message (NFC disabled)"
+  },
+  "enableNfcMessage": "Por favor, habilita NFC en la configuración de tu dispositivo",
+  "@enableNfcMessage": {
+    "description": "Static message (enable NFC message)"
+  },
+  "openSettings": "Abrir configuración",
+  "@openSettings": {
+    "description": "Static message (open settings button)"
+  },
+  "accessTimeout": "Tiempo de espera agotado",
+  "@accessTimeout": {
+    "description": "Static message (timeout error)"
+  },
+  "understood": "Entendido",
+  "@understood": {
+    "description": "Static message (understood button)"
+  },
   "onOff": "{boolean, select, true{Activado} false{Desactivado} other{Desconocido}}",
   "@onOff": {
     "description": "Localized action by boolean",
@@ -614,5 +659,82 @@
   "selectorOf2Filters": "Selector de 2 filtros",
   "@selectorOf2Filters": {
     "description": "Static message (selector of 2 filters)"
+  },
+  "qrAccess": "Acceso QR",
+  "@qrAccess": {
+    "description": "Static message (qr access)"
+  },
+  "monday": "Lunes",
+  "@monday": {
+    "description": "Static message (monday)"
+  },
+  "tuesday": "Martes",
+  "@tuesday": {
+    "description": "Static message (tuesday)"
+  },
+  "wednesday": "Miércoles",
+  "@wednesday": {
+    "description": "Static message (wednesday)"
+  },
+  "thursday": "Jueves",
+  "@thursday": {
+    "description": "Static message (thursday)"
+  },
+  "friday": "Viernes",
+  "@friday": {
+    "description": "Static message (friday)"
+  },
+  "saturday": "Sábado",
+  "@saturday": {
+    "description": "Static message (saturday)"
+  },
+  "sunday": "Domingo",
+  "@sunday": {
+    "description": "Static message (sunday)"
+  },
+  "room": "Aula",
+  "@room": {
+    "description": "Static message (room)"
+  },
+  "noScheduleForThisTime": "No hay horario para esta hora",
+  "@noScheduleForThisTime": {
+    "description": "Static message (no schedule for this time)"
+  },
+  "outsideScheduledTime": "Fuera del horario programado",
+  "@outsideScheduledTime": {
+    "description": "Static message (outside scheduled time)"
+  },
+  "inactivePermission": "Permiso inactivo",
+  "@inactivePermission": {
+    "description": "Static message (inactive permission)"
+  },
+  "userNotFound": "Usuario no encontrado",
+  "@userNotFound": {
+    "description": "Static message (user not found)"
+  },
+  "readerNotFound": "Lector no encontrado",
+  "@readerNotFound": {
+    "description": "Static message (reader not found)"
+  },
+  "errorTitle": "Error",
+  "@errorTitle": {
+    "description": "Static message (error title)"
+  },
+  "accessTime": "Acceso a las",
+  "@accessTime": {
+    "description": "Static message (access time)"
+  },
+  "focusQrCode": "Enfoca el código QR del lector",
+  "@focusQrCode": {
+    "description": "Static message (focus the reader's QR code)"
+  },
+  "accessDenialReason": "{reason, select, Tag_not_found{Tarjeta no encontrada} Inactive_tag{Tarjeta inactiva} The_NFC_does_not_belong_to_the_authenticated_user{La tarjeta NFC no pertenece al usuario autenticado} Reader_not_found{Lector no encontrado} Inactive_reader{Lector inactivo} No_valid_permission_found{No se encontró un permiso válido} Internal_error_while_validating_access{Error interno al validar el acceso} other{Motivo desconocido}}",
+  "@accessDenialReason": {
+    "description": "Localized access denial reason by reason code",
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
   }
 }

@@ -11,6 +11,7 @@ import 'package:frontend_flutter_aulasegura/features/schedules/presentation/page
 import 'package:frontend_flutter_aulasegura/features/notifications/presentation/pages/notifications_page.dart';
 import 'package:frontend_flutter_aulasegura/features/profile/presentation/pages/profile_page.dart';
 import 'package:frontend_flutter_aulasegura/features/profile/presentation/pages/change_password_page.dart';
+import 'package:frontend_flutter_aulasegura/features/access/presentation/pages/qr_scanner_page.dart';
 import 'package:frontend_flutter_aulasegura/catalog/catalog_page.dart';
 import 'package:frontend_flutter_aulasegura/core/utils/slide_from_right_page.dart';
 
@@ -62,6 +63,12 @@ final router = GoRouter (
       path: '/reservations/create',
       parentNavigatorKey: _rootNavigatorKey, // Usamos el root navigator
       pageBuilder: (context, state) => slideFromRightPage(const CreateReservationPage(), state),
+    ),
+    GoRoute(
+      name: 'qr_scanner',
+      path: '/qr-scanner',
+      parentNavigatorKey: _rootNavigatorKey, // Usamos el root navigator
+      builder: (context, state) => const QrScannerPage(),
     ),
 
     /// StatefulShellRoute añade estado de navegación interna a cada sección (rama/pestaña)

@@ -100,7 +100,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get nfcAccess => 'Accés per NFC';
 
   @override
-  String get qrAccess => 'Accés per QR';
+  String get qrAccess => 'Accés QR';
 
   @override
   String get today => 'Hui';
@@ -266,7 +266,7 @@ class AppLocalizationsCa extends AppLocalizations {
   }
 
   @override
-  String get saveChanges => 'Desar canvis';
+  String get saveChanges => 'Guardar canvis';
 
   @override
   String get saving => 'Guardant...';
@@ -309,6 +309,39 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get home => 'Inici';
+
+  @override
+  String get bringPhoneCloser => 'Apropa el teu mòbil al lector';
+
+  @override
+  String get validatingAccess => 'Validant accés...';
+
+  @override
+  String get accessGranted => 'Accés permès';
+
+  @override
+  String get accessDenied => 'Accés denegat';
+
+  @override
+  String accessAt(String time) {
+    return 'Accés a les $time';
+  }
+
+  @override
+  String get nfcDisabled => 'NFC deshabilitat';
+
+  @override
+  String get enableNfcMessage =>
+      'Si us plau, habilita NFC a la configuració del teu dispositiu';
+
+  @override
+  String get openSettings => 'Obrir configuració';
+
+  @override
+  String get accessTimeout => 'Temps d\'espera esgotat';
+
+  @override
+  String get understood => 'Entès';
 
   @override
   String onOff(String boolean) {
@@ -536,4 +569,69 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get selectorOf2Filters => 'Selector de 2 filtres';
+
+  @override
+  String get monday => 'Dilluns';
+
+  @override
+  String get tuesday => 'Dimarts';
+
+  @override
+  String get wednesday => 'Dimecres';
+
+  @override
+  String get thursday => 'Dijous';
+
+  @override
+  String get friday => 'Divendres';
+
+  @override
+  String get saturday => 'Dissabte';
+
+  @override
+  String get sunday => 'Diumenge';
+
+  @override
+  String get room => 'Aula';
+
+  @override
+  String get noScheduleForThisTime => 'No hi ha horari per a aquesta hora';
+
+  @override
+  String get outsideScheduledTime => 'Fora de l\'horari programat';
+
+  @override
+  String get inactivePermission => 'Permís inactiu';
+
+  @override
+  String get userNotFound => 'Usuari no trobat';
+
+  @override
+  String get readerNotFound => 'Lector no trobat';
+
+  @override
+  String get errorTitle => 'Error';
+
+  @override
+  String get accessTime => 'Accés a les';
+
+  @override
+  String get focusQrCode => 'Enfoca el codi QR del lector';
+
+  @override
+  String accessDenialReason(String reason) {
+    String _temp0 = intl.Intl.selectLogic(reason, {
+      'Tag_not_found': 'Targeta no trobada',
+      'Inactive_tag': 'Targeta inactiva',
+      'The_NFC_does_not_belong_to_the_authenticated_user':
+          'La targeta NFC no pertany a l\'usuari autenticat',
+      'Reader_not_found': 'Lector no trobat',
+      'Inactive_reader': 'Lector inactiu',
+      'No_valid_permission_found': 'No s\'ha trobat un permís vàlid',
+      'Internal_error_while_validating_access':
+          'Error intern al validar l\'accés',
+      'other': 'Motiu desconegut',
+    });
+    return '$_temp0';
+  }
 }

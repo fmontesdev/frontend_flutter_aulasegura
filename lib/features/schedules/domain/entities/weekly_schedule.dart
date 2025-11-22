@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:frontend_flutter_aulasegura/features/schedules/domain/entities/room.dart';
+import 'package:frontend_flutter_aulasegura/features/reservations/domain/entities/room.dart';
 import 'package:frontend_flutter_aulasegura/features/schedules/domain/entities/subject.dart';
 
 class WeeklySchedule extends Equatable {

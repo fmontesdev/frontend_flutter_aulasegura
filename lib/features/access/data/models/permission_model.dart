@@ -1,6 +1,6 @@
 import 'package:frontend_flutter_aulasegura/features/access/domain/entities/permission.dart';
 import 'package:frontend_flutter_aulasegura/features/auth/data/models/user_model.dart';
-import 'package:frontend_flutter_aulasegura/features/schedules/data/models/room_model.dart';
+import 'package:frontend_flutter_aulasegura/features/reservations/data/models/room_model.dart';
 import 'package:frontend_flutter_aulasegura/features/schedules/data/models/schedule_model.dart';
 
 class PermissionModel extends Permission {

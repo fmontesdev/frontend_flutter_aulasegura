@@ -7,8 +7,8 @@ class EventScheduleRemoteDataSource {
     final response = await AppServices.dio.get('/permissions/my-reservations');
     
     return (response.data as List)
-        .map((json) => PermissionModel.fromJson(json as Map<String, dynamic>))
-        .toList();
+      .map((json) => PermissionModel.fromJson(json as Map<String, dynamic>))
+      .toList();
   }
 
   /// Elimina una reserva/permiso por [userId][roomId][scheduleId]

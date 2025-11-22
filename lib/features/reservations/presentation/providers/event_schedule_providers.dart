@@ -3,8 +3,8 @@ import 'package:frontend_flutter_aulasegura/features/reservations/data/datasourc
 import 'package:frontend_flutter_aulasegura/features/reservations/data/repositories/event_schedule_repository_impl.dart';
 import 'package:frontend_flutter_aulasegura/features/reservations/domain/repositories/event_schedule_repository.dart';
 import 'package:frontend_flutter_aulasegura/features/reservations/domain/usecases/event_schedule_usecases.dart';
-import 'package:frontend_flutter_aulasegura/features/access/domain/entities/permission.dart';
 import 'package:frontend_flutter_aulasegura/features/auth/presentation/providers/auth_providers.dart';
+import 'package:frontend_flutter_aulasegura/features/access/domain/entities/permission.dart';
 
 /// DataSource con seed (fake_data)
 final eventScheduleRemoteDSProvider = Provider<EventScheduleRemoteDataSource>((ref) {

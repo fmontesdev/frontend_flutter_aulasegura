@@ -127,7 +127,7 @@ class _ReservationsPageState extends ConsumerState<ReservationsPage> {
                               startAt: eventSchedule.startAt,
                               endAt: eventSchedule.endAt,
                               status: eventSchedule.status,
-                              description: eventSchedule.description ?? '',
+                              description: eventSchedule.description,
                               createdAt: item.createdAt.toIso8601String(),
                               room: item.room,
                               onDelete: () => _handleDelete(context, item, scheme), // Maneja eliminar reserva

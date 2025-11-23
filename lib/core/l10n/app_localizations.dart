@@ -256,12 +256,6 @@ abstract class AppLocalizations {
   /// **'Horario'**
   String get schedule;
 
-  /// Static message (slide to see more schedules)
-  ///
-  /// In es, this message translates to:
-  /// **'Desliza para ver más horarios'**
-  String get slideToSeeMoreSchedules;
-
   /// Static message (search for available classrooms)
   ///
   /// In es, this message translates to:
@@ -706,6 +700,12 @@ abstract class AppLocalizations {
   /// **'Fecha seleccionada'**
   String get selectedDate;
 
+  /// Static message (date)
+  ///
+  /// In es, this message translates to:
+  /// **'Fecha'**
+  String get date;
+
   /// Static message (component catalog)
   ///
   /// In es, this message translates to:
@@ -988,6 +988,66 @@ abstract class AppLocalizations {
   /// **'Aula'**
   String get room;
 
+  /// Static message (building)
+  ///
+  /// In es, this message translates to:
+  /// **'Edificio'**
+  String get building;
+
+  /// Static message (floor)
+  ///
+  /// In es, this message translates to:
+  /// **'Planta'**
+  String get floor;
+
+  /// Static message (user not authenticated)
+  ///
+  /// In es, this message translates to:
+  /// **'Usuario no autenticado'**
+  String get userNotAuthenticated;
+
+  /// Static message (classroom reservation)
+  ///
+  /// In es, this message translates to:
+  /// **'Reserva de aula'**
+  String get classroomReservation;
+
+  /// Static message (reservation created successfully)
+  ///
+  /// In es, this message translates to:
+  /// **'Reserva creada correctamente'**
+  String get reservationCreatedSuccessfully;
+
+  /// Static message (error creating reservation)
+  ///
+  /// In es, this message translates to:
+  /// **'Error al crear la reserva'**
+  String get errorCreatingReservation;
+
+  /// Static message (please select date)
+  ///
+  /// In es, this message translates to:
+  /// **'Por favor selecciona una fecha'**
+  String get pleaseSelectDate;
+
+  /// Static message (please select schedule)
+  ///
+  /// In es, this message translates to:
+  /// **'Por favor selecciona un horario'**
+  String get pleaseSelectSchedule;
+
+  /// Static message (no available classrooms)
+  ///
+  /// In es, this message translates to:
+  /// **'No hay aulas disponibles'**
+  String get noAvailableClassrooms;
+
+  /// Static message (error loading time slots)
+  ///
+  /// In es, this message translates to:
+  /// **'Error cargando franjas horarias'**
+  String get errorLoadingTimeSlots;
+
   /// Static message (no schedule for this time)
   ///
   /// In es, this message translates to:
@@ -1041,6 +1101,18 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'{reason, select, Tag_not_found{Tarjeta no encontrada} Inactive_tag{Tarjeta inactiva} The_NFC_does_not_belong_to_the_authenticated_user{La tarjeta NFC no pertenece al usuario autenticado} Reader_not_found{Lector no encontrado} Inactive_reader{Lector inactivo} No_valid_permission_found{No se encontró un permiso válido} Internal_error_while_validating_access{Error interno al validar el acceso} other{Motivo desconocido}}'**
   String accessDenialReason(String reason);
+
+  /// Static message (reservation deleted)
+  ///
+  /// In es, this message translates to:
+  /// **'Reserva eliminada'**
+  String get reservationDeleted;
+
+  /// Static message (error loading reservations)
+  ///
+  /// In es, this message translates to:
+  /// **'Error cargando reservas'**
+  String get errorLoadingReservations;
 }
 
 class _AppLocalizationsDelegate

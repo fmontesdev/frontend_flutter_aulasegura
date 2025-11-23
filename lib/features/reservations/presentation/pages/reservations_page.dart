@@ -8,9 +8,15 @@ import 'package:frontend_flutter_aulasegura/features/reservations/presentation/w
 import 'package:frontend_flutter_aulasegura/core/widgets/app_fab.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_fab_hide_on_scroll.dart';
 import 'package:frontend_flutter_aulasegura/core/l10n/app_localizations.dart';
+import 'package:frontend_flutter_aulasegura/core/utils/floating_snackbar.dart';
 
 class ReservationsPage extends ConsumerStatefulWidget {
-  const ReservationsPage({super.key});
+  final String? initialFilter;
+  
+  const ReservationsPage({
+    super.key,
+    this.initialFilter
+  });
 
   @override
   ConsumerState<ReservationsPage> createState() => _ReservationsPageState();
@@ -18,6 +24,7 @@ class ReservationsPage extends ConsumerStatefulWidget {
 
 class _ReservationsPageState extends ConsumerState<ReservationsPage> {
   int _selectedIndex = 0;
+  bool _initialFilterApplied = false;
   late final EventScheduleNotifier _notifier;
 
   @override
@@ -26,30 +33,15 @@ class _ReservationsPageState extends ConsumerState<ReservationsPage> {
     _notifier = ref.read(eventScheduleProvider.notifier); // Lee el notifier una vez y lo guarda en el estado
   }
 
-  void _handleDelete(BuildContext context, permission, ColorScheme scheme) {
+  void _handleDelete(BuildContext context, permission) {
     // Elimina la reserva
     _notifier.delete(permission.user.id, permission.room.id, permission.schedule.id);
 
     // Muestra SnackBar con mensaje de confirmación
-    final messenger = ScaffoldMessenger.of(context);
-    messenger.removeCurrentSnackBar();
-    messenger.showSnackBar(
-      SnackBar(
-        content: const Padding(
-          padding: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-          child: Text(
-            'Reserva eliminada',
-            textAlign: TextAlign.center,
-          ),
-        ),
-        backgroundColor: scheme.primary,
-        behavior: SnackBarBehavior.floating,
-        duration: const Duration(seconds: 3),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(50),
-        ),
-        margin: const EdgeInsets.all(16),
-      ),
+    final l10n = AppLocalizations.of(context)!;
+    showFloatingSnackBar(
+      context,
+      message: l10n.reservationDeleted,
     );
   }
 
@@ -69,7 +61,7 @@ class _ReservationsPageState extends ConsumerState<ReservationsPage> {
             Expanded(
               child: reservationsAsync.when(
                 loading: () => const Center(child: CircularProgressIndicator()),
-                error: (error, stack) => Center(child: Text('Error cargando reservas: $error')),
+                error: (error, stack) => Center(child: Text('${l10n.errorLoadingReservations}: $error')),
                 data: (reservations) {
                   // Cálculos de disponibilidad por categoría
                   final pendingCount = reservations.where((r) => r.schedule.eventSchedule!.status == 'pending').length; // Pendientes
@@ -91,6 +83,15 @@ class _ReservationsPageState extends ConsumerState<ReservationsPage> {
                   if (revokedCount > 0) {
                     options.add(l10n.reservationSelectorOption('revoked'));
                     predicates.add((r) => r.schedule.eventSchedule!.status == 'revoked' && DateTime.parse(r.schedule.eventSchedule!.endAt).isAfter(DateTime.now()));
+                  }
+
+                  // Establece el filtro en pendiente cuando se crea una nueva reserva
+                  if (widget.initialFilter != null && !_initialFilterApplied) {
+                    final filterIndex = options.indexOf(widget.initialFilter!);
+                    if (filterIndex != -1) {
+                      _selectedIndex = filterIndex;
+                      _initialFilterApplied = true; // Controla que solo se aplique una vez
+                    }
                   }
 
                   // Asegura índice válido si cambia el nº de opciones
@@ -130,7 +131,7 @@ class _ReservationsPageState extends ConsumerState<ReservationsPage> {
                               description: eventSchedule.description,
                               createdAt: item.createdAt.toIso8601String(),
                               room: item.room,
-                              onDelete: () => _handleDelete(context, item, scheme), // Maneja eliminar reserva
+                              onDelete: () => _handleDelete(context, item), // Maneja eliminar reserva
                             );
                           },
                         ),

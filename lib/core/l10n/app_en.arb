@@ -134,10 +134,6 @@
   "@schedule": {
     "description": "Static message (schedule)"
   },
-  "slideToSeeMoreSchedules": "Slide to see more schedules",
-  "@slideToSeeMoreSchedules": {
-    "description": "Static message (slide to see more schedules)"
-  },
   "searchForAvailableClassrooms": "Search for available classrooms",
   "@searchForAvailableClassrooms": {
     "description": "Static message (search for available classrooms)"
@@ -504,6 +500,10 @@
   "@selectedDate": {
     "description": "Static message (selected date)"
   },
+  "date": "Date",
+  "@date": {
+    "description": "Static message (date)"
+  },
   "componentCatalog": "Component Catalog",
   "@componentCatalog": {
     "description": "Static message (component catalog)"
@@ -696,6 +696,46 @@
   "@room": {
     "description": "Static message (room)"
   },
+  "building": "Building",
+  "@building": {
+    "description": "Static message (building)"
+  },
+  "floor": "Floor",
+  "@floor": {
+    "description": "Static message (floor)"
+  },
+  "userNotAuthenticated": "User not authenticated",
+  "@userNotAuthenticated": {
+    "description": "Static message (user not authenticated)"
+  },
+  "classroomReservation": "Classroom reservation",
+  "@classroomReservation": {
+    "description": "Static message (classroom reservation)"
+  },
+  "reservationCreatedSuccessfully": "Reservation created successfully",
+  "@reservationCreatedSuccessfully": {
+    "description": "Static message (reservation created successfully)"
+  },
+  "errorCreatingReservation": "Error creating reservation",
+  "@errorCreatingReservation": {
+    "description": "Static message (error creating reservation)"
+  },
+  "pleaseSelectDate": "Please select a date",
+  "@pleaseSelectDate": {
+    "description": "Static message (please select date)"
+  },
+  "pleaseSelectSchedule": "Please select a schedule",
+  "@pleaseSelectSchedule": {
+    "description": "Static message (please select schedule)"
+  },
+  "noAvailableClassrooms": "No available classrooms",
+  "@noAvailableClassrooms": {
+    "description": "Static message (no available classrooms)"
+  },
+  "errorLoadingTimeSlots": "Error loading time slots",
+  "@errorLoadingTimeSlots": {
+    "description": "Static message (error loading time slots)"
+  },
   "noScheduleForThisTime": "No schedule for this time",
   "@noScheduleForThisTime": {
     "description": "Static message (no schedule for this time)"
@@ -728,7 +768,7 @@
   "@focusQrCode": {
     "description": "Static message (focus the reader's QR code)"
   },
-  "accessDenialReason": "{reason, select, Tag_not_found{Tag not found} Inactive_tag{Inactive tag} The_NFC_does_not_belong_to_the_authenticated_user{The NFC does not belong to the authenticated user} Reader_not_found{Reader not found} Inactive_reader{Inactive reader} No_valid_permission_found{No valid permission found} Internal_error_while_validating_access{Internal error while validating access} other{Unknown reason}}",
+  "accessDenialReason": "{reason, select, Tag_not_found{Tag not found} Inactive_tag{Inactive tag} The_NFC_does_not_belong_to_the_authenticated_user{NFC tag does not belong to authenticated user} Reader_not_found{Reader not found} Inactive_reader{Inactive reader} No_valid_permission_found{No valid permission found} Internal_error_while_validating_access{Internal error while validating access} other{Unknown reason}}",
   "@accessDenialReason": {
     "description": "Localized access denial reason by reason code",
     "placeholders": {
@@ -736,5 +776,13 @@
         "type": "String"
       }
     }
+  },
+  "reservationDeleted": "Reservation deleted",
+  "@reservationDeleted": {
+    "description": "Static message (reservation deleted)"
+  },
+  "errorLoadingReservations": "Error loading reservations",
+  "@errorLoadingReservations": {
+    "description": "Static message (error loading reservations)"
   }
 }

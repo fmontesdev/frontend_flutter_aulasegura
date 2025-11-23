@@ -126,9 +126,6 @@ class AppLocalizationsCa extends AppLocalizations {
   String get schedule => 'Horari';
 
   @override
-  String get slideToSeeMoreSchedules => 'Llisca per veure més horaris';
-
-  @override
   String get searchForAvailableClassrooms => 'Buscar aules disponibles';
 
   @override
@@ -454,6 +451,9 @@ class AppLocalizationsCa extends AppLocalizations {
   String get selectedDate => 'Data seleccionada';
 
   @override
+  String get date => 'Data';
+
+  @override
   String get componentCatalog => 'Catàleg de Components';
 
   @override
@@ -595,6 +595,36 @@ class AppLocalizationsCa extends AppLocalizations {
   String get room => 'Aula';
 
   @override
+  String get building => 'Edifici';
+
+  @override
+  String get floor => 'Planta';
+
+  @override
+  String get userNotAuthenticated => 'Usuari no autenticat';
+
+  @override
+  String get classroomReservation => 'Reserva d\'aula';
+
+  @override
+  String get reservationCreatedSuccessfully => 'Reserva creada correctament';
+
+  @override
+  String get errorCreatingReservation => 'Error en crear la reserva';
+
+  @override
+  String get pleaseSelectDate => 'Si us plau selecciona una data';
+
+  @override
+  String get pleaseSelectSchedule => 'Si us plau selecciona un horari';
+
+  @override
+  String get noAvailableClassrooms => 'No hi ha aules disponibles';
+
+  @override
+  String get errorLoadingTimeSlots => 'Error carregant franges horàries';
+
+  @override
   String get noScheduleForThisTime => 'No hi ha horari per a aquesta hora';
 
   @override
@@ -634,4 +664,10 @@ class AppLocalizationsCa extends AppLocalizations {
     });
     return '$_temp0';
   }
+
+  @override
+  String get reservationDeleted => 'Reserva eliminada';
+
+  @override
+  String get errorLoadingReservations => 'Error carregant reserves';
 }

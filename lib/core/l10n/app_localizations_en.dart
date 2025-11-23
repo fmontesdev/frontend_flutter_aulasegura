@@ -126,9 +126,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get schedule => 'Schedule';
 
   @override
-  String get slideToSeeMoreSchedules => 'Slide to see more schedules';
-
-  @override
   String get searchForAvailableClassrooms => 'Search for available classrooms';
 
   @override
@@ -452,6 +449,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get selectedDate => 'Selected date';
 
   @override
+  String get date => 'Date';
+
+  @override
   String get componentCatalog => 'Component Catalog';
 
   @override
@@ -593,6 +593,37 @@ class AppLocalizationsEn extends AppLocalizations {
   String get room => 'Room';
 
   @override
+  String get building => 'Building';
+
+  @override
+  String get floor => 'Floor';
+
+  @override
+  String get userNotAuthenticated => 'User not authenticated';
+
+  @override
+  String get classroomReservation => 'Classroom reservation';
+
+  @override
+  String get reservationCreatedSuccessfully =>
+      'Reservation created successfully';
+
+  @override
+  String get errorCreatingReservation => 'Error creating reservation';
+
+  @override
+  String get pleaseSelectDate => 'Please select a date';
+
+  @override
+  String get pleaseSelectSchedule => 'Please select a schedule';
+
+  @override
+  String get noAvailableClassrooms => 'No available classrooms';
+
+  @override
+  String get errorLoadingTimeSlots => 'Error loading time slots';
+
+  @override
   String get noScheduleForThisTime => 'No schedule for this time';
 
   @override
@@ -622,7 +653,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Tag_not_found': 'Tag not found',
       'Inactive_tag': 'Inactive tag',
       'The_NFC_does_not_belong_to_the_authenticated_user':
-          'The NFC does not belong to the authenticated user',
+          'NFC tag does not belong to authenticated user',
       'Reader_not_found': 'Reader not found',
       'Inactive_reader': 'Inactive reader',
       'No_valid_permission_found': 'No valid permission found',
@@ -632,4 +663,10 @@ class AppLocalizationsEn extends AppLocalizations {
     });
     return '$_temp0';
   }
+
+  @override
+  String get reservationDeleted => 'Reservation deleted';
+
+  @override
+  String get errorLoadingReservations => 'Error loading reservations';
 }

@@ -211,7 +211,7 @@ class AppTheme {
       elevation: 8,
       modalElevation: 8,
       shadowColor: scheme.onPrimaryContainer.withValues(alpha: 0.25),
-      dragHandleColor: scheme.primary, // Color del “pill”
+      dragHandleColor: scheme.lightGrey, // Color del “pill”
       dragHandleSize: const Size(38, 4), // Ancho y alto
     );
   }

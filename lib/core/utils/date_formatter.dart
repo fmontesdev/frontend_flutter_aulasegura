@@ -34,3 +34,14 @@ String timeFormatter(DateTime time) {
 
   return formattedTime;
 }
+
+// Formatea una fecha en formato YYYY-MM-DD (ejemplo: 2025-11-28)
+String dateToYYYYMMDD(DateTime date) {
+  final formatter = DateFormat('yyyy-MM-dd');
+  return formatter.format(date);
+}
+
+// Convierte un string de hora HH:mm:ss a formato HH:mm (ejemplo: 17:00:00 -> 17:00)
+String formatTimeToHHmm(String time) {
+  return time.substring(0, 5);
+}

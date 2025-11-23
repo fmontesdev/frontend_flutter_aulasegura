@@ -134,10 +134,6 @@
   "@schedule": {
     "description": "Static message (schedule)"
   },
-  "slideToSeeMoreSchedules": "Llisca per veure més horaris",
-  "@slideToSeeMoreSchedules": {
-    "description": "Static message (slide to see more schedules)"
-  },
   "searchForAvailableClassrooms": "Buscar aules disponibles",
   "@searchForAvailableClassrooms": {
     "description": "Static message (search for available classrooms)"
@@ -504,6 +500,10 @@
   "@selectedDate": {
     "description": "Static message (selected date)"
   },
+  "date": "Data",
+  "@date": {
+    "description": "Static message (date)"
+  },
   "componentCatalog": "Catàleg de Components",
   "@componentCatalog": {
     "description": "Static message (component catalog)"
@@ -696,6 +696,46 @@
   "@room": {
     "description": "Static message (room)"
   },
+  "building": "Edifici",
+  "@building": {
+    "description": "Static message (building)"
+  },
+  "floor": "Planta",
+  "@floor": {
+    "description": "Static message (floor)"
+  },
+  "userNotAuthenticated": "Usuari no autenticat",
+  "@userNotAuthenticated": {
+    "description": "Static message (user not authenticated)"
+  },
+  "classroomReservation": "Reserva d'aula",
+  "@classroomReservation": {
+    "description": "Static message (classroom reservation)"
+  },
+  "reservationCreatedSuccessfully": "Reserva creada correctament",
+  "@reservationCreatedSuccessfully": {
+    "description": "Static message (reservation created successfully)"
+  },
+  "errorCreatingReservation": "Error en crear la reserva",
+  "@errorCreatingReservation": {
+    "description": "Static message (error creating reservation)"
+  },
+  "pleaseSelectDate": "Si us plau selecciona una data",
+  "@pleaseSelectDate": {
+    "description": "Static message (please select date)"
+  },
+  "pleaseSelectSchedule": "Si us plau selecciona un horari",
+  "@pleaseSelectSchedule": {
+    "description": "Static message (please select schedule)"
+  },
+  "noAvailableClassrooms": "No hi ha aules disponibles",
+  "@noAvailableClassrooms": {
+    "description": "Static message (no available classrooms)"
+  },
+  "errorLoadingTimeSlots": "Error carregant franges horàries",
+  "@errorLoadingTimeSlots": {
+    "description": "Static message (error loading time slots)"
+  },
   "noScheduleForThisTime": "No hi ha horari per a aquesta hora",
   "@noScheduleForThisTime": {
     "description": "Static message (no schedule for this time)"
@@ -736,5 +776,13 @@
         "type": "String"
       }
     }
+  },
+  "reservationDeleted": "Reserva eliminada",
+  "@reservationDeleted": {
+    "description": "Static message (reservation deleted)"
+  },
+  "errorLoadingReservations": "Error carregant reserves",
+  "@errorLoadingReservations": {
+    "description": "Static message (error loading reservations)"
   }
 }

@@ -105,7 +105,11 @@ final router = GoRouter (
             GoRoute(
               name: 'reservations',
               path: '/reservations',
-              builder: (context, state) => const ReservationsPage(),
+              builder: (context, state) {
+                final extra = state.extra as Map<String, dynamic>?;
+                final initialFilter = extra?['initialFilter'] as String?;
+                return ReservationsPage(initialFilter: initialFilter);
+              },
             ),
           ],
         ),

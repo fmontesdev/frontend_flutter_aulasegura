@@ -669,4 +669,37 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get errorLoadingReservations => 'Error loading reservations';
+
+  @override
+  String get noGroup => 'No group';
+
+  @override
+  String get noSubject => 'No subject';
+
+  @override
+  String get changeAvatar => 'Change avatar';
+
+  @override
+  String get takePhoto => 'Take photo';
+
+  @override
+  String get selectFromGallery => 'Select from gallery';
+
+  @override
+  String get avatarUpdatedSuccessfully =>
+      'Profile picture updated successfully';
+
+  @override
+  String avatarError(String error) {
+    String _temp0 = intl.Intl.selectLogic(error, {
+      'errorTakingPhoto': 'Error taking photo',
+      'errorSelectingImage': 'Error selecting image',
+      'invalidImageFormat': 'Invalid format. Use: jpg, jpeg, png, webp',
+      'imageTooLarge': 'Image is too large. Maximum 5MB',
+      'errorCompressingImage': 'Error compressing image',
+      'userNotAuthenticated': 'User not authenticated',
+      'other': 'Unknown error',
+    });
+    return '$_temp0';
+  }
 }

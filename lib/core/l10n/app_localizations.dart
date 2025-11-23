@@ -1113,6 +1113,48 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Error cargando reservas'**
   String get errorLoadingReservations;
+
+  /// Static message (no group)
+  ///
+  /// In es, this message translates to:
+  /// **'Sin grupo'**
+  String get noGroup;
+
+  /// Static message (no subject)
+  ///
+  /// In es, this message translates to:
+  /// **'Sin asignatura'**
+  String get noSubject;
+
+  /// Static message (change avatar)
+  ///
+  /// In es, this message translates to:
+  /// **'Cambiar avatar'**
+  String get changeAvatar;
+
+  /// Static message (take photo)
+  ///
+  /// In es, this message translates to:
+  /// **'Tomar foto'**
+  String get takePhoto;
+
+  /// Static message (select from gallery)
+  ///
+  /// In es, this message translates to:
+  /// **'Seleccionar de galería'**
+  String get selectFromGallery;
+
+  /// Static message (avatar updated successfully)
+  ///
+  /// In es, this message translates to:
+  /// **'Foto de perfil actualizada correctamente'**
+  String get avatarUpdatedSuccessfully;
+
+  /// Error message (avatar) with dynamic parameter (error)
+  ///
+  /// In es, this message translates to:
+  /// **'{error, select, errorTakingPhoto{Error al tomar foto} errorSelectingImage{Error al seleccionar imagen} invalidImageFormat{Formato no permitido. Usa: jpg, jpeg, png, webp} imageTooLarge{La imagen es muy grande. Máximo 5MB} errorCompressingImage{Error al comprimir imagen} userNotAuthenticated{Usuario no autenticado} other{Error desconocido}}'**
+  String avatarError(String error);
 }
 
 class _AppLocalizationsDelegate

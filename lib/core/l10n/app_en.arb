@@ -784,5 +784,38 @@
   "errorLoadingReservations": "Error loading reservations",
   "@errorLoadingReservations": {
     "description": "Static message (error loading reservations)"
+  },
+  "noGroup": "No group",
+  "@noGroup": {
+    "description": "Static message (no group)"
+  },
+  "noSubject": "No subject",
+  "@noSubject": {
+    "description": "Static message (no subject)"
+  },
+  "changeAvatar": "Change avatar",
+  "@changeAvatar": {
+    "description": "Static message (change avatar)"
+  },
+  "takePhoto": "Take photo",
+  "@takePhoto": {
+    "description": "Static message (take photo)"
+  },
+  "selectFromGallery": "Select from gallery",
+  "@selectFromGallery": {
+    "description": "Static message (select from gallery)"
+  },
+  "avatarUpdatedSuccessfully": "Profile picture updated successfully",
+  "@avatarUpdatedSuccessfully": {
+    "description": "Static message (avatar updated successfully)"
+  },
+  "avatarError": "{error, select, errorTakingPhoto{Error taking photo} errorSelectingImage{Error selecting image} invalidImageFormat{Invalid format. Use: jpg, jpeg, png, webp} imageTooLarge{Image is too large. Maximum 5MB} errorCompressingImage{Error compressing image} userNotAuthenticated{User not authenticated} other{Unknown error}}",
+  "@avatarError": {
+    "description": "Error message (avatar) with dynamic parameter (error)",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
   }
 }

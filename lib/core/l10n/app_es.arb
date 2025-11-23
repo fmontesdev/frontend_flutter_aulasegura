@@ -784,5 +784,38 @@
   "errorLoadingReservations": "Error cargando reservas",
   "@errorLoadingReservations": {
     "description": "Static message (error loading reservations)"
+  },
+  "noGroup": "Sin grupo",
+  "@noGroup": {
+    "description": "Static message (no group)"
+  },
+  "noSubject": "Sin asignatura",
+  "@noSubject": {
+    "description": "Static message (no subject)"
+  },
+  "changeAvatar": "Cambiar avatar",
+  "@changeAvatar": {
+    "description": "Static message (change avatar)"
+  },
+  "takePhoto": "Tomar foto",
+  "@takePhoto": {
+    "description": "Static message (take photo)"
+  },
+  "selectFromGallery": "Seleccionar de galería",
+  "@selectFromGallery": {
+    "description": "Static message (select from gallery)"
+  },
+  "avatarUpdatedSuccessfully": "Foto de perfil actualizada correctamente",
+  "@avatarUpdatedSuccessfully": {
+    "description": "Static message (avatar updated successfully)"
+  },
+  "avatarError": "{error, select, errorTakingPhoto{Error al tomar foto} errorSelectingImage{Error al seleccionar imagen} invalidImageFormat{Formato no permitido. Usa: jpg, jpeg, png, webp} imageTooLarge{La imagen es muy grande. Máximo 5MB} errorCompressingImage{Error al comprimir imagen} userNotAuthenticated{Usuario no autenticado} other{Error desconocido}}",
+  "@avatarError": {
+    "description": "Error message (avatar) with dynamic parameter (error)",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
   }
 }

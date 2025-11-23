@@ -784,5 +784,38 @@
   "errorLoadingReservations": "Error carregant reserves",
   "@errorLoadingReservations": {
     "description": "Static message (error loading reservations)"
+  },
+  "noGroup": "Sense grup",
+  "@noGroup": {
+    "description": "Static message (no group)"
+  },
+  "noSubject": "Sense assignatura",
+  "@noSubject": {
+    "description": "Static message (no subject)"
+  },
+  "changeAvatar": "Canviar avatar",
+  "@changeAvatar": {
+    "description": "Static message (change avatar)"
+  },
+  "takePhoto": "Fer foto",
+  "@takePhoto": {
+    "description": "Static message (take photo)"
+  },
+  "selectFromGallery": "Seleccionar de la galeria",
+  "@selectFromGallery": {
+    "description": "Static message (select from gallery)"
+  },
+  "avatarUpdatedSuccessfully": "Foto de perfil actualitzada correctament",
+  "@avatarUpdatedSuccessfully": {
+    "description": "Static message (avatar updated successfully)"
+  },
+  "avatarError": "{error, select, errorTakingPhoto{Error en prendre foto} errorSelectingImage{Error en seleccionar imatge} invalidImageFormat{Format no permés. Usa: jpg, jpeg, png, webp} imageTooLarge{La imatge és massa gran. Màxim 5MB} errorCompressingImage{Error en comprimir imatge} userNotAuthenticated{Usuari no autenticat} other{Error desconegut}}",
+  "@avatarError": {
+    "description": "Error message (avatar) with dynamic parameter (error)",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
   }
 }

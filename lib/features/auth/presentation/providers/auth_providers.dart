@@ -94,6 +94,11 @@ class AuthNotifier extends AsyncNotifier<User?> {
       rethrow; // Relanza el error para que sea capturado en la UI
     }
   }
+
+  /// Actualiza el usuario en el estado (usado después de cambiar avatar)
+  void updateUser(User user) {
+    state = AsyncData(user);
+  }
 }
 
 final authProvider = AsyncNotifierProvider<AuthNotifier, User?>(() {

@@ -10,7 +10,7 @@ class ScheduleModel extends Schedule {
     required super.academicYear,
     required super.isActive,
     required super.createdAt,
-    required super.updatedAt,
+    super.updatedAt,
     super.weeklySchedule,
     super.eventSchedule,
   });
@@ -21,7 +21,9 @@ class ScheduleModel extends Schedule {
     academicYear: AcademicYearModel.fromJson(json['academicYear'] as Map<String, dynamic>),
     isActive: json['isActive'] as bool,
     createdAt: DateTime.parse(json['createdAt'] as String),
-    updatedAt: DateTime.parse(json['updatedAt'] as String),
+    updatedAt: json['updatedAt'] == null 
+        ? null 
+        : DateTime.parse(json['updatedAt'] as String),
     weeklySchedule: json['weeklySchedule'] == null
         ? null
         : WeeklyScheduleModel.fromJson(json['weeklySchedule'] as Map<String, dynamic>),
@@ -36,7 +38,7 @@ class ScheduleModel extends Schedule {
     'academicYear': academicYear.toJson(),
     'isActive': isActive,
     'createdAt': createdAt.toIso8601String(),
-    'updatedAt': updatedAt.toIso8601String(),
+    'updatedAt': updatedAt?.toIso8601String(),
     'weeklySchedule': weeklySchedule == null
       ? null
       : (weeklySchedule as WeeklyScheduleModel).toJson(),

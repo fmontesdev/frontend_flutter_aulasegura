@@ -5,6 +5,7 @@ import 'package:frontend_flutter_aulasegura/core/widgets/app_filter_selector.dar
 import 'package:frontend_flutter_aulasegura/core/widgets/app_list.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_schedule_card.dart';
 import 'package:frontend_flutter_aulasegura/core/l10n/app_localizations.dart';
+import 'package:frontend_flutter_aulasegura/core/utils/date_formatter.dart';
 
 class SchedulesPage extends ConsumerStatefulWidget {
   const SchedulesPage({super.key});
@@ -48,15 +49,15 @@ class _SchedulesPageState extends ConsumerState<SchedulesPage> {
               child: weeklySchedulesAsync.when(
                 loading: () => const Center(child: CircularProgressIndicator()),
                 error: (error, stack) => Center(child: Text(l10n.loadingSchedulesError(error.toString()))), //? Mensaje de error cargando horarios con internacionalización
-                data: (weeklySchedules) {
+                data: (wlSchedules) {
                   return AppList(
                     type: 'schedules',
-                    items: weeklySchedules.where((s) => s.dayOfWeek == _selectedDayIndex+1).toList(),
+                    items: wlSchedules.where((s) => s.schedule.weeklySchedule!.dayOfWeek == _selectedDayIndex+1).toList(),
                     itemBuilder: (item) => AppScheduleCard(
-                      classroom: '${item.room!.name} ${item.room!.roomCode}',
-                      group: item.room!.courseName ?? 'Sin grupo',
-                      timeRange: '${item.startTime} - ${item.endTime}',
-                      subject: item.subject?.name ?? 'Sin asignatura',
+                      classroom: '${item.room.name} ${item.room.roomCode}',
+                      group: item.room.courseName ?? l10n.noGroup,
+                      timeRange: '${formatTimeToHHmm(item.schedule.weeklySchedule!.startTime)} - ${formatTimeToHHmm(item.schedule.weeklySchedule!.endTime)}',
+                      subject: '',
                     ),
                   );
                 },

@@ -1,9 +1,9 @@
-import 'package:frontend_flutter_aulasegura/features/schedules/domain/entities/weekly_schedule.dart';
 import 'package:frontend_flutter_aulasegura/features/schedules/domain/repositories/weekly_schedule_repository.dart';
+import 'package:frontend_flutter_aulasegura/features/access/domain/entities/permission.dart';
 
 class WeeklyScheduleUseCases {
-  final Future<List<WeeklySchedule>> Function(String userId) getWeeklySchedulesByUserId;
+  final Future<List<Permission>> Function() getMyWeeklySchedules;
 
   WeeklyScheduleUseCases(WeeklyScheduleRepository repo)
-    : getWeeklySchedulesByUserId = repo.getWeeklySchedulesByUserId;
+    : getMyWeeklySchedules = repo.getMyWeeklySchedules;
 }

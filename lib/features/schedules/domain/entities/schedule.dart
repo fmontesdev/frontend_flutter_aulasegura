@@ -9,7 +9,7 @@ class Schedule extends Equatable {
   final AcademicYearModel academicYear;
   final bool isActive;
   final DateTime createdAt;
-  final DateTime updatedAt;
+  final DateTime? updatedAt;
   final WeeklyScheduleModel? weeklySchedule;
   final EventScheduleModel? eventSchedule;
 
@@ -19,7 +19,7 @@ class Schedule extends Equatable {
     required this.academicYear,
     required this.isActive,
     required this.createdAt,
-    required this.updatedAt,
+    this.updatedAt,
     this.weeklySchedule,
     this.eventSchedule,
   });

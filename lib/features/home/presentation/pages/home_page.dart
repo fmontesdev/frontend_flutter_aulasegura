@@ -8,6 +8,7 @@ import 'package:frontend_flutter_aulasegura/app/theme/app_theme.dart';
 import 'package:frontend_flutter_aulasegura/features/home/presentation/widgets/welcome_card.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_button.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_list.dart';
+import 'package:frontend_flutter_aulasegura/core/widgets/app_section_title.dart';
 import 'package:frontend_flutter_aulasegura/core/widgets/app_schedule_card.dart';
 import 'package:frontend_flutter_aulasegura/core/utils/date_formatter.dart';
 import 'package:frontend_flutter_aulasegura/core/utils/day_of_the_week.dart';
@@ -121,18 +122,9 @@ class HomePage extends ConsumerWidget {
                 const SizedBox(height: 11),
 
                 /// Título “Hoy”
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 22),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      l10n.today,  //? Título "Hoy" con internacionalización
-                      style: text.titleLarge?.copyWith(
-                        color: scheme.titles,
-                        fontWeight: FontWeight.w500
-                      ),
-                    ),
-                  ),
+                AppSectionTitle(
+                  icon: Icons.schedule,
+                  title: l10n.today,
                 ),
                 const SizedBox(height: 11),
 
@@ -141,15 +133,15 @@ class HomePage extends ConsumerWidget {
                   child: weeklySchedulesAsync.when(
                     loading: () => const Center(child: CircularProgressIndicator()),
                     error: (error, stack) => Center(child: Text(l10n.loadingSchedulesError(error.toString()))), //? Mensaje de error cargando horarios con internacionalización
-                    data: (weeklySchedules) {
+                    data: (wlSchedules) {
                       return AppList(
                         type: 'schedules',
-                        items: weeklySchedules.where((s) => s.dayOfWeek == dayOfTheWeek()).toList(),
+                        items: wlSchedules.where((s) => s.schedule.weeklySchedule!.dayOfWeek == dayOfTheWeek()).toList(),
                         itemBuilder: (item) => AppScheduleCard(
-                          classroom: '${item.room!.name} ${item.room!.roomCode}',
-                          group: item.room!.courseName ?? 'Sin grupo',
-                          timeRange: '${item.startTime} - ${item.endTime}',
-                          subject: item.subject?.name ?? 'Sin asignatura',
+                          classroom: '${item.room.name} ${item.room.roomCode}',
+                          group: item.room.courseName ?? l10n.noGroup,
+                          timeRange: '${formatTimeToHHmm(item.schedule.weeklySchedule!.startTime)} - ${formatTimeToHHmm(item.schedule.weeklySchedule!.endTime)}',
+                          subject: '',
                         ),
                       );
                     },

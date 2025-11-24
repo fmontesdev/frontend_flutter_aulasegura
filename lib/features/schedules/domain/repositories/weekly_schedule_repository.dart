@@ -1,5 +1,5 @@
-import 'package:frontend_flutter_aulasegura/features/schedules/domain/entities/weekly_schedule.dart';
+import 'package:frontend_flutter_aulasegura/features/access/domain/entities/permission.dart';
 
 abstract class WeeklyScheduleRepository {
-  Future<List<WeeklySchedule>> getWeeklySchedulesByUserId(String userId);
+  Future<List<Permission>> getMyWeeklySchedules();
 }

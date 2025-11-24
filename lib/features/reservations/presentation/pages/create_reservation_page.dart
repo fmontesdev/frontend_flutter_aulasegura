@@ -167,7 +167,7 @@ class _CreateReservationPageState extends ConsumerState<CreateReservationPage> {
 
     return AppOverlayScaffold(
       title: l10n.requestReservation, //? Título de la página "Solicitar reserva" con internacionalización
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(18),
         child: Column(
           children: [

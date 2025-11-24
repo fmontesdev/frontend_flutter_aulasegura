@@ -42,7 +42,7 @@ class AppButton extends StatelessWidget {
       AppButtonVariant.primary => (scheme.primary, scheme.onPrimary),
       AppButtonVariant.secondary => (scheme.tertiary, scheme.onTertiary),
       AppButtonVariant.danger => (scheme.error, scheme.onError),
-      AppButtonVariant.lightRed => (scheme.lightRed, scheme.error.withValues(alpha: 0.6)),
+      AppButtonVariant.lightRed => (scheme.lightRed, scheme.onLightRed),
     };
 
     /// Padding y texto por tamaño
